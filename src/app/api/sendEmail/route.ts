@@ -13,7 +13,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Debugging logs
     console.log("EMAIL_USER:", process.env.EMAIL_USER);
     console.log("EMAIL_PASSWORD exists:", !!process.env.EMAIL_PASSWORD);
 
@@ -28,7 +27,7 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      replyTo: email, // This lets you reply directly to the sender
+      replyTo: email,
       subject: `New message from ${name}`,
       text: `
       Name: ${name}
@@ -41,16 +40,22 @@ export async function POST(req: NextRequest) {
       { message: "Email sent successfully" },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Send email error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error", error: error.message },
-      { status: 500 }
-    );
+    if (error instanceof Error) {
+      return NextResponse.json(
+        { message: "Internal Server Error", error: error.message },
+        { status: 500 }
+      );
+    } else {
+      return NextResponse.json(
+        { message: "Internal Server Error", error: "Unknown error occurred" },
+        { status: 500 }
+      );
+    }
   }
 }
 
-// Extra: Debug endpoint to check if env variables load
 export async function GET() {
   return NextResponse.json({
     emailUser: process.env.EMAIL_USER || "NOT LOADED",
