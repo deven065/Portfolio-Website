@@ -11,28 +11,28 @@ const testimonials = [
         name: "Alex Johnson",
         role: "Senior Project Manager, Innovatech Solutions",
         message:
-        "TechPortfolio has consistently delivered innovative solutions that exceeded our expectations. The project management was seamless, and the final product was both functional and visually impressive. Highly recommended for any tech-driven project.",
+        "Dev.Folio has consistently delivered innovative solutions that exceeded our expectations. The project management was seamless, and the final product was both functional and visually impressive. Highly recommended for any tech-driven project.",
         img: "https://randomuser.me/api/portraits/men/32.jpg",
     },
     {
         name: "Maria Lopez",
         role: "CTO, FutureSoft Inc.",
         message:
-        "Working with TechPortfolio was a fantastic experience. The developer demonstrated deep technical knowledge and a proactive approach, ensuring our needs were met with precision. The end result significantly improved our operational efficiency.",
+        "Working with Dev.Folio was a fantastic experience. The developer demonstrated deep technical knowledge and a proactive approach, ensuring our needs were met with precision. The end result significantly improved our operational efficiency.",
         img: "https://randomuser.me/api/portraits/women/44.jpg",
     },
     {
         name: "Sophie Turner",
         role: "Marketing Director, BrightWave",
         message:
-        "I am extremely pleased with the development work provided by TechPortfolio. The project was completed on time, with excellent communication throughout. The final website is sleek, modern, and perfectly aligned with our brand identity.",
+        "I am extremely pleased with the development work provided by Dev.Folio. The project was completed on time, with excellent communication throughout. The final website is sleek, modern, and perfectly aligned with our brand identity.",
         img: "https://randomuser.me/api/portraits/women/65.jpg",
     },
     {
         name: "David Miller",
         role: "CEO, Horizon Tech",
         message:
-        "Our collaboration with TechPortfolio was outstanding. Their ability to deliver high-quality code under tight deadlines exceeded our expectations and helped us meet critical business goals.",
+        "Our collaboration with Dev.Folio was outstanding. Their ability to deliver high-quality code under tight deadlines exceeded our expectations and helped us meet critical business goals.",
         img: "https://randomuser.me/api/portraits/men/76.jpg",
     },
 ];
