@@ -55,14 +55,15 @@ export default function Testimonials() {
             </p>
         </div>
 
-        <div className="relative max-w-[80%] mx-auto">
+        <div className="relative max-w-[90%] md:max-w-[80%] mx-auto">
+            {/* Swiper Carousel */}
             <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
             pagination={{
-                clickable: true,
                 el: '.swiper-pagination-custom',
+                clickable: true,
             }}
             navigation={{
                 nextEl: '.swiper-button-next-custom',
@@ -77,22 +78,20 @@ export default function Testimonials() {
             >
             {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={index}>
-                <div className="bg-gray-900 rounded-3xl p-8 shadow-xl flex flex-col h-full justify-between">
+                <div className="bg-gray-900 rounded-3xl p-8 shadow-xl flex flex-col justify-between h-full min-h-[350px]">
                     <div>
-                    <div className="flex text-yellow-400 mb-4 text-lg">
-                        {'★'.repeat(5)}
-                    </div>
-                    <p className="text-white font-semibold leading-relaxed mb-6">
+                    <div className="text-yellow-400 text-lg mb-4">{'★'.repeat(5)}</div>
+                    <p className="text-white font-medium leading-relaxed mb-6">
                         {testimonial.message}
                     </p>
                     </div>
-                    <div className="flex items-center mt-6">
+                    <div className="flex items-center">
                     <Image
                         src={testimonial.img}
                         alt={testimonial.name}
                         width={56}
                         height={56}
-                        className="rounded-full mr-4 object-cover"
+                        className="rounded-full object-cover mr-4"
                     />
                     <div>
                         <p className="font-bold">{testimonial.name}</p>
@@ -104,17 +103,35 @@ export default function Testimonials() {
             ))}
             </Swiper>
 
-            {/* Custom Navigation Arrows */}
-            <div className="swiper-button-prev-custom absolute left-[-3rem] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
+            {/* Navigation Arrows */}
+            <div className="swiper-button-prev-custom absolute -left-6 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
             ←
             </div>
-            <div className="swiper-button-next-custom absolute right-[-3rem] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
+            <div className="swiper-button-next-custom absolute -right-6 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
             →
             </div>
 
-            {/* Pagination Dots */}
-            <div className="swiper-pagination-custom flex justify-center mt-6 space-x-2"></div>
+            {/* Custom Pagination Dots */}
+            <div className="swiper-pagination-custom mt-8 flex justify-center" />
         </div>
+
+        {/* Custom Dot Styling */}
+        <style jsx global>{`
+            .swiper-pagination-custom .swiper-pagination-bullet {
+            background-color: white;
+            opacity: 0.4;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            }
+            .swiper-pagination-custom .swiper-pagination-bullet-active {
+            background-color: #facc15;
+            opacity: 1;
+            transform: scale(1.3);
+            }
+        `}</style>
         </section>
     );
 }
