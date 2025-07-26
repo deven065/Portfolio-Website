@@ -1,9 +1,10 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  images : {
-    domains : ["randomuser.me"]
-  }
+  images: {
+    domains: ['randomuser.me'],
+  },
 };
 
-export default nextConfig;
+// ✅ Use CommonJS export for Vercel compatibility
+module.exports = nextConfig;
