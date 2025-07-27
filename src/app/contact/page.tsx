@@ -2,17 +2,19 @@
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faEnvelope, 
-  faPhone, 
-  faMapMarkerAlt, 
-  faLinkedin, 
-  faGithub, 
-  faTwitter,
+import {
+  faEnvelope,
+  faPhone,
+  faMapMarkerAlt,
   faClock,
   faCheckCircle,
   faExclamationCircle
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedin,
+  faGithub,
+  faTwitter
+} from "@fortawesome/free-brands-svg-icons";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
