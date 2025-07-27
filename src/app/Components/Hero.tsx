@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 const Hero: React.FC = () => {
-  const lines = ["Crafting", "Digital Experiences"];
+  const lines = useMemo(() => ["Crafting", "Digital Experiences"], []);
   const [typedLines, setTypedLines] = useState<string[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const currentLine = lines[currentLineIndex];
-    const speed = 30; // same speed for typing and deleting
+    const speed = 30;
 
     if (direction === "forward") {
       if (charIndex < currentLine.length) {
@@ -22,14 +22,12 @@ const Hero: React.FC = () => {
         }, speed);
         return () => clearTimeout(timeout);
       } else {
-        // Move to next line
         if (currentLineIndex < lines.length - 1) {
           setTypedLines((prev) => [...prev, currentLine]);
           setCurrentText("");
           setCharIndex(0);
           setCurrentLineIndex((prev) => prev + 1);
         } else {
-          // Pause before reverse
           const waitTimeout = setTimeout(() => {
             setDirection("backward");
           }, 1000);
@@ -37,7 +35,6 @@ const Hero: React.FC = () => {
         }
       }
     } else {
-      // Deleting backward
       if (currentText.length > 0) {
         const timeout = setTimeout(() => {
           setCurrentText((prev) => prev.slice(0, -1));
@@ -48,7 +45,6 @@ const Hero: React.FC = () => {
         setTypedLines((prev) => prev.slice(0, -1));
         setCurrentText(lastLine);
       } else {
-        // Restart cycle
         setCurrentLineIndex(0);
         setCharIndex(0);
         setDirection("forward");
@@ -57,34 +53,31 @@ const Hero: React.FC = () => {
   }, [charIndex, currentText, direction, currentLineIndex, typedLines, lines]);
 
   return (
-    <section className="flex flex-col items-center text-center px-6 py-20">
-      <div className="relative h-32 md:h-48 mb-6 flex flex-col justify-center">
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          {/* Fixed positioning container to prevent layout shifts */}
-          <div className="min-h-[8rem] md:min-h-[12rem] flex flex-col justify-center">
-            {/* Animated lines */}
-            {typedLines.map((line, idx) => (
-              <span
-                key={idx}
-                className={`block ${idx === 1 ? "text-blue-500" : ""}`}
-              >
-                {line}
-              </span>
-            ))}
-            {currentText && (
-              <span
-                className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
-              >
-                {currentText}
-                <span className="animate-pulse">|</span>
-              </span>
-            )}
+    <section className="flex flex-col items-center text-center px-6 py-20 overflow-x-hidden">
+      <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+        {/* Animated area wrapped with fixed height to prevent shaking */}
+        <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-center whitespace-pre font-mono">
+          {typedLines.map((line, idx) => (
+            <span
+              key={idx}
+              className={`block ${idx === 1 ? "text-blue-500" : ""}`}
+            >
+              {line}
+            </span>
+          ))}
+          {currentText && (
+            <span
+              className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
+            >
+              {currentText}
+              <span className="animate-pulse">|</span>
+            </span>
+          )}
+        </div>
 
-            {/* Static line */}
-            <span className="block">with Passion</span>
-          </div>
-        </h1>
-      </div>
+        {/* Static line */}
+        <span className="block">with Passion</span>
+      </h1>
 
       {/* Description */}
       <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8 transition-opacity duration-700">
@@ -94,7 +87,7 @@ const Hero: React.FC = () => {
       </p>
 
       {/* Email Signup */}
-      <div className="flex gap-4 w-full max-w-md">
+      <div className="flex flex-wrap gap-4 w-full max-w-md">
         <input
           type="email"
           placeholder="Enter your email"
@@ -104,7 +97,6 @@ const Hero: React.FC = () => {
           Sign up
         </button>
       </div>
-
     </section>
   );
 };
