@@ -27,7 +27,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section id="projects" className="bg-gray-50 py-16 px-6">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <p className="text-xs font-extrabold uppercase mb-2">My Projects</p>
