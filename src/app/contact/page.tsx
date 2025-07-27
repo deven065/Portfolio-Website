@@ -8,13 +8,11 @@ import {
   faMapMarkerAlt,
   faClock,
   faCheckCircle,
-  faExclamationCircle
+  faExclamationCircle,
+  faExternalLinkAlt,
+  faCode,
+  faComment
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faLinkedin,
-  faGithub,
-  faTwitter
-} from "@fortawesome/free-brands-svg-icons";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -105,19 +103,19 @@ const ContactPage = () => {
 
   const socialLinks = [
     {
-      icon: faLinkedin,
+      icon: faExternalLinkAlt,
       name: "LinkedIn",
       url: "https://linkedin.com/in/devenrikame",
       color: "hover:text-blue-600"
     },
     {
-      icon: faGithub,
+      icon: faCode,
       name: "GitHub",
       url: "https://github.com/devenrikame",
       color: "hover:text-gray-900"
     },
     {
-      icon: faTwitter,
+      icon: faComment,
       name: "Twitter",
       url: "https://twitter.com/devenrikame",
       color: "hover:text-blue-400"
