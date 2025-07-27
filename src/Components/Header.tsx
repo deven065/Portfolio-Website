@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Header : React.FC = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
         <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex items-center justify-between px-8 py-4 shadow-sm">
             {/* Logo */}
