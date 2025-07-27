@@ -11,8 +11,8 @@ const Header : React.FC = () => {
             <h1 className="text-2xl font-bold">Dev.Folio</h1>
             <nav className="hidden md:flex gap-8 text-lg">
                 <a href="/projects" className="hover:text-blue-500 transition-colors duration-200">Projects</a>
-                <a href="#skills" className="hover:text-blue-500 transition-colors duration-200">Skills</a>
-                <a href="#contact" className="hover:text-blue-500 transition-colors duration-200">Contact</a>
+                <a href="/skills" className="hover:text-blue-500 transition-colors duration-200">Skills</a>
+                <a href="/contact" className="hover:text-blue-500 transition-colors duration-200">Contact</a>
             </nav>
 
             {/* Desktop Buttons */}
@@ -20,7 +20,7 @@ const Header : React.FC = () => {
                 <a href="/projects" className="px-5 py-2 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white rounded-full transition-all duration-200">
                     View Projects
                 </a>
-                <a href="#contact" className="px-5 py-2 bg-blue-500 text-white hover:bg-blue-400 rounded-full transition-all duration-200">
+                <a href="/contact" className="px-5 py-2 bg-blue-500 text-white hover:bg-blue-400 rounded-full transition-all duration-200">
                     Get in Touch
                 </a>
             </div>
@@ -50,14 +50,14 @@ const Header : React.FC = () => {
                             Projects
                         </a>
                         <a
-                            href="#skills"
+                            href="/skills"
                             className="hover:text-blue-500 transition-colors duration-200"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Skills
                         </a>
                         <a
-                            href="#contact"
+                            href="/contact"
                             className="hover:text-blue-500 transition-colors duration-200"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
@@ -72,7 +72,7 @@ const Header : React.FC = () => {
                                 View Projects
                             </a>
                             <a
-                                href="#contact"
+                                href="/contact"
                                 className="px-5 py-2 bg-blue-500 text-white hover:bg-blue-400 rounded-full transition-all duration-200 text-center"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
