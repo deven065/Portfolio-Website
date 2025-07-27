@@ -58,28 +58,33 @@ const Hero: React.FC = () => {
 
   return (
     <section className="flex flex-col items-center text-center px-6 py-20">
-      <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-        {/* Animated lines */}
-        {typedLines.map((line, idx) => (
-          <span
-            key={idx}
-            className={`block ${idx === 1 ? "text-blue-500" : ""}`}
-          >
-            {line}
-          </span>
-        ))}
-        {currentText && (
-          <span
-            className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
-          >
-            {currentText}
-            <span className="animate-pulse">|</span>
-          </span>
-        )}
+      <div className="relative h-32 md:h-48 mb-6 flex flex-col justify-center">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          {/* Fixed positioning container to prevent layout shifts */}
+          <div className="min-h-[8rem] md:min-h-[12rem] flex flex-col justify-center">
+            {/* Animated lines */}
+            {typedLines.map((line, idx) => (
+              <span
+                key={idx}
+                className={`block ${idx === 1 ? "text-blue-500" : ""}`}
+              >
+                {line}
+              </span>
+            ))}
+            {currentText && (
+              <span
+                className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
+              >
+                {currentText}
+                <span className="animate-pulse">|</span>
+              </span>
+            )}
 
-        {/* Static line */}
-        <span className="block">with Passion</span>
-      </h1>
+            {/* Static line */}
+            <span className="block">with Passion</span>
+          </div>
+        </h1>
+      </div>
 
       {/* Description */}
       <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8 transition-opacity duration-700">
