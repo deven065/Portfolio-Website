@@ -12,7 +12,7 @@ const ProjectsHero: React.FC = () => {
 
             {/* Description */}
             <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
-                A collection of projects I've built over the years, showcasing my skills in full-stack development, modern frameworks, and emerging technologies.
+                A collection of projects I&apos;ve built over the years, showcasing my skills in full-stack development, modern frameworks, and emerging technologies.
             </p>
 
             {/* Tages / Filters */}
