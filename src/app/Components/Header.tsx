@@ -6,11 +6,6 @@ const Header: React.FC = () => {
         {/* ✅ Wrap logo and tagline in a flex container */}
         <div className="flex flex-col justify-center">
             <h1 className="text-lg sm:text-xl font-bold whitespace-nowrap">Dev.Folio</h1>
-
-            {/* ✅ Tagline below the logo, animated like Hero */}
-            <span className="text-xs text-gray-500 leading-none hidden sm:block">
-            Crafting Digital Experiences
-            </span>
         </div>
 
         {/* Desktop Navigation */}
