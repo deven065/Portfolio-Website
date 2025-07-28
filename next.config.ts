@@ -1,10 +1,14 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    domains: ['randomuser.me'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+        pathname: "/api/portraits/**", // allow all portraits
+      },
+    ],
   },
 };
 
-// ✅ Use CommonJS export for Vercel compatibility
 module.exports = nextConfig;

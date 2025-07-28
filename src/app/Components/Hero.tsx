@@ -53,49 +53,51 @@ const Hero: React.FC = () => {
   }, [charIndex, currentText, direction, currentLineIndex, typedLines, lines]);
 
   return (
-    <section className="flex flex-col items-center text-center px-6 py-20 overflow-x-hidden">
-      <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-        {/* Animated area wrapped with fixed height to prevent shaking */}
-        <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-center whitespace-pre font-mono">
-          {typedLines.map((line, idx) => (
-            <span
-              key={idx}
-              className={`block ${idx === 1 ? "text-blue-500" : ""}`}
-            >
-              {line}
-            </span>
-          ))}
-          {currentText && (
-            <span
-              className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
-            >
-              {currentText}
-              <span className="animate-pulse">|</span>
-            </span>
-          )}
+    <section className="relative z-0 flex flex-col items-center text-center px-6 py-20 overflow-x-hidden">
+      {/* Prevent overlay from blocking clicks */}
+      <div className="absolute inset-0 pointer-events-none"></div>
+
+      {/* Interactive content */}
+      <div className="relative pointer-events-auto">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-center whitespace-pre font-mono">
+            {typedLines.map((line, idx) => (
+              <span
+                key={idx}
+                className={`block ${idx === 1 ? "text-blue-500" : ""}`}
+              >
+                {line}
+              </span>
+            ))}
+            {currentText && (
+              <span
+                className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
+              >
+                {currentText}
+                <span className="animate-pulse">|</span>
+              </span>
+            )}
+          </div>
+
+          <span className="block">with Passion</span>
+        </h1>
+
+        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8 transition-opacity duration-700">
+          I’m a full-stack developer dedicated to creating innovative and user-friendly web applications.
+          Explore my portfolio to see how I can bring your ideas to life with clean, efficient code and
+          cutting-edge technology.
+        </p>
+
+        <div className="flex flex-wrap gap-4 w-full max-w-md">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="flex-grow px-6 py-3 border border-black rounded-full text-gray-700 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+          />
+          <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-600 transition">
+            Sign up
+          </button>
         </div>
-
-        {/* Static line */}
-        <span className="block">with Passion</span>
-      </h1>
-
-      {/* Description */}
-      <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8 transition-opacity duration-700">
-        I’m a full-stack developer dedicated to creating innovative and user-friendly web applications.
-        Explore my portfolio to see how I can bring your ideas to life with clean, efficient code and
-        cutting-edge technology.
-      </p>
-
-      {/* Email Signup */}
-      <div className="flex flex-wrap gap-4 w-full max-w-md">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="flex-grow px-6 py-3 border border-black rounded-full text-gray-700 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-        />
-        <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-600 transition">
-          Sign up
-        </button>
       </div>
     </section>
   );
