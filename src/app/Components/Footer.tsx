@@ -75,20 +75,22 @@ export default function Footer() {
                 href="https://github.com/deven065"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="View my GitHub profile (Login may be required)"
                 className="bg-gray-200 p-2 rounded-full hover:bg-black hover:text-white transition"
               >
                 <FaGithub />
               </a>
               <a
-                href="#"
+                href="https://x.com/rikame_deven"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="View my X profile (Login may be required)"
                 className="bg-gray-200 p-2 rounded-full hover:bg-black hover:text-white transition"
               >
                 <FaX />
               </a>
               <a
-                href="#"
+                href="devenrikame55@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 hover:text-red-700 transition"
