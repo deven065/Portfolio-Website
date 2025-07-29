@@ -68,13 +68,13 @@ const AllProjects: React.FC = () => {
             }`}
           >
             {/* Image + Tag */}
-            <div className="relative">
+            <div className="relative group overflow-hidden">
               <Image
                 src={project.image}
                 alt={project.title}
                 width={500}
                 height={250}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {project.tag}

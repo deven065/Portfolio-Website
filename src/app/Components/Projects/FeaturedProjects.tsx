@@ -45,13 +45,13 @@ const FeaturedProjects: React.FC = () => {
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative"
           >
             {/* Image with Badges */}
-            <div className="relative">
+            <div className="relative group overflow-hidden">
               <Image
                 src={project.image}
                 alt={project.title}
                 width={600}
                 height={300}
-                className="w-full h-56 object-cover"
+                className="w-full h-56 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
               {project.featured && (
                 <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
