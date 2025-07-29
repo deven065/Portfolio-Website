@@ -5,7 +5,7 @@ const GetInTouchSection = () => {
   return (
     <section className="bg-white py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="text-6xl font-bold text-gray-900 mb-6">
           Get In <span className="text-blue-500">Touch</span>
         </h2>
         <p className="text-lg text-gray-600">
