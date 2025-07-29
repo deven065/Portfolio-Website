@@ -1,3 +1,4 @@
+import AdditionalExpertise from "../Components/Skills/AdditionalExpertise";
 import SkillsGrid from "../Components/Skills/SkillsGrid";
 import SkillsHero from "../Components/Skills/SkillsHero";
 
@@ -6,6 +7,7 @@ export default function SkillsPage() {
         <div>
             <SkillsHero />
             <SkillsGrid />
+            <AdditionalExpertise />
         </div>
     )
 }
