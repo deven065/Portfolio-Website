@@ -13,13 +13,22 @@ const ContactFormCard = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<null | string>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
+    const target = e.target;
+    const { name, value, type } = target;
+
+    const newValue =
+        type === "checkbox"
+        ? (target as HTMLInputElement).checked
+        : value;
+
     setForm((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
+        ...prev,
+        [name]: newValue,
     }));
-  };
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
