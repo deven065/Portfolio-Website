@@ -1,38 +1,26 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 
 const Hero: React.FC = () => {
-  const lines = useMemo(() => ["Crafting", "Digital Experiences"], []);
-  const [typedLines, setTypedLines] = useState<string[]>([]);
-  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const animatedLine = "Digital Experiences";
   const [currentText, setCurrentText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [direction, setDirection] = useState<"forward" | "backward">("forward");
 
   useEffect(() => {
-    const currentLine = lines[currentLineIndex];
-    const speed = 30;
+    const speed = 20; // ⚡ Fastest speed
 
     if (direction === "forward") {
-      if (charIndex < currentLine.length) {
+      if (charIndex < animatedLine.length) {
         const timeout = setTimeout(() => {
-          setCurrentText((prev) => prev + currentLine[charIndex]);
+          setCurrentText((prev) => prev + animatedLine[charIndex]);
           setCharIndex((prev) => prev + 1);
         }, speed);
         return () => clearTimeout(timeout);
       } else {
-        if (currentLineIndex < lines.length - 1) {
-          setTypedLines((prev) => [...prev, currentLine]);
-          setCurrentText("");
-          setCharIndex(0);
-          setCurrentLineIndex((prev) => prev + 1);
-        } else {
-          const waitTimeout = setTimeout(() => {
-            setDirection("backward");
-          }, 1000);
-          return () => clearTimeout(waitTimeout);
-        }
+        const pause = setTimeout(() => setDirection("backward"), 700); // quick pause
+        return () => clearTimeout(pause);
       }
     } else {
       if (currentText.length > 0) {
@@ -40,55 +28,45 @@ const Hero: React.FC = () => {
           setCurrentText((prev) => prev.slice(0, -1));
         }, speed);
         return () => clearTimeout(timeout);
-      } else if (typedLines.length > 0) {
-        const lastLine = typedLines[typedLines.length - 1];
-        setTypedLines((prev) => prev.slice(0, -1));
-        setCurrentText(lastLine);
       } else {
-        setCurrentLineIndex(0);
-        setCharIndex(0);
-        setDirection("forward");
+        const reset = setTimeout(() => {
+          setCharIndex(0);
+          setDirection("forward");
+        }, 200);
+        return () => clearTimeout(reset);
       }
     }
-  }, [charIndex, currentText, direction, currentLineIndex, typedLines, lines]);
+  }, [charIndex, currentText, direction]);
 
   return (
-    <section className="relative z-0 flex flex-col items-center text-center px-6 py-20 overflow-x-hidden">
-      {/* Prevent overlay from blocking clicks */}
+    <section className="relative z-0 flex flex-col items-center text-center px-6 py-20 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"></div>
 
-      {/* Interactive content */}
-      <div className="relative pointer-events-auto">
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-          <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-center whitespace-pre font-mono">
-            {typedLines.map((line, idx) => (
-              <span
-                key={idx}
-                className={`block ${idx === 1 ? "text-blue-500" : ""}`}
-              >
-                {line}
-              </span>
-            ))}
-            {currentText && (
-              <span
-                className={`block ${currentLineIndex === 1 ? "text-blue-500" : ""}`}
-              >
-                {currentText}
-                <span className="animate-pulse">|</span>
-              </span>
-            )}
+      <div className="relative pointer-events-auto max-w-4xl w-full">
+        <div className="text-4xl md:text-6xl font-bold font-mono leading-tight mb-6 space-y-2">
+          <div>Crafting</div>
+
+          {/* Animated middle line */}
+          <div className="text-blue-500 mx-auto">
+            <div
+              className="inline-block text-center"
+              style={{ minWidth: `${animatedLine.length + 1}ch` }}
+            >
+              {currentText}
+              <span className="animate-pulse">|</span>
+            </div>
           </div>
 
-          <span className="block">with Passion</span>
-        </h1>
+          <div>with Passion</div>
+        </div>
 
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8 transition-opacity duration-700">
+        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-8">
           I’m a full-stack developer dedicated to creating innovative and user-friendly web applications.
           Explore my portfolio to see how I can bring your ideas to life with clean, efficient code and
           cutting-edge technology.
         </p>
 
-        <div className="flex flex-wrap gap-4 w-full max-w-md">
+        <div className="flex flex-wrap gap-4 w-full max-w-md mx-auto">
           <input
             type="email"
             placeholder="Enter your email"

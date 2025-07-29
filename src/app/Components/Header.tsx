@@ -11,10 +11,13 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex items-center justify-between px-3 py-2 sm:px-6 sm:py-3">
-      {/* Logo */}
-      <div className="flex flex-col justify-center">
-        <h1 className="text-lg sm:text-xl font-bold whitespace-nowrap">Dev.Folio</h1>
-      </div>
+      {/* Logo as a non-copyable clickable link */}
+      <Link
+        href="/"
+        className="text-xl sm:text-2xl font-extrabold tracking-wide select-none cursor-pointer"
+      >
+        Dev<span className="text-black">.</span>Folio
+      </Link>
 
       {/* Navigation */}
       <nav className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-sm sm:text-base">
