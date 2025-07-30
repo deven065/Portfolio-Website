@@ -90,10 +90,10 @@ export default function Footer() {
                 <FaX />
               </a>
               <a
-                href="devenrikame55@gmail.com"
+                href="mailto:devenrikame55@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 hover:text-red-700 transition"
+                className="bg-gray-200 p-2 rounded-full hover:bg-red-700 hover:text-white transition"
               >
                 <FaGoogle />
               </a>

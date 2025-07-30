@@ -11,7 +11,7 @@ export const ContactCTA = () => {
           Interested in collaborating? Let&apos;s discuss how my skills can help bring your project to life.
         </p>
         <a
-          href="/contact" // Change to your contact section id or mailto link
+          href="/contact"
           className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition duration-300"
         >
           Get in Touch

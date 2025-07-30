@@ -1,4 +1,5 @@
-import { ExternalLink, Code2, MessageCircle } from "lucide-react";
+import { FaGithub, FaLinkedin, FaGoogle } from "react-icons/fa";
+import { FaX } from "react-icons/fa6";
 
 const FollowCard: React.FC = () => {
   return (
@@ -7,15 +8,43 @@ const FollowCard: React.FC = () => {
 
       {/* Icons Row */}
       <div className="flex space-x-6 mb-6">
-        <div className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-gray-200 transition">
-          <ExternalLink className="w-5 h-5 text-gray-700" />
-        </div>
-        <div className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-gray-200 transition">
-          <Code2 className="w-5 h-5 text-gray-700" />
-        </div>
-        <div className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-gray-200 transition">
-          <MessageCircle className="w-5 h-5 text-gray-700" />
-        </div>
+        <a
+          href="https://www.linkedin.com/in/dev55"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View my LinkedIn profile"
+          className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-blue-600 hover:text-white transition"
+        >
+          <FaLinkedin className="w-5 h-5" />
+        </a>
+
+        <a
+          href="https://github.com/deven065"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View my GitHub profile"
+          className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-black hover:text-white transition"
+        >
+          <FaGithub className="w-5 h-5" />
+        </a>
+
+        <a
+          href="https://x.com/rikame_deven"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View my X profile"
+          className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-black hover:text-white transition"
+        >
+          <FaX className="w-5 h-5" />
+        </a>
+
+        <a
+          href="mailto:devenrikame55@gmail.com"
+          title="Send me an email"
+          className="bg-gray-100 p-3 rounded-full cursor-pointer hover:bg-red-500 hover:text-white transition"
+        >
+          <FaGoogle className="w-5 h-5" />
+        </a>
       </div>
 
       {/* Description */}
@@ -27,4 +56,4 @@ const FollowCard: React.FC = () => {
   );
 };
 
-export default FollowCard;  
+export default FollowCard;
