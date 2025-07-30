@@ -16,8 +16,8 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
     {
-        name: 'Alex Johnson',
-        role: 'Senior Project Manager, Innovatech Solutions',
+        name: 'Vishal Mishra',
+        role: 'Software Developer, Yoeki Soft Private Limited',
         message:
         'Dev.Folio has consistently delivered innovative solutions that exceeded our expectations. The project management was seamless, and the final product was both functional and visually impressive. Highly recommended for any tech-driven project.',
         img: 'https://randomuser.me/api/portraits/men/32.jpg',
@@ -37,8 +37,8 @@ const testimonials: Testimonial[] = [
         img: 'https://randomuser.me/api/portraits/women/65.jpg',
     },
     {
-        name: 'David Miller',
-        role: 'CEO, Horizon Tech',
+        name: 'Rohit Singh',
+        role: 'Founder-led B2B Marketing',
         message:
         'Our collaboration with Dev.Folio was outstanding. Their ability to deliver high-quality code under tight deadlines exceeded our expectations and helped us meet critical business goals.',
         img: 'https://randomuser.me/api/portraits/men/76.jpg',
