@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
         role: 'Software Developer, Yoeki Soft Private Limited',
         message:
         'Dev.Folio has consistently delivered innovative solutions that exceeded our expectations. The project management was seamless, and the final product was both functional and visually impressive. Highly recommended for any tech-driven project.',
-        img: 'https://randomuser.me/api/portraits/men/32.jpg',
+        img: '/Vishal.png',
     },
     {
         name: 'Mayur Ahire',
@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
         role: 'Software Developer-DevOps, LogiNext',
         message:
         'I am extremely pleased with the development work provided by Dev.Folio. The project was completed on time, with excellent communication throughout. The final website is sleek, modern, and perfectly aligned with our brand identity.',
-        img: 'https://randomuser.me/api/portraits/women/65.jpg',
+        img: '/Dipen12.png',
     },
     {
         name: 'Rohit Singh',
