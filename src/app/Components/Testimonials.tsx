@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
         role: 'Software Developer-DevOps, LogiNext',
         message:
         'I am extremely pleased with the development work provided by Dev.Folio. The project was completed on time, with excellent communication throughout. The final website is sleek, modern, and perfectly aligned with our brand identity.',
-        img: '/Dipen12.png',
+        img: '/Dipen.png',
     },
     {
         name: 'Rohit Singh',
