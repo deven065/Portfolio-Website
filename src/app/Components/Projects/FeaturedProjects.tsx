@@ -8,7 +8,7 @@ const projects = [
     title: "FlatMate",
     description:
       "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management.",
-    image: "/FlatMate.jpeg",
+    image: "/FlatMate.png",
     tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
     featured: true,
     tag: "Full Stack",

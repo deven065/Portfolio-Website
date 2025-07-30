@@ -23,15 +23,15 @@ const testimonials: Testimonial[] = [
         img: 'https://randomuser.me/api/portraits/men/32.jpg',
     },
     {
-        name: 'Maria Lopez',
-        role: 'CTO, FutureSoft Inc.',
+        name: 'Mayur Ahire',
+        role: 'Elite Project Analyst, HUDL Inc.',
         message:
         'Working with Dev.Folio was a fantastic experience. The developer demonstrated deep technical knowledge and a proactive approach, ensuring our needs were met with precision. The end result significantly improved our operational efficiency.',
         img: 'https://randomuser.me/api/portraits/women/44.jpg',
     },
     {
-        name: 'Sophie Turner',
-        role: 'Marketing Director, BrightWave',
+        name: 'Dipen Rikame',
+        role: 'Software Developer-DevOps, LogiNext',
         message:
         'I am extremely pleased with the development work provided by Dev.Folio. The project was completed on time, with excellent communication throughout. The final website is sleek, modern, and perfectly aligned with our brand identity.',
         img: 'https://randomuser.me/api/portraits/women/65.jpg',
