@@ -55,7 +55,7 @@ const AdditionalExpertise: FC = () => {
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-neutral-900 mb-12">Additional Expertise</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {expertiseList.map((item, index) => (
+          {expertiseList.map((item) => (
             <div
               key={item.title}
               className="flex flex-col items-center text-center p-6 rounded-xl transition-all duration-300 border border-transparent hover:bg-neutral-100 hover:border-neutral-200"

@@ -9,7 +9,7 @@ const ProjectFooter: React.FC = () => {
                 Like what you see?
             </h2>
             <p className="text-gray-300 text-lg md:text-xl mb-6">
-                Let's work together to bring your ideas to life
+                Let&apos;s work together to bring your ideas to life
             </p>
             <Link href= "/contact"
                     className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition duration-300"

@@ -15,7 +15,8 @@ const SkillBar: React.FC<SkillBarProps> = ({ name, percentage, barColor = "bg-bl
             </div>
             <div className="w-full bg-gray-200 h-1.5 rounded-full">
                 <div 
-                    className="{`h-1.5 rounded-full ${barColor}`}"
+                    className={`h-1.5 rounded-full ${barColor}`}
+                    style={{ width: `${percentage}%` }} 
                 />
             </div>
         </div>

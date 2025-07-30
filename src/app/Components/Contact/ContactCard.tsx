@@ -25,12 +25,12 @@ const ContactCard: React.FC = () => {
         <ContactItem
           icon={<Mail className="w-5 h-5 text-blue-500" />}
           label="Email"
-          value="hello@devenrikame.com"
+          value="devenrikame55@gmail.com"
         />
         <ContactItem
           icon={<Phone className="w-5 h-5 text-blue-500" />}
           label="Phone"
-          value="+1 (555) 123-4567"
+          value="+91-9833703389"
         />
         <ContactItem
           icon={<MapPin className="w-5 h-5 text-blue-500" />}

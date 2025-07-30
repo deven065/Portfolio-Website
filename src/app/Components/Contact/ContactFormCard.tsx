@@ -59,8 +59,12 @@ const ContactFormCard = () => {
         message: "",
         agree: false,
       });
-    } catch (err: any) {
-      setStatus(err.message || "Something went wrong.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setStatus(err.message);
+      } else {
+        setStatus("Something went wrong. Please try again later.");
+      }
     } finally {
       setLoading(false);
     }

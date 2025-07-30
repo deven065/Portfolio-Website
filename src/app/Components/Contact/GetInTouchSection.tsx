@@ -1,4 +1,3 @@
-// components/GetInTouchSection.tsx
 import React from 'react';
 
 const GetInTouchSection = () => {
@@ -9,8 +8,8 @@ const GetInTouchSection = () => {
           Get In <span className="text-blue-500">Touch</span>
         </h2>
         <p className="text-lg text-gray-600">
-          Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
-          I'm always excited to take on new challenges and collaborate with amazing people.
+          Have a project in mind? Let&apos;s discuss how we can work together to bring your ideas to life.
+          I&apos;m always excited to take on new challenges and collaborate with amazing people.
         </p>
       </div>
     </section>
