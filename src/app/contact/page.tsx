@@ -15,7 +15,7 @@ export default function ContactPage() {
         className="
             max-w-6xl mx-auto 
             px-6 lg:px-4 
-            mt-15             /* balanced space between heading and form/cards */
+            mt-15
             pb-20
             grid lg:grid-cols-3 gap-10
         "
