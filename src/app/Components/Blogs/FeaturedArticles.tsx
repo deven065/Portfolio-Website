@@ -2,6 +2,7 @@
 
 import { Calendar, Clock, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Blog {
   id: number;
@@ -49,28 +50,48 @@ export default function FeaturedArticles() {
   return (
     <section className="py-16 bg-[#f7f8fa]">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-2"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Featured Articles
-        </h2>
-        <p className="text-center text-gray-500 mb-12">
+        </motion.h2>
+
+        <motion.p
+          className="text-center text-gray-500 mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Handpicked articles that showcase my best insights and expertise
-        </p>
+        </motion.p>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {blogs.map((blog) => (
-            <div
+          {blogs.map((blog, index) => (
+            <motion.div
               key={blog.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+              className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6 }}
             >
-              {/* Image section with hover zoom */}
+              {/* Image */}
               <div className="relative overflow-hidden group">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  width={800}
-                  height={400}
-                  className="w-full h-56 object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
+                <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    width={800}
+                    height={400}
+                    className="w-full h-56 object-cover"
+                  />
+                </motion.div>
                 <span className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-yellow-400 text-white text-sm font-medium px-3 py-1 rounded-full">
                   Featured
                 </span>
@@ -80,7 +101,7 @@ export default function FeaturedArticles() {
                 </div>
               </div>
 
-              {/* Content section */}
+              {/* Content */}
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
                   <Calendar size={14} className="text-blue-600" />
@@ -102,22 +123,23 @@ export default function FeaturedArticles() {
                   ))}
                 </div>
 
-                {/* Views / Likes */}
+                {/* Footer */}
                 <div className="flex items-center justify-between text-sm text-gray-500 mt-auto">
-                  <span>{blog.views.toLocaleString()}</span>
-                  <span>{blog.likes}</span>
-                  {/* Read Button */}
-                  <a
+                  <span>{blog.views.toLocaleString()} views</span>
+                  <span>{blog.likes} likes</span>
+                  <motion.a
                     href={blog.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+                    className="ml-auto flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
                   >
                     Read on Medium <ArrowUpRight size={16} />
-                  </a>
+                  </motion.a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

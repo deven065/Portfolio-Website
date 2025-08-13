@@ -3,6 +3,7 @@
 
 import { Calendar, Clock, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Article {
   title: string;
@@ -67,10 +68,10 @@ const articles: Article[] = [
   },
   {
     title: "CSS Grid vs Flexbox: When to use What",
-    date: "Devember 9, 2023",
+    date: "December 9, 2023",
     readTime: "7 min read",
-    description: 
-        "A practical guide to choosing between CSS Grid and Flexbox for your layout needs, with real-world examples and use cases.",
+    description:
+      "A practical guide to choosing between CSS Grid and Flexbox for your layout needs, with real-world examples and use cases.",
     tags: ["CSS", "Layout", "Frontend"],
     views: 2234,
     likes: 98,
@@ -78,6 +79,12 @@ const articles: Article[] = [
     link: "https://medium.com/@yourprofile/you-article",
   },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.95 },
+};
 
 export default function RecentArticles() {
   return (
@@ -88,68 +95,83 @@ export default function RecentArticles() {
           Latest insights and tutorials from my development journey
         </p>
 
-        <div className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col"
-            >
-              {/* Image with badge */}
-              <div className="relative overflow-hidden group">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-48 object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
-                <span className="absolute bottom-3 right-3 bg-black/70 text-white text-sm px-3 py-1 rounded-full flex items-center gap-1">
-                  <Clock size={14} /> {article.readTime}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center text-sm text-gray-500 gap-2">
-                  <Calendar size={16} className="text-blue-500" />
-                  {article.date}
+        <motion.div
+          layout
+          className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <AnimatePresence>
+            {articles.map((article, idx) => (
+              <motion.div
+                key={article.title}
+                layout
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg"
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden group">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={500}
+                    height={300}
+                    className="w-full h-48 object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  />
+                  <span className="absolute bottom-3 right-3 bg-black/70 text-white text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    <Clock size={14} /> {article.readTime}
+                  </span>
                 </div>
 
-                <h3 className="text-lg font-semibold mt-2">{article.title}</h3>
-                <p className="text-gray-600 text-sm mt-1 flex-1">
-                  {article.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {article.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Stats + Button */}
-                <div className="flex items-center justify-between mt-4">
-                  <div className="text-gray-500 text-sm">
-                    {article.views.toLocaleString()} views · {article.likes}
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center text-sm text-gray-500 gap-2">
+                    <Calendar size={16} className="text-blue-500" />
+                    {article.date}
                   </div>
-                  <a
-                    href={article.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-2 rounded-md flex items-center gap-1"
-                  >
-                    Read on Medium <ExternalLink size={14} />
-                  </a>
+
+                  <h3 className="text-lg font-semibold mt-2">{article.title}</h3>
+                  <p className="text-gray-600 text-sm mt-1 flex-1">
+                    {article.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {article.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Stats + Button */}
+                  <div className="flex items-center justify-between mt-4">
+                    <div className="text-gray-500 text-sm">
+                      {article.views.toLocaleString()} views · {article.likes}
+                    </div>
+                    <a
+                      href={article.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-2 rounded-md flex items-center gap-1"
+                    >
+                      Read on Medium <ExternalLink size={14} />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
