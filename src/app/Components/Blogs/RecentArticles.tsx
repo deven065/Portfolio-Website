@@ -27,7 +27,7 @@ const articles: Article[] = [
     tags: ["React Hooks", "React", "Web Development"],
     views: 1854,
     likes: 73,
-    image: "/React-hooks-explained.png",
+    image: "/React-hooks-Explained.png",
     link: "https://devenrikame.hashnode.dev/react-hooks-explained",
   },
   {
