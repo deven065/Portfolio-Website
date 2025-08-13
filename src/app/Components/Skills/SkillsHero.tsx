@@ -14,7 +14,7 @@ const SkillsHero: React.FC = () => {
                 </p>
                 <div className='flex flex-wrap justify-center gap-4'>
                     <span className='bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-sm md:text-base font-medium'>
-                        5+ Years Experience
+                        1+ Years Experience
                     </span>
                     <span className='bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-sm md:text-base font-medium'>
                         Full-Stack Developer
