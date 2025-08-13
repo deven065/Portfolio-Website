@@ -21,7 +21,7 @@ const blogs: Blog[] = [
   {
     id: 1,
     title: "Building Scalable React Applications: Best Practices and Patterns",
-    date: "August 13, 2025",
+    date: "August 14, 2025",
     readTime: "5 min read",
     description:
       "Discover the essential patterns and practices for building maintainable React applications that can grow with your team and user base.",
@@ -34,7 +34,7 @@ const blogs: Blog[] = [
   {
     id: 2,
     title: "The Complete Guide to Next.js App Router",
-    date: "August 14, 2025",
+    date: "August 01, 2025",
     readTime: "3 min read",
     description:
       "Everything you need to know about Next.js 13+ App Router, from basic routing to advanced patterns and performance optimization.",
@@ -42,7 +42,7 @@ const blogs: Blog[] = [
     image: "/The-Complete-Guide-to-Nextjs.png",
     views: 3421,
     likes: 156,
-    link: "https://medium.com/@devenrikame55/the-complete-guide-to-next-js-app-router-explained-for-beginners-4ab80f7fba63",
+    link: "https://devenrikame.hashnode.dev/the-complete-guide-to-nextjs-app-router-explained-for-beginners",
   },
 ];
 
