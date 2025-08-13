@@ -27,8 +27,8 @@ const articles: Article[] = [
     tags: ["React Hooks", "React", "Web Development"],
     views: 1854,
     likes: 73,
-    image: "/React-hooks.jpeg",
-    link: "https://medium.com/@devenrikame55/react-hooks-explained-8e5dc0b0012c",
+    image: "/React-hooks-explained.png",
+    link: "https://devenrikame.hashnode.dev/react-hooks-explained",
   },
   {
     title: "TypeScript Tips for Better React Development",
@@ -39,8 +39,8 @@ const articles: Article[] = [
     tags: ["TypeScript", "React", "Development"],
     views: 1854,
     likes: 73,
-    image: "/TypeScript-Tips-For-Better-React-Development.png",
-    link: "https://medium.com/@devenrikame55/3de87c79174e?source=friends_link&sk=4abd7ac9e6b206ba1953eb57e0e1fc10",
+    image: "/TypeScript-Tips for-Better-React-Development.png",
+    link: "https://devenrikame.hashnode.dev/typescript-tips-for-better-react-development",
   },
   {
     title: "Building a Modern Authentication System",
@@ -53,6 +53,18 @@ const articles: Article[] = [
     likes: 134,
     image: "/articles/article2.jpg",
     link: "https://medium.com/@yourprofile/your-article",
+  },
+  {
+    title: "Good Practices Every Developer Should Follow While Coding",
+    date: "August 14, 2025",
+    readTime: "3 min read",
+    description:
+      "Learn essential coding practices every developer should follow for readable, maintainable, and scalable code, from clean coding to version control",
+    tags: ["Authentication", "Security", "Backend"],
+    views: 2967,
+    likes: 134,
+    image: "/Good-Practices-Ever- Developer-Should-Follow-While-Coding.png",
+    link: "https://devenrikame.hashnode.dev/good-practices-every-developer-should-follow-while-coding",
   },
   {
     title: "Database Design Patterns for Web Applications",
@@ -164,7 +176,7 @@ export default function RecentArticles() {
                       rel="noopener noreferrer"
                       className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-2 rounded-md flex items-center gap-1"
                     >
-                      Read on Medium <ExternalLink size={14} />
+                      Read on Hashnode <ExternalLink size={14} />
                     </a>
                   </div>
                 </div>

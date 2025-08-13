@@ -29,7 +29,7 @@ const blogs: Blog[] = [
     image: "/Building-Scalable-Web-Applications.png",
     views: 2156,
     likes: 87,
-    link: "https://medium.com/@devenrikame55/building-scalable-react-applications-best-practices-and-patterns-0c63ea4e0d1b",
+    link: "https://devenrikame.hashnode.dev/building-scalable-react-applications-best-practices-and-patterns?showSharer=true",
   },
   {
     id: 2,
@@ -135,7 +135,7 @@ export default function FeaturedArticles() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    Read on Medium <ArrowUpRight size={16} />
+                    Read on Hashnode <ArrowUpRight size={16} />
                   </motion.a>
                 </div>
               </div>
