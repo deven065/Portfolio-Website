@@ -47,12 +47,12 @@ const articles: Article[] = [
     date: "December 20, 2023",
     readTime: "10 min read",
     description:
-      "Learn how to implement secure, user-friendly authentication in modern web applications using JWT, OAuth, and best practices.",
+      "Explore modern authentication: best practices, pitfalls, implementations for security, scalability, and user experience.",
     tags: ["Authentication", "Security", "Backend"],
     views: 2967,
     likes: 134,
-    image: "/articles/article2.jpg",
-    link: "https://medium.com/@yourprofile/your-article",
+    image: "/Building-a-Modern-Authentication-System.png",
+    link: "https://devenrikame.hashnode.dev/building-a-modern-authentication-system",
   },
   {
     title: "Good Practices Every Developer Should Follow While Coding",
@@ -69,27 +69,51 @@ const articles: Article[] = [
   {
     title: "Database Design Patterns for Web Applications",
     date: "December 15, 2023",
-    readTime: "9 min read",
+    readTime: "5 min read",
     description:
-      "Explore essential database design patterns and optimization techniques for building efficient and scalable applications.",
+      "Learn essential database design patterns for scalable, maintainable web applications, with examples and case studies.",
     tags: ["Database", "Design Patterns", "SQL"],
     views: 1673,
     likes: 89,
-    image: "/articles/article3.jpg",
-    link: "https://medium.com/@yourprofile/your-article",
+    image: "/Database-Design-Patterns-for-Web-Applications.png",
+    link: "https://devenrikame.hashnode.dev/database-design-patterns-for-web-applications",
   },
   {
     title: "CSS Grid vs Flexbox: When to use What",
     date: "December 9, 2023",
-    readTime: "7 min read",
+    readTime: "5 min read",
     description:
-      "A practical guide to choosing between CSS Grid and Flexbox for your layout needs, with real-world examples and use cases.",
+      "Explore when to use CSS Grid or Flexbox for responsive layouts, understanding key differences, use cases, and practical examples",
     tags: ["CSS", "Layout", "Frontend"],
     views: 2234,
     likes: 98,
-    image: "/articles/article4.jpg",
-    link: "https://medium.com/@yourprofile/you-article",
+    image: "/CSS-Grid-vs-Flexbox-When-to-use-What.png",
+    link: "https://devenrikame.hashnode.dev/css-grid-vs-flexbox-when-to-use-what",
   },
+  {
+    title: "JavaScript Fundamentals + HR Questions",
+    date: "August 21, 2025",
+    description:
+      "Day 1 of the JavaScript Fundamentals course, covering key concepts and common HR interview questions to help you prepare for your next job.",
+    readTime: "3 min read",
+    tags: ["JavaScript", "Interview Prep", "Web Development"],
+    views: 2967,
+    likes: 134,
+    image: "/JavaScript-Fundamentals-HR-Questions.png",
+    link: "https://devenrikame.hashnode.dev/javascript-fundamentals-hr-questions"
+  },
+  {
+    title: "React Basics + HR Questions",
+    date: "August 22, 2025",
+    description:
+      "Day 2 of the React Basics course, focusing on core concepts and HR interview questions to help you ace your next React job interview.",
+    readTime: "3 min read",
+    tags: ["React", "Interview Prep", "Web Development"],
+    views: 2967,
+    likes: 134,
+    image: "/React-Basics-HR-Questions.png",
+    link: "https://devenrikame.hashnode.dev/react-basics-hr-questions"
+  }
 ];
 
 const cardVariants = {
