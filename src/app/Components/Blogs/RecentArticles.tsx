@@ -1,4 +1,3 @@
-// components/RecentArticles.tsx
 "use client";
 
 import { Calendar, Clock, ExternalLink } from "lucide-react";
