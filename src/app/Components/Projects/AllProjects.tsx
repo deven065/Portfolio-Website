@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 type Project = {
   id: number;
@@ -12,6 +12,7 @@ type Project = {
   tag: string;
   liveLink: string;
   codeLink?: string;
+  tooltipMessage?: string; // optional tooltip
 };
 
 const projects: Project[] = [
@@ -25,6 +26,7 @@ const projects: Project[] = [
     tag: "Full Stack - WIP",
     liveLink: "https://your-live-demo-link.com",
     codeLink: "https://github.com/deven065/FlatMate.git",
+    tooltipMessage: "Work in progress",
   },
   {
     id: 2,
@@ -36,6 +38,8 @@ const projects: Project[] = [
     tag: "Full Stack",
     liveLink: "https://chef-ai-sigma.vercel.app/",
     codeLink: "https://github.com/deven065/chef-ai.git",
+    tooltipMessage:
+      "Sorry, this project will not work as expected (API is deprecated)",
   },
   {
     id: 3,
@@ -73,12 +77,17 @@ const projects: Project[] = [
   },
 ];
 
-const cardVariants = {
+// Framer Motion Variants (TypeScript fix applied)
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
+  visible: (custom: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" },
+    transition: {
+      delay: custom * 0.08,
+      duration: 0.45,
+      ease: [0.25, 0.1, 0.25, 1], // cubic-bezier for TS compatibility
+    },
   }),
 };
 
@@ -94,7 +103,6 @@ const AllProjects: React.FC = () => {
         All Projects
       </motion.h2>
 
-      {/* Grid: 1 column on mobile, 3 columns on md+ */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
         {projects.map((project, index) => (
           <motion.div
@@ -114,7 +122,6 @@ const AllProjects: React.FC = () => {
                 width={1200}
                 height={600}
                 className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                priority={false}
               />
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {project.tag}
@@ -143,12 +150,14 @@ const AllProjects: React.FC = () => {
               </div>
 
               {/* Buttons */}
-              <div className="mt-auto flex gap-3">
+              <div className="mt-auto flex gap-3 relative overflow-visible">
+                {/* Live Demo */}
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 bg-blue-500 text-white text-sm py-2 rounded-lg text-center hover:bg-blue-600 transition"
+                  title={project.tooltipMessage} // Tooltip without changing styling
                 >
                   Live Demo
                 </a>

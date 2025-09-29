@@ -7,11 +7,11 @@ const projects = [
     id: 1,
     title: "FlatMate",
     description:
-      "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management.",
+      "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management. Note: That project is still a work in progress and because of that link is not active yet.",
     image: "/FlatMate.png",
     tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
     featured: true,
-    tag: "Full Stack",
+    tag: "Full Stack - WIP",
     liveLink: "https://your-live-demo-link.com",
     codeLink: "https://github.com/deven065/FlatMate.git",
   },
@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     title: "Chef Claude",
     description:
-      "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
+      "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions. Note: API is decrypted so project might not work as expected.",
     image: "/Chef-claude.jpeg",
     tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
     featured: true,
