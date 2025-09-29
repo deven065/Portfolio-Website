@@ -1,80 +1,120 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
-const projects = [
-    {
-        id: 1,
-        title: "FlatMate",
-        description:
-            "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management.",
-        image: "/FlatMate.png",
-        tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
-        tag: "Full Stack",
-        liveLink: "https://your-live-demo-link.com",
-        codeLink: "https://github.com/deven065/FlatMate.git",
-    },
-    {
-        id: 2,
-        title: "Chef Claude",
-        description:
-            "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
-        image: "/Chef-claude.jpeg",
-        tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
-        tag: "Full Stack",
-        liveLink: "https://chef-ai-sigma.vercel.app/",
-        codeLink: "https://github.com/deven065/chef-ai.git"
-    },
-    {
-        id: 3,
-        title: "Portfolio Website",
-        description:
-            "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my work and professional background.",
-        image: "/Portfolio-Website.png",
-        tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-        tag: "Full Stack",
-        liveLink: "https://portfolio-website-devens-projects-616976bd.vercel.app/",
-        codeLink: "https://github.com/deven065/Portfolio-Website.git"
-    },
-    {
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  tag: string;
+  liveLink: string;
+  codeLink?: string;
+};
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "FlatMate",
+    description:
+      "FlatMate is a modern society maintenance web app with role-based access, real-time data, and secure Firebase authentication. It enables admins to manage records, expenses, and payments while members track announcements and dues. Features include protected routes and dark mode for seamless, accessible community management.",
+    image: "/FlatMate.png",
+    tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
+    tag: "Full Stack - WIP",
+    liveLink: "https://your-live-demo-link.com",
+    codeLink: "https://github.com/deven065/FlatMate.git",
+  },
+  {
+    id: 2,
+    title: "Chef Claude",
+    description:
+      "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
+    image: "/Chef-claude.jpeg",
+    tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
+    tag: "Full Stack",
+    liveLink: "https://chef-ai-sigma.vercel.app/",
+    codeLink: "https://github.com/deven065/chef-ai.git",
+  },
+  {
+    id: 3,
+    title: "Jira Automation",
+    description:
+      "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
+    image: "/jira-automation.webp",
+    tech: ["Java", "Jira API", "Automation", "Zapier"],
+    tag: "Backend",
+    liveLink: "https://www.atlassian.com/software/jira",
+    codeLink: "",
+  },
+  {
     id: 4,
-        title: "Google Clone",
-        description:
-            "A clone of Google Search Engine built with HMTL and CSS, featuring a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
-        image: "/Google.png",
-        tech: ["HTML", "CSS"],
-        tag: "Frontend",
-        liveLink: "https://google-blond-eta.vercel.app/",
-        codeLink: "https://github.com/deven065/Google.git",
-    },
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my professional background.",
+    image: "/Portfolio-Website.png",
+    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+    tag: "Full Stack",
+    liveLink:
+      "https://portfolio-website-devens-projects-616976bd.vercel.app/",
+    codeLink: "https://github.com/deven065/Portfolio-Website.git",
+  },
+  {
+    id: 5,
+    title: "Google Clone",
+    description:
+      "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
+    image: "/Google.png",
+    tech: ["HTML", "CSS"],
+    tag: "Frontend",
+    liveLink: "https://google-blond-eta.vercel.app/",
+    codeLink: "https://github.com/deven065/Google.git",
+  },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" },
+  }),
+};
 
 const AllProjects: React.FC = () => {
   return (
     <section className="bg-white pt-20 pb-20 px-6">
-      {/* Section Title */}
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
+      <motion.h2
+        initial={{ opacity: 0, y: -14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+        className="text-3xl sm:text-4xl font-bold text-center mb-16"
+      >
         All Projects
-      </h2>
+      </motion.h2>
 
-      {/* Grid */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {/* Grid: 1 column on mobile, 3 columns on md+ */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={project.id}
-            // If it's the last project, center it
-            className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative ${
-              index === 3 ? "md:col-span-3 md:w-1/3 mx-auto" : ""
-            }`}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={cardVariants}
+            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative h-full flex flex-col"
           >
-            {/* Image + Tag */}
+            {/* Image */}
             <div className="relative group overflow-hidden">
               <Image
                 src={project.image}
                 alt={project.title}
-                width={500}
-                height={250}
+                width={1200}
+                height={600}
                 className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                priority={false}
               />
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {project.tag}
@@ -82,26 +122,28 @@ const AllProjects: React.FC = () => {
             </div>
 
             {/* Content */}
-            <div className="p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+            <div className="p-6 flex flex-col flex-1">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">{project.description}</p>
 
-              {/* Tech Stack Badges */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {/* Tech Stack Badges */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Buttons */}
-              <div className="flex gap-3">
+              <div className="mt-auto flex gap-3">
                 <a
                   href={project.liveLink}
                   target="_blank"
@@ -110,17 +152,27 @@ const AllProjects: React.FC = () => {
                 >
                   Live Demo
                 </a>
-                <a
-                  href={project.codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 border border-gray-300 text-gray-700 text-sm py-2 rounded-lg text-center hover:bg-gray-100 transition"
-                >
-                  View Code
-                </a>
+
+                {project.codeLink ? (
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 border border-gray-300 text-gray-700 text-sm py-2 rounded-lg text-center hover:bg-gray-100 transition"
+                  >
+                    View Code
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className="flex-1 border border-gray-200 text-gray-300 text-sm py-2 rounded-lg text-center cursor-not-allowed"
+                  >
+                    No Code
+                  </button>
+                )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
