@@ -20,9 +20,9 @@ export default function Home() {
         src="/image-2.webp"
         alt="Developer with laptop and coffee"
       />
-  <ProjectsSection id="projects" />
+  <ProjectsSection />
       <SkillsSection />
-  <ContactForm id="contact" />
+  <ContactForm />
       <Testimonials />
       <Footer />
     </>
