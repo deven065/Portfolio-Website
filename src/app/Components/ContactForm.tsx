@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-16 px-6">
+    <section id="contact" className="bg-gray-100 py-16 px-6">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <h2 className="text-3xl md:text-5xl font-extrabold mb-2">Get in Touch</h2>

@@ -1,18 +1,20 @@
 import Image from "next/image";
 interface ProjectCardProps {
-    image : string;
-    title : string;
-    features : string[];
-    description : string;
-    cta? : string;
+    image: string;
+    title: string;
+    features: string[];
+    description: string;
+    cta?: string;
+    ctaLink?: string;
 }
 
-const ProjectCard : React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectCardProps> = ({
     image,
     title,
     features,
     description,
     cta = "View Projects",
+    ctaLink,
 }) => {
     return (
         <div className="bg-white rounded-2xl overflow-hidden shadow-md mb-10">
@@ -39,9 +41,20 @@ const ProjectCard : React.FC<ProjectCardProps> = ({
                             <li key={i}># {feature}</li>
                         ))}
                     </ul>
-                    <button className="text-sm font-medium underline hover:text-gray-300 transition">
-                        {cta} →
-                    </button>
+                    {ctaLink ? (
+                        <a
+                            href={ctaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium underline hover:text-gray-300 transition"
+                        >
+                            {cta} →
+                        </a>
+                    ) : (
+                        <button className="text-sm font-medium underline hover:text-gray-300 transition">
+                            {cta} →
+                        </button>
+                    )}
                 </div>
 
                 {/* Right side : description */}

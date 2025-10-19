@@ -6,7 +6,7 @@ import { motion, Variants } from "framer-motion";
 type Project = {
   id: number;
   title: string;
-  description: string;
+  description: string | { main: string; note?: string };
   image: string;
   tech: string[];
   tag: string;
@@ -18,9 +18,25 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Accent Techno Solutions CRM",
+    description: {
+      main: "A robust, enterprise-grade CRM platform built for Accent Techno Solutions Private Limited. This system streamlines client management, sales tracking, and internal workflows with secure authentication, role-based access, and real-time analytics. Designed for scalability and efficiency, it empowers teams to manage leads, automate follow-ups, and generate insightful reports.",
+      note: "The repository is private due to company policy. You can access the login page, but credentials are not provided as this system is not for public use."
+    },
+    image: "/CRM.png",
+    tech: ["Next.js", "TailwindCSS", "MariaDB", "Deployment", "Custom API", "Sales Dashboard", "CRM", "Authentication"],
+    tag: "Full Stack",
+    liveLink: "https://accent-lime.vercel.app/signin?from=%2Fdashboard",
+    codeLink: "Sorry, the repository is private",
+    tooltipMessage: "Repository is private",
+  },
+  {
+    id: 2,
     title: "FlatMate",
-    description:
-      "FlatMate is a modern society maintenance web app with role-based access, real-time data, and secure Firebase authentication. It enables admins to manage records, expenses, and payments while members track announcements and dues. Features include protected routes and dark mode for seamless, accessible community management.",
+    description: {
+      main: "FlatMate is a modern society maintenance web app with role-based access, real-time data, and secure Firebase authentication. It enables admins to manage records, expenses, and payments while members track announcements and dues. Features include protected routes and dark mode for seamless, accessible community management.",
+      note: "That project is still a work in progress and because of that link is not active yet."
+    },
     image: "/FlatMate.png",
     tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
     tag: "Full Stack - WIP",
@@ -29,7 +45,7 @@ const projects: Project[] = [
     tooltipMessage: "Work in progress",
   },
   {
-    id: 2,
+    id: 3,
     title: "Chef Claude",
     description:
       "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
@@ -42,7 +58,7 @@ const projects: Project[] = [
       "Sorry, this project will not work as expected (API is deprecated)",
   },
   {
-    id: 3,
+    id: 4,
     title: "Jira Automation",
     description:
       "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
@@ -53,7 +69,7 @@ const projects: Project[] = [
     codeLink: "",
   },
   {
-    id: 4,
+    id: 5,
     title: "Portfolio Website",
     description:
       "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my professional background.",
@@ -65,7 +81,7 @@ const projects: Project[] = [
     codeLink: "https://github.com/deven065/Portfolio-Website.git",
   },
   {
-    id: 5,
+    id: 6,
     title: "Google Clone",
     description:
       "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
@@ -134,7 +150,18 @@ const AllProjects: React.FC = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+                {typeof project.description === "object" && project.description !== null ? (
+                  <>
+                    <p className="text-gray-600 text-sm mb-2">{project.description.main}</p>
+                    {project.description.note && (
+                      <p className="text-sm mb-4">
+                        <b>Note:</b> <b><i>{project.description.note}</i></b>
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="text-gray-600 text-sm mb-4">{project.description as string}</p>
+                )}
 
                 {/* Tech Stack Badges */}
                 <div className="flex flex-wrap gap-2 mb-4">

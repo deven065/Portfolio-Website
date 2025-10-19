@@ -14,20 +14,26 @@ const ProjectsSection = () => {
         "Discover my diverse projects, including an e-commerce platform, real-time chat app, and this portfolio website, all designed with a sleek dark mode and modern aesthetic.",
     },
     {
-      image: "/project-2.webp",
-      title: "Project Highlights",
+      image: "/AccentLogin.png",
+      title: "Accent Techno Solutions CRM",
       features: [
-        "E-Commerce Platform: React & Node.js, secure payments",
-        "Real-Time Chat App: WebSocket, multi-device messaging",
-        "Portfolio Website: Modern design, seamless navigation",
+        "Client Management: Centralized customer database and profiles",
+        "Sales Tracking: Lead, opportunity, and pipeline management",
+        "Workflow Automation: Task assignment and progress tracking",
+        "Analytics Dashboard: Real-time sales and activity insights",
+        "Role-Based Access: Secure authentication and permissions",
+        "Integrated Communication: Email and notifications",
+        "Data Import/Export: Seamless migration and reporting"
       ],
       description:
-        "Explore my portfolio to see detailed descriptions, images, and links to each project, demonstrating my technical skills and dedication to creating innovative web solutions.",
+        "Developed a robust CRM platform for Accent Techno Solutions Private Limited, streamlining client management, sales tracking, and workflow automation. The solution is optimized for scalability, security, and user experience, empowering teams to drive growth and efficiency. Built with React, Node.js, MongoDB, and TailwindCSS.\n\nNote: The repository for this project is private, so the code cannot be shared publicly. You can access the login page, but login credentials are not provided as this system is not for public use.",
+      cta: "View Login Page",
+      ctaLink: "https://accent-lime.vercel.app/signin?from=%2Fdashboard",
     },
   ];
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section id="projects" className="bg-gray-50 py-16 px-6">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <p className="text-xs font-extrabold uppercase mb-2">My Projects</p>

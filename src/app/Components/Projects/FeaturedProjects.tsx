@@ -6,8 +6,10 @@ const projects = [
   {
     id: 1,
     title: "FlatMate",
-    description:
-      "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management. Note: That project is still a work in progress and because of that link is not active yet.",
+    description: {
+      main: "FlatMate is a modern society maintenance web app with role‑based access, real‑time data, and secure Firebase authentication, enabling admins to manage records, expenses, and payments while members track announcements and dues. It features protected routes and dark mode for seamless, accessible community management.",
+      note: "That project is still a work in progress and because of that link is not active yet."
+    },
     image: "/FlatMate.png",
     tech: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
     featured: true,
@@ -17,15 +19,18 @@ const projects = [
   },
   {
     id: 2,
-    title: "Chef Claude",
+    title: "Accent Techno Solutions CRM",
     description:
-      "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions. Note: API is decrypted so project might not work as expected.",
-    image: "/Chef-claude.jpeg",
-    tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
+      {
+        main: "A robust, enterprise-grade CRM platform built for Accent Techno Solutions Private Limited. This system streamlines client management, sales tracking, and internal workflows with secure authentication, role-based access, and real-time analytics. Designed for scalability and efficiency, it empowers teams to manage leads, automate follow-ups, and generate insightful reports.",
+        note: "The repository is private due to company policy. You can access the login page, but credentials are not provided as this system is not for public use."
+      },
+    image: "/CRM.png",
+    tech: ["Next.js", "TailwindCSS", "MariaDB", "Deployment", "Custom API", "Sales Dashboard", "CRM", "Authentication"],
     featured: true,
     tag: "Full Stack",
-    liveLink: "https://chef-ai-sigma.vercel.app/",
-    codeLink: "https://github.com/deven065/chef-ai.git",
+    liveLink: "https://accent-lime.vercel.app/signin?from=%2Fdashboard",
+    codeLink: "Sorry, the repository is private",
   },
 ];
 
@@ -68,7 +73,16 @@ const FeaturedProjects: React.FC = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-600 text-sm mb-5">{project.description}</p>
+              {typeof project.description === "object" && project.description !== null ? (
+                <>
+                  <p className="text-gray-600 text-sm mb-2">{project.description.main}</p>
+                  <p className="text-sm mb-5">
+                    <b>Note:</b> <b><i>{project.description.note}</i></b>
+                  </p>
+                </>
+              ) : (
+                <p className="text-gray-600 text-sm mb-5">{project.description as string}</p>
+              )}
 
               {/* Tech Stack Badges */}
               <div className="flex flex-wrap gap-2 mb-5">
