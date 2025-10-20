@@ -128,7 +128,8 @@ const AllProjects: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
             variants={cardVariants}
-            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative h-full flex flex-col"
+            whileHover={{ scale: 1.02 }}
+            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative h-full flex flex-col [transform-origin:center]"
           >
             {/* Image */}
             <div className="relative group overflow-hidden">
@@ -137,7 +138,7 @@ const AllProjects: React.FC = () => {
                 alt={project.title}
                 width={1200}
                 height={600}
-                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-105"
               />
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {project.tag}

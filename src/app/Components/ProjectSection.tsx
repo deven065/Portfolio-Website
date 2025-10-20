@@ -1,4 +1,12 @@
+"use client";
 import ProjectCard from "./ProjectCard";
+import { motion, AnimatePresence } from "framer-motion";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.95 },
+};
 
 const ProjectsSection = () => {
   const projects = [
@@ -48,11 +56,31 @@ const ProjectsSection = () => {
       </div>
 
       {/* Cards */}
-      <div className="max-w-7xl mx-auto">
-        {projects.map((project, idx) => (
-          <ProjectCard key={idx} {...project} />
-        ))}
-      </div>
+      <motion.div
+        layout
+        className="max-w-7xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AnimatePresence>
+          {projects.map((project, idx) => (
+            <motion.div
+              key={project.title}
+              layout
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+              className="[transform-origin:center]"
+            >
+              <ProjectCard {...project} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };

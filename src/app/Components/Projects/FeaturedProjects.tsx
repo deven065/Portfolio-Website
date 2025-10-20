@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
@@ -34,6 +35,12 @@ const projects = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.95 },
+};
+
 const FeaturedProjects: React.FC = () => {
   return (
     <section className="bg-gray-50 pt-20 pb-20 min-h-screen px-6">
@@ -43,12 +50,26 @@ const FeaturedProjects: React.FC = () => {
       </h2>
 
       {/* Projects Grid */}
-      <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative"
-          >
+      <motion.div
+        layout
+        className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AnimatePresence>
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              layout
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative [transform-origin:center]"
+            >
             {/* Image with Badges */}
             <div className="relative group overflow-hidden">
               <Image
@@ -56,7 +77,7 @@ const FeaturedProjects: React.FC = () => {
                 alt={project.title}
                 width={600}
                 height={300}
-                className="w-full h-56 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                className="w-full h-56 object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
               />
               {project.featured && (
                 <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -116,9 +137,10 @@ const FeaturedProjects: React.FC = () => {
                 </a>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };

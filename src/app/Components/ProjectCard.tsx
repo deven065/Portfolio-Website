@@ -17,15 +17,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     ctaLink,
 }) => {
     return (
-        <div className="bg-white rounded-2xl overflow-hidden shadow-md mb-10">
+        <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 mb-10">
             {/* Image */}
-            <div className="w-full">
+            <div className="w-full relative overflow-hidden">
                 <Image
                     src={image}
                     alt={title}
                     width={1200}
                     height={700}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
                 />
             </div>
 

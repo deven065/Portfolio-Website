@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 const Hero: React.FC = () => {
-  const animatedLine = "Full-Stack Developer";
+  const animatedLine = "Software Developer Engineer";
   const [currentText, setCurrentText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [direction, setDirection] = useState<"forward" | "backward">("forward");
