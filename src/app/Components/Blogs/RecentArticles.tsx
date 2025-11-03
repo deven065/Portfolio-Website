@@ -138,7 +138,7 @@ export default function RecentArticles() {
           viewport={{ once: true }}
         >
           <AnimatePresence>
-            {articles.map((article, idx) => (
+            {articles.map((article) => (
               <motion.div
                 key={article.title}
                 layout

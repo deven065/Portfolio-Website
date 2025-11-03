@@ -64,7 +64,7 @@ const ProjectsSection = () => {
         viewport={{ once: true }}
       >
         <AnimatePresence>
-          {projects.map((project, idx) => (
+          {projects.map((project) => (
             <motion.div
               key={project.title}
               layout
