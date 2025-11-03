@@ -2,18 +2,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const isActive = (route: string) => pathname === route;
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+    <header className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-sm z-50 transition-all duration-300">
       <div className="flex items-center justify-between px-4 py-3 lg:px-12">
 
         {/* Logo */}
@@ -52,11 +54,24 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        {/* CTA Buttons */}
-        <div className="hidden md:flex gap-4">
+        {/* CTA Buttons & Dark Mode Toggle */}
+        <div className="hidden md:flex gap-4 items-center">
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-100 dark-mode-hover transition-all duration-300 group"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5 text-yellow-500 group-hover:rotate-90 transition-transform duration-300" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
+            )}
+          </button>
+
           <Link
             href="/projects"
-            className="px-5 py-2 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-50 transition"
+            className="px-5 py-2 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-50 dark-mode-hover transition"
           >
             View Projects
           </Link>
@@ -68,10 +83,23 @@ const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* Hamburger Icon */}
-        <button onClick={toggleMobileMenu} className="md:hidden">
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Menu & Dark Mode Toggle */}
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-100 dark-mode-hover transition-all duration-300"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5 text-yellow-500" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-700" />
+            )}
+          </button>
+          <button onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

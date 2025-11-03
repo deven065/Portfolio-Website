@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +31,10 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header /> {/* Always on top */}
-  <main className="pt-12">{children}</main>
+        <ThemeProvider>
+          <Header /> {/* Always on top */}
+          <main className="pt-12">{children}</main>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
