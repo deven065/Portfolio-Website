@@ -91,6 +91,19 @@ const projects: Project[] = [
     liveLink: "https://google-blond-eta.vercel.app/",
     codeLink: "https://github.com/deven065/Google.git",
   },
+  {
+    id: 7,
+    title: "Data Analyst Portfolio - Ashok Choudhary",
+    description: {
+      main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
+      note: "Built with modern web technologies to reflect the client's professional expertise in data analysis and business intelligence."
+    },
+    image: "/ashok-portfolio.png",
+    tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion", "Responsive Design"],
+    tag: "Full Stack",
+    liveLink: "https://ashokfolio.vercel.app/",
+    codeLink: "https://github.com/deven065/ashok-portfolio.git",
+  },
 ];
 
 // Framer Motion Variants (TypeScript fix applied)
