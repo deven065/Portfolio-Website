@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     alt={title}
                     width={1200}
                     height={700}
-                    className="w-full h-auto object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    className="w-full h-auto object-cover transform transition-transform duration-200 ease-out will-change-transform group-hover:scale-105"
                 />
             </div>
 

@@ -1,49 +1,77 @@
+"use client";
+
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { JSX } from "react";
+import { motion } from "framer-motion";
 
 interface ContactItemProps {
   icon: JSX.Element;
   label: string;
   value: string;
+  index: number;
 }
 
-const ContactItem: React.FC<ContactItemProps> = ({ icon, label, value }) => (
-  <div className="flex items-start space-x-3">
-    <div className="bg-blue-50 p-2 rounded-full">{icon}</div>
+const ContactItem: React.FC<ContactItemProps> = ({ icon, label, value, index }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    whileHover={{ x: 5, transition: { duration: 0.2 } }}
+    className="flex items-start space-x-3 group cursor-default"
+  >
+    <motion.div
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      transition={{ duration: 0.2 }}
+      className="bg-indigo-50 dark:bg-gray-800 dark:border dark:border-gray-700 p-2 rounded-full transition-colors duration-300 group-hover:bg-indigo-100 dark:group-hover:bg-gray-700"
+    >
+      {icon}
+    </motion.div>
     <div>
-      <p className="text-sm font-semibold text-gray-800">{label}</p>
-      <p className="text-sm text-gray-600">{value}</p>
+      <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{label}</p>
+      <p className="text-sm text-gray-900 dark:text-gray-400">{value}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
 const ContactCard: React.FC = () => {
+  const contactItems = [
+    { icon: <Mail className="w-5 h-5 text-blue-500 dark:text-blue-400" />, label: "Email", value: "devenrikame55@gmail.com" },
+    { icon: <Phone className="w-5 h-5 text-blue-500 dark:text-blue-400" />, label: "Phone", value: "+91-9833703389" },
+    { icon: <MapPin className="w-5 h-5 text-blue-500 dark:text-blue-400" />, label: "Location", value: "Mumbai, India" },
+    { icon: <Clock className="w-5 h-5 text-blue-500 dark:text-blue-400" />, label: "Response Time", value: "Usually within 24 hours" },
+  ];
+
   return (
-    <div className="max-w-md bg-white rounded-2xl shadow p-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-6">Contact Information</h2>
-      <div className="space-y-6">
-        <ContactItem
-          icon={<Mail className="w-5 h-5 text-blue-500" />}
-          label="Email"
-          value="devenrikame55@gmail.com"
-        />
-        <ContactItem
-          icon={<Phone className="w-5 h-5 text-blue-500" />}
-          label="Phone"
-          value="+91-9833703389"
-        />
-        <ContactItem
-          icon={<MapPin className="w-5 h-5 text-blue-500" />}
-          label="Location"
-          value="Mumbai, India"
-        />
-        <ContactItem
-          icon={<Clock className="w-5 h-5 text-blue-500" />}
-          label="Response Time"
-          value="Usually within 24 hours"
-        />
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="max-w-md bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-2xl shadow-xl dark:shadow-2xl hover:shadow-2xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 p-6 transition-all duration-300 border border-gray-100 hover:border-indigo-300"
+    >
+      <motion.h2
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-8"
+      >
+        Contact Information
+      </motion.h2>
+      <div className="space-y-5">
+        {contactItems.map((item, index) => (
+          <ContactItem
+            key={item.label}
+            icon={item.icon}
+            label={item.label}
+            value={item.value}
+            index={index}
+          />
+        ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

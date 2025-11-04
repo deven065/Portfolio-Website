@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Header /> {/* Always on top */}
-          <main className="pt-12">{children}</main>
+          <main className="pt-12 bg-white dark:bg-black transition-colors duration-300">{children}</main>
         </ThemeProvider>
         <Analytics />
       </body>

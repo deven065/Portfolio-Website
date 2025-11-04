@@ -42,12 +42,12 @@ const Hero: React.FC = () => {
   return (
     <section className="relative z-0 flex flex-col items-center text-center px-6 py-20 md:py-32 overflow-hidden hero-section">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark-mode-hero-bg transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark-mode-hero-bg transition-all duration-500" />
 
       {/* Floating circles animation */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob dark-mode-blob" />
-      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000 dark-mode-blob" />
-      <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-4000 dark-mode-blob" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply blur-xl opacity-15 animate-blob dark-mode-blob" />
+      <div className="absolute top-40 right-10 w-72 h-72 bg-cyan-200 rounded-full mix-blend-multiply blur-xl opacity-15 animate-blob animation-delay-2000 dark-mode-blob" />
+      <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-slate-200 rounded-full mix-blend-multiply blur-xl opacity-15 animate-blob animation-delay-4000 dark-mode-blob" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}

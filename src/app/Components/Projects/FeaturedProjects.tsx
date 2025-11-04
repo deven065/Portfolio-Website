@@ -77,7 +77,7 @@ const FeaturedProjects: React.FC = () => {
                 alt={project.title}
                 width={600}
                 height={300}
-                className="w-full h-56 object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
+                className="w-full h-56 object-cover transform transition-transform duration-200 ease-out will-change-transform group-hover:scale-105"
               />
               {project.featured && (
                 <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">

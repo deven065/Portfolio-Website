@@ -6,18 +6,19 @@ import FAQCard from "../Components/Contact/FAQCard";
 
 export default function ContactPage() {
   return (
-    <main className="bg-gray-50 min-h-screen">
+    <main className="bg-white dark:bg-black min-h-screen transition-colors duration-300">
       {/* Top Section */}
       <GetInTouchSection />
 
       {/* Main Content */}
       <section
         className="
-            max-w-6xl mx-auto 
-            px-6 lg:px-4 
+            max-w-6xl mx-auto
+            px-6 lg:px-4
             mt-15
             pb-20
             grid lg:grid-cols-3 gap-10
+            bg-white dark:bg-black
         "
         >
         {/* Left Column */}

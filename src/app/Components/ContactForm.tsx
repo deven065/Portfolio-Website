@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -54,23 +55,56 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="bg-gray-100 py-16 px-6">
+    <section id="contact" className="bg-gray-100 dark:bg-black py-24 px-6 transition-colors duration-300">
       {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-2">Get in Touch</h2>
-        <p className="text-gray-700">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="text-center max-w-2xl mx-auto mb-16"
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4"
+        >
+          Contact
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-extrabold mb-4"
+        >
+          Get in Touch
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-lg text-gray-700 dark:text-gray-300"
+        >
           Reach out to discuss opportunities or collaborations.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Form */}
-      <form
+      <motion.form
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true, margin: "-100px" }}
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-gray-100 p-0 space-y-6"
+        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl space-y-6 transition-all duration-300"
       >
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-gray-800 font-medium mb-1">
+          <label htmlFor="name" className="block text-gray-800 dark:text-gray-200 font-medium mb-1">
             Name
           </label>
           <input
@@ -80,14 +114,14 @@ const ContactForm: React.FC = () => {
             placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full rounded-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
             required
           />
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-gray-800 font-medium mb-1">
+          <label htmlFor="email" className="block text-gray-800 dark:text-gray-200 font-medium mb-1">
             Email
           </label>
           <input
@@ -97,7 +131,7 @@ const ContactForm: React.FC = () => {
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full rounded-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
             required
           />
         </div>
@@ -106,7 +140,7 @@ const ContactForm: React.FC = () => {
         <div>
           <label
             htmlFor="message"
-            className="block text-gray-800 font-medium mb-1"
+            className="block text-gray-800 dark:text-gray-200 font-medium mb-1"
           >
             Message
           </label>
@@ -117,7 +151,7 @@ const ContactForm: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="w-full rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-2xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all resize-none"
             required
           />
         </div>
@@ -130,10 +164,10 @@ const ContactForm: React.FC = () => {
             name="acceptTerms"
             checked={formData.acceptTerms}
             onChange={handleChange}
-            className="w-4 h-4"
+            className="w-4 h-4 accent-blue-600 dark:accent-blue-400"
             required
           />
-          <label htmlFor="acceptTerms" className="text-gray-700">
+          <label htmlFor="acceptTerms" className="text-gray-700 dark:text-gray-300">
             I accept the Terms
           </label>
         </div>
@@ -142,15 +176,23 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition"
+            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white px-10 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl dark:shadow-blue-500/20 dark:hover:shadow-blue-400/30"
           >
             Submit
           </button>
         </div>
-      </form>
+      </motion.form>
 
       {/* Status Message */}
-      {status && <p className="text-center mt-4 text-gray-700">{status}</p>}
+      {status && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mt-6 text-gray-700 dark:text-gray-300 font-medium"
+        >
+          {status}
+        </motion.p>
+      )}
     </section>
   );
 };

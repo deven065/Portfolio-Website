@@ -41,19 +41,45 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="bg-gray-50 py-16 px-6">
+    <section id="projects" className="bg-gray-50 py-24 px-6">
       {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <p className="text-xs font-extrabold uppercase mb-2">My Projects</p>
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="text-center max-w-2xl mx-auto mb-16"
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4"
+        >
+          My Projects
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-extrabold mb-4"
+        >
           Showcasing My Work
-        </h2>
-        <p className="text-gray-600">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-lg text-gray-600 dark-mode-text-secondary"
+        >
           Explore a selection of my completed projects, built with modern
           technologies like React and Node.js, demonstrating my full stack
           expertise and passion for innovative development.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Cards */}
       <motion.div

@@ -151,7 +151,7 @@ const AllProjects: React.FC = () => {
                 alt={project.title}
                 width={1200}
                 height={600}
-                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                className="w-full h-48 object-cover transform transition-transform duration-200 ease-out will-change-transform group-hover:scale-105"
               />
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {project.tag}

@@ -3,29 +3,30 @@ import React from "react";
 
 const ProjectsHero: React.FC = () => {
     return (
-        <section className="text-center max-w-3xl mx-auto px-4 py-16">
-            {/* Title */}
-            <h2 className="text-3xl sm:text-5xl font-extrabold">
-                <span className="text-black">My</span>
-                <span className="text-blue-500">Projects</span>
-            </h2>
+        <section className="bg-white py-20 text-center px-4">
+            <div className="max-w-3xl mx-auto">
+                {/* Title */}
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    My <span className="text-blue-600">Projects</span>
+                </h2>
 
-            {/* Description */}
-            <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
-                A collection of projects I&apos;ve built over the years, showcasing my skills in full-stack development, modern frameworks, and emerging technologies.
-            </p>
+                {/* Description */}
+                <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto mb-8">
+                    A collection of projects I&apos;ve built over the years, showcasing my skills in full-stack development, modern frameworks, and emerging technologies.
+                </p>
 
-            {/* Tages / Filters */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-600 text-sm sm:text-base">
-                    6 Projects
-                </span>
-                <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-600 text-sm sm:text-base">
-                    Full Stack Development
-                </span>
-                <span className="px-4 py-2 bg-gray-100 rounded-full text-gray-600 text-sm sm:text-base">
-                    Modern Technologies
-                </span>
+                {/* Tags / Filters */}
+                <div className="flex flex-wrap justify-center gap-4">
+                    <span className="px-5 py-2 bg-gray-100 text-gray-700 rounded-full text-sm md:text-base font-medium">
+                        6 Projects
+                    </span>
+                    <span className="px-5 py-2 bg-gray-100 text-gray-700 rounded-full text-sm md:text-base font-medium">
+                        Full Stack Development
+                    </span>
+                    <span className="px-5 py-2 bg-gray-100 text-gray-700 rounded-full text-sm md:text-base font-medium">
+                        Modern Technologies
+                    </span>
+                </div>
             </div>
         </section>
     )

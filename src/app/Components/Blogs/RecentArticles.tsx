@@ -123,12 +123,43 @@ const cardVariants = {
 
 export default function RecentArticles() {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold">Recent Articles</h2>
-        <p className="text-gray-500 mt-2">
-          Latest insights and tutorials from my development journey
-        </p>
+    <section className="py-24 md:py-32 px-4 bg-white dark:bg-black transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-20"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-sm md:text-base text-indigo-600 dark:text-blue-400 font-bold tracking-wider mb-3 uppercase"
+          >
+            Latest Posts
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Recent Articles
+          </motion.h2>
+          <motion.p
+            className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto mb-8 font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Latest insights and tutorials from my development journey
+          </motion.p>
+        </motion.div>
 
         <motion.div
           layout
@@ -138,7 +169,7 @@ export default function RecentArticles() {
           viewport={{ once: true }}
         >
           <AnimatePresence>
-            {articles.map((article) => (
+            {articles.map((article, index) => (
               <motion.div
                 key={article.title}
                 layout
@@ -146,61 +177,91 @@ export default function RecentArticles() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg"
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  transition: { duration: 0.2, type: "spring", stiffness: 300 }
+                }}
+                className="bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-2xl shadow-md dark:shadow-2xl overflow-hidden flex flex-col hover:shadow-xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 transition-all duration-300 group border-0 dark:border"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden group">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-48 object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  />
-                  <span className="absolute bottom-3 right-3 bg-black/70 text-white text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="will-change-transform"
+                  >
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      width={500}
+                      height={300}
+                      className="w-full h-48 object-cover"
+                    />
+                  </motion.div>
+                  <span className="absolute bottom-3 right-3 bg-white/95 dark:bg-black/70 backdrop-blur-sm text-gray-900 dark:text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
                     <Clock size={14} /> {article.readTime}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center text-sm text-gray-500 gap-2">
-                    <Calendar size={16} className="text-blue-500" />
-                    {article.date}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center text-sm text-gray-700 dark:text-gray-400 gap-2 mb-3">
+                    <Calendar size={16} className="text-indigo-600 dark:text-blue-400" />
+                    <span className="font-semibold text-gray-800">{article.date}</span>
                   </div>
 
-                  <h3 className="text-lg font-semibold mt-2">{article.title}</h3>
-                  <p className="text-gray-600 text-sm mt-1 flex-1">
+                  <h3 className="text-xl font-bold mt-1 mb-2 text-gray-900 dark:text-gray-100 leading-tight">{article.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm mt-1 flex-1 leading-relaxed">
                     {article.description}
                   </p>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-3">
-                    {article.tags.map((tag) => (
-                      <span
+                    {article.tags.map((tag, tagIndex) => (
+                      <motion.span
                         key={tag}
-                        className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{
+                          delay: tagIndex * 0.1,
+                          type: "spring",
+                          stiffness: 200
+                        }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:bg-purple-900/30 dark:border dark:border-purple-700 text-indigo-700 dark:text-purple-400 text-xs px-3 py-1 rounded-full transition-colors duration-300 font-bold border-0 hover:from-indigo-100 hover:to-purple-100 hover:text-indigo-800"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
                   {/* Stats + Button */}
                   <div className="flex items-center justify-between mt-4">
-                    <div className="text-gray-500 text-sm">
-                      {article.views.toLocaleString()} views · {article.likes}
+                    <div className="text-gray-700 dark:text-white text-sm font-semibold">
+                      <span className="text-gray-800 dark:text-white">{article.views.toLocaleString()} views</span> · <span className="text-gray-800 dark:text-white">{article.likes} likes</span>
                     </div>
-                    <a
+                    <motion.a
                       href={article.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-2 rounded-md flex items-center gap-1"
+                      className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 dark:bg-blue-600 hover:from-indigo-700 hover:via-purple-700 hover:to-indigo-700 dark:hover:bg-blue-500 text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all duration-300 font-bold"
+                      whileHover={{
+                        scale: 1.05,
+                        y: -2,
+                        transition: { duration: 0.2, type: "spring", stiffness: 400 }
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Read on Hashnode <ExternalLink size={14} />
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>

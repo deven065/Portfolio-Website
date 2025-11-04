@@ -43,14 +43,21 @@ const testimonials: Testimonial[] = [
         'Our collaboration with Dev.Folio was outstanding. Their ability to deliver high-quality code under tight deadlines exceeded our expectations and helped us meet critical business goals.',
         img: 'https://randomuser.me/api/portraits/men/76.jpg',
     },
+    {
+        name: 'Ashok Choudhary',
+        role: 'E-Commerece Executive, Renaissance Global Limited',
+        message:
+        'Deven did an excellent job creating my portfolio! He understood my vision clearly and delivered a clean, professional, and modern design. The communication was smooth, deadlines were met, and he even added creative touches that made it stand out. Highly recommend him for anyone wanting a high-quality portfolio.',
+        img: '/Ashok-portfolio.png',
+    }
 ];
 
 export default function Testimonials() {
     return (
-        <section className="bg-black text-white py-20">
+        <section className="bg-gray-100 dark:bg-black text-white dark:text-white py-20">
         <div className="text-center mb-14">
-            <h2 className="text-5xl font-extrabold">What Clients Say</h2>
-            <p className="text-gray-400 mt-3 text-lg">
+            <h2 className="text-5xl font-extrabold text-black dark:text-white">What Clients Say</h2>
+            <p className="text-gray-600 dark:text-gray-400 mt-3 text-lg">
             Hear from my satisfied clients and partners about my work and professionalism.
             </p>
         </div>
@@ -78,10 +85,10 @@ export default function Testimonials() {
             >
             {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={index}>
-                <div className="bg-gray-900 rounded-3xl p-8 shadow-xl flex flex-col justify-between h-full min-h-[350px]">
+                <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-xl flex flex-col justify-between h-full min-h-[350px] border border-gray-200 dark:border-gray-800">
                     <div>
-                    <div className="text-yellow-400 text-lg mb-4">{'★'.repeat(5)}</div>
-                    <p className="text-white font-medium leading-relaxed mb-6">
+                    <div className="text-yellow-400 dark:text-yellow-400 text-lg mb-4">{'★'.repeat(5)}</div>
+                    <p className="text-gray-900 dark:text-white font-medium leading-relaxed mb-6">
                         {testimonial.message}
                     </p>
                     </div>
@@ -94,8 +101,8 @@ export default function Testimonials() {
                         className="rounded-full object-cover mr-4"
                     />
                     <div>
-                        <p className="font-bold">{testimonial.name}</p>
-                        <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                        <p className="font-bold text-gray-900 dark:text-white">{testimonial.name}</p>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm">{testimonial.role}</p>
                     </div>
                     </div>
                 </div>
@@ -104,10 +111,10 @@ export default function Testimonials() {
             </Swiper>
 
             {/* Navigation Arrows */}
-            <div className="swiper-button-prev-custom absolute -left-6 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
+            <div className="swiper-button-prev-custom absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
             ←
             </div>
-            <div className="swiper-button-next-custom absolute -right-6 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-700 z-10">
+            <div className="swiper-button-next-custom absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
             →
             </div>
 
@@ -118,18 +125,25 @@ export default function Testimonials() {
         {/* Custom Dot Styling */}
         <style jsx global>{`
             .swiper-pagination-custom .swiper-pagination-bullet {
-            background-color: white;
-            opacity: 0.4;
+            background-color: #6b7280;
+            opacity: 0.6;
             width: 10px;
             height: 10px;
             margin: 0 5px;
             border-radius: 50%;
             transition: all 0.3s ease;
             }
+            body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet {
+            background-color: white;
+            opacity: 0.4;
+            }
             .swiper-pagination-custom .swiper-pagination-bullet-active {
-            background-color: #facc15;
+            background-color: #3b82f6;
             opacity: 1;
             transform: scale(1.3);
+            }
+            body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet-active {
+            background-color: #facc15;
             }
         `}</style>
         </section>
