@@ -1,11 +1,14 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, FreeMode } from 'swiper/modules';
 import Image from 'next/image';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Testimonial = {
     name: string;
@@ -53,21 +56,46 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function Testimonials() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+
+    useGSAP(() => {
+        if (!sectionRef.current || !titleRef.current) return;
+
+        // Animate title
+        gsap.fromTo(
+            titleRef.current,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: titleRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+                },
+            }
+        );
+    }, { scope: sectionRef });
+
     return (
-        <section className="bg-gray-100 dark:bg-black text-white dark:text-white py-20">
+        <section ref={sectionRef} className="bg-gray-100 dark:bg-black text-white dark:text-white py-20">
         <div className="text-center mb-14">
-            <h2 className="text-5xl font-extrabold text-black dark:text-white">What Clients Say</h2>
+            <h2 ref={titleRef} className="text-5xl font-extrabold text-black dark:text-white">What Clients Say</h2>
             <p className="text-gray-600 dark:text-gray-400 mt-3 text-lg">
             Hear from my satisfied clients and partners about my work and professionalism.
             </p>
         </div>
 
-        <div className="relative max-w-[90%] md:max-w-[80%] mx-auto">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-8">
             {/* Swiper Carousel */}
             <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
+            modules={[Navigation, Pagination, Autoplay, FreeMode]}
+            spaceBetween={20}
             slidesPerView={1}
+            centeredSlides={false}
             pagination={{
                 el: '.swiper-pagination-custom',
                 clickable: true,
@@ -76,12 +104,30 @@ export default function Testimonials() {
                 nextEl: '.swiper-button-next-custom',
                 prevEl: '.swiper-button-prev-custom',
             }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+                waitForTransition: true,
+            }}
+            speed={3000}
+            freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumRatio: 0.5,
+            }}
+            effect="slide"
+            grabCursor={true}
             breakpoints={{
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                640: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
             }}
             loop
+            loopAdditionalSlides={2}
+            slidesPerGroup={1}
+            allowTouchMove={true}
+            className="testimonials-swiper !pb-12"
             >
             {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={index}>
@@ -111,10 +157,10 @@ export default function Testimonials() {
             </Swiper>
 
             {/* Navigation Arrows */}
-            <div className="swiper-button-prev-custom absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
+            <div className="swiper-button-prev-custom absolute left-0 md:-left-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
             ←
             </div>
-            <div className="swiper-button-next-custom absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
+            <div className="swiper-button-next-custom absolute right-0 md:-right-6 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 z-10 shadow-lg">
             →
             </div>
 
@@ -124,26 +170,55 @@ export default function Testimonials() {
 
         {/* Custom Dot Styling */}
         <style jsx global>{`
+            .testimonials-swiper {
+                overflow: hidden;
+                padding: 20px 0;
+            }
+            .testimonials-swiper .swiper-wrapper {
+                align-items: stretch;
+            }
+            .testimonials-swiper .swiper-slide {
+                height: auto;
+                display: flex;
+                transition: opacity 0.6s ease !important;
+                opacity: 0.85;
+            }
+            .testimonials-swiper .swiper-slide > div {
+                width: 100%;
+            }
+            .testimonials-swiper .swiper-slide-active {
+                opacity: 1;
+            }
+            .testimonials-swiper .swiper-slide-next,
+            .testimonials-swiper .swiper-slide-prev {
+                opacity: 0.9;
+            }
             .swiper-pagination-custom .swiper-pagination-bullet {
-            background-color: #6b7280;
-            opacity: 0.6;
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+                background-color: #6b7280;
+                opacity: 0.6;
+                width: 10px;
+                height: 10px;
+                margin: 0 5px;
+                border-radius: 50%;
+                transition: all 0.3s ease;
             }
             body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet {
-            background-color: white;
-            opacity: 0.4;
+                background-color: white;
+                opacity: 0.4;
             }
             .swiper-pagination-custom .swiper-pagination-bullet-active {
-            background-color: #3b82f6;
-            opacity: 1;
-            transform: scale(1.3);
+                background-color: #3b82f6;
+                opacity: 1;
+                transform: scale(1.3);
             }
             body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet-active {
-            background-color: #facc15;
+                background-color: #facc15;
+            }
+            .testimonials-swiper .swiper-slide > div {
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            .testimonials-swiper .swiper-slide-active > div {
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
         `}</style>
         </section>

@@ -3,7 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface StatItemProps {
   value: string;
@@ -14,8 +19,38 @@ interface StatItemProps {
 
 const StatItem: React.FC<StatItemProps> = ({ value, label, suffix = "", delay = 0 }) => {
   const ref = useRef(null);
+  const numberRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const numericValue = parseInt(value.replace(/[^0-9]/g, ""));
+  const [displayValue, setDisplayValue] = useState(0);
+  const targetValue = parseInt(value);
+
+  useGSAP(() => {
+    if (!isInView || !numberRef.current) return;
+
+    // Counter animation
+    gsap.to(
+      { val: 0 },
+      {
+        val: targetValue,
+        duration: 2,
+        delay: delay,
+        ease: "power2.out",
+        onUpdate: function() {
+          setDisplayValue(Math.round(this.targets()[0].val));
+        },
+      }
+    );
+
+    // Add floating animation
+    gsap.to(numberRef.current, {
+      y: -5,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: delay + 2,
+    });
+  }, { dependencies: [isInView], scope: ref });
 
   return (
     <motion.div
@@ -25,14 +60,12 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, suffix = "", delay = 
       transition={{ duration: 0.6, delay }}
       className="text-center"
     >
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={isInView ? { scale: 1 } : { scale: 0 }}
-        transition={{ duration: 0.8, delay: delay + 0.2, type: "spring", stiffness: 200 }}
-        className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 bg-gradient-to-r from-slate-700 via-blue-600 to-cyan-600 dark:from-blue-400 dark:via-purple-500 dark:via-pink-500 dark:to-orange-400 bg-clip-text text-transparent"
+      <div
+        ref={numberRef}
+        className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 bg-gradient-to-r from-slate-700 via-blue-600 to-cyan-600 dark:from-blue-400 dark:via-pink-500 dark:to-orange-400 bg-clip-text text-transparent"
       >
-        {isInView ? `${value}${suffix}` : "0"}
-      </motion.div>
+        {displayValue}{suffix}
+      </div>
       <p className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary font-medium">
         {label}
       </p>

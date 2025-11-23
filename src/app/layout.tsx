@@ -4,6 +4,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header";
 import { ThemeProvider } from "./context/ThemeContext";
+import CustomCursor from "./Components/CustomCursor";
+import PageTransition from "./Components/PageTransition";
+import LoadingScreen from "./Components/LoadingScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +35,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
+          <LoadingScreen />
+          <CustomCursor />
           <Header /> {/* Always on top */}
-          <main className="pt-12 bg-white dark:bg-black transition-colors duration-300">{children}</main>
+          <PageTransition>
+            <main className="pt-12 bg-white dark:bg-black transition-colors duration-300">{children}</main>
+          </PageTransition>
         </ThemeProvider>
         <Analytics />
       </body>

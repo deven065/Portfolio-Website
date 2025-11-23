@@ -1,7 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +16,35 @@ const ContactForm: React.FC = () => {
     acceptTerms: false,
   });
   const [status, setStatus] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const fieldsRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!formRef.current || !fieldsRef.current) return;
+
+    // Animate form fields with stagger
+    gsap.fromTo(
+      fieldsRef.current.children,
+      {
+        opacity: 0,
+        x: -50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: formRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, { scope: formRef });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,6 +79,17 @@ const ContactForm: React.FC = () => {
       if (res.ok) {
         setStatus("Email sent successfully!");
         setFormData({ name: "", email: "", message: "", acceptTerms: false });
+        
+        // Success animation
+        if (formRef.current) {
+          gsap.to(formRef.current, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "back.out(1.7)",
+            yoyo: true,
+            repeat: 1,
+          });
+        }
       } else {
         setStatus("Failed to send email. Please try again.");
       }
@@ -94,14 +139,12 @@ const ContactForm: React.FC = () => {
       </motion.div>
 
       {/* Form */}
-      <motion.form
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true, margin: "-100px" }}
+      <form
+        ref={formRef}
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl space-y-6 transition-all duration-300"
+        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl transition-all duration-300"
       >
+        <div ref={fieldsRef} className="space-y-6">
         {/* Name */}
         <div>
           <label htmlFor="name" className="block text-gray-800 dark:text-gray-200 font-medium mb-1">
@@ -181,7 +224,8 @@ const ContactForm: React.FC = () => {
             Submit
           </button>
         </div>
-      </motion.form>
+        </div>
+      </form>
 
       {/* Status Message */}
       {status && (

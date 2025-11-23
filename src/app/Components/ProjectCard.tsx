@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 interface ProjectCardProps {
     image: string;
     title: string;
@@ -16,21 +21,84 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     cta = "View Projects",
     ctaLink,
 }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (!cardRef.current) return;
+
+        // Magnetic hover effect
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!cardRef.current) return;
+            const rect = cardRef.current.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(cardRef.current, {
+                rotationY: x / 20,
+                rotationX: -y / 20,
+                transformPerspective: 1000,
+                duration: 0.5,
+                ease: "power2.out",
+            });
+
+            if (imageRef.current) {
+                gsap.to(imageRef.current, {
+                    scale: 1.1,
+                    duration: 0.5,
+                    ease: "power2.out",
+                });
+            }
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(cardRef.current, {
+                rotationY: 0,
+                rotationX: 0,
+                duration: 0.5,
+                ease: "power2.out",
+            });
+
+            if (imageRef.current) {
+                gsap.to(imageRef.current, {
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "power2.out",
+                });
+            }
+        };
+
+        cardRef.current.addEventListener("mousemove", handleMouseMove);
+        cardRef.current.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            if (cardRef.current) {
+                cardRef.current.removeEventListener("mousemove", handleMouseMove);
+                cardRef.current.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        };
+    }, { scope: cardRef });
+
     return (
-        <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 mb-10">
+        <div 
+            ref={cardRef}
+            className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 mb-10"
+            style={{ transformStyle: "preserve-3d" }}
+        >
             {/* Image */}
-            <div className="w-full relative overflow-hidden">
+            <div ref={imageRef} className="w-full relative overflow-hidden">
                 <Image
                     src={image}
                     alt={title}
                     width={1200}
                     height={700}
-                    className="w-full h-auto object-cover transform transition-transform duration-200 ease-out will-change-transform group-hover:scale-105"
+                    className="w-full h-auto object-cover will-change-transform"
                 />
             </div>
 
             {/* Black Overlay */}
-            <div className="bg-black text-white flex flex-col md:flex-row justify-between p-6 rounded-b-2xl">
+            <div ref={contentRef} className="bg-black text-white flex flex-col md:flex-row justify-between p-6 rounded-b-2xl">
                 {/* Left side : Title + Features */}
                 <div className="md:w-1/2">
                     <h3 className="text-lg md:text-xl font-bold mb-3">

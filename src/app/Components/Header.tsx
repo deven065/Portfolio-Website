@@ -1,33 +1,97 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const headerRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   const isActive = (route: string) => pathname === route;
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
+  useGSAP(() => {
+    if (!headerRef.current) return;
+
+    // Animate header on load
+    gsap.fromTo(
+      headerRef.current,
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    );
+
+    // Animate logo
+    if (logoRef.current) {
+      gsap.fromTo(
+        logoRef.current,
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.6, delay: 0.3, ease: "back.out(1.7)" }
+      );
+    }
+
+    // Animate nav items
+    if (navRef.current) {
+      gsap.fromTo(
+        navRef.current.children,
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.1, duration: 0.5, delay: 0.4, ease: "power2.out" }
+      );
+    }
+
+    // Animate CTA buttons
+    if (ctaRef.current) {
+      gsap.fromTo(
+        ctaRef.current.children,
+        { x: 50, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.1, duration: 0.6, delay: 0.5, ease: "back.out(1.7)" }
+      );
+    }
+  }, { scope: headerRef });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!headerRef.current) return;
+      
+      if (window.scrollY > 50) {
+        headerRef.current.style.backdropFilter = "blur(10px)";
+        headerRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+        headerRef.current.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
+      } else {
+        headerRef.current.style.backdropFilter = "blur(0px)";
+        headerRef.current.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        headerRef.current.style.boxShadow = "0 1px 3px 0 rgba(0, 0, 0, 0.1)";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-sm z-50 transition-all duration-300">
+    <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-sm z-50 transition-all duration-300">
       <div className="flex items-center justify-between px-4 py-3 lg:px-12">
 
         {/* Logo */}
         <Link
+          ref={logoRef}
           href="/"
-          className="text-xl font-extrabold tracking-wide select-none cursor-pointer"
+          className="text-xl font-extrabold tracking-wide select-none cursor-pointer hover:scale-110 transition-transform duration-300"
         >
           Dev<span className="text-black">.</span>Folio
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex flex-row gap-8 text-sm">
+        <nav ref={navRef} className="hidden md:flex flex-row gap-8 text-sm">
           <Link
             href="/projects"
             className={`${isActive("/projects") ? "text-blue-500 font-semibold" : "hover:text-blue-500"}`}
@@ -55,7 +119,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* CTA Buttons & Dark Mode Toggle */}
-        <div className="hidden md:flex gap-4 items-center">
+        <div ref={ctaRef} className="hidden md:flex gap-4 items-center">
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
