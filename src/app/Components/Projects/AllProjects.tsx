@@ -46,6 +46,18 @@ const projects: Project[] = [
   },
   {
     id: 3,
+    title: "DevOps Portfolio Website",
+    description: {
+      main: "A personal portfolio website showcasing clients DevOps skills and projects. Built with Next.js and Tailwind CSS, the site features a responsive design, smooth animations, and a modern layout to effectively present his professional background in DevOps practices, CI/CD pipelines, and cloud infrastructure management.",
+    },
+    image: "devops-portfolio.png",
+    tech: ["Next.js", "TailwindCSS", "TypeScript", "Framer Motion", "Responsive Design"],
+    tag: "Full Stack",
+    liveLink: "https://devops-portfolio-website.vercel.app/",
+    codeLink: "https://github.com/deven065/Dipen-portfolio.git",
+  },
+  {
+    id: 4,
     title: "Chef Claude",
     description:
       "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
@@ -58,7 +70,7 @@ const projects: Project[] = [
       "Sorry, this project will not work as expected (API is deprecated)",
   },
   {
-    id: 4,
+    id: 5,
     title: "Jira Automation",
     description:
       "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
@@ -69,7 +81,7 @@ const projects: Project[] = [
     codeLink: "",
   },
   {
-    id: 5,
+    id: 6,
     title: "Portfolio Website",
     description:
       "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my professional background.",
@@ -81,7 +93,7 @@ const projects: Project[] = [
     codeLink: "https://github.com/deven065/Portfolio-Website.git",
   },
   {
-    id: 6,
+    id: 7,
     title: "Google Clone",
     description:
       "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
@@ -92,7 +104,7 @@ const projects: Project[] = [
     codeLink: "https://github.com/deven065/Google.git",
   },
   {
-    id: 7,
+    id: 8,
     title: "Data Analyst Portfolio - Ashok Choudhary",
     description: {
       main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
