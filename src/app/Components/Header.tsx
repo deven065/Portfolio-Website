@@ -26,16 +26,16 @@ const Header: React.FC = () => {
     // Animate header on load
     gsap.fromTo(
       headerRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
     );
 
     // Animate logo
     if (logoRef.current) {
       gsap.fromTo(
         logoRef.current,
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.6, delay: 0.3, ease: "back.out(1.7)" }
+        { x: -30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, delay: 0.2, ease: "power2.out" }
       );
     }
 
@@ -43,8 +43,8 @@ const Header: React.FC = () => {
     if (navRef.current) {
       gsap.fromTo(
         navRef.current.children,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.5, delay: 0.4, ease: "power2.out" }
+        { y: -15, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, delay: 0.25, ease: "power2.out" }
       );
     }
 
@@ -52,8 +52,8 @@ const Header: React.FC = () => {
     if (ctaRef.current) {
       gsap.fromTo(
         ctaRef.current.children,
-        { x: 50, opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.1, duration: 0.6, delay: 0.5, ease: "back.out(1.7)" }
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.05, duration: 0.4, delay: 0.3, ease: "power2.out" }
       );
     }
   }, { scope: headerRef });

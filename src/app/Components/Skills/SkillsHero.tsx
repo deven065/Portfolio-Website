@@ -24,16 +24,16 @@ const SkillsHero: React.FC = () => {
 
         gsap.fromTo(
             titleRef.current.children,
-            { opacity: 0, y: 60, rotationX: -90, scale: 0.5 },
+            { opacity: 0, y: 30, rotationX: -90, scale: 0.8 },
             {
                 opacity: 1,
                 y: 0,
                 rotationX: 0,
                 scale: 1,
-                stagger: 0.04,
-                duration: 1,
-                ease: "elastic.out(1, 0.5)",
-                delay: 0.2,
+                stagger: 0.02,
+                duration: 0.6,
+                ease: "power3.out",
+                delay: 0.1,
             }
         );
     }, { scope: sectionRef });

@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
         nameRef.current,
         {
           opacity: 0,
-          y: 100,
+          y: 50,
           rotationX: -90,
           transformPerspective: 1000,
         },
@@ -58,20 +58,20 @@ const Hero: React.FC = () => {
           opacity: 1,
           y: 0,
           rotationX: 0,
-          duration: 1.4,
-          ease: "power4.out",
-          delay: 0.3,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.2,
         }
       );
 
       // Add floating animation to name
       gsap.to(nameRef.current, {
-        y: -10,
-        duration: 2,
+        y: -8,
+        duration: 1.5,
         repeat: -1,
         yoyo: true,
-        ease: "power1.inOut",
-        delay: 1.5,
+        ease: "sine.inOut",
+        delay: 0.8,
       });
     }
 
@@ -106,17 +106,17 @@ const Hero: React.FC = () => {
         ctaRef.current.children,
         {
           opacity: 0,
-          y: 50,
-          scale: 0.8,
+          y: 30,
+          scale: 0.9,
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "back.out(1.7)",
-          delay: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+          delay: 0.6,
         }
       );
     }

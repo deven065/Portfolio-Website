@@ -31,72 +31,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         const card = cardRef.current;
         const image = imageRef.current;
 
-        // Subtle 3D tilt effect
-        const handleMouseMove = (e: MouseEvent) => {
-            if (!card) return;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            gsap.to(card, {
-                rotationY: x / 50,
-                rotationX: -y / 50,
-                transformPerspective: 1000,
-                duration: 0.3,
-                ease: "power1.out",
-            });
-
-            if (image) {
-                gsap.to(image, {
-                    scale: 1.05,
-                    duration: 0.3,
-                    ease: "power1.out",
-                });
-            }
-        };
-
-        const handleMouseLeave = () => {
-            if (!card) return;
-            
-            gsap.to(card, {
-                rotationY: 0,
-                rotationX: 0,
-                duration: 0.3,
-                ease: "power1.out",
-            });
-
-            if (image) {
-                gsap.to(image, {
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "power1.out",
-                });
-            }
-        };
-
-        card.addEventListener("mousemove", handleMouseMove);
-        card.addEventListener("mouseleave", handleMouseLeave);
-
-        return () => {
-            card.removeEventListener("mousemove", handleMouseMove);
-            card.removeEventListener("mouseleave", handleMouseLeave);
-        };
+        // Disabled animations for maximum performance on live domain
+        // Images load and display instantly without any lag
     }, { scope: cardRef });
 
     return (
         <div 
             ref={cardRef}
-            className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 mb-10"
-            style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+            className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200 mb-10"
         >
             {/* Image */}
-            <div ref={imageRef} className="w-full relative overflow-hidden">
+            <div className="w-full relative overflow-hidden">
                 <Image
                     src={image}
                     alt={title}
                     width={1200}
                     height={700}
-                    className="w-full h-auto object-cover will-change-transform"
+                    className="w-full h-auto object-cover"
+                    quality={85}
+                    loading="lazy"
                 />
             </div>
 
