@@ -58,17 +58,21 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, suffix = "", delay = 
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay }}
-      className="text-center"
+      className="text-center group"
     >
-      <div
-        ref={numberRef}
-        className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 bg-gradient-to-r from-slate-700 via-blue-600 to-cyan-600 dark:from-blue-400 dark:via-pink-500 dark:to-orange-400 bg-clip-text text-transparent"
-      >
-        {displayValue}{suffix}
+      <div className="relative inline-block p-8 rounded-3xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+        <div
+          ref={numberRef}
+          className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500 bg-clip-text text-transparent"
+        >
+          {displayValue}{suffix}
+        </div>
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 font-semibold">
+          {label}
+        </p>
+        {/* Decorative gradient line */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-24 transition-all duration-300"></div>
       </div>
-      <p className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary font-medium">
-        {label}
-      </p>
     </motion.div>
   );
 };
@@ -82,8 +86,14 @@ const StatisticsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark-mode-hero-bg">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark-mode-hero-bg overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,13 +101,13 @@ const StatisticsSection: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <p className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4">
+          <p className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4 uppercase">
             Achievements
           </p>
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">
             Numbers That Speak
           </h2>
-          <p className="text-lg text-gray-600 dark-mode-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary max-w-2xl mx-auto leading-relaxed">
             A glimpse of my journey and impact through the years
           </p>
         </motion.div>

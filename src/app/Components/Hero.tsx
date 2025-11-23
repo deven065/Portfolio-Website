@@ -14,6 +14,32 @@ const Hero: React.FC = () => {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const blobsRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const mousePosRef = useRef({ x: 0, y: 0 });
+  const rafId = useRef<number | null>(null);
+
+  useEffect(() => {
+    const updateMousePos = () => {
+      setMousePos(mousePosRef.current);
+      rafId.current = requestAnimationFrame(updateMousePos);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      mousePosRef.current = { x, y };
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    updateMousePos();
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, []);
 
   useGSAP(() => {
     if (!heroRef.current) return;
@@ -142,14 +168,22 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative pointer-events-auto max-w-4xl w-full z-10"
+        className="relative pointer-events-auto max-w-4xl w-full z-10 transform-3d"
+        style={{
+          transform: `perspective(1000px) rotateY(${mousePos.x * 5}deg) rotateX(${-mousePos.y * 5}deg)`,
+          transition: "transform 0.3s ease-out"
+        }}
       >
         {/* Greeting */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm md:text-base text-gray-600 dark-mode-text-secondary mb-4 font-mono tracking-wider"
+          className="text-sm md:text-base text-gray-600 dark-mode-text-secondary mb-4 font-mono tracking-wider parallax-layer-1"
+          style={{
+            transform: `translateZ(50px) translateX(${mousePos.x * 10}px) translateY(${mousePos.y * 10}px)`,
+            transition: "transform 0.3s ease-out"
+          }}
         >
           Hi, my name is
         </motion.p>
@@ -157,8 +191,12 @@ const Hero: React.FC = () => {
         {/* Name */}
         <h1
           ref={nameRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 hero-name"
-          style={{ transformStyle: "preserve-3d" }}
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 hero-name gradient-text parallax-layer-2"
+          style={{ 
+            transformStyle: "preserve-3d",
+            transform: `translateZ(100px) translateX(${mousePos.x * 20}px) translateY(${mousePos.y * 20}px)`,
+            transition: "transform 0.3s ease-out"
+          }}
         >
           Deven Rikame
         </h1>
@@ -168,11 +206,15 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-2xl md:text-4xl font-semibold mb-8 h-12 md:h-16 flex items-center justify-center hero-subtitle"
+          className="text-2xl md:text-4xl font-semibold mb-8 h-12 md:h-16 flex items-center justify-center hero-subtitle parallax-layer-1"
+          style={{
+            transform: `translateZ(50px) translateX(${mousePos.x * 15}px) translateY(${mousePos.y * 15}px)`,
+            transition: "transform 0.3s ease-out"
+          }}
         >
           <span className="inline-block text-center" style={{ minWidth: `${animatedLine.length + 1}ch` }}>
             {currentText}
-            <span className="animate-pulse ml-1">|</span>
+            <span className="animate-pulse ml-1 neon-border">|</span>
           </span>
         </motion.div>
 
@@ -181,7 +223,13 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-lg md:text-xl text-gray-700 dark-mode-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-gray-700 dark-mode-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed glass shimmer"
+          style={{
+            transform: `translateZ(30px) translateX(${mousePos.x * 8}px) translateY(${mousePos.y * 8}px)`,
+            transition: "transform 0.3s ease-out",
+            padding: "1.5rem",
+            borderRadius: "1rem"
+          }}
         >
           I build modern, scalable web applications with a focus on clean code, seamless user experience, and innovative solutions. Let&apos;s collaborate to turn your ideas into reality.
         </motion.p>
@@ -190,16 +238,20 @@ const Hero: React.FC = () => {
         <div
           ref={ctaRef}
           className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center"
+          style={{
+            transform: `translateZ(80px) translateX(${mousePos.x * 12}px) translateY(${mousePos.y * 12}px)`,
+            transition: "transform 0.3s ease-out"
+          }}
         >
           <a
             href="#projects"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-center transform hover:scale-105 hero-button-primary"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-center transform hover:scale-105 hero-button-primary ripple glow"
           >
             View My Work
           </a>
           <a
             href="#contact"
-            className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 text-center transform hover:scale-105 hero-button-secondary"
+            className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 text-center transform hover:scale-105 hero-button-secondary ripple holographic"
           >
             Contact Me
           </a>

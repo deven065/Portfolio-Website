@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 bg-white dark:bg-black text-gray-800 dark:text-gray-300 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-10">
+    <footer className="relative z-50 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-950 text-gray-800 dark:text-gray-300 transition-colors duration-300 border-t border-gray-200/50 dark:border-gray-800/50">
+      <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
         {/* Branding */}
         <div>
-          <h2 className="text-2xl font-bold text-indigo-600 dark:text-blue-600">Dev.Folio</h2>
-          <p className="mt-4 text-sm text-gray-900 dark:text-gray-300">
+          <h2 className="text-2xl font-bold gradient-text">Dev.Folio</h2>
+          <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Crafting digital experiences with passion. Full-stack developer dedicated to creating innovative and user-friendly web applications.
           </p>
           <div className="flex items-center gap-2 mt-4 text-sm text-gray-900 dark:text-gray-300">

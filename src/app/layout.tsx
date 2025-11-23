@@ -7,6 +7,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import CustomCursor from "./Components/CustomCursor";
 import PageTransition from "./Components/PageTransition";
 import LoadingScreen from "./Components/LoadingScreen";
+import ParticleBackground from "./Components/ParticleBackground";
+import MorphingShapes from "./Components/MorphingShapes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +38,12 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LoadingScreen />
+          <ParticleBackground />
+          <MorphingShapes />
           <CustomCursor />
           <Header /> {/* Always on top */}
           <PageTransition>
-            <main className="pt-12 bg-white dark:bg-black transition-colors duration-300">{children}</main>
+            <main className="pt-12 bg-white dark:bg-black transition-colors duration-300 relative z-10">{children}</main>
           </PageTransition>
         </ThemeProvider>
         <Analytics />

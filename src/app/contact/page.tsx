@@ -15,10 +15,8 @@ export default function ContactPage() {
         className="
             max-w-6xl mx-auto
             px-6 lg:px-4
-            mt-15
-            pb-20
+            py-20
             grid lg:grid-cols-3 gap-10
-            bg-white dark:bg-black
         "
         >
         {/* Left Column */}

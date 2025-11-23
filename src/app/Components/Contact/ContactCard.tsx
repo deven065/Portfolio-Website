@@ -45,18 +45,16 @@ const ContactCard: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="max-w-md bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-2xl shadow-xl dark:shadow-2xl hover:shadow-2xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 p-6 transition-all duration-300 border border-gray-100 hover:border-indigo-300"
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.3 } }}
+      className="max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-indigo-500/20 dark:hover:shadow-indigo-500/30 p-8 transition-all duration-300"
     >
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        viewport={{ once: true }}
-        className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-8"
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-xl font-extrabold gradient-text mb-8"
       >
         Contact Information
       </motion.h2>

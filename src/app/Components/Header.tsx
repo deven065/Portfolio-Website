@@ -78,70 +78,70 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-sm z-50 transition-all duration-300">
-      <div className="flex items-center justify-between px-4 py-3 lg:px-12">
+    <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-lg z-50 transition-all duration-300 glass border-b border-gray-200/50 dark:border-gray-700/50">
+      <div className="flex items-center justify-between px-6 py-5 lg:px-16">
 
         {/* Logo */}
         <Link
           ref={logoRef}
           href="/"
-          className="text-xl font-extrabold tracking-wide select-none cursor-pointer hover:scale-110 transition-transform duration-300"
+          className="text-3xl md:text-4xl font-black tracking-tight select-none cursor-pointer hover:scale-105 transition-all duration-300 gradient-text drop-shadow-lg"
         >
-          Dev<span className="text-black">.</span>Folio
+          Dev<span className="text-black dark:text-white">.</span>Folio
         </Link>
 
         {/* Desktop Nav */}
-        <nav ref={navRef} className="hidden md:flex flex-row gap-8 text-sm">
+        <nav ref={navRef} className="hidden md:flex flex-row gap-10 text-base font-medium">
           <Link
             href="/projects"
-            className={`${isActive("/projects") ? "text-blue-500 font-semibold" : "hover:text-blue-500"}`}
+            className={`${isActive("/projects") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
           >
             Projects
           </Link>
           <Link
             href="/skills"
-            className={`${isActive("/skills") ? "text-blue-500 font-semibold" : "hover:text-blue-500"}`}
+            className={`${isActive("/skills") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
           >
             Skills
           </Link>
           <Link
             href="/blogs"
-            className={`${isActive("/blogs") ? "text-blue-500 font-semibold" : "hover:text-blue-500"}`}
+            className={`${isActive("/blogs") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
           >
             Blogs
           </Link>
           <Link
             href="/contact"
-            className={`${isActive("/contact") ? "text-blue-500 font-semibold" : "hover:text-blue-500"}`}
+            className={`${isActive("/contact") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
           >
             Contact
           </Link>
         </nav>
 
         {/* CTA Buttons & Dark Mode Toggle */}
-        <div ref={ctaRef} className="hidden md:flex gap-4 items-center">
+        <div ref={ctaRef} className="hidden md:flex gap-5 items-center">
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 dark-mode-hover transition-all duration-300 group"
+            className="p-3 rounded-full hover:bg-gray-100 dark-mode-hover transition-all duration-300 group shadow-md hover:shadow-lg"
             aria-label="Toggle dark mode"
           >
             {theme === "dark" ? (
-              <Sun className="w-5 h-5 text-yellow-500 group-hover:rotate-90 transition-transform duration-300" />
+              <Sun className="w-6 h-6 text-yellow-500 group-hover:rotate-90 transition-transform duration-300" />
             ) : (
-              <Moon className="w-5 h-5 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
+              <Moon className="w-6 h-6 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
             )}
           </button>
 
           <Link
             href="/projects"
-            className="px-5 py-2 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-50 dark-mode-hover transition"
+            className="px-7 py-3 border-2 border-blue-500 text-blue-500 rounded-full text-base font-semibold hover:bg-blue-50 dark-mode-hover hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
           >
             View Projects
           </Link>
           <Link
             href="/contact"
-            className="px-5 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition"
+            className="px-7 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-base font-semibold hover:from-blue-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Get in Touch
           </Link>

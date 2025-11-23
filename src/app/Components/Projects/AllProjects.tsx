@@ -145,18 +145,39 @@ const AllProjects: React.FC = () => {
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition relative h-full flex flex-col [transform-origin:center]"
           >
             {/* Image */}
-            <div className="relative group overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1200}
-                height={600}
-                className="w-full h-48 object-cover transform transition-transform duration-200 ease-out will-change-transform group-hover:scale-105"
-              />
-              <span className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">
+            <motion.div 
+              className="relative group overflow-hidden"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={600}
+                  className="w-full h-48 object-cover will-change-transform"
+                  style={{ 
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden"
+                  }}
+                />
+              </motion.div>
+              <motion.span 
+                className="absolute top-3 right-3 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+              >
                 {project.tag}
-              </span>
-            </div>
+              </motion.span>
+            </motion.div>
 
             {/* Content */}
             <div className="p-6 flex flex-col flex-1">
@@ -208,7 +229,7 @@ const AllProjects: React.FC = () => {
                     href={project.codeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 border border-gray-300 text-gray-700 text-sm py-2 rounded-lg text-center hover:bg-gray-100 transition"
+                    className="flex-1 border border-gray-300 text-gray-700 dark:text-gray-300 text-sm py-2 rounded-lg text-center hover:bg-gray-100 hover:text-black dark:hover:bg-gray-800 dark:hover:text-white transition"
                   >
                     View Code
                   </a>

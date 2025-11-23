@@ -28,63 +28,66 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     useGSAP(() => {
         if (!cardRef.current) return;
 
-        // Magnetic hover effect
+        const card = cardRef.current;
+        const image = imageRef.current;
+
+        // Subtle 3D tilt effect
         const handleMouseMove = (e: MouseEvent) => {
-            if (!cardRef.current) return;
-            const rect = cardRef.current.getBoundingClientRect();
+            if (!card) return;
+            const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
 
-            gsap.to(cardRef.current, {
-                rotationY: x / 20,
-                rotationX: -y / 20,
+            gsap.to(card, {
+                rotationY: x / 50,
+                rotationX: -y / 50,
                 transformPerspective: 1000,
-                duration: 0.5,
-                ease: "power2.out",
+                duration: 0.3,
+                ease: "power1.out",
             });
 
-            if (imageRef.current) {
-                gsap.to(imageRef.current, {
-                    scale: 1.1,
-                    duration: 0.5,
-                    ease: "power2.out",
+            if (image) {
+                gsap.to(image, {
+                    scale: 1.05,
+                    duration: 0.3,
+                    ease: "power1.out",
                 });
             }
         };
 
         const handleMouseLeave = () => {
-            gsap.to(cardRef.current, {
+            if (!card) return;
+            
+            gsap.to(card, {
                 rotationY: 0,
                 rotationX: 0,
-                duration: 0.5,
-                ease: "power2.out",
+                duration: 0.3,
+                ease: "power1.out",
             });
 
-            if (imageRef.current) {
-                gsap.to(imageRef.current, {
+            if (image) {
+                gsap.to(image, {
                     scale: 1,
-                    duration: 0.5,
-                    ease: "power2.out",
+                    duration: 0.3,
+                    ease: "power1.out",
                 });
             }
         };
 
-        cardRef.current.addEventListener("mousemove", handleMouseMove);
-        cardRef.current.addEventListener("mouseleave", handleMouseLeave);
+        card.addEventListener("mousemove", handleMouseMove);
+        card.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
-            if (cardRef.current) {
-                cardRef.current.removeEventListener("mousemove", handleMouseMove);
-                cardRef.current.removeEventListener("mouseleave", handleMouseLeave);
-            }
+            card.removeEventListener("mousemove", handleMouseMove);
+            card.removeEventListener("mouseleave", handleMouseLeave);
         };
     }, { scope: cardRef });
 
     return (
         <div 
             ref={cardRef}
-            className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 mb-10"
-            style={{ transformStyle: "preserve-3d" }}
+            className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 mb-10"
+            style={{ transformStyle: "preserve-3d", willChange: "transform" }}
         >
             {/* Image */}
             <div ref={imageRef} className="w-full relative overflow-hidden">

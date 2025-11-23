@@ -153,10 +153,10 @@ const AboutMe : React.FC = () => {
                     {highlights.map((highlight) => (
                         <div
                             key={highlight}
-                            className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark-mode-hover border border-gray-200 dark-mode-border-gray-200 hover:shadow-md transition-all duration-300"
+                            className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark-mode-hover border border-gray-200 dark-mode-border-gray-200 hover:shadow-md transition-all duration-300 glass holographic shimmer ripple"
                         >
-                            <div className="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0" />
-                            <span className="text-lg font-semibold text-gray-800 dark-mode-text-secondary">
+                            <div className="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 glow" />
+                            <span className="text-lg font-semibold text-gray-800 dark-mode-text-secondary gradient-text">
                                 {highlight}
                             </span>
                         </div>

@@ -85,10 +85,16 @@ const skillsData = [
 
 const SkillsGrid: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-screen-xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
+    <section className="relative py-20 bg-gradient-to-br from-gray-50 via-blue-50/20 to-purple-50/20 dark:from-gray-950 dark:via-blue-950/10 dark:to-purple-950/10 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-40 left-1/4 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-1/4 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
         {skillsData.map((card, i) => (
-          <SkillCard key={i} {...card} />
+          <SkillCard key={i} {...card} index={i} />
         ))}
       </div>
     </section>

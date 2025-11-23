@@ -41,39 +41,39 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="bg-gray-50 py-24 px-6">
+    <section id="projects" className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-black py-24 px-6">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="text-center max-w-2xl mx-auto mb-16"
+        className="text-center max-w-3xl mx-auto mb-20"
       >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4"
+          className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4 uppercase"
         >
-          My Projects
+          Portfolio
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-extrabold mb-4"
+          className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text"
         >
-          Showcasing My Work
+          Featured Projects
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-lg text-gray-600 dark-mode-text-secondary"
+          className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary leading-relaxed"
         >
           Explore a selection of my completed projects, built with modern
           technologies like React and Node.js, demonstrating my full stack
@@ -90,17 +90,14 @@ const ProjectsSection = () => {
         viewport={{ once: true }}
       >
         <AnimatePresence>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              layout
               variants={cardVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              transition={{ duration: 0.4 }}
-              whileHover={{ scale: 1.02 }}
-              className="[transform-origin:center]"
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <ProjectCard {...project} />
             </motion.div>

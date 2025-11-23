@@ -48,8 +48,14 @@ const blogs: Blog[] = [
 
 export default function FeaturedArticles() {
   return (
-    <section className="py-24 md:py-32 px-4 bg-white dark:bg-black transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-24 md:py-32 px-4 bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
+      {/* Background decorative elements - only visible in dark mode */}
+      <div className="absolute inset-0 opacity-0 dark:opacity-20">
+        <div className="absolute top-40 right-1/4 w-80 h-80 bg-indigo-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-1/4 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,12 +68,12 @@ export default function FeaturedArticles() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-sm md:text-base text-indigo-600 dark:text-blue-400 font-bold tracking-wider mb-3 uppercase"
+            className="text-sm md:text-base text-indigo-600 dark:text-indigo-400 font-mono tracking-wider mb-4 uppercase font-semibold"
           >
             Featured
           </motion.p>
           <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 mb-4"
+            className="text-5xl sm:text-6xl md:text-7xl font-extrabold gradient-text mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,7 +82,7 @@ export default function FeaturedArticles() {
             Featured Articles
           </motion.h2>
           <motion.p
-            className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto mb-8 font-medium"
+            className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -86,11 +92,11 @@ export default function FeaturedArticles() {
           </motion.p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-2">
           {blogs.map((blog, index) => (
             <motion.div
               key={blog.id}
-              className="bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-3xl shadow-lg dark:shadow-2xl overflow-hidden flex flex-col hover:shadow-2xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 transition-all duration-300 group border-0 hover:-translate-y-1"
+              className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-indigo-500/20 dark:hover:shadow-indigo-500/30 overflow-hidden flex flex-col transition-all duration-300 group hover:scale-[1.02] hover:-translate-y-2"
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{

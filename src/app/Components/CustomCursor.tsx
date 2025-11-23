@@ -13,18 +13,22 @@ export default function CustomCursor() {
 
     if (!cursor || !follower) return;
 
+    // Direct DOM manipulation for instant cursor response
     const moveCursor = (e: MouseEvent) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.1,
-        ease: "power2.out",
+      const x = e.clientX;
+      const y = e.clientY;
+      
+      // Instant cursor update
+      gsap.set(cursor, {
+        left: x,
+        top: y,
       });
 
+      // Smooth follower with delay
       gsap.to(follower, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.3,
+        left: x,
+        top: y,
+        duration: 0.2,
         ease: "power2.out",
       });
     };
@@ -46,7 +50,7 @@ export default function CustomCursor() {
     };
 
     // Add event listeners
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", moveCursor, { passive: true });
 
     // Add hover effects to interactive elements
     const interactiveElements = document.querySelectorAll("a, button, input, textarea");
@@ -69,12 +73,20 @@ export default function CustomCursor() {
       <div
         ref={cursorRef}
         className="hidden lg:block fixed w-3 h-3 bg-blue-500 rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        style={{ transform: "translate(-50%, -50%)" }}
+        style={{ 
+          transform: "translate(-50%, -50%) translateZ(0)",
+          willChange: "transform",
+          backfaceVisibility: "hidden"
+        }}
       />
       <div
         ref={followerRef}
         className="hidden lg:block fixed w-8 h-8 border-2 border-blue-500 rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        style={{ transform: "translate(-50%, -50%)" }}
+        style={{ 
+          transform: "translate(-50%, -50%) translateZ(0)",
+          willChange: "transform",
+          backfaceVisibility: "hidden"
+        }}
       />
     </>
   );

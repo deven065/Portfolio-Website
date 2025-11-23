@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 type Skill = {
   name: string;
@@ -11,6 +12,7 @@ type SkillCardProps = {
   title: string;
   subtitle: string;
   skills: Skill[];
+  index?: number;
 };
 
 const getColor = (skillName: string) => {
@@ -63,33 +65,51 @@ const getColor = (skillName: string) => {
   return map[skillName];
 };
 
-const SkillCard: React.FC<SkillCardProps> = ({ title, subtitle, skills }) => {
+const SkillCard: React.FC<SkillCardProps> = ({ title, subtitle, skills, index = 0 }) => {
   return (
-    <div className="w-full max-w-xl bg-white shadow-md rounded-2xl p-6">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-5 h-5 rounded-full bg-blue-100" />
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ scale: 1.02, y: -5 }}
+      className="w-full max-w-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-blue-500/30 rounded-3xl p-8 transition-all duration-300"
+    >
+      <div className="flex items-center gap-4 mb-8">
+        <div className="w-1 h-12 rounded-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
         <div>
-          <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-          <p className="text-sm text-neutral-500 dark:text-neutral-400">{subtitle}</p>
+          <h3 className="text-2xl font-bold gradient-text mb-1">{title}</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400">{subtitle}</p>
         </div>
       </div>
-      <div className="space-y-4">
-        {skills.map((skill) => (
-          <div key={skill.name}>
-            <div className="flex justify-between mb-1">
-              <span className="text-sm font-medium text-neutral-700 ">{skill.name}</span>
-              <span className="text-sm text-neutral-500 dark:text-neutral-400">{skill.percentage}%</span>
+      <div className="space-y-5">
+        {skills.map((skill, idx) => (
+          <motion.div
+            key={skill.name}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.05 }}
+          >
+            <div className="flex justify-between mb-2">
+              <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{skill.name}</span>
+              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{skill.percentage}%</span>
             </div>
-            <div className="w-full bg-neutral-200    rounded-full h-2">
-              <div
-                className={`${getColor(skill.name)} h-2 rounded-full`}
-                style={{ width: `${skill.percentage}%` }}
-              />
+            <div className="relative w-full bg-gray-200 dark:bg-gray-700/50 rounded-full h-2.5 overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: `${skill.percentage}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 + idx * 0.05, ease: "easeOut" }}
+                className={`${getColor(skill.name)} h-2.5 rounded-full relative overflow-hidden`}
+              >
+                <div className="absolute inset-0 bg-white/30 shimmer"></div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

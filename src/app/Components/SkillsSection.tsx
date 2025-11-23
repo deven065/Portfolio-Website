@@ -89,34 +89,34 @@ const SkillsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="text-center mb-16"
+                className="text-center mb-20"
             >
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4"
+                    className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4 uppercase"
                 >
-                    My Skills
+                    Expertise
                 </motion.p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-6xl font-extrabold mb-4"
+                    className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text"
                 >
-                    Technologies & Expertise
+                    Technologies & Skills
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="text-lg text-gray-600 dark-mode-text-secondary max-w-2xl mx-auto"
+                    className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary max-w-3xl mx-auto leading-relaxed"
                 >
-                    A comprehensive range of skills across the full development stack
+                    A comprehensive range of skills across the full development stack, delivering enterprise-grade solutions
                 </motion.p>
             </motion.div>
 

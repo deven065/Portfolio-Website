@@ -74,9 +74,12 @@ const ContactForm: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      }).catch((err) => {
+        console.error("Network error:", err);
+        throw new Error("Network request failed");
+      });
 
-      if (res.ok) {
+      if (res && res.ok) {
         setStatus("Email sent successfully!");
         setFormData({ name: "", email: "", message: "", acceptTerms: false });
         
@@ -94,7 +97,7 @@ const ContactForm: React.FC = () => {
         setStatus("Failed to send email. Please try again.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Form submission error:", error);
       setStatus("Failed to send email. Please try again.");
     }
   };
@@ -142,7 +145,7 @@ const ContactForm: React.FC = () => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl transition-all duration-300"
+        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl transition-all duration-300 glass holographic card-3d"
       >
         <div ref={fieldsRef} className="space-y-6">
         {/* Name */}
@@ -157,7 +160,7 @@ const ContactForm: React.FC = () => {
             placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
+            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all glass shimmer"
             required
           />
         </div>
@@ -219,9 +222,13 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white px-10 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl dark:shadow-blue-500/20 dark:hover:shadow-blue-400/30"
+            className="relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 dark:from-blue-500 dark:to-cyan-500 dark:hover:from-blue-600 dark:hover:to-cyan-600 text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl dark:shadow-blue-500/30 dark:hover:shadow-cyan-400/40 overflow-hidden"
+            style={{
+              boxShadow: '0 10px 30px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.3)',
+            }}
           >
-            Submit
+            <span className="relative z-10">Submit</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
           </button>
         </div>
         </div>

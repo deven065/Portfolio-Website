@@ -1,12 +1,53 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const GetInTouchSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useGSAP(() => {
+    if (!titleRef.current) return;
+
+    const text = titleRef.current.textContent || "";
+    const chars = text.split("");
+    titleRef.current.innerHTML = "";
+    
+    chars.forEach((char) => {
+      const span = document.createElement("span");
+      span.textContent = char === " " ? "\u00A0" : char;
+      span.style.display = "inline-block";
+      titleRef.current?.appendChild(span);
+    });
+
+    gsap.fromTo(
+      titleRef.current.children,
+      { opacity: 0, y: 60, rotationX: -90, scale: 0.5 },
+      {
+        opacity: 1,
+        y: 0,
+        rotationX: 0,
+        scale: 1,
+        stagger: 0.04,
+        duration: 1,
+        ease: "elastic.out(1, 0.5)",
+        delay: 0.3,
+      }
+    );
+  }, { scope: sectionRef });
+
   return (
-    <section className="bg-gradient-to-b from-white via-indigo-50/20 to-white dark:from-black dark:via-gray-900 dark:to-black py-28 md:py-36 px-4 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto text-center">
+    <section ref={sectionRef} className="relative bg-white dark:from-gray-950 dark:via-indigo-950/20 dark:to-blue-950/10 dark:bg-gradient-to-br py-32 md:py-40 px-4 transition-colors duration-300 overflow-hidden">
+      {/* Background decorative elements - only visible in dark mode */}
+      <div className="absolute inset-0 opacity-0 dark:opacity-20">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-300/30 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -15,24 +56,19 @@ const GetInTouchSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base text-indigo-600 dark:text-blue-400 font-bold tracking-wider mb-6 uppercase"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-2xl text-indigo-600 dark:text-indigo-400 font-mono tracking-wider mb-8 uppercase font-bold"
           >
-            Contact
+            Let&apos;s Connect
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight"
-          >
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">Get In Touch</span>
-          </motion.h2>
+          <h2 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-10 leading-tight gradient-text">
+            Get In Touch
+          </h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
           >
             Have a project in mind? Let&apos;s discuss how we can work together to bring your ideas to life.
             I&apos;m always excited to take on new challenges and collaborate with amazing people.
