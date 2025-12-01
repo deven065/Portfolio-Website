@@ -76,9 +76,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, subtitle, skills, index = 
       className="w-full max-w-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-blue-500/30 rounded-3xl p-8 transition-all duration-300"
     >
       <div className="flex items-center gap-4 mb-8">
-        <div className="w-1 h-12 rounded-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
+        <div className="w-1 h-12 rounded-full bg-blue-700 dark:bg-blue-400" />
         <div>
-          <h3 className="text-2xl font-bold gradient-text mb-1">{title}</h3>
+          <h3 className="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-1">{title}</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400">{subtitle}</p>
         </div>
       </div>

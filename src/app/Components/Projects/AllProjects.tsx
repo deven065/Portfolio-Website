@@ -44,8 +44,34 @@ const projects: Project[] = [
     codeLink: "https://github.com/deven065/FlatMate.git",
     tooltipMessage: "Work in progress",
   },
-  {
-    id: 3,
+    {
+      id: 3,
+      title: "Premiums4U",
+      description: {
+        main: "A modern e-commerce platform specializing in gaming subscriptions at competitive prices. The website offers a seamless shopping experience with secure payment integration, user authentication, and an intuitive interface. Customers can browse various gaming subscriptions including PlayStation Plus, Xbox Game Pass, Nintendo Switch Online, and more at discounted rates.",
+        note: "Built with focus on user experience and secure transactions to provide affordable gaming subscriptions to enthusiasts worldwide."
+      },
+      image: "/Premiums4U.png",
+      tech: ["Next.js", "React", "TailwindCSS", "E-commerce", "Payment Gateway", "Authentication", "Responsive Design"],
+      tag: "Full Stack",
+      liveLink: "https://premiums4u.vercel.app/",
+      codeLink: "https://github.com/deven065/premiums4you.git",
+    },
+    {
+      id: 4,
+      title: "Only4Premiums",
+      description: {
+        main: "An innovative e-commerce platform offering premium tool subscriptions at affordable prices. The site provides access to professional tools including TradingView, TradingHub, and other premium software solutions. Features include subscription management, secure checkout, user dashboards, and automated license delivery system.",
+        note: "Designed to help professionals and traders access essential premium tools without breaking the bank, with instant delivery and reliable customer support."
+      },
+      image: "/Only4Premiums.png",
+      tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "E-commerce", "Subscription Management", "Payment Integration", "API Integration"],
+      tag: "Full Stack",
+      liveLink: "https://only4premiums.vercel.app/",
+      codeLink: "https://github.com/deven065/only4premiums.git",
+    },
+    {
+    id: 5,
     title: "DevOps Portfolio Website",
     description: {
       main: "A personal portfolio website showcasing clients DevOps skills and projects. Built with Next.js and Tailwind CSS, the site features a responsive design, smooth animations, and a modern layout to effectively present his professional background in DevOps practices, CI/CD pipelines, and cloud infrastructure management.",
@@ -53,69 +79,69 @@ const projects: Project[] = [
     image: "devops-portfolio.png",
     tech: ["Next.js", "TailwindCSS", "TypeScript", "Framer Motion", "Responsive Design"],
     tag: "Full Stack",
-    liveLink: "https://devops-portfolio-website.vercel.app/",
+    liveLink: "https://dipen-devopsportfolio.vercel.app/",
     codeLink: "https://github.com/deven065/Dipen-portfolio.git",
-  },
-  {
-    id: 4,
-    title: "Chef Claude",
-    description:
-      "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
-    image: "/Chef-claude.jpeg",
-    tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
-    tag: "Full Stack",
-    liveLink: "https://chef-ai-sigma.vercel.app/",
-    codeLink: "https://github.com/deven065/chef-ai.git",
-    tooltipMessage:
-      "Sorry, this project will not work as expected (API is deprecated)",
-  },
-  {
-    id: 5,
-    title: "Jira Automation",
-    description:
-      "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
-    image: "/jira-automation.webp",
-    tech: ["Java", "Jira API", "Automation", "Zapier"],
-    tag: "Backend",
-    liveLink: "https://www.atlassian.com/software/jira",
-    codeLink: "",
-  },
-  {
-    id: 6,
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my professional background.",
-    image: "/Portfolio-Website.png",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    tag: "Full Stack",
-    liveLink:
-      "https://portfolio-website-devens-projects-616976bd.vercel.app/",
-    codeLink: "https://github.com/deven065/Portfolio-Website.git",
-  },
-  {
-    id: 7,
-    title: "Google Clone",
-    description:
-      "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
-    image: "/Google.png",
-    tech: ["HTML", "CSS"],
-    tag: "Frontend",
-    liveLink: "https://google-blond-eta.vercel.app/",
-    codeLink: "https://github.com/deven065/Google.git",
-  },
-  {
-    id: 8,
-    title: "Data Analyst Portfolio - Ashok Choudhary",
-    description: {
-      main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
-      note: "Built with modern web technologies to reflect the client's professional expertise in data analysis and business intelligence."
     },
-    image: "/Ashok-Portfolio.png",
-    tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion", "Responsive Design"],
-    tag: "Full Stack",
-    liveLink: "https://ashokfolio.vercel.app/",
-    codeLink: "https://github.com/deven065/ashok-portfolio.git",
-  },
+    {
+      id: 6,
+      title: "Portfolio Website",
+      description:
+        "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my skills, projects, and experience. The site features a responsive design, smooth animations, and a modern layout to effectively present my professional background.",
+      image: "/Portfolio-Website.png",
+      tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+      tag: "Full Stack",
+      liveLink:
+        "https://portfolio-website-devens-projects-616976bd.vercel.app/",
+      codeLink: "https://github.com/deven065/Portfolio-Website.git",
+    },
+    {
+      id: 7,
+      title: "Chef Claude",
+      description:
+        "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
+      image: "/Chef-claude.jpeg",
+      tech: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
+      tag: "Full Stack",
+      liveLink: "https://chef-ai-sigma.vercel.app/",
+      codeLink: "https://github.com/deven065/chef-ai.git",
+      tooltipMessage:
+        "Sorry, this project will not work as expected (API is deprecated)",
+      },
+    {
+      id: 8,
+      title: "Jira Automation",
+      description:
+        "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
+      image: "/jira-automation.webp",
+      tech: ["Java", "Jira API", "Automation", "Zapier"],
+      tag: "Backend",
+      liveLink: "https://www.atlassian.com/software/jira",
+      codeLink: "",
+    },
+    {
+      id: 9,
+      title: "Google Clone",
+      description:
+        "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
+      image: "/Google.png",
+      tech: ["HTML", "CSS"],
+      tag: "Frontend",
+      liveLink: "https://google-blond-eta.vercel.app/",
+      codeLink: "https://github.com/deven065/Google.git",
+    },
+    {
+      id: 10,
+      title: "Data Analyst Portfolio - Ashok Choudhary",
+      description: {
+        main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
+        note: "Built with modern web technologies to reflect the client's professional expertise in data analysis and business intelligence."
+      },
+      image: "/Ashok-Portfolio.png",
+      tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion", "Responsive Design"],
+      tag: "Full Stack",
+      liveLink: "https://ashokfolio.vercel.app/",
+      codeLink: "https://github.com/deven065/ashok-portfolio.git",
+    },
 ];
 
 // Framer Motion Variants (TypeScript fix applied)

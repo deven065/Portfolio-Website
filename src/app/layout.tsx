@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dev.Folio",
-  description: "Full Stack / Software Developer Portfolio",
+  title: "Deven Digital Labs | Software Development",
+  description: "Professional software development services. Full-stack solutions with modern technologies.",
 };
 
 export default function RootLayout({

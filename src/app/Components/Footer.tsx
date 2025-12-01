@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
         {/* Branding */}
         <div>
-          <h2 className="text-2xl font-bold gradient-text">Dev.Folio</h2>
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-400">Deven Digital Labs</h2>
           <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Crafting digital experiences with passion. Full-stack developer dedicated to creating innovative and user-friendly web applications.
           </p>
@@ -85,7 +85,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 p-2 rounded-full hover:bg-[#0077b5] dark:hover:bg-[#0077b5] hover:text-white dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                className="bg-[#0077b5] dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#0077b5] dark:hover:bg-[#0077b5] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -114,7 +114,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 p-2 rounded-full hover:bg-[#181717] dark:hover:bg-[#24292e] hover:text-white dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                className="bg-[#181717] dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#181717] dark:hover:bg-[#24292e] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -143,7 +143,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 p-2 rounded-full hover:bg-[#000000] dark:hover:bg-[#1DA1F2] hover:text-white dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                className="bg-black dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#000000] dark:hover:bg-[#1DA1F2] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -171,7 +171,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 p-2 rounded-full hover:bg-[#EA4335] dark:hover:bg-[#EA4335] hover:text-white dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                className="bg-[#EA4335] dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#EA4335] dark:hover:bg-[#EA4335] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}

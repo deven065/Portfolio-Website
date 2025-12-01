@@ -1,274 +1,119 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const Hero: React.FC = () => {
-  const animatedLine = "Software Developer Engineer";
-  const [currentText, setCurrentText] = useState("");
-  const [charIndex, setCharIndex] = useState(0);
-  const [direction, setDirection] = useState<"forward" | "backward">("forward");
-  const heroRef = useRef<HTMLDivElement>(null);
-  const nameRef = useRef<HTMLHeadingElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const blobsRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const mousePosRef = useRef({ x: 0, y: 0 });
-  const rafId = useRef<number | null>(null);
 
-  useEffect(() => {
-    const updateMousePos = () => {
-      setMousePos(mousePosRef.current);
-      rafId.current = requestAnimationFrame(updateMousePos);
-    };
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      mousePosRef.current = { x, y };
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    updateMousePos();
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
-    };
-  }, []);
-
-  useGSAP(() => {
-    if (!heroRef.current) return;
-
-    // Animate name with 3D effect
-    if (nameRef.current) {
-      gsap.fromTo(
-        nameRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          rotationX: -90,
-          transformPerspective: 1000,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          rotationX: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: 0.2,
-        }
-      );
-
-      // Add floating animation to name
-      gsap.to(nameRef.current, {
-        y: -8,
-        duration: 1.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 0.8,
-      });
-    }
-
-    // Animate blobs with smooth floating
-    if (blobsRef.current) {
-      const blobs = blobsRef.current.children;
-      Array.from(blobs).forEach((blob, index) => {
-        gsap.to(blob, {
-          y: "random(-30, 30)",
-          x: "random(-30, 30)",
-          duration: "random(3, 5)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: index * 0.5,
-        });
-
-        gsap.to(blob, {
-          scale: "random(0.9, 1.2)",
-          duration: "random(4, 6)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: index * 0.3,
-        });
-      });
-    }
-
-    // Animate CTA buttons with stagger
-    if (ctaRef.current) {
-      gsap.fromTo(
-        ctaRef.current.children,
-        {
-          opacity: 0,
-          y: 30,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.6,
-        }
-      );
-    }
-  }, { scope: heroRef });
-
-  useEffect(() => {
-    const speed = 80;
-
-    if (direction === "forward") {
-      if (charIndex < animatedLine.length) {
-        const timeout = setTimeout(() => {
-          setCurrentText((prev) => prev + animatedLine[charIndex]);
-          setCharIndex((prev) => prev + 1);
-        }, speed);
-        return () => clearTimeout(timeout);
-      } else {
-        const pause = setTimeout(() => setDirection("backward"), 2000);
-        return () => clearTimeout(pause);
-      }
-    } else {
-      if (currentText.length > 0) {
-        const timeout = setTimeout(() => {
-          setCurrentText((prev) => prev.slice(0, -1));
-        }, speed);
-        return () => clearTimeout(timeout);
-      } else {
-        const reset = setTimeout(() => {
-          setCharIndex(0);
-          setDirection("forward");
-        }, 500);
-        return () => clearTimeout(reset);
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
       }
     }
-  }, [charIndex, currentText, direction]);
+  };
 
   return (
-    <section ref={heroRef} className="relative z-0 flex flex-col items-center text-center px-6 py-20 md:py-32 overflow-hidden hero-section">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark-mode-hero-bg transition-all duration-500" />
+    <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
 
-      {/* Floating circles animation */}
-      <div ref={blobsRef} className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply blur-xl opacity-15 dark-mode-blob" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-cyan-200 rounded-full mix-blend-multiply blur-xl opacity-15 dark-mode-blob" />
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-slate-200 rounded-full mix-blend-multiply blur-xl opacity-15 dark-mode-blob" />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative pointer-events-auto max-w-4xl w-full z-10 transform-3d"
-        style={{
-          transform: `perspective(1000px) rotateY(${mousePos.x * 5}deg) rotateX(${-mousePos.y * 5}deg)`,
-          transition: "transform 0.3s ease-out"
-        }}
+      <motion.div 
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+        className="relative z-10 max-w-5xl mx-auto text-center"
       >
-        {/* Greeting */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm md:text-base text-gray-600 dark-mode-text-secondary mb-4 font-mono tracking-wider parallax-layer-1"
-          style={{
-            transform: `translateZ(50px) translateX(${mousePos.x * 10}px) translateY(${mousePos.y * 10}px)`,
-            transition: "transform 0.3s ease-out"
-          }}
-        >
-          Hi, my name is
-        </motion.p>
-
-        {/* Name */}
-        <h1
-          ref={nameRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 hero-name gradient-text parallax-layer-2"
-          style={{ 
-            transformStyle: "preserve-3d",
-            transform: `translateZ(100px) translateX(${mousePos.x * 20}px) translateY(${mousePos.y * 20}px)`,
-            transition: "transform 0.3s ease-out"
-          }}
-        >
-          Deven Rikame
-        </h1>
-
-        {/* Animated subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-2xl md:text-4xl font-semibold mb-8 h-12 md:h-16 flex items-center justify-center hero-subtitle parallax-layer-1"
-          style={{
-            transform: `translateZ(50px) translateX(${mousePos.x * 15}px) translateY(${mousePos.y * 15}px)`,
-            transition: "transform 0.3s ease-out"
-          }}
-        >
-          <span className="inline-block text-center" style={{ minWidth: `${animatedLine.length + 1}ch` }}>
-            {currentText}
-            <span className="animate-pulse ml-1 neon-border">|</span>
+        {/* Company Badge */}
+        <motion.div {...fadeIn} transition={{ delay: 0.1 }}>
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 rounded-full border border-blue-100 dark:border-blue-800">
+            Deven Digital Labs
           </span>
         </motion.div>
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-lg md:text-xl text-gray-700 dark-mode-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed glass shimmer"
-          style={{
-            transform: `translateZ(30px) translateX(${mousePos.x * 8}px) translateY(${mousePos.y * 8}px)`,
-            transition: "transform 0.3s ease-out",
-            padding: "1.5rem",
-            borderRadius: "1rem"
-          }}
+        {/* Main Headline */}
+        <motion.h1 
+          {...fadeIn}
+          transition={{ delay: 0.2 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
         >
-          I build modern, scalable web applications with a focus on clean code, seamless user experience, and innovative solutions. Let&apos;s collaborate to turn your ideas into reality.
+          Building Digital
+          <span className="block mt-2 text-blue-700 dark:text-blue-400">
+            Excellence
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p 
+          {...fadeIn}
+          transition={{ delay: 0.3 }}
+          className="text-lg md:text-xl text-black dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
+        >
+          Full-stack software engineer crafting elegant solutions with modern technologies. 
+          Specialized in React, Next.js, and scalable web applications.
         </motion.p>
 
         {/* CTA Buttons */}
-        <div
-          ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center"
-          style={{
-            transform: `translateZ(80px) translateX(${mousePos.x * 12}px) translateY(${mousePos.y * 12}px)`,
-            transition: "transform 0.3s ease-out"
-          }}
+        <motion.div 
+          {...fadeIn}
+          transition={{ delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
             href="#projects"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-center transform hover:scale-105 hero-button-primary ripple glow"
+            className="group px-8 py-4 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
           >
-            View My Work
+            View Projects
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
             href="#contact"
-            className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 text-center transform hover:scale-105 hero-button-secondary ripple holographic"
+            className="px-8 py-4 border-2 border-gray-500 dark:border-gray-600 text-gray-900 dark:text-gray-300 rounded-lg font-semibold hover:border-gray-700 hover:bg-gray-100 dark:hover:border-gray-400 dark:hover:text-white transition-all duration-200"
           >
-            Contact Me
+            Get in Touch
           </a>
-        </div>
+        </motion.div>
+
+        {/* Tech Stack Pills */}
+        <motion.div 
+          {...fadeIn}
+          transition={{ delay: 0.5 }}
+          className="mt-16 flex flex-wrap justify-center gap-3"
+        >
+          {['React', 'Next.js', 'TypeScript', 'Node.js', 'TailwindCSS'].map((tech, index) => (
+            <motion.span
+              key={tech}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 + index * 0.1 }}
+              className="px-4 py-2 text-sm font-semibold text-gray-900 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-full border-2 border-blue-600 dark:border-gray-700 shadow-md transition-colors cursor-default"
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:block"
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#projects" className="flex flex-col items-center group">
-          <span className="text-gray-500 dark-mode-text-secondary animate-bounce text-2xl mb-2">↓</span>
-          <span className="text-xs text-gray-500 dark-mode-text-secondary group-hover:text-blue-600 transition-colors">Scroll Down</span>
-        </a>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-gray-400 dark:text-gray-600"
+        >
+          <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </motion.div>
       </motion.div>
     </section>
   );

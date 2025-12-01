@@ -126,7 +126,7 @@ const ContactForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-extrabold mb-4"
+          className="text-4xl md:text-6xl font-extrabold mb-4 text-gray-900 dark:text-white"
         >
           Get in Touch
         </motion.h2>
@@ -135,7 +135,7 @@ const ContactForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-lg text-gray-700 dark:text-gray-300"
+          className="text-lg text-gray-800 dark:text-gray-300 font-medium"
         >
           Reach out to discuss opportunities or collaborations.
         </motion.p>
@@ -145,7 +145,7 @@ const ContactForm: React.FC = () => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl transition-all duration-300 glass holographic card-3d"
+        className="max-w-lg mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-2xl transition-all duration-300"
       >
         <div ref={fieldsRef} className="space-y-6">
         {/* Name */}

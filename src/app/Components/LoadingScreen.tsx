@@ -59,7 +59,7 @@ export default function LoadingScreen() {
   if (!isLoading) return null;
 
   return (
-    <div className="loading-screen fixed inset-0 z-[10000] bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center">
+    <div className="loading-screen fixed inset-0 z-[10000] bg-blue-700 flex items-center justify-center">
       <div className="text-center">
         <div
           ref={loaderRef}
@@ -69,7 +69,7 @@ export default function LoadingScreen() {
           }}
         />
         <div ref={textRef} className="text-white text-2xl font-bold">
-          Dev.Folio
+          Deven Digital Labs
         </div>
       </div>
       <style jsx>{`

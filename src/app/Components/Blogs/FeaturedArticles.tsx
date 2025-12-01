@@ -68,12 +68,12 @@ export default function FeaturedArticles() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-sm md:text-base text-indigo-600 dark:text-indigo-400 font-mono tracking-wider mb-4 uppercase font-semibold"
+            className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase font-semibold"
           >
             Featured
           </motion.p>
           <motion.h2
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold gradient-text mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -82,7 +82,7 @@ export default function FeaturedArticles() {
             Featured Articles
           </motion.h2>
           <motion.p
-            className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
+            className="text-gray-800 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -127,7 +127,7 @@ export default function FeaturedArticles() {
                     className="w-full h-56 object-cover"
                   />
                 </motion.div>
-                <span className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-yellow-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                   Featured
                 </span>
                 <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-gray-800/60 backdrop-blur-sm text-gray-900 dark:text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
@@ -145,7 +145,7 @@ export default function FeaturedArticles() {
                   viewport={{ once: true }}
                   className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-400 mb-3"
                 >
-                  <Calendar size={16} className="text-indigo-600 dark:text-blue-400" />
+                  <Calendar size={16} className="text-blue-600 dark:text-blue-400" />
                   <span className="font-semibold text-gray-800">{blog.date}</span>
                 </motion.div>
 
@@ -188,7 +188,7 @@ export default function FeaturedArticles() {
                       }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1 }}
-                      className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:bg-purple-900/30 dark:border dark:border-purple-700 text-indigo-700 dark:text-purple-400 text-sm px-4 py-1.5 rounded-full transition-colors duration-300 font-bold border-0 hover:from-indigo-100 hover:to-purple-100 hover:text-indigo-800"
+                      className="bg-white dark:bg-blue-900/30 border-2 border-blue-600 dark:border-blue-700 text-gray-900 dark:text-blue-400 text-sm px-4 py-1.5 rounded-full transition-colors duration-300 font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/50 shadow-sm"
                     >
                       {tag}
                     </motion.span>
@@ -211,7 +211,7 @@ export default function FeaturedArticles() {
                     href={blog.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 hover:from-indigo-700 hover:via-purple-700 hover:to-indigo-700 dark:hover:from-blue-400 dark:hover:to-cyan-400 text-white px-6 py-3 rounded-xl text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-500 text-white px-6 py-3 rounded-xl text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                     whileHover={{
                       scale: 1.08,
                       y: -2,

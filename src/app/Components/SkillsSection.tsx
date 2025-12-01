@@ -96,7 +96,7 @@ const SkillsSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4 uppercase"
+                    className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase"
                 >
                     Expertise
                 </motion.p>
@@ -105,7 +105,7 @@ const SkillsSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text"
+                    className="text-4xl md:text-6xl font-extrabold mb-6 text-blue-700 dark:text-blue-400"
                 >
                     Technologies & Skills
                 </motion.h2>
@@ -114,7 +114,7 @@ const SkillsSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary max-w-3xl mx-auto leading-relaxed"
+                    className="text-lg md:text-xl text-gray-800 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
                     A comprehensive range of skills across the full development stack, delivering enterprise-grade solutions
                 </motion.p>
@@ -124,19 +124,19 @@ const SkillsSection = () => {
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-center p-8 rounded-2xl bg-white dark-mode-hover border border-gray-200 dark-mode-border-gray-200 hover:shadow-2xl transition-all duration-300 group"
+                        className="flex flex-col items-center p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group"
                         style={{ transformStyle: "preserve-3d" }}
                     >
                         <div className="mb-6">
                             <FontAwesomeIcon
                                 icon={skill.icon}
-                                className="text-4xl text-blue-600 dark-mode-text-secondary group-hover:text-purple-600 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
+                                className="text-4xl text-blue-700 dark:text-blue-400 transition-all duration-300"
                             />
                         </div>
-                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark-mode-text-secondary">
+                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
                             {skill.title}
                         </h3>
-                        <p className="text-base text-gray-700 dark-mode-text-secondary text-center leading-relaxed">
+                        <p className="text-base text-gray-800 dark:text-gray-300 text-center leading-relaxed">
                             {skill.description}
                         </p>
                     </div>

@@ -62,13 +62,15 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       if (!headerRef.current) return;
       
+      const isDark = document.documentElement.classList.contains('dark');
+      
       if (window.scrollY > 50) {
         headerRef.current.style.backdropFilter = "blur(10px)";
-        headerRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+        headerRef.current.style.backgroundColor = isDark ? "rgba(3, 7, 18, 0.9)" : "rgba(255, 255, 255, 0.9)";
         headerRef.current.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
       } else {
         headerRef.current.style.backdropFilter = "blur(0px)";
-        headerRef.current.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        headerRef.current.style.backgroundColor = isDark ? "rgba(3, 7, 18, 1)" : "rgba(255, 255, 255, 1)";
         headerRef.current.style.boxShadow = "0 1px 3px 0 rgba(0, 0, 0, 0.1)";
       }
     };
@@ -78,72 +80,67 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark-mode-header shadow-lg z-50 transition-all duration-300 glass border-b border-gray-200/50 dark:border-gray-700/50">
-      <div className="flex items-center justify-between px-6 py-5 lg:px-16">
+    <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark:bg-gray-950 backdrop-blur-md shadow-sm z-50 transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
+      <div className="flex items-center justify-between px-6 py-4 lg:px-12 max-w-7xl mx-auto">
 
         {/* Logo */}
         <Link
           ref={logoRef}
           href="/"
-          className="text-3xl md:text-4xl font-black tracking-tight select-none cursor-pointer hover:scale-105 transition-all duration-300 gradient-text drop-shadow-lg"
+          className="text-xl md:text-2xl font-bold tracking-tight select-none cursor-pointer hover:opacity-80 transition-opacity duration-200"
         >
-          Dev<span className="text-black dark:text-white">.</span>Folio
+          <span className="text-blue-600 dark:text-blue-500">Deven</span>
+          <span className="text-gray-900 dark:text-white"> Digital Labs</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav ref={navRef} className="hidden md:flex flex-row gap-10 text-base font-medium">
+        <nav ref={navRef} className="hidden md:flex flex-row gap-8 text-sm font-medium">
           <Link
             href="/projects"
-            className={`${isActive("/projects") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
+            className={`${isActive("/projects") ? "text-blue-600 dark:text-blue-500" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500"} transition-colors duration-200`}
           >
             Projects
           </Link>
           <Link
             href="/skills"
-            className={`${isActive("/skills") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
+            className={`${isActive("/skills") ? "text-blue-600 dark:text-blue-500" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500"} transition-colors duration-200`}
           >
             Skills
           </Link>
           <Link
             href="/blogs"
-            className={`${isActive("/blogs") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
+            className={`${isActive("/blogs") ? "text-blue-600 dark:text-blue-500" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500"} transition-colors duration-200`}
           >
-            Blogs
+            Blog
           </Link>
           <Link
             href="/contact"
-            className={`${isActive("/contact") ? "text-blue-500 font-bold scale-110" : "text-gray-700 dark:text-gray-200 hover:text-blue-500 hover:scale-105"} transition-all duration-300`}
+            className={`${isActive("/contact") ? "text-blue-600 dark:text-blue-500" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500"} transition-colors duration-200`}
           >
             Contact
           </Link>
         </nav>
 
         {/* CTA Buttons & Dark Mode Toggle */}
-        <div ref={ctaRef} className="hidden md:flex gap-5 items-center">
+        <div ref={ctaRef} className="hidden md:flex gap-4 items-center">
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-3 rounded-full hover:bg-gray-100 dark-mode-hover transition-all duration-300 group shadow-md hover:shadow-lg"
+            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             aria-label="Toggle dark mode"
           >
             {theme === "dark" ? (
-              <Sun className="w-6 h-6 text-yellow-500 group-hover:rotate-90 transition-transform duration-300" />
+              <Sun className="w-5 h-5 text-gray-600 dark:text-gray-400" />
             ) : (
-              <Moon className="w-6 h-6 text-gray-700 group-hover:scale-110 transition-transform duration-300" />
+              <Moon className="w-5 h-5 text-gray-600" />
             )}
           </button>
 
           <Link
-            href="/projects"
-            className="px-7 py-3 border-2 border-blue-500 text-blue-500 rounded-full text-base font-semibold hover:bg-blue-50 dark-mode-hover hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            View Projects
-          </Link>
-          <Link
             href="/contact"
-            className="px-7 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-base font-semibold hover:from-blue-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="px-5 py-2 bg-blue-700 text-white text-sm rounded-lg font-medium hover:bg-blue-800 transition-colors duration-200"
           >
-            Get in Touch
+            Hire Me
           </Link>
         </div>
 
@@ -202,14 +199,14 @@ const Header: React.FC = () => {
           <div className="pt-3 flex flex-col gap-2">
             <Link
               href="/projects"
-              className="w-full text-center px-4 py-2 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-50 transition"
+              className="w-full text-center px-4 py-2 border-2 border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               View Projects
             </Link>
             <Link
               href="/contact"
-              className="w-full text-center px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition"
+              className="w-full text-center px-4 py-2 bg-blue-700 text-white rounded-full text-sm hover:bg-blue-800 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get in Touch

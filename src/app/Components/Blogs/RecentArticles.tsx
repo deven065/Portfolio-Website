@@ -137,7 +137,7 @@ export default function RecentArticles() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-sm md:text-base text-indigo-600 dark:text-blue-400 font-bold tracking-wider mb-3 uppercase"
+            className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-bold tracking-wider mb-3 uppercase"
           >
             Latest Posts
           </motion.p>
@@ -151,7 +151,7 @@ export default function RecentArticles() {
             Recent Articles
           </motion.h2>
           <motion.p
-            className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto mb-8 font-medium"
+            className="text-gray-800 dark:text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto mb-8 font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -188,7 +188,7 @@ export default function RecentArticles() {
                   scale: 1.02,
                   transition: { duration: 0.2, type: "spring", stiffness: 300 }
                 }}
-                className="bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-2xl shadow-md dark:shadow-2xl overflow-hidden flex flex-col hover:shadow-xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 transition-all duration-300 group border-0 dark:border"
+                className="bg-white dark:bg-gray-900 dark:border-2 dark:border-gray-700/50 rounded-2xl shadow-md dark:shadow-2xl overflow-hidden flex flex-col hover:shadow-xl dark:hover:shadow-blue-500/20 dark:hover:border-blue-500/50 transition-all duration-300 group border-0"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden group">
@@ -213,7 +213,7 @@ export default function RecentArticles() {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center text-sm text-gray-700 dark:text-gray-400 gap-2 mb-3">
-                    <Calendar size={16} className="text-indigo-600 dark:text-blue-400" />
+                    <Calendar size={16} className="text-blue-600 dark:text-blue-400" />
                     <span className="font-semibold text-gray-800">{article.date}</span>
                   </div>
 
@@ -236,7 +236,7 @@ export default function RecentArticles() {
                         }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.1 }}
-                        className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:bg-purple-900/30 dark:border dark:border-purple-700 text-indigo-700 dark:text-purple-400 text-xs px-3 py-1 rounded-full transition-colors duration-300 font-bold border-0 hover:from-indigo-100 hover:to-purple-100 hover:text-indigo-800"
+                        className="bg-white dark:bg-blue-900/30 border-2 border-blue-600 dark:border-blue-700 text-gray-900 dark:text-blue-400 text-xs px-3 py-1 rounded-full transition-colors duration-300 font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/50 shadow-sm"
                       >
                         {tag}
                       </motion.span>
@@ -252,7 +252,7 @@ export default function RecentArticles() {
                       href={article.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 dark:bg-blue-600 hover:from-indigo-700 hover:via-purple-700 hover:to-indigo-700 dark:hover:bg-blue-500 text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all duration-300 font-bold"
+                      className="bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-500 text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all duration-300 font-bold"
                       whileHover={{
                         scale: 1.05,
                         y: -2,

@@ -60,18 +60,18 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, suffix = "", delay = 
       transition={{ duration: 0.6, delay }}
       className="text-center group"
     >
-      <div className="relative inline-block p-8 rounded-3xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+      <div className="relative inline-block p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
         <div
           ref={numberRef}
-          className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500 bg-clip-text text-transparent"
+          className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 text-blue-700 dark:text-blue-400"
         >
           {displayValue}{suffix}
         </div>
-        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 font-semibold">
+        <p className="text-base md:text-lg text-gray-900 dark:text-gray-300 font-bold">
           {label}
         </p>
-        {/* Decorative gradient line */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-24 transition-all duration-300"></div>
+        {/* Decorative line */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-blue-700 dark:bg-blue-400 rounded-full group-hover:w-24 transition-all duration-300"></div>
       </div>
     </motion.div>
   );
@@ -86,7 +86,7 @@ const StatisticsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark-mode-hero-bg overflow-hidden">
+    <section className="relative py-24 px-6 bg-gray-50 dark:bg-gray-950 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
@@ -101,13 +101,13 @@ const StatisticsSection: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <p className="text-sm md:text-base text-blue-600 dark-mode-text-secondary font-mono tracking-wider mb-4 uppercase">
+          <p className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase">
             Achievements
           </p>
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-4 text-gray-900 dark:text-white">
             Numbers That Speak
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark-mode-text-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-800 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
             A glimpse of my journey and impact through the years
           </p>
         </motion.div>

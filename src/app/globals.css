@@ -162,48 +162,61 @@ body.dark-mode .md\\:hidden.px-4 {
   align-items: center;
 }
 
-/* Professional Light Mode Background Gradient */
+/* Professional Plain Backgrounds */
 .hero-gradient-bg {
-  background: linear-gradient(to bottom right, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
+  background: #ffffff;
 }
 
-/* Professional Dark Mode Hero Background - Black */
+/* Professional Dark Mode Hero Background */
 body.dark-mode .dark-mode-hero-bg {
-  background: #000000 !important;
-  --tw-gradient-from: #000000 !important;
-  --tw-gradient-to: #000000 !important;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  background: #0f172a !important;
 }
 
-/* Professional Hero Name Gradient - Light Mode */
+/* Solid text colors - no gradients */
 .hero-name {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 25%, #0369a1 50%, #0891b2 75%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1e40af;
 }
 
-/* Professional Hero Name Gradient - Dark Mode */
 body.dark-mode .hero-name {
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #60a5fa;
 }
 
-/* Hero subtitle styling - Light Mode Gradient */
 .hero-subtitle {
-  background: linear-gradient(135deg, #2563eb 0%, #0369a1 50%, #0891b2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1e3a8a;
 }
 
 body.dark-mode .hero-subtitle {
-  background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #60a5fa;
+}
+
+/* Ensure light mode text is readable with strong contrast */
+body:not(.dark-mode) .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+body:not(.dark-mode) .text-gray-700 {
+  color: #374151 !important;
+}
+
+body:not(.dark-mode) .text-gray-800 {
+  color: #1f2937 !important;
+}
+
+body:not(.dark-mode) .text-gray-900 {
+  color: #111827 !important;
+}
+
+/* Improve border visibility in light mode */
+body:not(.dark-mode) .border-gray-300 {
+  border-color: #d1d5db !important;
+}
+
+body:not(.dark-mode) .border-gray-400 {
+  border-color: #9ca3af !important;
+}
+
+body:not(.dark-mode) .border-gray-500 {
+  border-color: #6b7280 !important;
 }
 
 /* Hero section text colors */
@@ -265,28 +278,25 @@ body.dark-mode .dark-mode-blob {
   background-color: #1a1a1a !important;
 }
 
-/* Dark mode hero buttons */
+/* Dark mode hero buttons - solid navy */
 body.dark-mode .hero-button-primary {
-  background-color: #444444 !important;
-  color: #E0E0E0 !important;
-  box-shadow: 0 4px 15px rgba(136, 136, 136, 0.3) !important;
+  background-color: #1e40af !important;
+  color: #ffffff !important;
 }
 
 body.dark-mode .hero-button-primary:hover {
-  background-color: #555555 !important;
-  box-shadow: 0 6px 20px rgba(136, 136, 136, 0.4) !important;
+  background-color: #1e3a8a !important;
 }
 
 body.dark-mode .hero-button-secondary {
-  border-color: #888888 !important;
-  color: #888888 !important;
-  box-shadow: 0 2px 10px rgba(136, 136, 136, 0.2) !important;
+  border-color: #64748b !important;
+  color: #cbd5e1 !important;
 }
 
 body.dark-mode .hero-button-secondary:hover {
-  background-color: #444444 !important;
-  border-color: #888888 !important;
-  color: #E0E0E0 !important;
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  color: #ffffff !important;
 }
 
 /* Force white backgrounds in light mode for blogs sections */
@@ -383,47 +393,23 @@ body.dark-mode a:hover .text-blue-600 {
   color: #38bdf8 !important;
 }
 
-/* Professional Light Mode Section Title Gradients */
-section h2 {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 33%, #0369a1 66%, #0891b2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Solid title colors - removed to let TailwindCSS handle it */
+
+/* Dark mode button colors - solid navy */
+body.dark-mode .bg-blue-700 {
+  background-color: #1e40af !important;
 }
 
-/* Professional Dark Mode Section Title Gradients */
-body.dark-mode section h2 {
-  background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 50%, #ec4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+body.dark-mode .bg-blue-700:hover {
+  background-color: #1e3a8a !important;
 }
 
-/* Override for specific sections that need different styling */
-section.bg-black h2,
-body.dark-mode section.bg-black h2,
-.hero-section h2,
-body.dark-mode .hero-section h2 {
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
-  color: inherit !important;
-}
-
-/* Dark mode generic button styles */
 body.dark-mode .bg-blue-600 {
-  background-color: #444444 !important;
+  background-color: #2563eb !important;
 }
 
 body.dark-mode .bg-blue-600:hover {
-  background-color: #555555 !important;
-}
-
-body.dark-mode .border-blue-600 {
-  border-color: #888888 !important;
-}
-
-body.dark-mode .hover\\:bg-blue-600:hover {
-  background-color: #444444 !important;
+  background-color: #1d4ed8 !important;
 }
 
 /* Smooth scroll */
@@ -586,27 +572,7 @@ body.dark-mode .glass {
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Animated gradient text */
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 25%,
-    #f093fb 50%,
-    #4facfe 75%,
-    #00f2fe 100%
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 8s ease infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+/* Solid text colors - removed gradient-text class */
 
 /* Floating animation */
 @keyframes float {
@@ -628,77 +594,25 @@ body.dark-mode .glass {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Glow effect */
+/* Simple shadow effect */
 .glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-              0 0 40px rgba(59, 130, 246, 0.3),
-              0 0 60px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
 
 .glow:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.7),
-              0 0 60px rgba(59, 130, 246, 0.5),
-              0 0 90px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Shimmer effect */
-.shimmer {
-  position: relative;
-  overflow: hidden;
-}
+/* Removed shimmer effect for clean professional appearance */
 
-.shimmer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shimmer 3s infinite;
-}
-
-body.dark-mode .shimmer::before {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* Neon border effect */
+/* Solid borders for trustworthy design */
 .neon-border {
-  border: 2px solid transparent;
-  background: linear-gradient(var(--background), var(--background)) padding-box,
-              linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe) border-box;
-  animation: neonPulse 4s ease-in-out infinite;
+  border: 2px solid #cbd5e1;
 }
 
-@keyframes neonPulse {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5),
-                0 0 20px rgba(102, 126, 234, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.8),
-                0 0 40px rgba(102, 126, 234, 0.5);
-  }
+body.dark-mode .neon-border {
+  border: 2px solid #475569;
 }
 
 /* Parallax layers */
@@ -779,32 +693,13 @@ body.dark-mode::-webkit-scrollbar-thumb:hover {
   transform: translateY(-10px) scale(1.02);
 }
 
-/* Holographic effect */
+/* Clean card backgrounds */
 .holographic {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.05)
-  );
+  background: #ffffff;
 }
 
-.holographic::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.2),
-    transparent 40%,
-    rgba(139, 92, 246, 0.2)
-  );
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.holographic:hover::before {
-  opacity: 1;
+body.dark-mode .holographic {
+  background: #1e293b;
 }
 
 /* Performance optimizations for 60fps animations */

@@ -1,93 +1,93 @@
 "use client";
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { Award, Code, Rocket, TrendingUp } from 'lucide-react';
 
 const SkillsHero: React.FC = () => {
-    const sectionRef = useRef<HTMLElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
-
-    useGSAP(() => {
-        if (!titleRef.current) return;
-
-        const text = titleRef.current.textContent || "";
-        const chars = text.split("");
-        titleRef.current.innerHTML = "";
-        
-        chars.forEach((char) => {
-            const span = document.createElement("span");
-            span.textContent = char === " " ? "\u00A0" : char;
-            span.style.display = "inline-block";
-            titleRef.current?.appendChild(span);
-        });
-
-        gsap.fromTo(
-            titleRef.current.children,
-            { opacity: 0, y: 30, rotationX: -90, scale: 0.8 },
-            {
-                opacity: 1,
-                y: 0,
-                rotationX: 0,
-                scale: 1,
-                stagger: 0.02,
-                duration: 0.6,
-                ease: "power3.out",
-                delay: 0.1,
-            }
-        );
-    }, { scope: sectionRef });
+    const stats = [
+        { icon: <Code className="w-5 h-5" />, label: "Technologies", value: "50+" },
+        { icon: <Rocket className="w-5 h-5" />, label: "Projects", value: "20+" },
+        { icon: <Award className="w-5 h-5" />, label: "Experience", value: "1+ Years" },
+        { icon: <TrendingUp className="w-5 h-5" />, label: "Success Rate", value: "98%" },
+    ];
 
     return (
-        <div>
-            <section ref={sectionRef} className='relative bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/20 dark:from-gray-950 dark:via-purple-950/20 dark:to-blue-950/10 py-28 text-center px-4 overflow-hidden'>
-                {/* Background decorative elements */}
-                <div className="absolute inset-0 opacity-30">
-                    <div className="absolute top-20 right-20 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
-                </div>
-
-                <div className="relative z-10 max-w-4xl mx-auto">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-lg md:text-2xl text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-8 uppercase font-bold"
-                >
-                    Technical Expertise
-                </motion.p>                    <h2 ref={titleRef} className='text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 gradient-text'>
-                        My Skills
-                    </h2>
+        <section className='relative bg-white dark:bg-gray-950 pt-32 pb-20 px-4 overflow-hidden'>
+            <div className="relative z-10 max-w-6xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        className="inline-block mb-4"
+                    >
+                        <span className="px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold border border-blue-100 dark:border-blue-800">
+                            Skills & Expertise
+                        </span>
+                    </motion.div>
+                    
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                        className='text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight'
+                    >
+                        Technical Expertise &<br />
+                        <span className="text-blue-600 dark:text-blue-400">Professional Skills</span>
+                    </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className='text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed'
+                        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className='text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium'
                     >
-                        A comprehensive overview of my technical skills and expertise in modern web development, from
-                        frontend frameworks to cloud technologies.
+                        A comprehensive showcase of my technical capabilities, from frontend frameworks to cloud infrastructure, 
+                        demonstrating proficiency across the full development stack.
                     </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className='flex flex-wrap justify-center gap-4'
-                    >
-                        <span className='px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm md:text-base font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300'>
-                            1+ Years Experience
-                        </span>
-                        <span className='px-6 py-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl text-gray-900 dark:text-white rounded-full text-sm md:text-base font-semibold border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 shimmer'>
-                            Full-Stack Developer
-                        </span>
-                        <span className='px-6 py-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl text-gray-900 dark:text-white rounded-full text-sm md:text-base font-semibold border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 shimmer'>
-                            50+ Technologies
-                        </span>
-                    </motion.div>
                 </div>
-            </section>
-        </div>
+
+                {/* Stats Grid */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                    className='grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto'
+                >
+                    {stats.map((stat, index) => (
+                        <motion.div
+                            key={stat.label}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ 
+                                duration: 0.7, 
+                                delay: 0.6 + index * 0.1,
+                                type: "spring",
+                                stiffness: 80,
+                                damping: 12
+                            }}
+                            whileHover={{ 
+                                scale: 1.05, 
+                                y: -8,
+                                transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+                            }}
+                            className='bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-500 ease-out'
+                        >
+                            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-3">
+                                {stat.icon}
+                            </div>
+                            <div className="text-2xl md:text-3xl font-bold text-white dark:text-white mb-1">
+                                {stat.value}
+                            </div>
+                            <div className="text-sm text-white dark:text-white font-medium">
+                                {stat.label}
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
     )
 };
 

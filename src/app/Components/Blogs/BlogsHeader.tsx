@@ -41,7 +41,7 @@ function BlogsHeader() {
     }, { scope: sectionRef });
 
     return(
-        <section ref={sectionRef} className="relative bg-gradient-to-br from-gray-50 via-indigo-50/30 to-purple-50/20 dark:from-gray-950 dark:via-indigo-950/20 dark:to-purple-950/10 py-28 md:py-36 text-center px-4 transition-colors duration-300 overflow-hidden">
+        <section ref={sectionRef} className="relative bg-gray-50 dark:bg-gray-950 py-28 md:py-36 text-center px-4 transition-colors duration-300 overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-30">
                 <div className="absolute top-20 left-20 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl"></div>
@@ -53,13 +53,13 @@ function BlogsHeader() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-lg md:text-2xl text-indigo-600 dark:text-indigo-400 font-mono tracking-wider mb-8 uppercase font-bold"
+                    className="text-lg md:text-2xl text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-8 uppercase font-bold"
                 >
                     Insights & Articles
                 </motion.p>
 
                 {/* Heading */}
-                <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight gradient-text">
+                <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight text-gray-900 dark:text-white">
                     My Blog
                 </h1>
 
@@ -68,7 +68,7 @@ function BlogsHeader() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="text-gray-700 dark:text-gray-300 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed"
+                    className="text-gray-800 dark:text-gray-300 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
                 >
                     Sharing insights, tutorials and experiences from my journey as a
                     full-stack developer. Topics include React, Next.js, TypeScript, and
@@ -97,7 +97,7 @@ function BlogsHeader() {
                                 scale: 1.08,
                                 transition: { duration: 0.2, type: "spring", stiffness: 400 }
                             }}
-                            className="px-7 py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 text-gray-900 dark:text-gray-100 rounded-full text-sm md:text-base font-semibold shadow-lg hover:shadow-xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 transition-all duration-300 cursor-default"
+                            className="px-7 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 rounded-full text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-default"
                         >
                             {tag}
                         </motion.span>

@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+
 interface ProjectCardProps {
     image: string;
     title: string;
@@ -21,24 +19,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     cta = "View Projects",
     ctaLink,
 }) => {
-    const cardRef = useRef<HTMLDivElement>(null);
-    const imageRef = useRef<HTMLDivElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(() => {
-        if (!cardRef.current) return;
-
-        const card = cardRef.current;
-        const image = imageRef.current;
-
-        // Disabled animations for maximum performance on live domain
-        // Images load and display instantly without any lag
-    }, { scope: cardRef });
 
     return (
         <div 
-            ref={cardRef}
-            className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200 mb-10"
+            className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200 mb-10"
         >
             {/* Image */}
             <div className="w-full relative overflow-hidden">
@@ -54,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
 
             {/* Black Overlay */}
-            <div ref={contentRef} className="bg-black text-white flex flex-col md:flex-row justify-between p-6 rounded-b-2xl">
+            <div className="bg-black text-white flex flex-col md:flex-row justify-between p-6 rounded-b-2xl">
                 {/* Left side : Title + Features */}
                 <div className="md:w-1/2">
                     <h3 className="text-lg md:text-xl font-bold mb-3">

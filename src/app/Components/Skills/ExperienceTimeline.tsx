@@ -11,6 +11,12 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    title: 'Founder - Deven Digital Labs',
+    date: 'Nov 2025 - Present',
+    description:
+      'Founded and leading Deven Digital Labs, providing full-stack development services and innovative digital solutions. Building scalable applications, managing client projects, and driving business growth through cutting-edge technology and strategic vision.',
+  },
+  {
     title: 'Software Developer Engineer - 1',
     date: 'Oct 2025 - Present',
     description:
@@ -32,22 +38,27 @@ const experiences: Experience[] = [
 
 export const ExperienceTimeline = () => {
   return (
-    <section className="bg-[#0E1629] text-white py-16 px-4">
+    <section className="bg-gray-50 dark:bg-black text-gray-900 dark:text-white py-20 px-4">
       <div className="max-w-5xl mx-auto relative">
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          Experience Timeline
-        </motion.h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Professional Experience
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            My career journey and key accomplishments
+          </p>
+        </motion.div>
 
         {/* Animated vertical line (desktop) + mobile accent */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-28 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-blue-500/10 origin-top"
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-32 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-blue-500/50 to-transparent dark:from-blue-400 dark:via-blue-500/50 origin-top"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -55,7 +66,7 @@ export const ExperienceTimeline = () => {
         />
         <motion.div
           aria-hidden
-          className="md:hidden absolute left-4 top-28 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-blue-500/10 origin-top"
+          className="md:hidden absolute left-4 top-32 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-blue-500/50 to-transparent dark:from-blue-400 dark:via-blue-500/50 origin-top"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -82,7 +93,7 @@ export const ExperienceTimeline = () => {
               >
                 {/* Center dot aligned to the spine (desktop) */}
                 <motion.span
-                  className="hidden md:block absolute left-1/2 -translate-x-1/2 top-2 w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_0_4px_rgba(59,130,246,0.15)] z-10"
+                  className="hidden md:block absolute left-1/2 -translate-x-1/2 top-2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full shadow-[0_0_0_4px_rgba(59,130,246,0.2)] dark:shadow-[0_0_0_4px_rgba(96,165,250,0.2)] z-10 border-2 border-white dark:border-gray-900"
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
@@ -93,9 +104,8 @@ export const ExperienceTimeline = () => {
                     delay: index * 0.1
                   }}
                   whileHover={{
-                    scale: 1.5,
-                    boxShadow: "0_0_0_8px_rgba(59,130,246,0.3)",
-                    transition: { duration: 0.3 }
+                    scale: 1.6,
+                    transition: { duration: 0.4, type: "spring", stiffness: 200, damping: 10 }
                   }}
                 />
 
@@ -115,17 +125,17 @@ export const ExperienceTimeline = () => {
                   >
                     <motion.div
                       whileHover={{
-                        scale: 1.03,
+                        scale: 1.02,
                         y: -8,
-                        transition: { duration: 0.2, type: "spring", stiffness: 300 }
+                        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
                       }}
-                      className="rounded-xl bg-white/5 border border-white/10 p-5 backdrop-blur hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 will-change-transform md:text-right cursor-pointer"
+                      className="rounded-2xl bg-gray-900 dark:bg-gray-900 border-2 border-gray-700 dark:border-gray-700 p-6 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-2xl transition-all duration-500 ease-out will-change-transform md:text-right cursor-pointer"
                     >
                       <motion.h3
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.2 }}
-                        className="text-lg md:text-xl font-semibold mb-2"
+                        className="text-lg md:text-xl font-bold mb-2 text-white dark:text-white"
                       >
                         {exp.title}
                       </motion.h3>
@@ -133,7 +143,7 @@ export const ExperienceTimeline = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.3 }}
-                        className="text-blue-400 font-medium mb-2"
+                        className="text-blue-400 dark:text-blue-400 font-semibold mb-3 text-sm"
                       >
                         {exp.date}
                       </motion.p>
@@ -141,7 +151,7 @@ export const ExperienceTimeline = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.4 }}
-                        className="text-gray-300"
+                        className="text-gray-300 dark:text-gray-300 leading-relaxed"
                       >
                         {exp.description}
                       </motion.p>
@@ -167,17 +177,17 @@ export const ExperienceTimeline = () => {
                   >
                     <motion.div
                       whileHover={{
-                        scale: 1.03,
+                        scale: 1.02,
                         y: -8,
-                        transition: { duration: 0.2, type: "spring", stiffness: 300 }
+                        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
                       }}
-                      className="rounded-xl bg-white/5 border border-white/10 p-5 backdrop-blur hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 will-change-transform cursor-pointer"
+                      className="rounded-2xl bg-gray-900 dark:bg-gray-900 border-2 border-gray-700 dark:border-gray-700 p-6 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-2xl transition-all duration-500 ease-out will-change-transform cursor-pointer"
                     >
                       <motion.h3
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.2 }}
-                        className="text-lg md:text-xl font-semibold mb-2"
+                        className="text-lg md:text-xl font-bold mb-2 text-white dark:text-white"
                       >
                         {exp.title}
                       </motion.h3>
@@ -185,7 +195,7 @@ export const ExperienceTimeline = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.3 }}
-                        className="text-blue-400 font-medium mb-2"
+                        className="text-blue-400 dark:text-blue-400 font-semibold mb-3 text-sm"
                       >
                         {exp.date}
                       </motion.p>
@@ -193,7 +203,7 @@ export const ExperienceTimeline = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.15 + 0.4 }}
-                        className="text-gray-300"
+                        className="text-gray-300 dark:text-gray-300 leading-relaxed"
                       >
                         {exp.description}
                       </motion.p>
@@ -218,7 +228,7 @@ export const ExperienceTimeline = () => {
                 >
                   {/* Mobile dot (left accent) */}
                   <motion.span
-                    className="absolute left-0 top-2 w-2.5 h-2.5 bg-blue-500 rounded-full z-10"
+                    className="absolute left-0 top-2 w-3 h-3 bg-blue-600 dark:bg-blue-400 rounded-full z-10 border-2 border-white dark:border-black"
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
@@ -229,23 +239,23 @@ export const ExperienceTimeline = () => {
                       delay: index * 0.15 + 0.1
                     }}
                     whileHover={{
-                      scale: 1.5,
-                      transition: { duration: 0.3 }
+                      scale: 1.6,
+                      transition: { duration: 0.4, type: "spring", stiffness: 200, damping: 10 }
                     }}
                   />
                   <motion.div
                     whileHover={{
                       scale: 1.02,
-                      y: -5,
-                      transition: { duration: 0.2, type: "spring", stiffness: 300 }
+                      y: -8,
+                      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
                     }}
-                    className="rounded-xl bg-white/5 border border-white/10 p-5 backdrop-blur hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 will-change-transform cursor-pointer"
+                    className="rounded-2xl bg-gray-900 dark:bg-gray-900 border-2 border-gray-700 dark:border-gray-700 p-6 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-2xl transition-all duration-500 ease-out will-change-transform cursor-pointer"
                   >
                     <motion.h3
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.2 }}
-                      className="text-lg font-semibold mb-2"
+                      className="text-lg font-bold mb-2 text-white dark:text-white"
                     >
                       {exp.title}
                     </motion.h3>
@@ -253,7 +263,7 @@ export const ExperienceTimeline = () => {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.3 }}
-                      className="text-blue-400 font-medium mb-2"
+                      className="text-blue-400 dark:text-blue-400 font-semibold mb-3 text-sm"
                     >
                       {exp.date}
                     </motion.p>
@@ -261,7 +271,7 @@ export const ExperienceTimeline = () => {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.4 }}
-                      className="text-gray-300"
+                      className="text-gray-300 dark:text-gray-300 leading-relaxed"
                     >
                       {exp.description}
                     </motion.p>
