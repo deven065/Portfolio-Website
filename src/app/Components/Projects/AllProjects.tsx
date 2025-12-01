@@ -96,6 +96,19 @@ const projects: Project[] = [
     },
     {
       id: 7,
+      title: "Data Analyst Portfolio - Ashok Choudhary",
+      description: {
+        main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
+        note: "Built with modern web technologies to reflect the client's professional expertise in data analysis and business intelligence."
+      },
+      image: "/Ashok-Portfolio.png",
+      tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion", "Responsive Design"],
+      tag: "Full Stack",
+      liveLink: "https://ashokfolio.vercel.app/",
+      codeLink: "https://github.com/deven065/ashok-portfolio.git",
+    },
+    {
+      id: 8,
       title: "Chef Claude",
       description:
         "Developed an AI-powered recipe app using Mistral AI and Hugging Face APIs to generate personalized recipes from available ingredients in real-time. Built with React for a dynamic, seamless user experience showcasing practical AI-driven solutions.",
@@ -108,7 +121,7 @@ const projects: Project[] = [
         "Sorry, this project will not work as expected (API is deprecated)",
       },
     {
-      id: 8,
+      id: 9,
       title: "Jira Automation",
       description:
         "Configured and implemented Jira automation workflows to streamline project management processes. Developed custom automation rules to reduce manual tasks and improve team productivity. Provided training and documentation for seamless adoption of automated workflows.",
@@ -119,7 +132,7 @@ const projects: Project[] = [
       codeLink: "",
     },
     {
-      id: 9,
+      id: 10,
       title: "Google Clone",
       description:
         "A clone of the Google Search Engine built with HTML and CSS. Features include a responsive design and basic search functionality. This project demonstrates my ability to replicate complex UI designs and implement fundamental web technologies.",
@@ -128,19 +141,6 @@ const projects: Project[] = [
       tag: "Frontend",
       liveLink: "https://google-blond-eta.vercel.app/",
       codeLink: "https://github.com/deven065/Google.git",
-    },
-    {
-      id: 10,
-      title: "Data Analyst Portfolio - Ashok Choudhary",
-      description: {
-        main: "Designed and developed a comprehensive portfolio website for Ashok Choudhary, a skilled Data Analyst with 1+ years of experience in business intelligence and data visualization. The site effectively showcases his expertise in transforming raw data into meaningful insights through compelling visualizations and interactive dashboards. Features include a professional about section, skills showcase with proficiency indicators, project gallery highlighting 10+ data analysis projects, experience timeline, and integrated contact system with resume download functionality.",
-        note: "Built with modern web technologies to reflect the client's professional expertise in data analysis and business intelligence."
-      },
-      image: "/Ashok-Portfolio.png",
-      tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion", "Responsive Design"],
-      tag: "Full Stack",
-      liveLink: "https://ashokfolio.vercel.app/",
-      codeLink: "https://github.com/deven065/ashok-portfolio.git",
     },
 ];
 
