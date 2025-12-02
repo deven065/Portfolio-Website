@@ -753,3 +753,20 @@ img, video {
   }
 }
 
+/* Force white text in ProjectsHero component - NUCLEAR OVERRIDE */
+section[style*="0f172a"] *,
+section[style*="0f172a"] p,
+section[style*="0f172a"] h1,
+section[style*="0f172a"] h2,
+section[style*="0f172a"] h3 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: none !important;
+}
+
+section[style*="0f172a"] p[style*="ffffff"],
+section[style*="0f172a"] h1[style*="ffffff"] {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: none !important;
+}

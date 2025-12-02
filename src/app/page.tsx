@@ -1,4 +1,3 @@
-import HeroImage from "./Components/HeroImage";
 import Hero from "./Components/Hero";
 import AboutMe from "./Components/AboutMe";
 import StatisticsSection from "./Components/StatisticsSection";
@@ -12,16 +11,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HeroImage
-        src="/1st-image.webp"
-        alt="Developer working at desk"
-      />
       <AboutMe />
       <StatisticsSection />
-      <HeroImage
-        src="/image-2.webp"
-        alt="Developer with laptop and coffee"
-      />
       <ProjectsSection />
       <SkillsSection />
       <ContactForm />
