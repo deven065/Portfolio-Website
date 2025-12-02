@@ -21,21 +21,24 @@ function BlogsHeader() {
             const span = document.createElement("span");
             span.textContent = char === " " ? "\u00A0" : char;
             span.style.display = "inline-block";
+            span.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+            span.style.webkitBackgroundClip = "text";
+            span.style.webkitTextFillColor = "transparent";
+            span.style.backgroundClip = "text";
             titleRef.current?.appendChild(span);
         });
 
         gsap.fromTo(
             titleRef.current.children,
-            { opacity: 0, y: 60, rotationX: -90, scale: 0.5 },
+            { opacity: 0, y: 20, scale: 0.9 },
             {
                 opacity: 1,
                 y: 0,
-                rotationX: 0,
                 scale: 1,
-                stagger: 0.04,
-                duration: 1,
-                ease: "elastic.out(1, 0.5)",
-                delay: 0.2,
+                stagger: 0.02,
+                duration: 0.4,
+                ease: "power2.out",
+                delay: 0.1,
             }
         );
     }, { scope: sectionRef });
@@ -59,7 +62,7 @@ function BlogsHeader() {
                 </motion.p>
 
                 {/* Heading */}
-                <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight text-gray-900 dark:text-white">
+                <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight">
                     My Blog
                 </h1>
 

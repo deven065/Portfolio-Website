@@ -64,7 +64,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 dark:text-white"
+          className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
         >
           Featured Projects
         </motion.h2>
@@ -73,7 +73,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-lg md:text-xl text-gray-800 dark:text-gray-300 leading-relaxed font-medium"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-medium"
         >
           Explore a selection of my completed projects, built with modern
           technologies like React and Node.js, demonstrating my full stack

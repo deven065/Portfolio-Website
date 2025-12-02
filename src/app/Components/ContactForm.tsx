@@ -22,24 +22,24 @@ const ContactForm: React.FC = () => {
   useGSAP(() => {
     if (!formRef.current || !fieldsRef.current) return;
 
-    // Animate form fields with stagger
+    // Animate form fields with stagger - butter smooth
     gsap.fromTo(
       fieldsRef.current.children,
       {
         opacity: 0,
-        x: -50,
-        scale: 0.9,
+        y: 30,
+        scale: 0.95,
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         scale: 1,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power3.out",
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: formRef.current,
-          start: "top 80%",
+          start: "top 85%",
           toggleActions: "play none none none",
         },
       }
@@ -145,7 +145,7 @@ const ContactForm: React.FC = () => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-2xl transition-all duration-300"
+        className="max-w-lg mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-2xl shadow-lg dark:shadow-2xl transition-all duration-300"
       >
         <div ref={fieldsRef} className="space-y-6">
         {/* Name */}
@@ -160,7 +160,7 @@ const ContactForm: React.FC = () => {
             placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all glass shimmer"
+            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
             required
           />
         </div>
@@ -177,7 +177,7 @@ const ContactForm: React.FC = () => {
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
+            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all"
             required
           />
         </div>
@@ -197,7 +197,7 @@ const ContactForm: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="w-full rounded-2xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all resize-none"
+            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white transition-all resize-none"
             required
           />
         </div>
@@ -222,13 +222,9 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 dark:from-blue-500 dark:to-cyan-500 dark:hover:from-blue-600 dark:hover:to-cyan-600 text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl dark:shadow-blue-500/30 dark:hover:shadow-cyan-400/40 overflow-hidden"
-            style={{
-              boxShadow: '0 10px 30px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.3)',
-            }}
+            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-12 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
           >
-            <span className="relative z-10">Submit</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer"></div>
+            Submit
           </button>
         </div>
         </div>

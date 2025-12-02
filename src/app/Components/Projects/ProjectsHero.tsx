@@ -1,35 +1,59 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const ProjectsHero: React.FC = () => {
     return (
-        <section className="relative py-20 md:py-28 text-center px-6 overflow-hidden bg-white dark:bg-gray-950">
-            <div className="max-w-4xl mx-auto relative" style={{ zIndex: 10 }}>
-                
-                <p className="text-sm font-semibold tracking-wide uppercase mb-6 text-blue-600 dark:text-blue-400">
-                    PORTFOLIO
-                </p>
+        <section className="relative bg-gradient-to-b from-gray-900 to-gray-950 dark:bg-gray-950 py-20 md:py-28 text-center px-6 overflow-hidden">
 
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white dark:text-white">
+            <div className="max-w-4xl mx-auto relative z-10">
+                {/* Label */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-sm font-semibold text-blue-400 dark:text-blue-400 tracking-wide uppercase mb-6"
+                >
+                    Portfolio
+                </motion.p>
+
+                {/* Title */}
+                <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-4xl md:text-6xl font-bold text-white dark:text-white mb-6"
+                >
                     Featured Projects
-                </h1>
+                </motion.h1>
 
-                <p className="text-lg md:text-xl text-white dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Explore a selection of my completed projects, built with modern technologies like React and Node.js.
-                </p>
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="text-gray-300 dark:text-gray-300 text-lg max-w-3xl mx-auto mb-10 leading-relaxed"
+                >
+                    Explore a selection of my completed projects, built with modern technologies like React and Node.js, demonstrating my full stack expertise and passion for innovative development.
+                </motion.p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap justify-center gap-3">
-                    <span className="px-5 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-700 shadow-sm">
+                {/* Tags / Filters */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-wrap justify-center gap-3"
+                >
+                    <span className="px-5 py-2 bg-gray-800 dark:bg-gray-800 text-white dark:text-gray-300 rounded-full text-sm font-medium border-2 border-gray-700 dark:border-gray-700 shadow-md">
                         10 Projects
                     </span>
-                    <span className="px-5 py-2 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800 shadow-sm">
+                    <span className="px-5 py-2 bg-blue-600 dark:bg-blue-900/20 text-white dark:text-blue-400 rounded-full text-sm font-medium border-2 border-blue-600 dark:border-blue-800 shadow-md">
                         Full Stack
                     </span>
-                    <span className="px-5 py-2 bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-800 shadow-sm">
+                    <span className="px-5 py-2 bg-purple-600 dark:bg-purple-900/20 text-white dark:text-purple-400 rounded-full text-sm font-medium border-2 border-purple-600 dark:border-purple-800 shadow-md">
                         Modern Tech
                     </span>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -214,7 +214,7 @@ export default function RecentArticles() {
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center text-sm text-gray-700 dark:text-gray-400 gap-2 mb-3">
                     <Calendar size={16} className="text-blue-600 dark:text-blue-400" />
-                    <span className="font-semibold text-gray-800">{article.date}</span>
+                    <span className="font-semibold text-blue-600 dark:text-blue-400">{article.date}</span>
                   </div>
 
                   <h3 className="text-xl font-bold mt-1 mb-2 text-gray-900 dark:text-gray-100 leading-tight">{article.title}</h3>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
@@ -81,20 +82,42 @@ const Header: React.FC = () => {
 
   return (
     <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white dark:bg-gray-950 backdrop-blur-md shadow-sm z-50 transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
-      <div className="flex items-center justify-between px-6 py-4 lg:px-12 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-6 py-4 lg:px-12 w-full">
 
-        {/* Logo */}
+        {/* Logo - Left */}
         <Link
           ref={logoRef}
           href="/"
-          className="text-xl md:text-2xl font-bold tracking-tight select-none cursor-pointer hover:opacity-80 transition-opacity duration-200"
+          className="flex items-center gap-3 select-none cursor-pointer hover:opacity-80 transition-all duration-300 flex-shrink-0 group"
         >
-          <span className="text-blue-600 dark:text-blue-500">Deven</span>
-          <span className="text-gray-900 dark:text-white"> Digital Labs</span>
+          {theme === "dark" ? (
+            <Image
+              src="/logo-white.png"
+              alt="Deven Digital Labs"
+              width={40}
+              height={40}
+              className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
+              priority
+            />
+          ) : (
+            <Image
+              src="/logo-black.png"
+              alt="Deven Digital Labs"
+              width={40}
+              height={40}
+              className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
+              priority
+            />
+          )}
+
+          <span className="text-xl md:text-2xl font-bold tracking-tight">
+            <span className="text-blue-600 dark:text-blue-500 transition-all duration-300 group-hover:text-blue-700 dark:group-hover:text-blue-400">Deven</span>
+            <span className="text-gray-900 dark:text-white transition-colors duration-300"> Digital Labs</span>
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav ref={navRef} className="hidden md:flex flex-row gap-8 text-sm font-medium">
+        {/* Desktop Nav - Center */}
+        <nav ref={navRef} className="hidden md:flex flex-row gap-12 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
           <Link
             href="/projects"
             className={`${isActive("/projects") ? "text-blue-600 dark:text-blue-500" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500"} transition-colors duration-200`}
@@ -121,8 +144,8 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        {/* CTA Buttons & Dark Mode Toggle */}
-        <div ref={ctaRef} className="hidden md:flex gap-4 items-center">
+        {/* CTA Buttons & Dark Mode Toggle - Right */}
+        <div ref={ctaRef} className="hidden md:flex gap-4 items-center flex-shrink-0">
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}

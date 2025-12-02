@@ -73,7 +73,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, subtitle, skills, index = 
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ scale: 1.02, y: -5 }}
-      className="w-full max-w-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-blue-500/30 rounded-3xl p-8 transition-all duration-300"
+      className="w-full max-w-xl bg-white dark:bg-gray-900/90 backdrop-blur-xl border-2 border-gray-300 dark:border-gray-700/50 shadow-lg hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-600 rounded-3xl p-8 transition-all duration-300"
     >
       <div className="flex items-center gap-4 mb-8">
         <div className="w-1 h-12 rounded-full bg-blue-700 dark:bg-blue-400" />
@@ -95,7 +95,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, subtitle, skills, index = 
               <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{skill.name}</span>
               <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{skill.percentage}%</span>
             </div>
-            <div className="relative w-full bg-gray-200 dark:bg-gray-700/50 rounded-full h-2.5 overflow-hidden">
+            <div className="relative w-full bg-gray-300 dark:bg-gray-700/50 rounded-full h-2.5 overflow-hidden shadow-inner">
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.percentage}%` }}

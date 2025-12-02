@@ -11,11 +11,11 @@ export default function Footer() {
         {/* Branding */}
         <div>
           <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-400">Deven Digital Labs</h2>
-          <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="mt-4 text-sm text-gray-400 dark:text-gray-300 leading-relaxed">
             Crafting digital experiences with passion. Full-stack developer dedicated to creating innovative and user-friendly web applications.
           </p>
-          <div className="flex items-center gap-2 mt-4 text-sm text-gray-900 dark:text-gray-300">
-            <FaCode className="text-gray-900 dark:text-gray-400" />
+          <div className="flex items-center gap-2 mt-4 text-sm text-gray-400 dark:text-gray-300">
+            <FaCode className="text-gray-400 dark:text-gray-400" />
             <span>Made with</span>
             <FaHeart className="text-red-500" />
             <span>by Deven</span>
@@ -24,46 +24,46 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-200">Quick Links</h3>
+          <h3 className="font-semibold text-lg mb-4 text-blue-700 dark:text-blue-400">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Home</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Projects</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Skills</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Contact</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Home</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Projects</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Skills</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Contact</li>
           </ul>
         </div>
 
         {/* Services */}
         <div>
-          <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-200">Services</h3>
+          <h3 className="font-semibold text-lg mb-4 text-blue-700 dark:text-blue-400">Services</h3>
           <ul className="space-y-2 text-sm list-disc list-inside">
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Web Development</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Mobile Apps</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">UI/UX Design</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Backend Development</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Database Design</li>
-            <li className="text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">API Integration</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Web Development</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Mobile Apps</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">UI/UX Design</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Backend Development</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">Database Design</li>
+            <li className="text-white hover:text-indigo-600 dark:hover:text-blue-400 cursor-pointer transition-colors">API Integration</li>
           </ul>
         </div>
 
         {/* Get in Touch */}
         <div>
-          <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-200">Get in Touch</h3>
+          <h3 className="font-semibold text-lg mb-4 text-blue-700 dark:text-blue-400">Get in Touch</h3>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2 text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
+            <li className="flex items-center gap-2 text-white hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
               <FaEnvelope className="text-indigo-600 dark:text-blue-600" /> devenrikame55@gmail.com
             </li>
-            <li className="flex items-center gap-2 text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
+            <li className="flex items-center gap-2 text-white hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
               <FaPhone className="text-indigo-600 dark:text-blue-600" /> +91 (983) 370-3389
             </li>
-            <li className="flex items-center gap-2 text-gray-900 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
+            <li className="flex items-center gap-2 text-white hover:text-indigo-600 dark:hover:text-blue-400 transition-colors">
               <FaMapMarkedAlt className="text-indigo-600 dark:text-blue-600" /> Mumbai, India
             </li>
           </ul>
 
           {/* Follow Me */}
           <div className="mt-4">
-            <p className="font-semibold mb-2 text-gray-900 dark:text-gray-200">Follow Me</p>
+            <p className="font-semibold mb-2 text-blue-700 dark:text-blue-400">Follow Me</p>
             <div className="flex gap-3 relative z-20">
               <motion.a
                 href="https://www.linkedin.com/in/dev55"
@@ -85,7 +85,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-[#0077b5] dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#0077b5] dark:hover:bg-[#0077b5] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-blue-700 dark:bg-blue-700 text-white p-2 rounded-full hover:bg-[#0077b5] dark:hover:bg-[#0077b5] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -103,7 +103,7 @@ export default function Footer() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 0.4,
-                  delay: 0.2,
+                  delay: 0.3,
                   type: "spring",
                   stiffness: 200,
                 }}
@@ -114,7 +114,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-[#181717] dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#181717] dark:hover:bg-[#24292e] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#000000] dark:hover:bg-[#14171A] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -143,7 +143,7 @@ export default function Footer() {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-black dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#000000] dark:hover:bg-[#1DA1F2] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-300 p-2 rounded-full hover:bg-[#000000] dark:hover:bg-[#14171A] hover:text-white dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}

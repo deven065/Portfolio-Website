@@ -61,7 +61,7 @@ const FeaturedProjects: React.FC = () => {
         <p className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase font-semibold">
           Featured Work
         </p>
-        <h2 className="text-4xl sm:text-6xl font-extrabold gradient-text mb-4">
+        <h2 className="text-4xl sm:text-6xl font-extrabold text-white mb-4">
           Featured Projects
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">

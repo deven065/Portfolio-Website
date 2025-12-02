@@ -105,15 +105,24 @@ const Hero: React.FC = () => {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-gray-400 dark:text-gray-600"
+        <button
+          onClick={() => {
+            const nextSection = document.querySelector('#projects') || document.querySelector('section:nth-of-type(2)');
+            nextSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+          className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+          aria-label="Scroll to next section"
         >
-          <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </motion.div>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="text-gray-400 dark:text-gray-600"
+          >
+            <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </motion.div>
+        </button>
       </motion.div>
     </section>
   );

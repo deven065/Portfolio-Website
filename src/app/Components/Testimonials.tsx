@@ -81,12 +81,12 @@ export default function Testimonials() {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className="relative bg-gray-50 dark:bg-gray-950 text-white dark:text-white py-28 px-4 overflow-hidden">
+        <section ref={sectionRef} className="relative bg-gradient-to-b from-gray-100 to-white dark:bg-gray-950 text-gray-900 dark:text-white py-28 px-4 overflow-hidden">
         
         <div className="text-center mb-20 max-w-4xl mx-auto relative z-10">
-            <p className="text-sm md:text-base text-blue-700 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase font-semibold">Client Success Stories</p>
-            <h2 ref={titleRef} className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6">What Clients Say</h2>
-            <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+            <p className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-mono tracking-wider mb-4 uppercase font-semibold">Client Success Stories</p>
+            <h2 ref={titleRef} className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 drop-shadow-sm">What Clients Say</h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
             Trusted by industry leaders and startups alike. Here&apos;s what my clients say about working together.
             </p>
         </div>
@@ -108,12 +108,13 @@ export default function Testimonials() {
                 prevEl: '.swiper-button-prev-custom',
             }}
             autoplay={{
-                delay: 3000,
+                delay: 0,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true,
+                pauseOnMouseEnter: false,
                 reverseDirection: false,
             }}
-            speed={600}
+            speed={800}
+            freeMode={true}
             effect="slide"
             grabCursor={true}
             watchSlidesProgress={true}
@@ -130,36 +131,41 @@ export default function Testimonials() {
             >
             {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={`testimonial-${index}`}>
-                <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl rounded-3xl p-10 shadow-2xl flex flex-col justify-between h-full min-h-[440px] border-2 border-gray-300 dark:border-gray-700 hover:border-blue-700 dark:hover:border-blue-400 hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group">
-                    {/* Solid accent bar */}
-                    <div className="absolute top-0 left-0 w-full h-1.5 bg-blue-700 dark:bg-blue-400"></div>
-                    
-                    {/* Quote icon */}
-                    <div className="absolute top-8 right-8 text-7xl text-blue-500/10 dark:text-blue-400/10 font-serif leading-none group-hover:text-blue-500/20 dark:group-hover:text-blue-400/20 transition-all duration-300">&ldquo;</div>
+                <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border-2 border-gray-300 dark:border-gray-800 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-600 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+                    {/* Animated tech accent */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
                     
                     <div className="relative z-10 flex-1">
-                    <div className="text-yellow-400 dark:text-yellow-300 text-2xl mb-6 flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                            <span key={i} className="drop-shadow-sm">★</span>
-                        ))}
+                    <div className="flex items-center justify-between mb-5">
+                        <div className="text-yellow-500 dark:text-yellow-400 text-xl flex gap-0.5">
+                            {[...Array(5)].map((_, i) => (
+                                <span key={i}>★</span>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <span>Verified Client</span>
+                        </div>
                     </div>
-                    <p className="text-gray-800 dark:text-gray-100 font-normal leading-relaxed mb-6 text-base md:text-lg">
+                    <p className="text-gray-800 dark:text-gray-300 leading-relaxed mb-6 text-base font-normal">
                         {testimonial.message}
                     </p>
                     </div>
-                    <div className="flex items-center relative z-10 mt-auto pt-6 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <div className="flex items-center relative z-10 mt-auto pt-5 border-t border-gray-200 dark:border-gray-800 group-hover:border-blue-200 dark:group-hover:border-blue-900/50 transition-colors duration-300">
                     <div className="relative flex-shrink-0">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <Image
                             src={testimonial.img}
                             alt={testimonial.name}
-                            width={68}
-                            height={68}
-                            className="rounded-full object-cover mr-4 ring-4 ring-blue-500/20 dark:ring-blue-400/20 group-hover:ring-blue-500/40 dark:group-hover:ring-blue-400/40 transition-all duration-300"
+                            width={56}
+                            height={56}
+                            className="rounded-full object-cover mr-4 border-2 border-gray-200 dark:border-gray-700 group-hover:border-blue-400 dark:group-hover:border-blue-600 transition-colors duration-300 relative z-10"
                         />
                     </div>
-                    <div>
-                        <p className="font-bold text-gray-900 dark:text-white text-xl mb-1">{testimonial.name}</p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-snug">{testimonial.role}</p>
+                    <div className="flex-1">
+                        <p className="font-semibold text-gray-900 dark:text-white text-lg mb-0.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{testimonial.name}</p>
+                        <p className="text-gray-700 dark:text-gray-400 text-sm font-mono">{testimonial.role}</p>
                     </div>
                     </div>
                 </div>
@@ -168,11 +174,11 @@ export default function Testimonials() {
             </Swiper>
 
             {/* Navigation Arrows */}
-            <div className="swiper-button-prev-custom absolute left-0 md:-left-6 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-700 hover:text-white dark:hover:bg-blue-700 hover:border-blue-700 z-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110">
-            <span className="text-xl font-bold">←</span>
+            <div className="swiper-button-prev-custom absolute left-0 md:-left-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent hover:scale-110 z-10 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <span className="text-lg group-hover:-translate-x-0.5 transition-transform duration-200">←</span>
             </div>
-            <div className="swiper-button-next-custom absolute right-0 md:-right-6 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-700 hover:text-white dark:hover:bg-blue-700 hover:border-blue-700 z-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110">
-            <span className="text-xl font-bold">→</span>
+            <div className="swiper-button-next-custom absolute right-0 md:-right-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent hover:scale-110 z-10 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <span className="text-lg group-hover:translate-x-0.5 transition-transform duration-200">→</span>
             </div>
 
             {/* Custom Pagination Dots */}
@@ -191,35 +197,32 @@ export default function Testimonials() {
             .testimonials-swiper .swiper-slide {
                 height: auto;
                 display: flex;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                opacity: 0.7;
-                transform: scale(0.95);
+                transition: all 0.3s ease !important;
+                opacity: 0.6;
             }
             .testimonials-swiper .swiper-slide > div {
                 width: 100%;
             }
             .testimonials-swiper .swiper-slide-active {
                 opacity: 1;
-                transform: scale(1);
             }
             .testimonials-swiper .swiper-slide-next,
             .testimonials-swiper .swiper-slide-prev {
-                opacity: 0.85;
-                transform: scale(0.97);
+                opacity: 0.8;
             }
             .swiper-pagination-custom {
                 display: flex;
                 gap: 8px;
             }
             .swiper-pagination-custom .swiper-pagination-bullet {
-                background: #1e40af;
+                background: linear-gradient(135deg, #3b82f6, #8b5cf6);
                 opacity: 0.3;
-                width: 12px;
-                height: 12px;
+                width: 10px;
+                height: 10px;
                 margin: 0;
                 border-radius: 50%;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                border: 2px solid transparent;
+                box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
             }
             body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet {
                 background: #60a5fa;
@@ -227,7 +230,9 @@ export default function Testimonials() {
             }
             .swiper-pagination-custom .swiper-pagination-bullet-active {
                 opacity: 1;
-                transform: scale(1.4);
+                width: 28px;
+                border-radius: 5px;
+                box-shadow: 0 0 12px rgba(59, 130, 246, 0.6), 0 0 24px rgba(139, 92, 246, 0.4);
             }
             body.dark-mode .swiper-pagination-custom .swiper-pagination-bullet-active {
                 opacity: 1;
