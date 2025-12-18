@@ -179,7 +179,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-bold mb-2">Email</h3>
                 <a
-                  href="mailto:hello@devendigitallabs.com"
+                  href="mailto:devenrikame55@gmail.com"
                   className="text-slate-300 hover:text-white transition-colors"
                 >
                   hello@devendigitallabs.com
