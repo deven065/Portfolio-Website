@@ -5,11 +5,11 @@
 
 
 [functions]
-  external_node_modules = ["express"]
+  external_node_modules = ["express", "nodemailer", "razorpay"]
   node_bundler = "esbuild"
   
 [[redirects]]
   force = true
   from = "/api/*"
   status = 200
-  to = "/.netlify/functions/api/:splat"
+  to = "/.netlify/functions/:splat"
