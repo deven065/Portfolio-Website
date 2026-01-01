@@ -13,7 +13,10 @@ export function reportWebVitals(metric: any) {
     });
   }
   
-  console.log(metric);
+  // Only log in development
+  if (import.meta.env.DEV) {
+    console.log(metric);
+  }
 }
 
 // Lazy load images

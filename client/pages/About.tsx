@@ -109,6 +109,7 @@ export default function About() {
                   src="/deven-photo.jpg"
                   alt="Deven Rikame - Web/Software Developer"
                   className="w-full h-full object-cover scale-100"
+                  loading="lazy"
                   style={{ objectPosition: 'center 20%' }}
                 />
               </div>
@@ -126,6 +127,7 @@ export default function About() {
                   src="/Dipen.png"
                   alt="Dipen Rikame - DevOps Engineer"
                   className="w-full h-full object-cover scale-110"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-xl font-bold text-center mb-2">Dipen Rikame</h3>
@@ -142,6 +144,7 @@ export default function About() {
                   src="/Ashok-Portfolio.png"
                   alt="Ashok Chaudhary - Data Analyst"
                   className="w-full h-full object-cover scale-110"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-xl font-bold text-center mb-2">Ashok Chaudhary</h3>
@@ -158,6 +161,7 @@ export default function About() {
                   src="/Soham.jpeg"
                   alt="Soham More - Data Analyst"
                   className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
                   style={{ objectPosition: 'center 30%', objectFit: 'cover' }}
                 />
               </div>

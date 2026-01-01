@@ -5,7 +5,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://devendigitallabs.com/</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- Services Page -->
   <url>
     <loc>https://devendigitallabs.com/services</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,7 +21,7 @@
   <!-- Projects Page -->
   <url>
     <loc>https://devendigitallabs.com/projects</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,7 +29,7 @@
   <!-- About Page -->
   <url>
     <loc>https://devendigitallabs.com/about</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -37,7 +37,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://devendigitallabs.com/contact</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -45,7 +45,7 @@
   <!-- Payment Page -->
   <url>
     <loc>https://devendigitallabs.com/payment</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
