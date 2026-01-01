@@ -1,11 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Menu, X, Mail, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [email, setEmail] = useState("");
   const location = useLocation();
 
   useEffect(() => {
@@ -19,6 +22,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: "Success!",
+        description: "You've been subscribed to our newsletter.",
+      });
+      setEmail("");
+    }
+  };
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -123,6 +137,34 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="border-t border-slate-800/50 bg-slate-950/50 backdrop-blur-sm mt-20" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+          {/* Newsletter Section */}
+          <div className="mb-12 pb-12 border-b border-slate-800/50">
+            <div className="max-w-2xl mx-auto text-center">
+              <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
+              <p className="text-slate-400 mb-6">
+                Get the latest insights on web development, technology trends, and industry best practices.
+              </p>
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="bg-slate-800/50 border-slate-700 focus:border-blue-500 text-white"
+                />
+                <Button 
+                  type="submit"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 whitespace-nowrap"
+                >
+                  Subscribe
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </form>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div className="col-span-1 md:col-span-1">

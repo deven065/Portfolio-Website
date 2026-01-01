@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { ArrowRight, Zap, Target, Shield } from "lucide-react";
+import { ArrowRight, Zap, Target, Shield, CheckCircle2, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -94,6 +94,130 @@ export default function About() {
                 Trust and transparency are foundational. We communicate clearly, deliver consistently, and stand behind our work.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Company Timeline/Milestones */}
+        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-5xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">Our Journey</h2>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500"></div>
+            
+            <div className="space-y-12">
+              {[
+                {
+                  year: "2019",
+                  title: "Foundation",
+                  description: "Started with a vision to help businesses leverage technology strategically. First client projects in fintech and e-commerce.",
+                  icon: <Zap className="w-5 h-5" />,
+                },
+                {
+                  year: "2021",
+                  title: "Rapid Growth",
+                  description: "Expanded team and service offerings. Delivered 30+ successful projects across multiple industries.",
+                  icon: <TrendingUp className="w-5 h-5" />,
+                },
+                {
+                  year: "2023",
+                  title: "Scale & Excellence",
+                  description: "Achieved 50+ client milestone. Established as trusted partner for scalable digital solutions.",
+                  icon: <Target className="w-5 h-5" />,
+                },
+                {
+                  year: "2026",
+                  title: "Innovation Forward",
+                  description: "Continuing to push boundaries with cutting-edge technology and exceptional client partnerships.",
+                  icon: <Shield className="w-5 h-5" />,
+                },
+              ].map((milestone, idx) => (
+                <div key={idx} className="relative flex flex-col md:flex-row gap-8 items-center">
+                  {/* Timeline dot */}
+                  <div className="absolute left-8 md:left-1/2 -ml-3 w-6 h-6 rounded-full bg-blue-500 border-4 border-slate-900 z-10"></div>
+                  
+                  {/* Content */}
+                  <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:text-right md:pr-16' : 'md:ml-auto md:pl-16'}`}>
+                    <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 transition-all duration-300 ml-20 md:ml-0">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                          {milestone.icon}
+                        </div>
+                        <span className="text-2xl font-bold text-blue-400">{milestone.year}</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
+                      <p className="text-slate-400">{milestone.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How We Work Process */}
+        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-slate-800/30 rounded-3xl">
+          <h2 className="text-4xl font-bold mb-4 text-center">How We Work</h2>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto text-center mb-12">
+            Our proven process ensures transparency, quality, and success at every stage.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Discovery",
+                description: "Deep dive into your business goals, challenges, and technical requirements.",
+                items: ["Business analysis", "Technical assessment", "Scope definition"],
+              },
+              {
+                step: "02",
+                title: "Strategy & Design",
+                description: "Create comprehensive architecture and design systems for your solution.",
+                items: ["System architecture", "UI/UX design", "Technical planning"],
+              },
+              {
+                step: "03",
+                title: "Development",
+                description: "Build with clean code, modern practices, and rigorous quality standards.",
+                items: ["Agile sprints", "Code reviews", "Continuous testing"],
+              },
+              {
+                step: "04",
+                title: "Testing & QA",
+                description: "Comprehensive testing to ensure reliability, performance, and security.",
+                items: ["Automated testing", "Performance optimization", "Security audits"],
+              },
+              {
+                step: "05",
+                title: "Deployment",
+                description: "Launch with confidence using best practices for deployment and monitoring.",
+                items: ["CI/CD pipeline", "Cloud deployment", "Monitoring setup"],
+              },
+              {
+                step: "06",
+                title: "Support & Growth",
+                description: "Ongoing maintenance, updates, and strategic guidance for long-term success.",
+                items: ["24/7 monitoring", "Regular updates", "Strategic consulting"],
+              },
+            ].map((process, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300"
+              >
+                <div className="text-4xl font-bold text-blue-500/30 mb-4">{process.step}</div>
+                <h3 className="text-xl font-bold mb-3">{process.title}</h3>
+                <p className="text-slate-400 mb-4">{process.description}</p>
+                <ul className="space-y-2">
+                  {process.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 

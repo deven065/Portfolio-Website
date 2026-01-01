@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import Testimonials from "@/components/Testimonials";
+import FloatingCTA from "@/components/FloatingCTA";
+import { StatCounter } from "@/components/StatsCounter";
 import {
   ArrowRight,
   Zap,
@@ -13,6 +16,9 @@ import {
   Layers,
   Rocket,
   Shield,
+  Award,
+  Target,
+  Clock,
 } from "lucide-react";
 
 export default function Index() {
@@ -33,34 +39,40 @@ export default function Index() {
   };
   const services = [
     {
-      icon: <Code2 className="w-8 h-8" />,
-      title: "Web Development",
-      description: "High-performance websites and applications built with modern tech",
-    },
-    {
-      icon: <Layers className="w-8 h-8" />,
-      title: "Software Development",
-      description: "Custom software solutions architected for scalability",
-    },
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "UI/UX Engineering",
-      description: "Beautiful, intuitive interfaces backed by solid engineering",
-    },
-    {
       icon: <TrendingUp className="w-8 h-8" />,
-      title: "Performance Optimization",
-      description: "Speed, reliability, and efficiency improvements",
+      title: "Revenue-Driving Websites",
+      description: "Websites that convert 40% more visitors into customers and generate consistent sales",
+      impact: "40% Higher Conversions",
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Customer Acquisition Systems",
+      description: "Capture 3x more qualified leads with automated booking and lead generation",
+      impact: "3x More Leads",
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "API Development",
-      description: "Robust APIs and system integrations for seamless data flow",
+      title: "Business Automation",
+      description: "Save 20+ hours per week by automating workflows and manual processes",
+      impact: "20+ Hours Saved Weekly",
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Long-term Support",
-      description: "Maintenance, updates, and strategic guidance after launch",
+      title: "Always-On Sales Machine",
+      description: "Your website works 24/7 to generate revenue while you focus on growth",
+      impact: "24/7 Revenue Generation",
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Fast ROI Delivery",
+      description: "Most clients break even within 3-4 months and see 5x ROI in year one",
+      impact: "5x ROI Average",
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: "Competitive Advantage",
+      description: "Outperform competitors and capture market share with superior digital presence",
+      impact: "Beat Your Competition",
     },
   ];
 
@@ -133,6 +145,8 @@ export default function Index() {
         schema={schema}
       />
       <Layout>
+      <FloatingCTA />
+      
       {/* Hero Section */}
       <section className="relative py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -140,84 +154,123 @@ export default function Index() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-up">
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                Helping businesses grow through scalable digital solutions
-              </h1>
-              <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
-                We partner with founders and growing companies to design, build, and scale high-performance web and software solutions that support long-term business growth.
-              </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+            {/* Left Content */}
+            <div className="space-y-8 animate-fade-up">
+              <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-4">
+                � Clients See Average 275% Revenue Increase
+              </div>
+              
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                  Turn Your Website Into a <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Profit-Generating</span> Asset
+                </h1>
+                <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
+                  We build websites that don't just look good—they drive real business results. Our clients see an average 5x ROI and break even within 3-4 months.
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link to="/contact">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
+                  >
+                    Get Free Consultation
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/projects">
+                  <Button
+                    size="lg"
+                    className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300 group"
+                  >
+                    View Case Studies
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-6 pt-6 items-center">
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Check className="w-5 h-5 text-green-500" />
+                  <span className="text-sm">99% Client Satisfaction</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Check className="w-5 h-5 text-green-500" />
+                  <span className="text-sm">On-Time Delivery</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Check className="w-5 h-5 text-green-500" />
+                  <span className="text-sm">24/7 Support</span>
+                </div>
+              </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link to="/contact">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
-                >
-                  Request Proposal
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/projects">
-                <Button
-                  size="lg"
-                  className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300 group"
-                >
-                  View Projects
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
+            {/* Right Side - Tech Illustration */}
+            <div className="relative h-96 sm:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "100ms" }}>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute w-72 h-72 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
 
-            {/* Trust Element */}
-            <div className="pt-4 border-t border-slate-700">
-              <p className="text-sm text-slate-400">
-                Trusted by startups and growing businesses
-              </p>
-            </div>
-          </div>
+                <div className="relative z-10 w-full max-w-sm mx-auto">
+                  <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 hover:shadow-2xl transition-all duration-300">
+                    <div className="bg-slate-900/80 border-b border-slate-700/50 px-4 py-3 flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
+                      <span className="text-xs text-slate-400 ml-4 font-mono">
+                        scalable-solution.tsx
+                      </span>
+                    </div>
 
-          {/* Right Side - Tech Illustration */}
-          <div className="relative h-96 sm:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "100ms" }}>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="absolute w-72 h-72 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-
-              <div className="relative z-10 w-full max-w-sm mx-auto">
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 hover:shadow-2xl transition-all duration-300">
-                  <div className="bg-slate-900/80 border-b border-slate-700/50 px-4 py-3 flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
-                    <span className="text-xs text-slate-400 ml-4 font-mono">
-                      scalable-solution.tsx
-                    </span>
-                  </div>
-
-                  <div className="px-6 py-6 bg-slate-900/30">
-                    <pre className="text-sm text-slate-300 font-mono space-y-2 overflow-hidden">
-                      <code>{`const buildSuccess = () => {
+                    <div className="px-6 py-6 bg-slate-900/30">
+                      <pre className="text-sm text-slate-300 font-mono space-y-2 overflow-hidden">
+                        <code>{`const buildSuccess = () => {
   return scalable(
     performance,
     reliability,
     growth
   )
 }`}</code>
-                    </pre>
+                      </pre>
+                    </div>
                   </div>
-                </div>
 
-                <div className="absolute -top-8 -right-8 w-20 h-20 border border-blue-500/30 rounded-lg transform rotate-45 animate-float opacity-60"></div>
-                <div
-                  className="absolute -bottom-8 -left-8 w-16 h-16 border border-cyan-500/30 rounded-full opacity-60 animate-float"
-                  style={{ animationDelay: "0.5s" }}
-                ></div>
+                  <div className="absolute -top-8 -right-8 w-20 h-20 border border-blue-500/30 rounded-lg transform rotate-45 animate-float opacity-60"></div>
+                  <div
+                    className="absolute -bottom-8 -left-8 w-16 h-16 border border-cyan-500/30 rounded-full opacity-60 animate-float"
+                    style={{ animationDelay: "0.5s" }}
+                  ></div>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-slate-800">
+            {[
+              { icon: <TrendingUp className="w-8 h-8" />, value: 275, suffix: "%", label: "Average Revenue Growth" },
+              { icon: <Target className="w-8 h-8" />, value: 5, suffix: "x", label: "Average ROI (Year 1)" },
+              { icon: <Clock className="w-8 h-8" />, value: 3, suffix: " Mo", label: "Average Break-Even" },
+              { icon: <Award className="w-8 h-8" />, value: 99, suffix: "%", label: "Client Satisfaction" },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="text-center animate-fade-up"
+                style={{ animationDelay: `${idx * 100}ms` }}
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 text-blue-400 mb-4">
+                  {stat.icon}
+                </div>
+                <div className="text-4xl font-bold text-white mb-2">
+                  <StatCounter end={stat.value} suffix={stat.suffix} />
+                </div>
+                <p className="text-slate-400">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -254,9 +307,9 @@ export default function Index() {
       {/* What We Do */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">What We Do</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">How We Drive Your Business Growth</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Comprehensive services to support your digital transformation.
+            Every solution we build is designed to increase your revenue and deliver measurable ROI
           </p>
         </div>
 
@@ -273,7 +326,10 @@ export default function Index() {
               <h3 className="font-semibold text-lg mb-2 group-hover:text-blue-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-slate-400">{service.description}</p>
+              <p className="text-slate-400 mb-3">{service.description}</p>
+              <div className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                {service.impact}
+              </div>
             </div>
           ))}
         </div>
@@ -322,15 +378,22 @@ export default function Index() {
       {/* Why Deven Digital Labs */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Why Deven Digital Labs</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">We're Obsessed with Your ROI</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            What sets us apart from other agencies.
+            Your profit is our success metric. We're not just developers—we're your growth partners.
           </p>
         </div>
 
         <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 md:p-12">
           <div className="space-y-4">
-            {reasons.map((reason, idx) => (
+            {[
+              "Every feature designed to drive revenue, not just look pretty",
+              "We track conversions and sales, not vanity metrics",
+              "Free 90-day performance reviews to optimize results",
+              "Most clients break even in 3-4 months",
+              "Average 5x ROI in the first year",
+              "You get a business partner who's invested in your success",
+            ].map((reason, idx) => (
               <div
                 key={idx}
                 className="flex gap-4 animate-fade-up"
@@ -409,11 +472,14 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <Testimonials />
+
       {/* Final CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to Scale Your Business?</h2>
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to See Real Business Growth?</h2>
         <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-          Let's discuss your project and how we can help your company grow with reliable, scalable technology.
+          Let's discuss how we can increase your revenue, automate your processes, and deliver a 5x ROI on your investment.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contact">

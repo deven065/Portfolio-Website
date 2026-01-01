@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Check } from "lucide-react";
+import { ArrowRight, Globe, Check, X, Star, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Services() {
@@ -57,41 +57,41 @@ export default function Services() {
     india: {
       currency: "₹",
       webDevelopment: [
-        { name: "Business Websites", price: "50,000+", description: "Professional corporate and business websites" },
-        { name: "Startup Websites", price: "80,000+", description: "High-impact landing pages and portals for startups" },
-        { name: "Enterprise Websites", price: "1,50,000+", description: "Large-scale corporate websites with complex requirements" },
-        { name: "E-commerce Platforms", price: "1,20,000+", description: "Complete e-commerce solutions with payment integration" },
+        { name: "Business Websites That Convert", price: "50,000+", description: "Professional websites with 40% higher conversion rates. Includes lead capture, SEO, and mobile optimization.", roi: "5-7x ROI in first year", breakeven: "2-3 months" },
+        { name: "E-commerce That Sells", price: "1,20,000+", description: "Complete online stores with 30-50% higher conversion rates. Automated order processing saves 15 hours/week.", roi: "6-8x ROI in first year", breakeven: "3-4 months" },
+        { name: "Revenue-Driving Startups", price: "80,000+", description: "High-impact websites that capture 3x more leads. Built to scale from day one with your business.", roi: "7-10x ROI in first year", breakeven: "2-3 months" },
+        { name: "Enterprise Solutions", price: "1,50,000+", description: "Complex platforms handling thousands of daily users. Automation saves 50+ hours monthly.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
       ],
       software: [
-        { name: "Custom Web Applications", price: "1,50,000+", description: "Tailored web apps for business workflows and automation" },
-        { name: "SaaS Platforms", price: "2,50,000+", description: "Scalable software-as-a-service solutions with multi-tenancy" },
-        { name: "CRM & Internal Tools", price: "1,20,000+", description: "Custom internal tools, dashboards, and CRM systems" },
-        { name: "API Development & Integrations", price: "60,000+", description: "REST APIs, webhooks, and third-party integrations" },
+        { name: "Business Automation Systems", price: "1,50,000+", description: "Custom tools that save 20+ hours weekly and eliminate manual errors. Automate your workflows.", roi: "10-15x ROI in first year", breakeven: "3-4 months" },
+        { name: "Scalable SaaS Platforms", price: "2,50,000+", description: "Software that serves unlimited customers without hiring. Recurring revenue model potential.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
+        { name: "Custom CRM & Tools", price: "1,20,000+", description: "Tailored systems that improve team efficiency by 40%. Better customer management = more sales.", roi: "6-9x ROI in first year", breakeven: "3-5 months" },
+        { name: "API & Integrations", price: "60,000+", description: "Connect your systems and automate data flow. Eliminate duplicate work and human errors.", roi: "5-8x ROI in first year", breakeven: "2-3 months" },
       ],
       other: [
-        { name: "UI/UX Engineering", price: "40,000+", description: "Design systems, user experience optimization, and accessibility" },
-        { name: "Performance Optimization", price: "50,000+", description: "Speed, scalability, and efficiency improvements" },
-        { name: "Maintenance & Support", price: "15,000+/month", description: "Ongoing support, updates, and feature enhancements" },
+        { name: "Conversion Optimization", price: "40,000+", description: "Increase sales by 30-50% without more traffic. Optimize user experience and checkout flows.", roi: "8-12x ROI" },
+        { name: "Performance & Speed", price: "50,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
+        { name: "Growth Partnership", price: "15,000+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
       ],
     },
     international: {
       currency: "$",
       webDevelopment: [
-        { name: "Business Websites", price: "1,500+", description: "Professional corporate and business websites" },
-        { name: "Startup Websites", price: "2,500+", description: "High-impact landing pages and portals for startups" },
-        { name: "Enterprise Websites", price: "5,000+", description: "Large-scale corporate websites with complex requirements" },
-        { name: "E-commerce Platforms", price: "3,500+", description: "Complete e-commerce solutions with payment integration" },
+        { name: "Business Websites That Convert", price: "1,500+", description: "Professional websites with 40% higher conversion rates. Includes lead capture, SEO, and mobile optimization.", roi: "5-7x ROI in first year", breakeven: "2-3 months" },
+        { name: "E-commerce That Sells", price: "3,500+", description: "Complete online stores with 30-50% higher conversion rates. Automated order processing saves 15 hours/week.", roi: "6-8x ROI in first year", breakeven: "3-4 months" },
+        { name: "Revenue-Driving Startups", price: "2,500+", description: "High-impact websites that capture 3x more leads. Built to scale from day one with your business.", roi: "7-10x ROI in first year", breakeven: "2-3 months" },
+        { name: "Enterprise Solutions", price: "5,000+", description: "Complex platforms handling thousands of daily users. Automation saves 50+ hours monthly.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
       ],
       software: [
-        { name: "Custom Web Applications", price: "5,000+", description: "Tailored web apps for business workflows and automation" },
-        { name: "SaaS Platforms", price: "10,000+", description: "Scalable software-as-a-service solutions with multi-tenancy" },
-        { name: "CRM & Internal Tools", price: "3,500+", description: "Custom internal tools, dashboards, and CRM systems" },
-        { name: "API Development & Integrations", price: "2,000+", description: "REST APIs, webhooks, and third-party integrations" },
+        { name: "Business Automation Systems", price: "5,000+", description: "Custom tools that save 20+ hours weekly and eliminate manual errors. Automate your workflows.", roi: "10-15x ROI in first year", breakeven: "3-4 months" },
+        { name: "Scalable SaaS Platforms", price: "10,000+", description: "Software that serves unlimited customers without hiring. Recurring revenue model potential.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
+        { name: "Custom CRM & Tools", price: "3,500+", description: "Tailored systems that improve team efficiency by 40%. Better customer management = more sales.", roi: "6-9x ROI in first year", breakeven: "3-5 months" },
+        { name: "API & Integrations", price: "2,000+", description: "Connect your systems and automate data flow. Eliminate duplicate work and human errors.", roi: "5-8x ROI in first year", breakeven: "2-3 months" },
       ],
       other: [
-        { name: "UI/UX Engineering", price: "1,500+", description: "Design systems, user experience optimization, and accessibility" },
-        { name: "Performance Optimization", price: "2,000+", description: "Speed, scalability, and efficiency improvements" },
-        { name: "Maintenance & Support", price: "500+/month", description: "Ongoing support, updates, and feature enhancements" },
+        { name: "Conversion Optimization", price: "1,500+", description: "Increase sales by 30-50% without more traffic. Optimize user experience and checkout flows.", roi: "8-12x ROI" },
+        { name: "Performance & Speed", price: "2,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
+        { name: "Growth Partnership", price: "500+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
       ],
     },
   };
@@ -116,10 +116,10 @@ export default function Services() {
 
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-            Services Built for Growth
+            Investment That Pays for Itself
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Comprehensive technology services tailored to help your business scale.
+            Transparent pricing with clear ROI. Most clients see 5x return and break even within 3-4 months.
           </p>
 
           {/* Region Toggle */}
@@ -152,8 +152,8 @@ export default function Services() {
       {/* Web Development Services */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Web Development Services</h2>
-          <p className="text-slate-300">Professional websites that drive business growth and user engagement.</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Revenue-Generating Websites</h2>
+          <p className="text-slate-300">Websites engineered to convert visitors into customers and drive measurable business growth.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -168,14 +168,21 @@ export default function Services() {
                 </h3>
               </div>
               <p className="text-slate-400 mb-4">{service.description}</p>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-sm text-slate-400">Starting from</span>
+                  <span className="text-sm text-slate-400">Investment:</span>
                   <span className="text-2xl font-bold text-blue-400">
                     {current.currency}{service.price}
                   </span>
                 </div>
-                <p className="text-sm text-slate-500 italic">Final pricing depends on features & scale</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    {service.roi}
+                  </span>
+                  <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                    Break-even: {service.breakeven}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -185,8 +192,8 @@ export default function Services() {
       {/* Software Development Services */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Software Development Services</h2>
-          <p className="text-slate-300">Custom applications and platforms engineered for scalability and performance.</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Business Automation & Software</h2>
+          <p className="text-slate-300">Custom solutions that save time, eliminate errors, and scale your operations profitably.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -201,17 +208,181 @@ export default function Services() {
                 </h3>
               </div>
               <p className="text-slate-400 mb-4">{service.description}</p>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-sm text-slate-400">Starting from</span>
+                  <span className="text-sm text-slate-400">Investment:</span>
                   <span className="text-2xl font-bold text-blue-400">
                     {current.currency}{service.price}
                   </span>
                 </div>
-                <p className="text-sm text-slate-500 italic">Final pricing depends on features & scale</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    {service.roi}
+                  </span>
+                  <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                    Break-even: {service.breakeven}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Service Packages Comparison */}
+      <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Choose Your Package</h2>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            Flexible packages designed to meet your needs at every stage of growth.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Starter Package */}
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/80 transition-all duration-300">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-2">Starter Growth</h3>
+              <p className="text-slate-400 mb-4">Perfect for new businesses ready to scale</p>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "50,000" : "1,500"}</span>
+                <span className="text-slate-400">starting</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  5-7x ROI
+                </span>
+                <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  2-3 month break-even
+                </span>
+              </div>
+            </div>
+            
+            <ul className="space-y-3 mb-8">
+              {[
+                "Conversion-optimized design",
+                "Lead capture system",
+                "Mobile responsive (65% of buyers)",
+                "SEO foundation (get found on Google)",
+                "Fast loading (reduce bounce rate)",
+                "1 month support & optimization",
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link to="/contact">
+              <Button className="w-full border border-blue-500/50 bg-transparent hover:bg-blue-500/10">
+                Get Started
+              </Button>
+            </Link>
+          </div>
+
+          {/* Professional Package - Most Popular */}
+          <div className="bg-gradient-to-b from-blue-500/10 to-cyan-500/10 border-2 border-blue-500/50 rounded-2xl p-8 relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+              <Star className="w-4 h-4" />
+              Most Popular
+            </div>
+            
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-2">Professional Revenue</h3>
+              <p className="text-slate-400 mb-4">For businesses serious about growth</p>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "1,50,000" : "5,000"}</span>
+                <span className="text-slate-400">starting</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  6-9x ROI
+                </span>
+                <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  3-4 month break-even
+                </span>
+              </div>
+            </div>
+            
+            <ul className="space-y-3 mb-8">
+              {[
+                "Everything in Starter Growth",
+                "Advanced conversion optimization",
+                "Marketing automation integration",
+                "Analytics & tracking setup",
+                "A/B testing capabilities",
+                "CMS for easy updates",
+                "Performance optimization",
+                "3 months support & optimization",
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link to="/contact">
+              <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600">
+                Get Started
+              </Button>
+            </Link>
+          </div>
+
+          {/* Enterprise Package */}
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/80 transition-all duration-300">
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="text-2xl font-bold">Enterprise Scale</h3>
+                <Sparkles className="w-5 h-5 text-yellow-500" />
+              </div>
+              <p className="text-slate-400 mb-4">Maximum revenue & automation</p>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "2,50,000" : "10,000"}</span>
+                <span className="text-slate-400">starting</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  8-15x ROI
+                </span>
+                <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  4-6 month break-even
+                </span>
+              </div>
+            </div>
+            
+            <ul className="space-y-3 mb-8">
+              {[
+                "Everything in Professional Revenue",
+                "Full business automation",
+                "Advanced analytics & insights",
+                "Custom API integrations",
+                "Dedicated account manager",
+                "Priority 24/7 support",
+                "Quarterly strategy sessions",
+                "6 months optimization included",
+                "Scalability consulting",
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link to="/contact">
+              <Button className="w-full border border-blue-500/50 bg-transparent hover:bg-blue-500/10">
+                Contact Sales
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="text-center mt-12 p-6 bg-blue-500/5 border border-blue-500/20 rounded-xl">
+          <p className="text-slate-300">
+            Need a custom solution? <Link to="/contact" className="text-blue-400 hover:text-blue-300 font-semibold">Contact us</Link> for a tailored proposal.
+          </p>
         </div>
       </section>
 
@@ -252,25 +423,25 @@ export default function Services() {
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 md:p-12">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl font-bold mb-4">Our Pricing Philosophy</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Success Guarantee</h2>
             <p className="text-slate-300 text-lg leading-relaxed">
-              Every project is unique. The prices shown are starting points — we provide custom quotes based on your specific requirements, features, and timeline.
+              We're not just building websites—we're building revenue-generating assets. Your success is our success.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
               <div className="space-y-2">
                 <div className="text-blue-400 text-4xl font-bold">✓</div>
-                <h3 className="font-semibold text-white">No Hidden Costs</h3>
-                <p className="text-sm text-slate-400">Transparent pricing with detailed breakdowns</p>
+                <h3 className="font-semibold text-white">Performance Tracking</h3>
+                <p className="text-sm text-slate-400">We monitor your website's business impact and ROI</p>
               </div>
               <div className="space-y-2">
                 <div className="text-blue-400 text-4xl font-bold">✓</div>
-                <h3 className="font-semibold text-white">Flexible Packages</h3>
-                <p className="text-sm text-slate-400">Tailored solutions that fit your budget</p>
+                <h3 className="font-semibold text-white">90-Day Reviews</h3>
+                <p className="text-sm text-slate-400">Free performance optimization sessions included</p>
               </div>
               <div className="space-y-2">
                 <div className="text-blue-400 text-4xl font-bold">✓</div>
-                <h3 className="font-semibold text-white">Long-term Value</h3>
-                <p className="text-sm text-slate-400">Built for growth, not just launch</p>
+                <h3 className="font-semibold text-white">Growth Partnership</h3>
+                <p className="text-sm text-slate-400">We optimize until you see real results</p>
               </div>
             </div>
           </div>
@@ -280,15 +451,15 @@ export default function Services() {
       {/* Why Choose Us */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-12">
-          <h2 className="text-3xl font-bold mb-8">Why Clients Choose Us</h2>
+          <h2 className="text-3xl font-bold mb-8">Why Invest With Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              "Business-first approach focused on your ROI",
-              "Scalable architecture built for long-term growth",
-              "Clean, maintainable code following best practices",
-              "Reliable delivery with transparent communication",
-              "Partnership mentality, not just vendor relationship",
-              "Performance, security, and reliability at the core",
+              "Every feature designed to increase your revenue and conversions",
+              "We track business metrics, not just website traffic",
+              "Average client sees 5x ROI in first year",
+              "Most clients break even within 3-4 months",
+              "Free quarterly performance reviews and optimization",
+              "You get a growth partner invested in your long-term success",
             ].map((benefit, idx) => (
               <div key={idx} className="flex gap-4">
                 <Check className="w-5 h-5 text-blue-400 flex-shrink-0 mt-1" />
@@ -301,13 +472,13 @@ export default function Services() {
 
       {/* CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Ready to Build Something Great?</h2>
+        <h2 className="text-4xl font-bold mb-6">Ready to Grow Your Revenue?</h2>
         <p className="text-xl text-slate-300 mb-8">
-          Let's discuss your project requirements and create a custom solution that drives real results.
+          Let's discuss your business goals and create a solution that delivers measurable ROI within months.
         </p>
         <Link to="/contact">
           <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg">
-            Get a Custom Quote
+            Get Your Custom Quote
             <ArrowRight size={18} />
           </Button>
         </Link>
