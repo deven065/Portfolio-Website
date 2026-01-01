@@ -98,55 +98,105 @@ export default function About() {
         </section>
 
         {/* Company Timeline/Milestones */}
-        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">Our Journey</h2>
+        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-5xl mx-auto relative overflow-hidden" style={{ perspective: '2000px' }}>
+          {/* Animated background elements */}
+          <div className="absolute inset-0 -z-10 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          </div>
+
+          <h2 className="text-4xl font-bold mb-16 text-center relative">
+            <span className="relative inline-block">
+              Our Journey
+              <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+            </span>
+          </h2>
           
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500"></div>
+          <div className="relative" style={{ transformStyle: 'preserve-3d' }}>
+            {/* Enhanced Timeline line with glow */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500 shadow-lg shadow-blue-500/50"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-16">
               {[
                 {
                   year: "2019",
                   title: "Foundation",
                   description: "Started with a vision to help businesses leverage technology strategically. First client projects in fintech and e-commerce.",
                   icon: <Zap className="w-5 h-5" />,
+                  color: "blue",
+                  gradient: "from-blue-500 to-blue-600",
                 },
                 {
                   year: "2021",
                   title: "Rapid Growth",
                   description: "Expanded team and service offerings. Delivered 30+ successful projects across multiple industries.",
                   icon: <TrendingUp className="w-5 h-5" />,
+                  color: "cyan",
+                  gradient: "from-cyan-500 to-cyan-600",
                 },
                 {
                   year: "2023",
                   title: "Scale & Excellence",
                   description: "Achieved 50+ client milestone. Established as trusted partner for scalable digital solutions.",
                   icon: <Target className="w-5 h-5" />,
+                  color: "indigo",
+                  gradient: "from-indigo-500 to-indigo-600",
                 },
                 {
                   year: "2026",
                   title: "Innovation Forward",
                   description: "Continuing to push boundaries with cutting-edge technology and exceptional client partnerships.",
                   icon: <Shield className="w-5 h-5" />,
+                  color: "purple",
+                  gradient: "from-purple-500 to-purple-600",
                 },
               ].map((milestone, idx) => (
-                <div key={idx} className="relative flex flex-col md:flex-row gap-8 items-center">
-                  {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 -ml-3 w-6 h-6 rounded-full bg-blue-500 border-4 border-slate-900 z-10"></div>
+                <div 
+                  key={idx} 
+                  className="relative flex flex-col md:flex-row gap-8 items-center group"
+                  style={{ 
+                    animation: `cardShuffle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${idx * 0.3}s both`,
+                    transformStyle: 'preserve-3d',
+                  }}
+                >
+                  {/* Enhanced Timeline dot with pulse and glow */}
+                  <div className={`absolute left-8 md:left-1/2 -ml-4 z-20`}>
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${milestone.gradient} border-4 border-slate-900 shadow-lg shadow-${milestone.color}-500/50 group-hover:scale-125 transition-transform duration-300 relative`}>
+                      {/* Pulsing ring */}
+                      <div className={`absolute inset-0 rounded-full bg-${milestone.color}-500 animate-ping opacity-20`}></div>
+                    </div>
+                  </div>
                   
-                  {/* Content */}
-                  <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:text-right md:pr-16' : 'md:ml-auto md:pl-16'}`}>
-                    <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 transition-all duration-300 ml-20 md:ml-0">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
-                          {milestone.icon}
-                        </div>
-                        <span className="text-2xl font-bold text-blue-400">{milestone.year}</span>
+                  {/* Content with enhanced animations */}
+                  <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:text-right md:pr-20' : 'md:ml-auto md:pl-20'}`}>
+                    <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 ml-20 md:ml-0 group-hover:bg-slate-800/70 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-blue-500/20 hover-lift overflow-hidden">
+                      {/* Animated gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-700"></div>
+                      
+                      {/* Shine effect on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       </div>
-                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                      <p className="text-slate-400">{milestone.description}</p>
+                      
+                      <div className="relative z-10">
+                        <div className={`flex items-center gap-4 mb-4 ${idx % 2 === 0 ? 'md:justify-end' : 'justify-start'}`}>
+                          <div className={`p-3 bg-gradient-to-br ${milestone.gradient} rounded-xl text-white shadow-lg shadow-${milestone.color}-500/30 group-hover:shadow-${milestone.color}-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                            {milestone.icon}
+                          </div>
+                          <span className={`text-3xl font-bold bg-gradient-to-br ${milestone.gradient} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300`}>
+                            {milestone.year}
+                          </span>
+                        </div>
+                        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-slate-300 leading-relaxed">
+                          {milestone.description}
+                        </p>
+                      </div>
+                      
+                      {/* Corner accent */}
+                      <div className={`absolute ${idx % 2 === 0 ? 'top-0 right-0' : 'top-0 left-0'} w-32 h-32 bg-gradient-to-br ${milestone.gradient} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity duration-500`}></div>
                     </div>
                   </div>
                 </div>
@@ -203,19 +253,26 @@ export default function About() {
             ].map((process, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300"
+                className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="text-4xl font-bold text-blue-500/30 mb-4">{process.step}</div>
-                <h3 className="text-xl font-bold mb-3">{process.title}</h3>
-                <p className="text-slate-400 mb-4">{process.description}</p>
-                <ul className="space-y-2">
-                  {process.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="text-6xl font-bold text-blue-500/20 group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300 mb-4 inline-block group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    {process.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300">{process.title}</h3>
+                  <p className="text-slate-400 mb-4">{process.description}</p>
+                  <ul className="space-y-2">
+                    {process.items.map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>

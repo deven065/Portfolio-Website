@@ -50,12 +50,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-slate-950/95 backdrop-blur-sm border-b border-slate-800/50"
+            ? "glass-strong border-b border-slate-800/50"
             : "bg-transparent"
         }`}
         role="banner"
       >
-        <nav className="flex items-center justify-between px-6 sm:px-8 lg:px-12 py-6" role="navigation" aria-label="Main navigation">
+        <nav className="flex items-center justify-between px-6 sm:px-8 lg:px-12 py-5" role="navigation" aria-label="Main navigation">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" aria-label="Deven Digital Labs Home">
             <img 
@@ -66,24 +66,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               height="32"
               loading="eager"
             />
-            <span className="text-white font-semibold text-lg tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-white font-bold text-lg tracking-tight group-hover:gradient-text transition-all duration-300">
               Deven Digital Labs
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium transition-colors duration-300 ${
+                className={`text-sm font-semibold transition-all duration-300 relative group ${
                   isActive(link.href)
                     ? "text-blue-400"
                     : "text-slate-300 hover:text-white"
                 }`}
               >
                 {link.label}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ${
+                  isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
               </Link>
             ))}
           </div>
@@ -91,7 +94,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/contact">
-              <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200">
+              <Button className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg shadow-blue-500/25">
                 Request Proposal
               </Button>
             </Link>
@@ -99,7 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+            className="md:hidden p-2 glass rounded-lg text-slate-300 hover:text-white transition-all hover-scale"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -270,12 +273,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="border-t border-slate-800/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
             <p>&copy; 2024 Deven Digital Labs. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

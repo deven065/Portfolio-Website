@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import Testimonials from "@/components/Testimonials";
 import FloatingCTA from "@/components/FloatingCTA";
 import { StatCounter } from "@/components/StatsCounter";
+import { ROICalculator } from "@/components/ROICalculator";
+import { CostOfInaction } from "@/components/CostOfInaction";
+import { GrowthTimeline } from "@/components/GrowthTimeline";
+import { FAQ } from "@/components/FAQ";
 import {
   ArrowRight,
   Zap,
@@ -148,10 +152,11 @@ export default function Index() {
       <FloatingCTA />
       
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative py-24 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -172,46 +177,46 @@ export default function Index() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Link to="/contact">
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
+                    className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 text-lg px-8 py-6 group"
                   >
                     Get Free Consultation
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/projects">
                   <Button
                     size="lg"
-                    className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300 group"
+                    className="glass hover:glass-strong border-slate-600/50 text-white rounded-xl font-semibold text-lg px-8 py-6 group hover-lift"
                   >
                     View Case Studies
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap gap-6 pt-6 items-center">
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-sm">99% Client Satisfaction</span>
+              <div className="flex flex-wrap gap-8 pt-4 items-center">
+                <div className="flex items-center gap-2.5 text-slate-300">
+                  <Check className="w-5 h-5 text-green-400" />
+                  <span className="text-sm font-medium">99% Client Satisfaction</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-sm">On-Time Delivery</span>
+                <div className="flex items-center gap-2.5 text-slate-300">
+                  <Check className="w-5 h-5 text-green-400" />
+                  <span className="text-sm font-medium">On-Time Delivery</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-sm">24/7 Support</span>
+                <div className="flex items-center gap-2.5 text-slate-300">
+                  <Check className="w-5 h-5 text-green-400" />
+                  <span className="text-sm font-medium">24/7 Support</span>
                 </div>
               </div>
             </div>
 
             {/* Right Side - Tech Illustration */}
-            <div className="relative h-96 sm:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "100ms" }}>
+            <div className="relative h-96 sm:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "200ms" }}>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="absolute w-72 h-72 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
 
@@ -250,7 +255,7 @@ export default function Index() {
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-slate-800">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-slate-800/50">
             {[
               { icon: <TrendingUp className="w-8 h-8" />, value: 275, suffix: "%", label: "Average Revenue Growth" },
               { icon: <Target className="w-8 h-8" />, value: 5, suffix: "x", label: "Average ROI (Year 1)" },
@@ -259,26 +264,34 @@ export default function Index() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="text-center animate-fade-up"
+                className="text-center group hover-scale animate-fade-up"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 text-blue-400 mb-4">
-                  {stat.icon}
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl glass mb-5 group-hover:glass-strong transition-all">
+                  <div className="text-blue-400 group-hover:scale-110 transition-transform">
+                    {stat.icon}
+                  </div>
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-5xl font-bold text-white mb-3 gradient-text">
                   <StatCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-slate-400">{stat.label}</p>
+                <p className="text-slate-400 font-medium">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Cost of Inaction */}
+      <CostOfInaction />
+
+      {/* ROI Calculator */}
+      <ROICalculator />
+
       {/* Who We Help */}
-      <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Who We Help</h2>
+      <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl sm:text-6xl font-bold mb-6">Who We Help</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             We partner with ambitious companies at every stage of growth.
           </p>
@@ -293,55 +306,55 @@ export default function Index() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 text-center animate-fade-up"
+              className="glass hover:glass-strong rounded-2xl p-8 hover-lift transition-all duration-300 text-center animate-fade-up group"
               style={{ animationDelay: `${idx * 50}ms` }}
             >
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-slate-400 text-sm">{item.desc}</p>
+              <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+              <h3 className="font-bold text-xl mb-3">{item.title}</h3>
+              <p className="text-slate-400">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* What We Do */}
-      <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">How We Drive Your Business Growth</h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+      <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl sm:text-6xl font-bold mb-6">How We Drive Your Business Growth</h2>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Every solution we build is designed to increase your revenue and deliver measurable ROI
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-8 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group animate-fade-up"
+              className="glass hover:glass-strong rounded-2xl p-8 hover-lift transition-all duration-300 group animate-fade-up"
               style={{ animationDelay: `${idx * 50}ms` }}
             >
-              <div className="text-blue-400 group-hover:text-cyan-400 transition-colors mb-4">
+              <div className="text-blue-400 group-hover:scale-110 group-hover:text-cyan-400 transition-all mb-5">
                 {service.icon}
               </div>
-              <h3 className="font-semibold text-lg mb-2 group-hover:text-blue-400 transition-colors">
+              <h3 className="font-bold text-xl mb-3 group-hover:gradient-text transition-all">
                 {service.title}
               </h3>
-              <p className="text-slate-400 mb-3">{service.description}</p>
-              <div className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+              <p className="text-slate-300 mb-4 leading-relaxed">{service.description}</p>
+              <div className="inline-block px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm font-semibold">
                 {service.impact}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Link to="/services">
             <Button
               size="lg"
-              className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300 group"
+              className="glass hover:glass-strong border-slate-600/50 text-white rounded-xl font-semibold text-lg px-8 py-6 group hover-lift"
             >
               View All Services
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
@@ -474,6 +487,12 @@ export default function Index() {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Growth Timeline */}
+      <GrowthTimeline />
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Final CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { FAQ } from "@/components/FAQ";
 import { ArrowRight, Globe, Check, X, Star, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -469,6 +470,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
