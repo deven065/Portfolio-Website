@@ -444,8 +444,14 @@ export default function Index() {
                 
                 <img 
                   src={project.image} 
-                  alt={project.name}
+                  alt={`${project.name} - Web development case study showing ${project.description}`}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 
                 {/* Content - hidden by default, visible on hover */}

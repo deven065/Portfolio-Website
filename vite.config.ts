@@ -15,6 +15,22 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist/spa",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-components': [
+            './client/components/ui/button.tsx',
+            './client/components/ui/card.tsx',
+            './client/components/ui/accordion.tsx',
+            './client/components/ui/dialog.tsx',
+          ],
+          'icons': ['lucide-react'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+    minify: 'esbuild',
   },
   plugins: [react(), expressPlugin()],
   resolve: {

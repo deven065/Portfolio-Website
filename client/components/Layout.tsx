@@ -179,6 +179,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   width="160"
                   height="32"
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="text-white font-semibold">Deven Digital Labs</span>
               </div>
