@@ -356,7 +356,7 @@ export default function Payment() {
         <div className="mt-8 text-center text-sm text-slate-400">
           <p>
             Need help? Contact us at{" "}
-            <a href="mailto:devenrikame55@gmail.com" className="text-blue-400 hover:text-blue-300">
+            <a href="mailto:hello@devendigitallabs.com" className="text-blue-400 hover:text-blue-300">
               hello@devendigitallabs.com
             </a>
           </p>

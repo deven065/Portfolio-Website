@@ -256,7 +256,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="mailto:devenrikame55@gmail.com"
+                    href="mailto:hello@devendigitallabs.com"
                     className="text-slate-400 hover:text-white transition-colors"
                   >
                     hello@devendigitallabs.com
