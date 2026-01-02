@@ -44,7 +44,7 @@ export default function Services() {
       ]
     }
   };
-  const [region, setRegion] = useState<"india" | "international">("india");
+  const [region, setRegion] = useState<"india" | "international">("international");
 
   useEffect(() => {
     // Simple region detection based on browser locale
@@ -102,9 +102,9 @@ export default function Services() {
   return (
     <>
       <SEO 
-        title="Web Development Services & Pricing"
-        description="Professional web development, custom software, and technology consulting services. Transparent pricing for businesses and startups. Starting from ₹50,000. Get a free quote today."
-        keywords="web development services, custom software development, software development pricing, web design services, full-stack development, React development services, Node.js development, API development, mobile app development, e-commerce development, startup web development, enterprise software solutions"
+        title="Professional Web Development Services & Pricing | Deven Digital Labs"
+        description="Comprehensive web development services including custom software development, React applications, Next.js projects, Node.js APIs, e-commerce platforms, and CRM systems. Transparent pricing starting from ₹50,000. Expert full-stack development team ready to transform your business with cutting-edge technology solutions."
+        keywords="professional web development services, custom software development company, React development services, Next.js development, Node.js development, full-stack development services, e-commerce development, CRM development, web application development, software engineering services, API development, database design, UI UX design services, mobile-first development, responsive web design, business automation services, digital transformation, technology consulting, software architecture, DevOps services, cloud integration, enterprise software development, startup web development, scalable web solutions, performance optimization, security implementation, web development pricing, software development cost"
         schema={schema}
       />
       <Layout>

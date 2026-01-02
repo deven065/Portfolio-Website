@@ -212,9 +212,9 @@ export default function Projects() {
   return (
     <>
       <SEO 
-        title="Case Studies - Real ROI Results | 5-15x Returns"
-        description="Real client case studies showing 5-15x ROI, 40-60% conversion increases, and significant revenue growth. See how our websites generate measurable business results."
-        keywords="web development case studies, ROI results, conversion rate optimization, business growth, revenue increase, e-commerce success, CRM implementation, client results, web development ROI, profitable websites"
+        title="Web Development Portfolio | Success Stories & Case Studies | Deven Digital Labs"
+        description="Explore our comprehensive portfolio of successful web development projects including enterprise CRM systems, e-commerce platforms, business automation solutions, and custom software applications. Real client success stories with measurable ROI results, 40-60% conversion rate improvements, and significant revenue growth. See how we've helped businesses transform their digital presence."
+        keywords="web development portfolio, software development projects, successful web applications, CRM development case studies, e-commerce development examples, custom software solutions, React projects portfolio, Next.js applications, Node.js development examples, business automation projects, digital transformation case studies, enterprise software development, startup web development, scalable web solutions, professional web development work, technology consulting projects, API development examples, database design projects, UI UX design portfolio, mobile-first development, responsive web design examples, client success stories, web development ROI, conversion rate optimization, business growth results"
         schema={schema}
       />
       <Layout>
