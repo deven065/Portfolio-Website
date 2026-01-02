@@ -152,7 +152,7 @@ export default function Index() {
       <FloatingCTA />
       
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative py-12 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
@@ -168,10 +168,10 @@ export default function Index() {
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                   Turn Your Website Into a <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Profit-Generating</span> Asset
                 </h1>
-                <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
                   We build websites that don't just look good—they drive real business results. Our clients see an average 5x ROI and break even within 3-4 months.
                 </p>
               </div>
@@ -181,7 +181,7 @@ export default function Index() {
                 <Link to="/contact">
                   <Button
                     size="lg"
-                    className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 text-lg px-8 py-6 group"
+                    className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 group w-full sm:w-auto"
                   >
                     Get Free Consultation
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -190,7 +190,7 @@ export default function Index() {
                 <Link to="/projects">
                   <Button
                     size="lg"
-                    className="glass hover:glass-strong border-slate-600/50 text-white rounded-xl font-semibold text-lg px-8 py-6 group hover-lift"
+                    className="glass hover:glass-strong border-slate-600/50 text-white rounded-xl font-semibold text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 group hover-lift w-full sm:w-auto"
                   >
                     View Case Studies
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -199,24 +199,24 @@ export default function Index() {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap gap-8 pt-4 items-center">
+              <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 pt-4 items-center">
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-sm font-medium">99% Client Satisfaction</span>
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                  <span className="text-xs sm:text-sm font-medium">99% Client Satisfaction</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-sm font-medium">On-Time Delivery</span>
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                  <span className="text-xs sm:text-sm font-medium">On-Time Delivery</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-sm font-medium">24/7 Support</span>
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                  <span className="text-xs sm:text-sm font-medium">24/7 Support</span>
                 </div>
               </div>
             </div>
 
             {/* Right Side - Tech Illustration */}
-            <div className="relative h-96 sm:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "200ms" }}>
+            <div className="relative h-64 sm:h-80 md:h-96 lg:h-full lg:min-h-96 animate-fade-up" style={{ animationDelay: "200ms" }}>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="absolute w-72 h-72 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
 
@@ -255,7 +255,7 @@ export default function Index() {
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-slate-800/50">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 pt-8 sm:pt-12 md:pt-16 border-t border-slate-800/50">
             {[
               { icon: <TrendingUp className="w-8 h-8" />, value: 275, suffix: "%", label: "Average Revenue Growth" },
               { icon: <Target className="w-8 h-8" />, value: 5, suffix: "x", label: "Average ROI (Year 1)" },
@@ -291,7 +291,7 @@ export default function Index() {
       {/* Who We Help */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl sm:text-6xl font-bold mb-6">Who We Help</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Who We Help</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             We partner with ambitious companies at every stage of growth.
           </p>
@@ -320,7 +320,7 @@ export default function Index() {
       {/* What We Do */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl sm:text-6xl font-bold mb-6">How We Drive Your Business Growth</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">How We Drive Your Business Growth</h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Every solution we build is designed to increase your revenue and deliver measurable ROI
           </p>
@@ -363,7 +363,7 @@ export default function Index() {
       {/* How We Work */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">How We Work</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">How We Work</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             A proven process designed for success and transparency.
           </p>
@@ -391,7 +391,7 @@ export default function Index() {
       {/* Why Deven Digital Labs */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">We're Obsessed with Your ROI</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">We're Obsessed with Your ROI</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Your profit is our success metric. We're not just developers—we're your growth partners.
           </p>
@@ -423,13 +423,13 @@ export default function Index() {
       {/* Featured Projects */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             A selection of successful projects we've delivered.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
           {featuredProjects.map((project, idx) => (
             <Link
               to="/projects"

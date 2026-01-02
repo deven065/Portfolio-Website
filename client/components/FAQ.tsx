@@ -40,7 +40,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "Do you handle ongoing maintenance and updates?",
-    answer: "Yes! After launch, we offer monthly maintenance plans starting at ₹8,000/month covering security updates, bug fixes, performance monitoring, content updates, and technical support. Many clients choose this option to ensure their website stays optimized and secure. We also offer on-demand support if you prefer to handle routine updates internally.",
+    answer: "Yes! After launch, we offer monthly maintenance plans starting at $100/month covering security updates, bug fixes, performance monitoring, content updates, and technical support. Many clients choose this option to ensure their website stays optimized and secure. We also offer on-demand support if you prefer to handle routine updates internally.",
   },
   {
     question: "Can you help with digital marketing after the website launches?",

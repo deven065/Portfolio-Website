@@ -3,8 +3,32 @@ import SEO from "@/components/SEO";
 import { ArrowRight, Zap, Target, Shield, CheckCircle2, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
 
 export default function About() {
+  const [visibleMilestones, setVisibleMilestones] = useState<Set<number>>(new Set());
+  const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            setVisibleMilestones((prev) => new Set(prev).add(index));
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    milestoneRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -21,17 +45,17 @@ export default function About() {
       />
       <Layout>
         {/* Hero */}
-        <section className="relative py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden">
+        <section className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
           </div>
 
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               About Deven Digital Labs
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
               We're a technology consulting agency helping businesses grow through scalable, reliable digital solutions.
             </p>
           </div>
@@ -58,39 +82,39 @@ export default function About() {
         </section>
 
         {/* Mission & Values */}
-        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">Mission & Core Values</h2>
+        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center">Mission & Core Values</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
             {/* Mission */}
-            <div className="md:col-span-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-              <p className="text-lg text-slate-300 leading-relaxed">
+            <div className="md:col-span-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Our Mission</h3>
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
                 To empower businesses with scalable, reliable technology solutions that drive growth, improve efficiency, and create lasting competitive advantage. We partner with founders and companies who are serious about building long-term digital success.
               </p>
             </div>
 
             {/* Values */}
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Target className="w-10 h-10 text-blue-400 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Business-First</h3>
-              <p className="text-slate-300">
+            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
+              <Target className="w-8 h-8 sm:w-10 sm:h-10 text-blue-400 mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Business-First</h3>
+              <p className="text-sm sm:text-base text-slate-300">
                 We measure success by business outcomes, not lines of code. Every decision is made with your growth and objectives in mind.
               </p>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Zap className="w-10 h-10 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Scalable by Design</h3>
-              <p className="text-slate-300">
+            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
+              <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400 mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Scalable by Design</h3>
+              <p className="text-sm sm:text-base text-slate-300">
                 We build systems that grow with you. From day one, we architect for scalability, reliability, and long-term maintainability.
               </p>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Shield className="w-10 h-10 text-indigo-400 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Reliable Partner</h3>
-              <p className="text-slate-300">
+            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
+              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-400 mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Reliable Partner</h3>
+              <p className="text-sm sm:text-base text-slate-300">
                 Trust and transparency are foundational. We communicate clearly, deliver consistently, and stand behind our work.
               </p>
             </div>
@@ -98,14 +122,14 @@ export default function About() {
         </section>
 
         {/* Company Timeline/Milestones */}
-        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-5xl mx-auto relative overflow-hidden" style={{ perspective: '2000px' }}>
+        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-5xl mx-auto relative overflow-hidden" style={{ perspective: '2000px' }}>
           {/* Animated background elements */}
           <div className="absolute inset-0 -z-10 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
           </div>
 
-          <h2 className="text-4xl font-bold mb-16 text-center relative">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-14 md:mb-16 text-center relative">
             <span className="relative inline-block">
               Our Journey
               <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
@@ -152,10 +176,15 @@ export default function About() {
                 },
               ].map((milestone, idx) => (
                 <div 
-                  key={idx} 
-                  className="relative flex flex-col md:flex-row gap-8 items-center group"
+                  key={idx}
+                  ref={(el) => (milestoneRefs.current[idx] = el)}
+                  data-index={idx}
+                  className={`relative flex flex-col md:flex-row gap-8 items-center group ${
+                    visibleMilestones.has(idx) 
+                      ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right')
+                      : 'opacity-0'
+                  }`}
                   style={{ 
-                    animation: `cardShuffle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${idx * 0.3}s both`,
                     transformStyle: 'preserve-3d',
                   }}
                 >
