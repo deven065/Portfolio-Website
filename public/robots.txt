@@ -1,8 +1,15 @@
+# Robots.txt for Deven Digital Labs
+# Professional Web Development Company
+
 User-agent: Googlebot
 Allow: /
+Allow: /sitemap.xml
+Crawl-delay: 1
 
-User-agent: Bingbot
+User-agent: Bingbot  
 Allow: /
+Allow: /sitemap.xml
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,13 +17,35 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Robots.txt for Deven Digital Labs
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
 
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
 Disallow: /create-invoice
-Disallow: /invoices
+Disallow: /invoices  
 Disallow: /payment?invoice=*
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /dist/
+
+# Sitemap location
+Sitemap: https://devendigitallabs.com/sitemap.xml
+
+# Important pages for SEO
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /projects
+Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-of-service
 
 # Sitemaps
 Sitemap: https://devendigitallabs.com/sitemap.xml

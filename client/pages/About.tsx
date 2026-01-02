@@ -38,9 +38,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us - Technology Consulting Agency"
-        description="Learn about Deven Digital Labs - a technology consulting agency helping businesses grow through scalable, reliable digital solutions. Our mission, values, and approach to software development."
-        keywords="technology consulting, web development agency, software development company, about us, our team, company values, digital agency, tech consulting firm"
+        title="About Deven Digital Labs | Professional Web Development Team | Our Story"
+        description="Meet the professional web development team behind Deven Digital Labs. Founded by Deven Rikame, we're a dedicated team of full-stack developers, DevOps engineers, data analysts, and e-commerce experts. Learn about our mission to help businesses grow through scalable, reliable digital solutions, our core values, and our proven approach to software development."
+        keywords="about web development company, professional development team, Deven Rikame founder, full-stack development team, DevOps engineers, data analysts, e-commerce experts, technology consulting agency, software development company, web development agency, our mission values, company story, business-first approach, scalable solutions, reliable partnerships, digital transformation experts, technology consulting firm, custom software development team"
         schema={schema}
       />
       <Layout>
@@ -318,7 +318,7 @@ export default function About() {
                 <img
                   src="/deven-photo.jpg"
                   alt="Deven Rikame - Web/Software Developer"
-                  className="w-full h-full object-cover scale-100"
+                  className="w-full h-full object-cover scale-110"
                   loading="lazy"
                   style={{ objectPosition: 'center 20%' }}
                 />

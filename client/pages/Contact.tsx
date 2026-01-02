@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { trackFormSubmission, trackEvent } from "@/lib/analytics";
 import { useState } from "react";
 import { Mail, Clock, ChevronDown } from "lucide-react";
 
@@ -63,6 +64,9 @@ export default function Contact() {
     if (validateForm()) {
       setIsSubmitting(true);
       
+      // Track form submission attempt
+      trackEvent('form_start', 'contact', 'contact_form');
+      
       try {
         const response = await fetch("/api/send-email", {
           method: "POST",
@@ -76,6 +80,11 @@ export default function Contact() {
 
         if (data.success) {
           setSubmitted(true);
+          
+          // Track successful form submission
+          trackFormSubmission('contact_form');
+          trackEvent('conversion', 'contact', 'form_submitted');
+          
           setFormData({
             fullName: "",
             companyName: "",
@@ -86,10 +95,13 @@ export default function Contact() {
           });
           setTimeout(() => setSubmitted(false), 5000);
         } else {
+          // Track form error
+          trackEvent('form_error', 'contact', 'submission_failed');
           alert("Failed to send message. Please try again.");
         }
       } catch (error) {
         console.error("Error sending email:", error);
+        trackEvent('form_error', 'contact', 'network_error');
         alert("An error occurred. Please try again later.");
       } finally {
         setIsSubmitting(false);
@@ -145,9 +157,9 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us - Get a Free Consultation"
-        description="Contact Deven Digital Labs for expert web development, custom software solutions, and technology consulting. Free consultation available. Let's discuss your project requirements."
-        keywords="contact web developer, hire software developer, web development consultation, get a quote, technology consulting, custom software inquiry, project estimate, free consultation"
+        title="Contact Us - Free Web Development Consultation | Deven Digital Labs"
+        description="Get in touch with Deven Digital Labs for professional web development services, custom software solutions, and technology consulting. Free consultation available. Contact us today to discuss your project requirements and get a detailed quote for your web development needs."
+        keywords="contact web development company, hire professional developers, web development consultation, custom software development quote, technology consulting services, project estimate, free consultation, web application development, React developers for hire, Next.js development services, full-stack development team, business automation solutions, e-commerce development contact, CRM development inquiry, software engineering consultation"
         schema={schema}
       />
       <Layout>

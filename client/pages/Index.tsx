@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { trackButtonClick, trackEvent } from "@/lib/analytics";
 import Testimonials from "@/components/Testimonials";
 import FloatingCTA from "@/components/FloatingCTA";
 import { StatCounter } from "@/components/StatsCounter";
@@ -29,8 +30,9 @@ export default function Index() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Full-Stack Web Development & Technology Consulting Services",
-    "description": "Expert full-stack web development, custom software solutions, UI/UX design, and technology consulting. Transform your business with cutting-edge digital solutions.",
+    "name": "Professional Web Development Services | Full-Stack Development Company | Deven Digital Labs",
+    "description": "Leading web development company specializing in React, Next.js, Node.js, and full-stack solutions. Custom software development, e-commerce platforms, CRM systems, and technology consulting services for growing businesses.",
+    "keywords": "web development company, full-stack development, React development, Next.js development, Node.js development, custom software development, e-commerce development, CRM development, technology consulting, web application development, software engineering services, digital transformation, business automation, scalable web solutions",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [{
@@ -39,6 +41,17 @@ export default function Index() {
         "name": "Home",
         "item": "https://devendigitallabs.com/"
       }]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Deven Digital Labs",
+      "@id": "https://devendigitallabs.com/#organization",
+      "url": "https://devendigitallabs.com",
+      "description": "Professional web development and technology consulting company",
+      "founder": {
+        "@type": "Person",
+        "name": "Deven Rikame"
+      }
     }
   };
   const services = [
@@ -143,9 +156,9 @@ export default function Index() {
   return (
     <>
       <SEO 
-        title="Full-Stack Web Development & Technology Consulting Services"
-        description="Expert full-stack web development, custom software solutions, UI/UX design, and technology consulting. Transform your business with cutting-edge digital solutions. Get a free consultation today."
-        keywords="web development services, full-stack developer, custom software development, UI/UX design agency, technology consulting, React development, Node.js experts, API development, digital transformation, business automation, CRM development, mobile app development, cloud solutions, scalable web applications, enterprise software"
+        title="Professional Web Development Services | Full-Stack Development Company"
+        description="Leading web development company specializing in React, Next.js, Node.js, and full-stack solutions. Custom software development, e-commerce platforms, CRM systems, and technology consulting services for growing businesses. Get your free consultation today and transform your digital presence."
+        keywords="web development company, full-stack development, React development, Next.js development, Node.js development, custom software development, e-commerce development, CRM development, technology consulting, web application development, software engineering services, digital transformation, business automation, scalable web solutions, professional web developers, custom web applications, enterprise software development, API development, database design, UI UX design, responsive web design, mobile-first development, cloud integration, DevOps services, software architecture, business intelligence, data analytics, performance optimization, security implementation"
         schema={schema}
       />
       <Layout>
@@ -371,11 +384,16 @@ export default function Index() {
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2">
           {process.map((item, idx) => (
-            <div key={idx} className="relative animate-fade-up" style={{ animationDelay: `${idx * 50}ms` }}>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 transition-all duration-300 h-full flex flex-col">
-                <div className="text-4xl font-bold text-blue-400/50 mb-4">{item.step}</div>
-                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm flex-grow">{item.description}</p>
+            <div key={idx} className="relative animate-fade-up group" style={{ animationDelay: `${idx * 50}ms` }}>
+              <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300 h-full flex flex-col relative overflow-hidden">
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="text-4xl font-bold text-blue-400/50 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300 mb-4 inline-block group-hover:drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">{item.step}</div>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-white transition-colors duration-300">{item.title}</h3>
+                  <p className="text-slate-400 text-sm flex-grow group-hover:text-slate-300 transition-colors duration-300">{item.description}</p>
+                </div>
               </div>
 
               {idx < process.length - 1 && (
@@ -444,7 +462,7 @@ export default function Index() {
                 
                 <img 
                   src={project.image} 
-                  alt={`${project.name} - Web development case study showing ${project.description}`}
+                  alt={`${project.name} - ${project.category} showing ${project.outcome}`}
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
@@ -510,6 +528,10 @@ export default function Index() {
           <Link to="/contact">
             <Button
               size="lg"
+              onClick={() => {
+                trackButtonClick('Request Proposal', 'homepage_cta');
+                trackEvent('cta_click', 'homepage', 'request_proposal');
+              }}
               className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
             >
               Request Proposal
@@ -519,6 +541,10 @@ export default function Index() {
           <Link to="/about">
             <Button
               size="lg"
+              onClick={() => {
+                trackButtonClick('Learn About Us', 'homepage_cta');
+                trackEvent('navigation', 'homepage', 'learn_about_us');
+              }}
               className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300"
             >
               Learn About Us
