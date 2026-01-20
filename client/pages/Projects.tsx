@@ -1,14 +1,35 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { ArrowRight, TrendingUp, DollarSign, Clock, Target } from "lucide-react";
+import { ArrowRight, TrendingUp, DollarSign, Clock, Target, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
 
+interface Project {
+  id: number;
+  name: string;
+  description: string;
+  problem: string;
+  solution: string;
+  investment: string;
+  results: {
+    roi: string;
+    breakEven: string;
+    revenue: string;
+    conversions: string;
+  };
+  stack: string[];
+  outcome: string;
+  image: string;
+  video?: string;
+}
+
 export default function Projects() {
   const [visibleProjects, setVisibleProjects] = useState<Set<number>>(new Set());
+  const [currentPage, setCurrentPage] = useState(1);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const PROJECTS_PER_PAGE = 5;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,7 +49,13 @@ export default function Projects() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [currentPage]);
+
+  // Reset visible projects and scroll to top when page changes
+  useEffect(() => {
+    setVisibleProjects(new Set());
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   const schema = {
     "@context": "https://schema.org",
@@ -39,6 +66,42 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      name: "Sony Earbuds 3D Experience",
+      description: "Immersive 3D product showcase website featuring interactive Sony earbuds with stunning visuals and smooth animations.",
+      problem: "Traditional product pages lack engagement and fail to showcase premium audio products in an immersive way that reflects brand quality.",
+      solution: "Built an interactive 3D website with Three.js/React Three Fiber featuring realistic product renders, smooth scroll animations, interactive model rotation, and cinematic transitions.",
+      investment: "$3,500",
+      results: {
+        roi: "10x",
+        breakEven: "3 months",
+        revenue: "$45K increased sales",
+        conversions: "+70% engagement time",
+      },
+      stack: ["React", "Three.js", "React Three Fiber", "TypeScript", "TailwindCSS", "GSAP", "WebGL", "3D Modeling"],
+      outcome: "Revolutionary product experience increased user engagement by 70%, leading to 45% boost in conversion rates. Immersive 3D showcase reduced product returns by 30% and elevated brand perception significantly.",
+      image: "/sony.png",
+      video: "/Sony-earbuds.mp4",
+    },
+    {
+      id: 2,
+      name: "SocietiQ",
+      description: "Comprehensive society management SaaS platform transforming residential community operations with intelligent automation and resident engagement. [Work-in-Progress]",
+      problem: "Residential societies struggle with fragmented systems for billing, maintenance tracking, visitor management, and resident communication, leading to administrative chaos and poor resident satisfaction.",
+      solution: "Building a unified SaaS platform with automated billing, maintenance request tracking, visitor management, digital notice boards, event management, real-time notifications, and mobile app for residents. Note: This video is shared with the consent of the original owner to whom it belongs.",
+      investment: "$5,500",
+      results: {
+        roi: "Projected 12x",
+        breakEven: "Expected 4 months",
+        revenue: "Targeting $96K ARR",
+        conversions: "+85% admin efficiency",
+      },
+      stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "PostgreSQL", "Prisma", "JWT", "AWS S3", "Real-time Updates", "Mobile App"],
+      outcome: "Platform currently in active development with projected 85% reduction in administrative overhead, automated workflows for 500+ units per society, and integrated communication system. Early beta testing showing promising engagement metrics.",
+      image: "/SocietiQ.png",
+      video: "/SocietiQ-intro.mp4",
+    },
+    {
+      id: 3,
       name: "MeatCountry",
       description: "Premium meat delivery platform revolutionizing online meat shopping with seamless ordering experience.",
       problem: "Local meat business had zero online presence, losing 80% of potential customers to competitors with e-commerce platforms.",
@@ -55,7 +118,7 @@ export default function Projects() {
       image: "/MeatCountry.png",
     },
     {
-      id: 2,
+      id: 4,
       name: "Accent Techno Solutions CRM",
       description: "Enterprise-grade CRM platform streamlining sales operations for B2B technology company.",
       problem: "Sales team manually tracking 500+ clients in spreadsheets, leading to 40% lead loss and 15+ hours weekly on admin tasks.",
@@ -72,7 +135,7 @@ export default function Projects() {
       image: "/AccentLogin.png",
     },
     {
-      id: 3,
+      id: 5,
       name: "FlatMate",
       description: "Digital society management platform automating maintenance, billing, and resident communication.",
       problem: "Housing society managing 200+ units manually - 8 hours weekly on invoices, frequent payment delays, poor communication.",
@@ -89,7 +152,7 @@ export default function Projects() {
       image: "/FlatMate.png",
     },
     {
-      id: 4,
+      id: 6,
       name: "Premiums4U",
       description: "E-commerce platform for gaming subscriptions with competitive pricing and instant delivery.",
       problem: "Gaming subscription reseller losing customers to slow manual processing and unreliable delivery systems.",
@@ -106,7 +169,7 @@ export default function Projects() {
       image: "/Premiums4U.png",
     },
     {
-      id: 5,
+      id: 7,
       name: "Only4Premiums",
       description: "Subscription platform providing affordable access to premium professional tools and trading software.",
       problem: "Tool reseller manually processing subscriptions via WhatsApp, limiting scale to 20 customers/month and losing 60% of leads.",
@@ -123,7 +186,7 @@ export default function Projects() {
       image: "/Only4Premiums.png",
     },
     {
-      id: 6,
+      id: 8,
       name: "DevOps Portfolio Website",
       description: "Professional portfolio showcasing DevOps expertise, landing 3 high-value contracts within 6 months.",
       problem: "DevOps consultant with zero online presence, relying on referrals and missing 90% of potential clients searching online.",
@@ -140,7 +203,7 @@ export default function Projects() {
       image: "/devops-portfolio.png",
     },
     {
-      id: 7,
+      id: 9,
       name: "Portfolio Website",
       description: "Modern portfolio website transforming freelance career with 5x more client inquiries.",
       problem: "Freelancer with no online presence, getting 2-3 inquiries monthly through marketplaces with high commission fees (20%).",
@@ -157,7 +220,7 @@ export default function Projects() {
       image: "/Portfolio-Website.png",
     },
     {
-      id: 8,
+      id: 10,
       name: "Data Analyst Portfolio - Ashok Choudhary",
       description: "Comprehensive data analyst portfolio with interactive project showcases landing corporate role.",
       problem: "Data analyst applying to 50+ positions with generic resume, getting zero callbacks despite strong skills and 10+ projects.",
@@ -174,7 +237,7 @@ export default function Projects() {
       image: "/Ashok-Portfolio.png",
     },
     {
-      id: 9,
+      id: 11,
       name: "Chef Claude - AI Recipe App",
       description: "AI-powered recipe platform demonstrating technical capabilities and generating consulting leads.",
       problem: "Developer needed showcase project to demonstrate AI integration skills for potential consulting clients.",
@@ -191,7 +254,7 @@ export default function Projects() {
       image: "/Chef-claude.jpeg",
     },
     {
-      id: 10,
+      id: 12,
       name: "Jira Automation Implementation",
       description: "Custom Jira automation reducing team overhead by 60% through intelligent workflow optimization.",
       problem: "Development team spending 25+ hours weekly on manual ticket routing, status updates, and notifications across 200+ projects.",
@@ -208,6 +271,12 @@ export default function Projects() {
       image: "/jira-automation.webp",
     },
   ];
+
+  // Pagination calculations
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const endIndex = startIndex + PROJECTS_PER_PAGE;
+  const currentProjects = projects.slice(startIndex, endIndex);
 
   return (
     <>
@@ -242,7 +311,7 @@ export default function Projects() {
       {/* Projects Grid */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-12">
-          {projects.map((project, idx) => (
+          {currentProjects.map((project, idx) => (
             <div
               key={project.id}
               ref={(el) => (projectRefs.current[idx] = el)}
@@ -251,19 +320,36 @@ export default function Projects() {
                 idx % 2 === 1 ? "md:flex-row-reverse" : ""
               } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
             >
-              {/* Image */}
+              {/* Image/Video */}
               <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
-                <img
-                  src={project.image}
-                  alt={`${project.name} - ${project.description}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/placeholder-project.jpg';
-                  }}
-                />
+                {project.video ? (
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                    onLoadedMetadata={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      if (project.name === "Sony Earbuds 3D Experience") {
+                        video.playbackRate = 1.5;
+                      }
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={`${project.name} - ${project.description}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/placeholder-project.jpg';
+                    }}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
               </div>
 
@@ -349,6 +435,56 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            variant="outline"
+            size="lg"
+            className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+          >
+            <ChevronLeft className="mr-2 h-5 w-5" />
+            Previous
+          </Button>
+
+          <div className="flex items-center gap-3">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <Button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                variant={currentPage === page ? "default" : "outline"}
+                size="lg"
+                className={`rounded-xl font-semibold px-5 py-3 transition-all duration-300 ${
+                  currentPage === page
+                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/25"
+                    : "border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 backdrop-blur-sm"
+                }`}
+              >
+                {page}
+              </Button>
+            ))}
+          </div>
+
+          <Button
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            variant="outline"
+            size="lg"
+            className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+          >
+            Next
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+
+        {/* Page Info */}
+        <div className="mt-6 text-center">
+          <p className="text-slate-400 text-sm">
+            Showing <span className="text-white font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-white font-semibold">{projects.length}</span> projects
+          </p>
         </div>
       </section>
 
