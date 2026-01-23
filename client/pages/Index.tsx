@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,13 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  useEffect(() => {
+    const roiSection = document.getElementById('roi-calculator');
+    if (roiSection) {
+      roiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -165,7 +173,7 @@ export default function Index() {
       <FloatingCTA />
       
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+      <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
@@ -299,7 +307,9 @@ export default function Index() {
       <CostOfInaction />
 
       {/* ROI Calculator */}
-      <ROICalculator />
+      <div id="roi-calculator">
+        <ROICalculator />
+      </div>
 
       {/* Who We Help */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
