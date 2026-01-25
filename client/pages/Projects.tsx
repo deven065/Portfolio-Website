@@ -66,6 +66,24 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      name: "Business Stock Management CRM",
+      description: "Comprehensive stock management and CRM web application with role-based access control for efficient business operations.",
+      problem: "Business struggled with inventory tracking, stock discrepancies, supplier management, and order processing across multiple roles, leading to operational inefficiencies and revenue loss.",
+      solution: "Developed a complete CRM system with real-time stock tracking, automated inventory alerts, supplier management, order processing, and role-based dashboards (Admin/Owner, Manager, Staff) with granular permissions.",
+      investment: "$4,800",
+      results: {
+        roi: "11x",
+        breakEven: "4 months",
+        revenue: "$52K increased efficiency savings",
+        conversions: "+65% inventory accuracy",
+      },
+      stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "TailwindCSS", "JWT", "Role-Based Access Control", "Real-time Updates"],
+      outcome: "Streamlined operations with 65% improvement in inventory accuracy, 80% reduction in stock discrepancies, and automated workflows saving 25+ hours weekly. Multi-role access enabled efficient delegation across admin, manager, and staff levels.",
+      image: "/stock-crm.png",
+      video: "/adtani-webapp.mp4",
+    },
+    {
+      id: 2,
       name: "Sony Earbuds 3D Experience",
       description: "Immersive 3D product showcase website featuring interactive Sony earbuds with stunning visuals and smooth animations.",
       problem: "Traditional product pages lack engagement and fail to showcase premium audio products in an immersive way that reflects brand quality.",
@@ -83,7 +101,7 @@ export default function Projects() {
       video: "/Sony-earbuds.mp4",
     },
     {
-      id: 2,
+      id: 3,
       name: "SocietiQ",
       description: "Comprehensive society management SaaS platform transforming residential community operations with intelligent automation and resident engagement. [Work-in-Progress]",
       problem: "Residential societies struggle with fragmented systems for billing, maintenance tracking, visitor management, and resident communication, leading to administrative chaos and poor resident satisfaction.",
@@ -101,7 +119,7 @@ export default function Projects() {
       video: "/SocietiQ-intro.mp4",
     },
     {
-      id: 3,
+      id: 4,
       name: "MeatCountry",
       description: "Premium meat delivery platform revolutionizing online meat shopping with seamless ordering experience.",
       problem: "Local meat business had zero online presence, losing 80% of potential customers to competitors with e-commerce platforms.",
@@ -118,7 +136,7 @@ export default function Projects() {
       image: "/MeatCountry.png",
     },
     {
-      id: 4,
+      id: 5,
       name: "Accent Techno Solutions CRM",
       description: "Enterprise-grade CRM platform streamlining sales operations for B2B technology company.",
       problem: "Sales team manually tracking 500+ clients in spreadsheets, leading to 40% lead loss and 15+ hours weekly on admin tasks.",
@@ -135,7 +153,7 @@ export default function Projects() {
       image: "/AccentLogin.png",
     },
     {
-      id: 5,
+      id: 6,
       name: "FlatMate",
       description: "Digital society management platform automating maintenance, billing, and resident communication.",
       problem: "Housing society managing 200+ units manually - 8 hours weekly on invoices, frequent payment delays, poor communication.",
@@ -152,7 +170,7 @@ export default function Projects() {
       image: "/FlatMate.png",
     },
     {
-      id: 6,
+      id: 7,
       name: "Premiums4U",
       description: "E-commerce platform for gaming subscriptions with competitive pricing and instant delivery.",
       problem: "Gaming subscription reseller losing customers to slow manual processing and unreliable delivery systems.",
@@ -169,7 +187,7 @@ export default function Projects() {
       image: "/Premiums4U.png",
     },
     {
-      id: 7,
+      id: 8,
       name: "Only4Premiums",
       description: "Subscription platform providing affordable access to premium professional tools and trading software.",
       problem: "Tool reseller manually processing subscriptions via WhatsApp, limiting scale to 20 customers/month and losing 60% of leads.",
@@ -186,7 +204,7 @@ export default function Projects() {
       image: "/Only4Premiums.png",
     },
     {
-      id: 8,
+      id: 9,
       name: "DevOps Portfolio Website",
       description: "Professional portfolio showcasing DevOps expertise, landing 3 high-value contracts within 6 months.",
       problem: "DevOps consultant with zero online presence, relying on referrals and missing 90% of potential clients searching online.",
@@ -203,7 +221,7 @@ export default function Projects() {
       image: "/devops-portfolio.png",
     },
     {
-      id: 9,
+      id: 10,
       name: "Portfolio Website",
       description: "Modern portfolio website transforming freelance career with 5x more client inquiries.",
       problem: "Freelancer with no online presence, getting 2-3 inquiries monthly through marketplaces with high commission fees (20%).",
@@ -220,7 +238,7 @@ export default function Projects() {
       image: "/Portfolio-Website.png",
     },
     {
-      id: 10,
+      id: 11,
       name: "Data Analyst Portfolio - Ashok Choudhary",
       description: "Comprehensive data analyst portfolio with interactive project showcases landing corporate role.",
       problem: "Data analyst applying to 50+ positions with generic resume, getting zero callbacks despite strong skills and 10+ projects.",
@@ -237,7 +255,7 @@ export default function Projects() {
       image: "/Ashok-Portfolio.png",
     },
     {
-      id: 11,
+      id: 12,
       name: "Chef Claude - AI Recipe App",
       description: "AI-powered recipe platform demonstrating technical capabilities and generating consulting leads.",
       problem: "Developer needed showcase project to demonstrate AI integration skills for potential consulting clients.",
@@ -254,7 +272,7 @@ export default function Projects() {
       image: "/Chef-claude.jpeg",
     },
     {
-      id: 12,
+      id: 13,
       name: "Jira Automation Implementation",
       description: "Custom Jira automation reducing team overhead by 60% through intelligent workflow optimization.",
       problem: "Development team spending 25+ hours weekly on manual ticket routing, status updates, and notifications across 200+ projects.",
@@ -321,7 +339,7 @@ export default function Projects() {
               } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
             >
               {/* Image/Video */}
-              <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+              <div className={`relative ${project.name === "Business Stock Management CRM" ? "aspect-auto" : "aspect-video"} bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                 {project.video ? (
                   <video
                     src={project.video}
@@ -329,7 +347,7 @@ export default function Projects() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                    className={`w-full ${project.name === "Business Stock Management CRM" ? "h-auto object-contain" : "h-full object-cover"} transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110`}
                     onLoadedMetadata={(e) => {
                       const video = e.target as HTMLVideoElement;
                       if (project.name === "Sony Earbuds 3D Experience") {

@@ -30,3 +30,9 @@ next-env.d.ts
 .env.local
 .env.production
 .env.development
+
+# Large media files
+*.mp4
+*.mov
+*.avi
+*.mkv
