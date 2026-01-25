@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Menu, X, Mail, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
+import PromoFlyer from "@/components/PromoFlyer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,6 +47,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex flex-col">
+      {/* Promotional Flyer */}
+      <PromoFlyer />
+      
       {/* Header */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
