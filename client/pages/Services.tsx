@@ -74,6 +74,14 @@ export default function Services() {
         { name: "Performance & Speed", price: "50,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
         { name: "Growth Partnership", price: "15,000+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
       ],
+      digitalMarketing: [
+        { name: "SEO Strategy & Implementation", price: "25,000+/month", description: "Get found on Google. Organic traffic that converts into customers. First page rankings in 3-6 months.", roi: "6-10x ROI", breakeven: "3-4 months" },
+        { name: "Social Media Management", price: "20,000+/month", description: "Build your brand and engage customers. Content creation, posting, and community management across platforms.", roi: "5-8x ROI", breakeven: "2-3 months" },
+        { name: "Google Ads & PPC", price: "30,000+/month", description: "Immediate traffic and sales. Expert campaign setup, optimization, and management. Includes ad spend guidance.", roi: "7-12x ROI", breakeven: "1-2 months" },
+        { name: "Content Marketing", price: "15,000+/month", description: "Attract and convert with valuable content. Blog posts, newsletters, and lead magnets that drive traffic and sales.", roi: "8-15x ROI", breakeven: "4-6 months" },
+        { name: "Email Marketing Campaigns", price: "12,000+/month", description: "Turn subscribers into customers. Automated sequences, newsletters, and promotions that generate sales.", roi: "10-20x ROI", breakeven: "2-3 months" },
+        { name: "Full Digital Marketing Suite", price: "75,000+/month", description: "Complete digital presence management. SEO, social media, ads, content, and email marketing - all coordinated for maximum ROI.", roi: "12-25x ROI", breakeven: "3-6 months" },
+      ],
     },
     international: {
       currency: "$",
@@ -93,6 +101,14 @@ export default function Services() {
         { name: "Conversion Optimization", price: "1,500+", description: "Increase sales by 30-50% without more traffic. Optimize user experience and checkout flows.", roi: "8-12x ROI" },
         { name: "Performance & Speed", price: "2,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
         { name: "Growth Partnership", price: "500+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
+      ],
+      digitalMarketing: [
+        { name: "SEO Strategy & Implementation", price: "800+/month", description: "Get found on Google. Organic traffic that converts into customers. First page rankings in 3-6 months.", roi: "6-10x ROI", breakeven: "3-4 months" },
+        { name: "Social Media Management", price: "600+/month", description: "Build your brand and engage customers. Content creation, posting, and community management across platforms.", roi: "5-8x ROI", breakeven: "2-3 months" },
+        { name: "Google Ads & PPC", price: "1,000+/month", description: "Immediate traffic and sales. Expert campaign setup, optimization, and management. Includes ad spend guidance.", roi: "7-12x ROI", breakeven: "1-2 months" },
+        { name: "Content Marketing", price: "500+/month", description: "Attract and convert with valuable content. Blog posts, newsletters, and lead magnets that drive traffic and sales.", roi: "8-15x ROI", breakeven: "4-6 months" },
+        { name: "Email Marketing Campaigns", price: "400+/month", description: "Turn subscribers into customers. Automated sequences, newsletters, and promotions that generate sales.", roi: "10-20x ROI", breakeven: "2-3 months" },
+        { name: "Full Digital Marketing Suite", price: "2,500+/month", description: "Complete digital presence management. SEO, social media, ads, content, and email marketing - all coordinated for maximum ROI.", roi: "12-25x ROI", breakeven: "3-6 months" },
       ],
     },
   };
@@ -223,6 +239,48 @@ export default function Services() {
                   <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
                     Break-even: {service.breakeven}
                   </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Digital Marketing Services */}
+      <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Digital Marketing Solutions</h2>
+          <p className="text-slate-300">Strategic marketing campaigns that drive traffic, generate leads, and boost revenue consistently.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {current.digitalMarketing.map((service, idx) => (
+            <div
+              key={idx}
+              className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                  {service.name}
+                </h3>
+              </div>
+              <p className="text-slate-400 mb-4">{service.description}</p>
+              <div className="space-y-3">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-sm text-slate-400">Investment:</span>
+                  <span className="text-2xl font-bold text-blue-400">
+                    {current.currency}{service.price}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    {service.roi}
+                  </span>
+                  {service.breakeven && (
+                    <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                      Break-even: {service.breakeven}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
