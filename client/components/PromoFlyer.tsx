@@ -1,28 +1,26 @@
 import { useState, useEffect } from "react";
 import { X, ArrowRight, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function PromoFlyer() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    // Check if user has seen the flyer in this session
-    const hasSeenFlyer = sessionStorage.getItem("hasSeenPromoFlyer");
-    
-    if (!hasSeenFlyer) {
-      // Show flyer after 1 second
+    // Only show flyer on homepage
+    if (location.pathname === "/") {
+      // Show flyer after 1 second on every page load
       const timer = setTimeout(() => {
         setIsOpen(true);
       }, 1000);
 
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [location.pathname]);
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem("hasSeenPromoFlyer", "true");
   };
 
   if (!isOpen) return null;
