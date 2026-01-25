@@ -95,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="hidden md:flex items-center gap-4">
             <Link to="/contact">
               <Button className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg shadow-blue-500/25">
-                Request Proposal
+                Book a Call
               </Button>
             </Link>
           </div>
@@ -127,7 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
             <Link to="/contact" className="block pt-2">
               <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg">
-                Request Proposal
+                Book a Call
               </Button>
             </Link>
           </div>
