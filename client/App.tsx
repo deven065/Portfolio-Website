@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { initGA, trackPageView } from "@/lib/analytics";
+import { useVisitorTracking } from "@/hooks/useVisitorTracking";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
@@ -42,6 +43,9 @@ function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
     // Track page views on route changes
     trackPageView(location.pathname + location.search);
   }, [location]);
+
+  // Track visitor email notifications
+  useVisitorTracking();
 
   return <>{children}</>;
 }
