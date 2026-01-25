@@ -34,31 +34,31 @@ export default function PromoFlyer() {
       />
       
       {/* Flyer Modal */}
-      <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[101] w-[95%] sm:w-[90%] max-w-2xl max-h-[90vh] overflow-y-auto animate-in zoom-in-95 fade-in duration-300">
-        <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-blue-500/50 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
+      <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[101] w-[90%] sm:w-[80%] max-w-lg max-h-[85vh] animate-in zoom-in-95 fade-in duration-300">
+        <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-blue-500/50 rounded-xl shadow-2xl overflow-hidden">
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className="absolute right-3 top-3 sm:right-4 sm:top-4 z-10 rounded-full p-1.5 sm:p-2 bg-slate-800/80 hover:bg-slate-700 transition-colors text-slate-300 hover:text-white"
+            className="absolute right-3 top-3 z-10 rounded-full p-1.5 bg-slate-800/80 hover:bg-slate-700 transition-colors text-slate-300 hover:text-white"
             aria-label="Close"
           >
-            <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            <X className="w-4 h-4" />
           </button>
 
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
           {/* Content */}
-          <div className="relative p-5 sm:p-8 md:p-12">
+          <div className="relative p-5 sm:p-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
-              <span className="text-xs sm:text-sm font-semibold text-blue-400">Limited Time Offer</span>
+            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-full px-3 py-1.5 mb-3">
+              <Sparkles className="w-3 h-3 text-blue-400" />
+              <span className="text-xs font-semibold text-blue-400">Limited Time Offer</span>
             </div>
 
             {/* Heading */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 Transform Your Business
               </span>
@@ -69,35 +69,35 @@ export default function PromoFlyer() {
             </h2>
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 sm:mb-6 leading-relaxed">
+            <p className="text-sm text-slate-300 mb-3 leading-relaxed">
               Get a professional website that drives real results. Our clients see an average <strong className="text-white">5x ROI</strong> and break even within <strong className="text-white">3-4 months</strong>.
             </p>
 
             {/* Benefits */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8">
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2 sm:p-4">
-                <div className="text-lg sm:text-2xl font-bold text-blue-400 mb-0.5 sm:mb-1">40%+</div>
-                <div className="text-xs sm:text-sm text-slate-300">Higher Conversion</div>
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
+                <div className="text-lg font-bold text-blue-400 mb-0.5">40%+</div>
+                <div className="text-xs text-slate-300">Higher Conversion</div>
               </div>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2 sm:p-4">
-                <div className="text-lg sm:text-2xl font-bold text-cyan-400 mb-0.5 sm:mb-1">5-7x</div>
-                <div className="text-xs sm:text-sm text-slate-300">Average ROI</div>
+              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
+                <div className="text-lg font-bold text-cyan-400 mb-0.5">5-7x</div>
+                <div className="text-xs text-slate-300">Average ROI</div>
               </div>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2 sm:p-4">
-                <div className="text-lg sm:text-2xl font-bold text-green-400 mb-0.5 sm:mb-1">3-4 mo</div>
-                <div className="text-xs sm:text-sm text-slate-300">Break Even</div>
+              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
+                <div className="text-lg font-bold text-green-400 mb-0.5">3-4 mo</div>
+                <div className="text-xs text-slate-300">Break Even</div>
               </div>
             </div>
 
             {/* Special Offer */}
-            <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
-              <div className="flex items-start gap-2 sm:gap-3">
-                <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+            <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-lg p-3 mb-4">
+              <div className="flex items-start gap-2">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base sm:text-lg text-white mb-1 sm:mb-2">Special Launch Offer</h3>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  <h3 className="font-bold text-sm text-white mb-1">Special Launch Offer</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed">
                     Book a free consultation this month and get <strong className="text-blue-400">20% off</strong> your first project + <strong className="text-cyan-400">3 months free maintenance</strong>.
                   </p>
                 </div>
@@ -105,18 +105,18 @@ export default function PromoFlyer() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Link to="/contact" onClick={handleClose} className="flex-1">
                 <Button 
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg sm:rounded-xl shadow-lg shadow-blue-500/25 h-10 sm:h-12 flex items-center justify-center text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-9 flex items-center justify-center text-sm"
                 >
                   Book Free Consultation
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1 sm:ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </Link>
               <Link to="/projects" onClick={handleClose} className="flex-1">
                 <Button 
-                  className="w-full bg-slate-800/80 border border-slate-600/50 hover:bg-slate-700/80 hover:border-slate-500/50 text-white font-semibold rounded-lg sm:rounded-xl h-10 sm:h-12 flex items-center justify-center transition-all duration-200 text-sm sm:text-base"
+                  className="w-full bg-slate-800/80 border border-slate-600/50 hover:bg-slate-700/80 hover:border-slate-500/50 text-white font-semibold rounded-lg h-9 flex items-center justify-center transition-all duration-200 text-sm"
                 >
                   View Case Studies
                 </Button>
@@ -124,7 +124,7 @@ export default function PromoFlyer() {
             </div>
 
             {/* Small Print */}
-            <p className="text-xs text-slate-500 text-center mt-4 sm:mt-6">
+            <p className="text-xs text-slate-500 text-center mt-3">
               Offer valid until end of the month. No credit card required for consultation.
             </p>
           </div>
