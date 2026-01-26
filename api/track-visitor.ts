@@ -26,6 +26,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Get IP address
     const ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'Unknown';
     
+    // Get location data from IP
+    let locationData = {
+      ip,
+      city: 'Unknown',
+      region: 'Unknown',
+      country: 'Unknown',
+      timezone: 'Unknown',
+      isp: 'Unknown',
+    };
+
+    if (ip !== 'Unknown') {
+      try {
+        const ipAddress = Array.isArray(ip) ? ip[0] : ip.split(',')[0].trim();
+        const geoResponse = await fetch(`http://ip-api.com/json/${ipAddress}?fields=status,country,countryCode,region,regionName,city,timezone,isp,query`);
+        const geoData = await geoResponse.json();
+        
+        if (geoData.status === 'success') {
+          locationData = {
+            ip: geoData.query || ipAddress,
+            city: geoData.city || 'Unknown',
+            region: geoData.regionName || 'Unknown',
+            country: geoData.country || 'Unknown',
+            timezone: geoData.timezone || 'Unknown',
+            isp: geoData.isp || 'Unknown',
+          };
+        }
+      } catch (geoError) {
+        console.error('Failed to fetch geolocation:', geoError);
+      }
+    }
+    
     // Create transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -45,7 +76,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <h2 style="color: #3b82f6;">🌐 New Visitor on Your Website</h2>
           <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px;">
             <p><strong>⏰ Time:</strong> ${new Date(timestamp).toLocaleString()}</p>
-            <p><strong>📍 IP Address:</strong> ${ip}</p>
+            <p><strong>📍 IP Address:</strong> ${locationData.ip}</p>
+            <div style="background-color: #dbeafe; padding: 15px; border-radius: 4px; margin: 10px 0;">
+              <p style="margin: 5px 0;"><strong>🌍 Location:</strong> ${locationData.city}, ${locationData.region}, ${locationData.country}</p>
+              <p style="margin: 5px 0;"><strong>⏱️ Timezone:</strong> ${locationData.timezone}</p>
+              <p style="margin: 5px 0;"><strong>🌐 ISP:</strong> ${locationData.isp}</p>
+            </div>
             <p><strong>🔗 Referrer:</strong> ${referrer || 'Direct visit'}</p>
             <p><strong>📄 Page:</strong> ${location || 'Homepage'}</p>
             <p><strong>💻 Device Info:</strong></p>
