@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
@@ -209,13 +210,13 @@ export function ROICalculator() {
           <p className="text-slate-300 text-lg mb-8">
             These projections are based on real client data from similar businesses in your industry.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="btn-premium inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-blue-500/25"
           >
             <DollarSign className="h-5 w-5" />
             Get Your Custom ROI Analysis
-          </a>
+          </Link>
         </div>
       </div>
     </div>

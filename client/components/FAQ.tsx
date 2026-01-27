@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Accordion,
   AccordionContent,
@@ -95,12 +96,12 @@ export function FAQ() {
           <p className="text-slate-300 text-lg mb-6">
             Still have questions? We're here to help.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all shadow-lg hover:shadow-xl"
           >
             Schedule a Free Consultation
-          </a>
+          </Link>
         </div>
       </div>
     </div>

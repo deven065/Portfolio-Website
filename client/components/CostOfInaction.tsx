@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AlertTriangle, TrendingDown, Users, ShoppingCart, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
@@ -97,18 +98,18 @@ export function CostOfInaction() {
               Potential revenue lost over 12 months without investing in your digital presence
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-blue-500/25"
               >
                 Stop Losing Money - Get Started
-              </a>
-              <a
-                href="/services"
+              </Link>
+              <Link
+                to="/services"
                 className="bg-slate-700/50 hover:bg-slate-700/70 inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-xl text-lg font-semibold border border-slate-600/50 hover-lift backdrop-blur-sm"
               >
                 See Our Solutions
-              </a>
+              </Link>
             </div>
           </div>
         </Card>

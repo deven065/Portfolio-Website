@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { CheckCircle2, TrendingUp, Users, Rocket, Target, Award, Sparkles } from 'lucide-react';
 
@@ -279,14 +280,14 @@ export function GrowthTimeline() {
                 Let's create your custom growth roadmap.
               </p>
               
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:shadow-[0_0_70px_rgba(147,51,234,0.6)] group/btn bg-[length:200%_100%] hover:bg-[position:100%_0] animate-shimmer"
               >
                 <Target className="h-5 w-5 group-hover/btn:rotate-12 transition-transform duration-300" />
                 Get Your Free Growth Plan
                 <TrendingUp className="h-5 w-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
-              </a>
+              </Link>
 
               {/* Trust indicators */}
               <div className="mt-7 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-300">

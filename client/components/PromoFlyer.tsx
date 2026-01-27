@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function PromoFlyer() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,7 +21,12 @@ export default function PromoFlyer() {
   }, [location.pathname]);
 
   const handleClose = () => {
-    setIsOpen(false);
+    setIsClosing(true);
+    // Wait for animation to complete before removing from DOM
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 200); // Match animation duration
   };
 
   if (!isOpen) return null;
@@ -29,25 +35,33 @@ export default function PromoFlyer() {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] animate-in fade-in duration-300"
+        className={`fixed inset-0 bg-black/80 z-[100] transition-opacity duration-200 ${
+          isClosing ? 'opacity-0' : 'opacity-100'
+        }`}
         onClick={handleClose}
+        style={{ willChange: 'opacity' }}
       />
       
       {/* Flyer Modal */}
-      <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[101] w-[90%] sm:w-[80%] max-w-lg max-h-[85vh] animate-in zoom-in-95 fade-in duration-300">
+      <div 
+        className={`fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[101] w-[90%] sm:w-[80%] max-w-lg max-h-[85vh] transition-all duration-200 ${
+          isClosing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+        }`}
+        style={{ willChange: 'transform, opacity' }}
+      >
         <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-blue-500/50 rounded-xl shadow-2xl overflow-hidden">
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className="absolute right-3 top-3 z-10 rounded-full p-1.5 bg-slate-800/80 hover:bg-slate-700 transition-colors text-slate-300 hover:text-white"
+            className="absolute right-3 top-3 z-10 rounded-full p-1.5 bg-slate-800/80 hover:bg-slate-700 transition-colors text-slate-300 hover:text-white touch-manipulation"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
 
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+          {/* Decorative Elements - Simplified for mobile */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           {/* Content */}
           <div className="relative p-5 sm:p-6">
@@ -108,7 +122,7 @@ export default function PromoFlyer() {
             <div className="flex flex-col sm:flex-row gap-2">
               <Link to="/contact" onClick={handleClose} className="flex-1">
                 <Button 
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-9 flex items-center justify-center text-sm"
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-9 flex items-center justify-center text-sm touch-manipulation"
                 >
                   Book Free Consultation
                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -116,7 +130,7 @@ export default function PromoFlyer() {
               </Link>
               <Link to="/projects" onClick={handleClose} className="flex-1">
                 <Button 
-                  className="w-full bg-slate-800/80 border border-slate-600/50 hover:bg-slate-700/80 hover:border-slate-500/50 text-white font-semibold rounded-lg h-9 flex items-center justify-center transition-all duration-200 text-sm"
+                  className="w-full bg-slate-800/80 border border-slate-600/50 hover:bg-slate-700/80 hover:border-slate-500/50 text-white font-semibold rounded-lg h-9 flex items-center justify-center transition-all duration-200 text-sm touch-manipulation"
                 >
                   View Case Studies
                 </Button>
