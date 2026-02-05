@@ -1,23 +1,56 @@
 import { useState, useEffect } from "react";
-import { X, ArrowRight, Sparkles } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { X, ArrowRight, MessageCircle } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function PromoFlyer() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    businessType: "",
+    name: "",
+    contact: "",
+  });
   const location = useLocation();
 
   useEffect(() => {
-    // Only show flyer on homepage
-    if (location.pathname === "/") {
-      // Show flyer after 1 second on every page load
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 1000);
+    // Only show popup on homepage
+    if (location.pathname !== "/") return;
 
-      return () => clearTimeout(timer);
-    }
+    let timeOnPageTimer: NodeJS.Timeout;
+    let hasShown = false;
+
+    // Check scroll percentage
+    const handleScroll = () => {
+      if (hasShown) return;
+      
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      if (scrollPercent >= 45) {
+        hasShown = true;
+        setIsOpen(true);
+      }
+    };
+
+    // Show after 10 seconds on page
+    timeOnPageTimer = setTimeout(() => {
+      if (!hasShown) {
+        hasShown = true;
+        setIsOpen(true);
+      }
+    }, 10000);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timeOnPageTimer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [location.pathname]);
 
   const handleClose = () => {
@@ -26,7 +59,48 @@ export default function PromoFlyer() {
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);
+      setStep(1);
+      setShowSuccess(false);
+      setFormData({ businessType: "", name: "", contact: "" });
     }, 200); // Match animation duration
+  };
+
+  const handleNext = () => {
+    if (formData.businessType) {
+      setStep(2);
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (formData.name && formData.contact) {
+      setIsSubmitting(true);
+      
+      // Show success immediately for better UX
+      setShowSuccess(true);
+      
+      // Send email in background
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          companyName: formData.businessType,
+          email: formData.contact.includes('@') ? formData.contact : 'noemail@provided.com',
+          phone: formData.contact.includes('@') ? 'Not provided' : formData.contact,
+          budget: 'Free Review Request',
+          projectDescription: `Free Enquiry Flow Review Request\n\nBusiness Type: ${formData.businessType}\nName: ${formData.name}\nContact: ${formData.contact}\n\nSource: Popup Form`,
+        }),
+      }).catch(error => {
+        console.error('Error sending email:', error);
+      });
+
+      // Auto close after 2.5 seconds
+      setTimeout(() => {
+        handleClose();
+      }, 2500);
+    }
   };
 
   if (!isOpen) return null;
@@ -65,82 +139,144 @@ export default function PromoFlyer() {
 
           {/* Content */}
           <div className="relative p-5 sm:p-6">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-full px-3 py-1.5 mb-3">
-              <Sparkles className="w-3 h-3 text-blue-400" />
-              <span className="text-xs font-semibold text-blue-400">Limited Time Offer</span>
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-xl sm:text-2xl font-bold mb-2 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Transform Your Business
-              </span>
-              <br />
-              <span className="text-white">
-                With Our Digital Solutions
-              </span>
-            </h2>
-
-            {/* Description */}
-            <p className="text-sm text-slate-300 mb-3 leading-relaxed">
-              Get a professional website that drives real results. Our clients see an average <strong className="text-white">5x ROI</strong> and break even within <strong className="text-white">3-4 months</strong>.
-            </p>
-
-            {/* Benefits */}
-            <div className="grid grid-cols-3 gap-2 mb-4">
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
-                <div className="text-lg font-bold text-blue-400 mb-0.5">40%+</div>
-                <div className="text-xs text-slate-300">Higher Conversion</div>
-              </div>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
-                <div className="text-lg font-bold text-cyan-400 mb-0.5">5-7x</div>
-                <div className="text-xs text-slate-300">Average ROI</div>
-              </div>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2">
-                <div className="text-lg font-bold text-green-400 mb-0.5">3-4 mo</div>
-                <div className="text-xs text-slate-300">Break Even</div>
-              </div>
-            </div>
-
-            {/* Special Offer */}
-            <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-lg p-3 mb-4">
-              <div className="flex items-start gap-2">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-blue-400" />
+            {/* Success Message */}
+            {showSuccess ? (
+              <div className="text-center py-8">
+                <div className="mb-4 flex justify-center">
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
                 </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Thank you!</h3>
+                <p className="text-slate-300 text-base leading-relaxed">
+                  We will review your enquiry flow and get back to you soon.
+                </p>
+                <p className="text-sm text-slate-400 mt-4">
+                  This popup will close automatically
+                </p>
+              </div>
+            ) : (
+              <>
+                {/* Heading */}
+                <h2 className="text-xl sm:text-2xl font-bold mb-3 leading-tight text-white">
+                  Get a free enquiry flow review for your business
+                </h2>
+
+                {/* Sub-heading */}
+                <p className="text-sm sm:text-base text-slate-300 mb-4 leading-relaxed">
+                  I'll personally check your website / enquiry setup and share 2–3 quick fixes to help you get more genuine enquiries.
+                </p>
+
+                {/* Small line (very important) */}
+                <p className="text-xs sm:text-sm text-blue-400 font-semibold mb-6">
+                  Takes less than 30 seconds.
+                </p>
+
+                {/* Step 1: Business Type */}
+                {step === 1 && (
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold text-sm text-white mb-1">Special Launch Offer</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Book a free consultation this month and get <strong className="text-blue-400">20% off</strong> your first project + <strong className="text-cyan-400">3 months free maintenance</strong>.
-                  </p>
+                  <label htmlFor="businessType" className="block text-sm font-medium text-slate-300 mb-2">
+                    Your business type
+                  </label>
+                  <select
+                    id="businessType"
+                    value={formData.businessType}
+                    onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select your business type</option>
+                    <option value="Real estate">Real estate</option>
+                    <option value="Clinic">Clinic</option>
+                    <option value="Agency">Agency</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
+
+                <Button
+                  onClick={handleNext}
+                  disabled={!formData.businessType}
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-11 flex items-center justify-center text-base touch-manipulation"
+                >
+                  Next
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
               </div>
-            </div>
+            )}
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Link to="/contact" onClick={handleClose} className="flex-1">
-                <Button 
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-9 flex items-center justify-center text-sm touch-manipulation"
-                >
-                  Book Free Consultation
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </Link>
-              <Link to="/projects" onClick={handleClose} className="flex-1">
-                <Button 
-                  className="w-full bg-slate-800/80 border border-slate-600/50 hover:bg-slate-700/80 hover:border-slate-500/50 text-white font-semibold rounded-lg h-9 flex items-center justify-center transition-all duration-200 text-sm touch-manipulation"
-                >
-                  View Case Studies
-                </Button>
-              </Link>
-            </div>
+            {/* Step 2: Name and Contact */}
+            {step === 2 && (
+              <div className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your name"
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  />
+                </div>
 
-            {/* Small Print */}
-            <p className="text-xs text-slate-500 text-center mt-3">
-              Offer valid until end of the month. No credit card required for consultation.
-            </p>
+                <div>
+                  <label htmlFor="contact" className="block text-sm font-medium text-slate-300 mb-2">
+                    Phone OR Email
+                  </label>
+                  <input
+                    type="text"
+                    id="contact"
+                    value={formData.contact}
+                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                    placeholder="Your phone or email"
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  />
+                </div>
+
+                <Button
+                  onClick={handleSubmit}
+                  disabled={!formData.name || !formData.contact || isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg shadow-lg shadow-blue-500/25 h-11 flex items-center justify-center text-base touch-manipulation"
+                >
+                  {isSubmitting ? 'Sending...' : 'Get free review'}
+                  {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
+                </Button>
+
+                {/* WhatsApp Option */}
+                <div className="text-center">
+                  <p className="text-xs sm:text-sm text-slate-400 mb-2">
+                    Prefer WhatsApp? Get the free review on WhatsApp
+                  </p>
+                  <a
+                    href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%2C%20I'd%20like%20a%20free%20enquiry%20flow%20review%20for%20my%20business"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button
+                      type="button"
+                      className="bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold rounded-lg h-10 px-6 flex items-center justify-center gap-2 touch-manipulation"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      WhatsApp
+                    </Button>
+                  </a>
+                </div>
+
+                <button
+                  onClick={() => setStep(1)}
+                  className="w-full text-sm text-slate-400 hover:text-slate-300 transition-colors"
+                >
+                  ← Back
+                </button>
+              </div>
+            )}
+              </>
+            )}
           </div>
         </div>
       </div>

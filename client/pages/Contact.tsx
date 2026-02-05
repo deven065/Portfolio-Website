@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { trackFormSubmission, trackEvent } from "@/lib/analytics";
 import { useState } from "react";
-import { Mail, Clock, ChevronDown, Calendar, MessageCircle } from "lucide-react";
+import { Mail, Clock, ChevronDown, Calendar, MessageCircle, ArrowRight } from "lucide-react";
 
 interface FormData {
   fullName: string;
@@ -394,17 +394,29 @@ export default function Contact() {
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base py-3 sm:py-4"
-              >
-                {isSubmitting ? "Sending..." : "Send Inquiry"}
-              </Button>
+              <div className="cta-spacing">
+                <Button
+                  type="submit"
+                  size="cta"
+                  disabled={isSubmitting}
+                  className="cta-primary cta-contrast w-full shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed group"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="inline-block animate-spin mr-2">⏳</span>
+                      Sending Your Inquiry...
+                    </>
+                  ) : (
+                    <>
+                      Send Your Project Inquiry
+                      <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </Button>
+              </div>
 
-              <p className="text-xs sm:text-sm text-slate-400 text-center leading-relaxed px-2">
-                We respect your privacy. Your information is secure and will only be used to contact you about your project.
+              <p className="text-xs sm:text-sm text-slate-400 text-center leading-relaxed px-2 pt-2">
+                🔒 We respect your privacy. Your information is secure and will only be used to contact you about your project.
               </p>
             </form>
           </div>

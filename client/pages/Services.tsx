@@ -131,13 +131,31 @@ export default function Services() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-            Investment That Pays for Itself
-          </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Transparent pricing with clear ROI. Most clients see 5x return and break even within 3-4 months.
-          </p>
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+              Investment That Pays for Itself
+            </h1>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Transparent pricing with clear ROI. Most clients see 5x return and break even within 3-4 months.
+            </p>
+          </div>
+
+          {/* Primary CTA */}
+          <div className="pt-4 cta-spacing">
+            <Link to="/contact" className="inline-block">
+              <Button
+                size="cta"
+                className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+              >
+                Get Your Custom Quote
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <p className="text-sm text-slate-400 mt-4">
+              ✓ Free consultation · ✓ Tailored pricing · ✓ ROI-focused solutions
+            </p>
+          </div>
 
           {/* Region Toggle */}
           <div className="flex items-center justify-center gap-4 pt-4">
@@ -534,16 +552,24 @@ export default function Services() {
 
       {/* CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Ready to Grow Your Revenue?</h2>
-        <p className="text-xl text-slate-300 mb-8">
-          Let's discuss your business goals and create a solution that delivers measurable ROI within months.
-        </p>
-        <Link to="/contact">
-          <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg">
-            Get Your Custom Quote
-            <ArrowRight size={18} />
-          </Button>
-        </Link>
+        <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Grow Your Revenue?</h2>
+          <p className="text-lg sm:text-xl text-slate-300 mb-8">
+            Let's discuss your business goals and create a solution that delivers measurable ROI within months.
+          </p>
+          <Link to="/contact" className="inline-block">
+            <Button 
+              size="cta" 
+              className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+            >
+              Request Your Custom Proposal
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+          <p className="text-sm text-slate-400 mt-6">
+            Free consultation · Custom pricing · Performance-driven results
+          </p>
+        </div>
       </section>
     </Layout>
     </>

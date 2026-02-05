@@ -28,13 +28,6 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  useEffect(() => {
-    const roiSection = document.getElementById('roi-calculator');
-    if (roiSection) {
-      roiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, []);
-
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -188,35 +181,33 @@ export default function Index() {
                 � Clients See Average 275% Revenue Increase
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                   Turn Your Website Into a <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Profit-Generating</span> Asset
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
                   We build websites that don't just look good—they drive real business results. Our clients see an average 5x ROI and break even within 3-4 months.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Link to="/contact">
+              {/* Primary CTA - Above the fold, single focus */}
+              <div className="pt-4 cta-spacing">
+                <Link to="/contact" className="inline-block w-full sm:w-auto">
                   <Button
-                    size="lg"
-                    className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 group w-full sm:w-auto"
+                    size="cta"
+                    className="cta-primary cta-contrast group w-full sm:w-auto shadow-xl hover:shadow-2xl"
+                    onClick={() => {
+                      trackButtonClick('Get Your Free Consultation', 'hero_primary_cta');
+                      trackEvent('cta_click', 'homepage', 'hero_consultation');
+                    }}
                   >
-                    Get Free Consultation
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    Get Your Free Consultation
+                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link to="/projects">
-                  <Button
-                    size="lg"
-                    className="glass hover:glass-strong border-slate-600/50 text-white rounded-xl font-semibold text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 group hover-lift w-full sm:w-auto"
-                  >
-                    View Case Studies
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <p className="text-sm text-slate-400 mt-4 text-center sm:text-left">
+                  ✓ Free 30-minute consultation · ✓ Custom strategy session · ✓ No obligation
+                </p>
               </div>
 
               {/* Trust Badges */}
@@ -530,36 +521,27 @@ export default function Index() {
 
       {/* Final CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to See Real Business Growth?</h2>
-        <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-          Let's discuss how we can increase your revenue, automate your processes, and deliver a 5x ROI on your investment.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/contact">
+        <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to See Real Business Growth?</h2>
+          <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can increase your revenue, automate your processes, and deliver a 5x ROI on your investment.
+          </p>
+          <Link to="/contact" className="inline-block">
             <Button
-              size="lg"
+              size="cta"
               onClick={() => {
-                trackButtonClick('Request Proposal', 'homepage_cta');
-                trackEvent('cta_click', 'homepage', 'request_proposal');
+                trackButtonClick('Start Your Project Today', 'final_cta');
+                trackEvent('cta_click', 'homepage', 'final_cta');
               }}
-              className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
+              className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
             >
-              Request Proposal
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Start Your Project Today
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link to="/about">
-            <Button
-              size="lg"
-              onClick={() => {
-                trackButtonClick('Learn About Us', 'homepage_cta');
-                trackEvent('navigation', 'homepage', 'learn_about_us');
-              }}
-              className="border border-blue-500/50 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-lg font-semibold transition-all duration-300"
-            >
-              Learn About Us
-            </Button>
-          </Link>
+          <p className="text-sm text-slate-400 mt-6">
+            Average 5x ROI in first year · 3-4 month break-even · Free consultation
+          </p>
         </div>
       </section>
     </Layout>

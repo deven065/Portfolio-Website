@@ -24,13 +24,44 @@ export default defineConfig(({ mode }) => ({
             './client/components/ui/card.tsx',
             './client/components/ui/accordion.tsx',
             './client/components/ui/dialog.tsx',
+            './client/components/ui/tabs.tsx',
+            './client/components/ui/select.tsx',
+          ],
+          'radix-ui': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-select',
           ],
           'icons': ['lucide-react'],
+          'charts': ['recharts'],
         },
+        // Optimize chunk naming for better caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 500,
     minify: 'esbuild',
+    // Enable source maps for production debugging (can disable for smaller builds)
+    sourcemap: false,
+    // CSS code splitting
+    cssCodeSplit: true,
+    // Target modern browsers for smaller bundles
+    target: 'es2020',
+    // Asset inlining threshold (4kb)
+    assetsInlineLimit: 4096,
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'lucide-react',
+    ],
+    exclude: ['@vercel/node'],
   },
   plugins: [react(), expressPlugin()],
   resolve: {

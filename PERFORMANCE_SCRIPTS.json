@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "analyze": "vite build --mode analyze && vite-bundle-visualizer"
+  },
+  "devDependencies": {
+    "rollup-plugin-visualizer": "^5.12.0"
+  }
+}

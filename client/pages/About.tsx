@@ -435,16 +435,24 @@ export default function About() {
 
         {/* Get Started */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
-          <p className="text-xl text-slate-300 mb-8">
-            Let's discuss how we can help your business scale and succeed with reliable technology.
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg shadow-lg">
-              Start a Conversation
-              <ArrowRight size={18} />
-            </Button>
-          </Link>
+          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
+            <p className="text-lg sm:text-xl text-slate-300 mb-8">
+              Let's discuss how we can help your business scale and succeed with reliable technology.
+            </p>
+            <Link to="/contact" className="inline-block">
+              <Button 
+                size="cta" 
+                className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+              >
+                Start Your Project Today
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <p className="text-sm text-slate-400 mt-6">
+              ✓ Free 30-minute consultation · ✓ Custom strategy · ✓ Proven results
+            </p>
+          </div>
         </section>
       </Layout>
     </>
