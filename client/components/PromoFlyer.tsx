@@ -3,6 +3,7 @@ import { X, ArrowRight, MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+// Force rebuild - updated popup form with 2-step process
 export default function PromoFlyer() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
