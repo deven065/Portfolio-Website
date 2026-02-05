@@ -17,14 +17,25 @@ export default function PromoFlyer() {
   const location = useLocation();
 
   useEffect(() => {
-    // Only show popup on homepage
-    if (location.pathname !== "/") return;
+    // Check if popup has already been shown in this session
+    const hasShownInSession = sessionStorage.getItem('promoPopupShown');
+    if (hasShownInSession) return;
 
-    let timeOnPageTimer: NodeJS.Timeout;
-    let hasShown = false;
+    // Start the timer only once per session
+    const timerStarted = sessionStorage.getItem('promoTimerStarted');
+    
+    if (!timerStarted) {
+      // First time - start the timer
+      sessionStorage.setItem('promoTimerStarted', Date.now().toString());
+    }
+
+    const startTime = parseInt(sessionStorage.getItem('promoTimerStarted') || '0');
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, 10000 - elapsedTime);
 
     // Check scroll percentage
     const handleScroll = () => {
+      const hasShown = sessionStorage.getItem('promoPopupShown');
       if (hasShown) return;
       
       const scrollTop = window.scrollY;
@@ -32,23 +43,24 @@ export default function PromoFlyer() {
       const scrollPercent = (scrollTop / docHeight) * 100;
 
       if (scrollPercent >= 45) {
-        hasShown = true;
+        sessionStorage.setItem('promoPopupShown', 'true');
         setIsOpen(true);
       }
     };
 
-    // Show after 10 seconds on page
-    timeOnPageTimer = setTimeout(() => {
+    // Show popup after remaining time
+    const timer = setTimeout(() => {
+      const hasShown = sessionStorage.getItem('promoPopupShown');
       if (!hasShown) {
-        hasShown = true;
+        sessionStorage.setItem('promoPopupShown', 'true');
         setIsOpen(true);
       }
-    }, 10000);
+    }, remainingTime);
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      clearTimeout(timeOnPageTimer);
+      clearTimeout(timer);
       window.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
