@@ -2,6 +2,12 @@
   "buildCommand": "pnpm build:client",
   "outputDirectory": "dist/spa",
   "framework": null,
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
   "headers": [
     {
       "source": "/assets/(.*)",
