@@ -339,12 +339,12 @@ export default function Projects() {
               } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
             >
               {/* Image/Video */}
-              <div className={`relative ${project.name === "Business Stock Management CRM" ? "aspect-auto" : "aspect-video"} bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+              <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                 {project.video ? (
                   project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
                     <iframe
                       src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
-                      className="w-full h-full"
+                      className="absolute inset-0 w-full h-full"
                       allowFullScreen
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       style={{ border: 'none' }}
@@ -357,7 +357,7 @@ export default function Projects() {
                       loop
                       muted
                       playsInline
-                      className={`w-full ${project.name === "Business Stock Management CRM" ? "h-auto object-contain" : "h-full object-cover"} transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110`}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
                       onLoadedMetadata={(e) => {
                         const video = e.target as HTMLVideoElement;
                         if (project.name === "Sony Earbuds 3D Experience") {
