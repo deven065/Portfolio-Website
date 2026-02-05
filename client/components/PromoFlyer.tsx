@@ -264,18 +264,13 @@ export default function PromoFlyer() {
                     Prefer WhatsApp? Get the free review on WhatsApp
                   </p>
                   <a
-                    href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%2C%20I'd%20like%20a%20free%20enquiry%20flow%20review%20for%20my%20business"
+                    href="https://wa.me/919833703389?text=Hi%2C%20I'd%20like%20a%20free%20enquiry%20flow%20review%20for%20my%20business"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block"
+                    className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold rounded-lg h-10 px-6 transition-colors touch-manipulation"
                   >
-                    <Button
-                      type="button"
-                      className="bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold rounded-lg h-10 px-6 flex items-center justify-center gap-2 touch-manipulation"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      WhatsApp
-                    </Button>
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp
                   </a>
                 </div>
 

@@ -381,6 +381,23 @@ export default function About() {
                 Delivering data-driven solutions and comprehensive analytics.
               </p>
             </div>
+
+            {/* Team Member 5 - Ganesh Bhange */}
+            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-green-500/50 transition-all duration-300">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-500/50 group-hover:border-green-400/70 transition-all duration-300">
+                <img
+                  src="/Ganesh.jpg"
+                  alt="Ganesh Bhange - Business Development Executive"
+                  className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-center mb-2">Ganesh Bhange</h3>
+              <p className="text-green-400 text-center text-sm font-semibold mb-3">Business Development Executive</p>
+              <p className="text-slate-300 text-sm text-center leading-relaxed">
+                Driving business growth and building strategic partnerships.
+              </p>
+            </div>
           </div>
         </section>
 
