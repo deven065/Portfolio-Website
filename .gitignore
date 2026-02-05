@@ -36,3 +36,5 @@ next-env.d.ts
 *.mov
 *.avi
 *.mkv
+.vercel
+.env*.local
