@@ -341,13 +341,14 @@ export default function Projects() {
               {/* Image/Video */}
               <div className={`relative ${project.name === "Business Stock Management CRM" ? "aspect-auto" : "aspect-video"} bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                 {project.video ? (
-                  project.video.includes('loom.com') || project.video.includes('youtube.com') || project.video.includes('youtu.be') ? (
+                  project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
                     <iframe
-                      src={project.video}
+                      src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
                       className="w-full h-full"
                       allowFullScreen
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       style={{ border: 'none' }}
+                      title={project.name}
                     />
                   ) : (
                     <video
