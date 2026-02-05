@@ -80,7 +80,7 @@ export default function Projects() {
       stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "TailwindCSS", "JWT", "Role-Based Access Control", "Real-time Updates"],
       outcome: "Streamlined operations with 65% improvement in inventory accuracy, 80% reduction in stock discrepancies, and automated workflows saving 25+ hours weekly. Multi-role access enabled efficient delegation across admin, manager, and staff levels.",
       image: "/stock-crm.png",
-      video: "/adtani-webapp.mp4",
+      video: "https://www.loom.com/embed/3dd21b4ef018435796eb8404562ec222",
     },
     {
       id: 2,
@@ -341,20 +341,29 @@ export default function Projects() {
               {/* Image/Video */}
               <div className={`relative ${project.name === "Business Stock Management CRM" ? "aspect-auto" : "aspect-video"} bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                 {project.video ? (
-                  <video
-                    src={project.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={`w-full ${project.name === "Business Stock Management CRM" ? "h-auto object-contain" : "h-full object-cover"} transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110`}
-                    onLoadedMetadata={(e) => {
-                      const video = e.target as HTMLVideoElement;
-                      if (project.name === "Sony Earbuds 3D Experience") {
-                        video.playbackRate = 1.5;
-                      }
-                    }}
-                  />
+                  project.video.includes('loom.com') ? (
+                    <iframe
+                      src={project.video}
+                      className="w-full h-full"
+                      allowFullScreen
+                      style={{ border: 'none' }}
+                    />
+                  ) : (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className={`w-full ${project.name === "Business Stock Management CRM" ? "h-auto object-contain" : "h-full object-cover"} transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110`}
+                      onLoadedMetadata={(e) => {
+                        const video = e.target as HTMLVideoElement;
+                        if (project.name === "Sony Earbuds 3D Experience") {
+                          video.playbackRate = 1.5;
+                        }
+                      }}
+                    />
+                  )
                 ) : (
                   <img
                     src={project.image}
