@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { trackButtonClick, trackEvent } from "@/lib/analytics";
-import Testimonials from "@/components/Testimonials";
 import FloatingCTA from "@/components/FloatingCTA";
 import { StatCounter } from "@/components/StatsCounter";
-import { ROICalculator } from "@/components/ROICalculator";
-import { CostOfInaction } from "@/components/CostOfInaction";
-import { GrowthTimeline } from "@/components/GrowthTimeline";
-import { FAQ } from "@/components/FAQ";
 import {
   ArrowRight,
   Zap,
@@ -26,6 +21,23 @@ import {
   Target,
   Clock,
 } from "lucide-react";
+
+// Lazy load heavy below-the-fold components
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const ROICalculator = lazy(() => import("@/components/ROICalculator").then(m => ({ default: m.ROICalculator })));
+const CostOfInaction = lazy(() => import("@/components/CostOfInaction").then(m => ({ default: m.CostOfInaction })));
+const GrowthTimeline = lazy(() => import("@/components/GrowthTimeline").then(m => ({ default: m.GrowthTimeline })));
+const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
+
+// Loading skeleton component
+const LazyLoadFallback = () => (
+  <div className="py-16 animate-pulse">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="h-8 bg-slate-700/50 rounded w-1/3 mx-auto mb-4"></div>
+      <div className="h-4 bg-slate-700/30 rounded w-1/2 mx-auto"></div>
+    </div>
+  </div>
+);
 
 export default function Index() {
   const schema = {
@@ -295,11 +307,16 @@ export default function Index() {
       </section>
 
       {/* Cost of Inaction */}
-      <CostOfInaction />
+      {/* Cost of Inaction */}
+      <Suspense fallback={<LazyLoadFallback />}>
+        <CostOfInaction />
+      </Suspense>
 
       {/* ROI Calculator */}
       <div id="roi-calculator">
-        <ROICalculator />
+        <Suspense fallback={<LazyLoadFallback />}>
+          <ROICalculator />
+        </Suspense>
       </div>
 
       {/* Who We Help */}
@@ -511,13 +528,19 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <Testimonials />
+      <Suspense fallback={<LazyLoadFallback />}>
+        <Testimonials />
+      </Suspense>
 
       {/* Growth Timeline */}
-      <GrowthTimeline />
+      <Suspense fallback={<LazyLoadFallback />}>
+        <GrowthTimeline />
+      </Suspense>
 
       {/* FAQ Section */}
-      <FAQ />
+      <Suspense fallback={<LazyLoadFallback />}>
+        <FAQ />
+      </Suspense>
 
       {/* Final CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">

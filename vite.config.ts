@@ -37,22 +37,25 @@ export default defineConfig(({ mode }) => ({
           'charts': ['recharts'],
         },
         // Optimize chunk naming for better caching
-        chunkFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: (chunkInfo) => {
+          // Create smaller chunks for lazy-loaded components
+          const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/').pop() : 'chunk';
+          return `assets/${facadeModuleId}-[hash].js`;
+        },
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
-    chunkSizeWarningLimit: 500,
+    chunkSizeWarningLimit: 350, // Reduced from 500
     minify: 'esbuild',
     sourcemap: false,
     cssCodeSplit: true,
     target: 'es2020',
     assetsInlineLimit: 4096,
-    // Enable tree-shaking
     modulePreload: {
       polyfill: false,
     },
-    reportCompressedSize: false, // Faster builds
+    reportCompressedSize: false,
   },
   // Optimize dependencies
   optimizeDeps: {
