@@ -10,13 +10,19 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = 'G-2F9K7LMXQR'; // Updated with working GA4 measurement ID
+export const GA_MEASUREMENT_ID = 'G-R66PK3QRLV'; // Updated with working GA4 measurement ID
 
 // Initialize Google Analytics
 export const initGA = () => {
   if (typeof window === 'undefined') return;
   
-  // Load gtag.js
+  // Check if gtag is already loaded from index.html
+  if (window.gtag) {
+    // Already initialized via index.html script, just ensure config is set
+    return;
+  }
+  
+  // Load gtag.js only if not already present
   const script = document.createElement('script');
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
