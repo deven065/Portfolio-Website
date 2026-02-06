@@ -34,19 +34,21 @@ export default function PromoFlyer() {
     const elapsedTime = Date.now() - startTime;
     const remainingTime = Math.max(0, 10000 - elapsedTime);
 
-    // Check scroll percentage
+    // Check scroll percentage with RAF to avoid forced reflow
     const handleScroll = () => {
       const hasShown = sessionStorage.getItem('promoPopupShown');
       if (hasShown) return;
       
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
 
-      if (scrollPercent >= 45) {
-        sessionStorage.setItem('promoPopupShown', 'true');
-        setIsOpen(true);
-      }
+        if (scrollPercent >= 45) {
+          sessionStorage.setItem('promoPopupShown', 'true');
+          setIsOpen(true);
+        }
+      });
     };
 
     // Show popup after remaining time

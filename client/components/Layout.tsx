@@ -65,10 +65,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img 
               src="/logo-white.png" 
               alt="Deven Digital Labs - Full-Stack Web Development & Technology Consulting" 
-              className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
-              width="160"
+              className="h-8 w-8 transition-transform duration-300 group-hover:scale-105"
+              width="32"
               height="32"
               loading="eager"
+              decoding="async"
             />
             <span className="text-white font-bold text-lg tracking-tight group-hover:gradient-text transition-all duration-300">
               Deven Digital Labs
@@ -179,8 +180,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <img 
                   src="/logo-white.png" 
                   alt="Deven Digital Labs Logo" 
-                  className="h-8 w-auto"
-                  width="160"
+                  className="h-8 w-8"
+                  width="32"
                   height="32"
                   loading="lazy"
                   decoding="async"

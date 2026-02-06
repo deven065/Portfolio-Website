@@ -69,19 +69,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/logo-white.png" as="image" type="image/png" />
+    
+    <!-- Critical CSS inline for instant render -->
+    <style>
+      /* Prevent layout shift during load */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
+        color: white;
+        min-height: 100vh;
+      }
+      
+      /* Prevent FOUC */
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+    
     <!-- Load fonts asynchronously to prevent render blocking -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print" />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" />
     </noscript>
-    <style>
-      /* Fallback system fonts for instant text rendering */
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    <script>
+      // Load fonts asynchronously
+      if (typeof window !== 'undefined') {
+        var links = document.querySelectorAll('link[media="print"]');
+        links.forEach(function(link) {
+          setTimeout(function() { link.media = 'all'; }, 0);
+        });
       }
-    </style>
+    </script>
     
     <!-- Additional SEO -->
     <meta name="format-detection" content="telephone=no" />
