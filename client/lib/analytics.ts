@@ -10,7 +10,7 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = 'G-R66PK3QRLV'; // Updated with working GA4 measurement ID
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-R66PK3QRLV'; // GA4 measurement ID
 
 // Initialize Google Analytics
 export const initGA = () => {
