@@ -1,6 +1,7 @@
-/** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap");
+/** 
+ * Fonts are loaded asynchronously via index.html for better performance
+ * Removed @import statements to prevent render-blocking
+ */
 
 @tailwind base;
 @tailwind components;
@@ -412,4 +413,57 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Performance optimizations for mobile */
+@layer utilities {
+  /* Prevent layout shifts */
+  img, video {
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Font display optimization */
+  @font-face {
+    font-display: swap;
+  }
+
+  /* Reduce paint complexity */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* GPU acceleration for animations */
+  .animate-in,
+  .fade-in,
+  [class*="animate-"] {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+
+  /* Improve scrolling performance on mobile */
+  .scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text size adjustment on mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Reduce layout shifts for async content */
+  [data-loading] {
+    min-height: 1px;
+  }
+
+  /* Optimize button/link taps on mobile */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }

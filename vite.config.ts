@@ -44,14 +44,15 @@ export default defineConfig(({ mode }) => ({
     },
     chunkSizeWarningLimit: 500,
     minify: 'esbuild',
-    // Enable source maps for production debugging (can disable for smaller builds)
     sourcemap: false,
-    // CSS code splitting
     cssCodeSplit: true,
-    // Target modern browsers for smaller bundles
     target: 'es2020',
-    // Asset inlining threshold (4kb)
     assetsInlineLimit: 4096,
+    // Enable tree-shaking
+    modulePreload: {
+      polyfill: false,
+    },
+    reportCompressedSize: false, // Faster builds
   },
   // Optimize dependencies
   optimizeDeps: {

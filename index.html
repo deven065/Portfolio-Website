@@ -59,22 +59,26 @@
     <!-- DNS Prefetch for external domains -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/client/global.css" as="style" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" as="style" />
+    <!-- Load fonts asynchronously to prevent render blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap" />
+    </noscript>
     
     <!-- Additional SEO -->
     <meta name="format-detection" content="telephone=no" />
     <meta name="google-site-verification" content="your-google-site-verification-code" />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV"></script>
+    <!-- Google Analytics - Deferred for better performance -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -84,6 +88,7 @@
         send_page_view: true
       });
     </script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV"></script>
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
