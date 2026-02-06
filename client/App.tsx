@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { initGA, trackPageView } from "@/lib/analytics";
+import { initGTM, trackPageView as trackGTMPageView } from "@/lib/gtm";
 import { useVisitorTracking } from "@/hooks/useVisitorTracking";
 import { useEffect } from "react";
 import Index from "./pages/Index";
@@ -35,13 +36,16 @@ function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize GA on first load
+    // Initialize GA and GTM on first load
     initGA();
+    initGTM();
   }, []);
 
   useEffect(() => {
-    // Track page views on route changes
-    trackPageView(location.pathname + location.search);
+    // Track page views on route changes (both GA and GTM)
+    const fullPath = location.pathname + location.search;
+    trackPageView(fullPath);
+    trackGTMPageView(fullPath, document.title);
   }, [location]);
 
   // Track visitor email notifications
