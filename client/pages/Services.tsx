@@ -148,13 +148,24 @@ export default function Services() {
                 size="cta"
                 className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
               >
-                Get Your Custom Quote
+                Get Your Free Growth + Automation Audit
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <p className="text-sm text-slate-400 mt-4">
-              ✓ Free consultation · ✓ Tailored pricing · ✓ ROI-focused solutions
-            </p>
+            <div className="mt-4 space-y-2">
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Performance analysis</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Automation opportunities</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Custom action plan</span>
+              </div>
+            </div>
           </div>
 
           {/* Region Toggle */}
@@ -553,22 +564,34 @@ export default function Services() {
       {/* CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
         <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Grow Your Revenue?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Automate Growth & Capture More Leads?</h2>
           <p className="text-lg sm:text-xl text-slate-300 mb-8">
-            Let's discuss your business goals and create a solution that delivers measurable ROI within months.
+            Get your free website + automation audit. We'll show you exactly how to increase conversions and drive measurable ROI.
           </p>
           <Link to="/contact" className="inline-block">
             <Button 
               size="cta" 
               className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
             >
-              Request Your Custom Proposal
+              Get My Free Audit + Action Plan
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <p className="text-sm text-slate-400 mt-6">
-            Free consultation · Custom pricing · Performance-driven results
-          </p>
+          <div className="mt-6 space-y-2">
+            <p className="text-sm text-slate-400 text-center font-semibold">
+              Typical audit value: $500
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Performance analysis</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Automation opportunities</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

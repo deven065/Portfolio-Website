@@ -190,15 +190,15 @@ export default function Index() {
             {/* Left Content */}
             <div className="space-y-8 animate-fade-up">
               <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-4">
-                � Clients See Average 275% Revenue Increase
+                ⚡ Clients automate 15-20 hours/week + capture 3-5x more leads
               </div>
               
               <div className="space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                  Turn Your Website Into a <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Profit-Generating</span> Asset
+                  We Automate Your Lead Generation & Turn Websites Into <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Growth Engines</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-                  We build websites that don't just look good—they drive real business results. Our clients see an average 5x ROI and break even within 3-4 months.
+                  Full-stack development + n8n automation + performance optimization. We don't just build websites—we build systems that capture leads, nurture prospects, and drive revenue while you sleep.
                 </p>
               </div>
 
@@ -209,17 +209,32 @@ export default function Index() {
                     size="cta"
                     className="cta-primary cta-contrast group w-full sm:w-auto shadow-xl hover:shadow-2xl"
                     onClick={() => {
-                      trackButtonClick('Get Your Free Consultation', 'hero_primary_cta');
-                      trackEvent('cta_click', 'homepage', 'hero_consultation');
+                      trackButtonClick('Get Your Free Growth + Automation Audit', 'hero_primary_cta');
+                      trackEvent('cta_click', 'homepage', 'hero_audit');
                     }}
                   >
-                    Get Your Free Consultation
+                    Get Your Free Growth + Automation Audit
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <p className="text-sm text-slate-400 mt-4 text-center sm:text-left">
-                  ✓ Free 30-minute consultation · ✓ Custom strategy session · ✓ No obligation
-                </p>
+                <div className="mt-4 space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-slate-400 justify-center sm:justify-start">
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span>Website performance analysis</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-400 justify-center sm:justify-start">
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span>SEO gaps report</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-400 justify-center sm:justify-start">
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span>Automation opportunities</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-400 justify-center sm:justify-start">
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <span>Custom action plan</span>
+                  </div>
+                </div>
               </div>
 
               {/* Trust Badges */}
@@ -273,6 +288,48 @@ export default function Index() {
                     className="absolute -bottom-8 -left-8 w-16 h-16 border border-cyan-500/30 rounded-full opacity-60 animate-float"
                     style={{ animationDelay: "0.5s" }}
                   ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Why Choose Us Strip */}
+          <div className="pt-12 pb-8 border-t border-slate-800/50">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+              Why businesses choose Deven Digital Labs
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-slate-300 leading-relaxed">
+                    We build <span className="text-white font-semibold">lead-capturing automation workflows</span> (n8n, Zapier, custom APIs) that generate qualified prospects 24/7—not just pretty websites
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-slate-300 leading-relaxed">
+                    <span className="text-white font-semibold">Performance-obsessed:</span> Your site loads in &lt;2s, ranks on Google, and converts at 40%+ higher rates than industry average
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                  <Target className="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-slate-300 leading-relaxed">
+                    <span className="text-white font-semibold">ROI-driven partnership:</span> We track revenue impact, not deliverables. Most clients break even in 90 days and see 5x ROI in year one
+                  </p>
                 </div>
               </div>
             </div>
@@ -545,26 +602,42 @@ export default function Index() {
       {/* Final CTA */}
       <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
         <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to See Real Business Growth?</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to Automate Growth & Capture More Leads?</h2>
           <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can increase your revenue, automate your processes, and deliver a 5x ROI on your investment.
+            Get your free website + automation audit. We'll show you exactly how to increase conversions, automate lead capture, and drive measurable ROI.
           </p>
           <Link to="/contact" className="inline-block">
             <Button
               size="cta"
               onClick={() => {
-                trackButtonClick('Start Your Project Today', 'final_cta');
-                trackEvent('cta_click', 'homepage', 'final_cta');
+                trackButtonClick('Get My Free Audit + Action Plan', 'final_cta');
+                trackEvent('cta_click', 'homepage', 'final_audit_cta');
               }}
               className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
             >
-              Start Your Project Today
+              Get My Free Audit + Action Plan
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <p className="text-sm text-slate-400 mt-6">
-            Average 5x ROI in first year · 3-4 month break-even · Free consultation
-          </p>
+          <div className="mt-6 space-y-2">
+            <p className="text-sm text-slate-400 text-center font-semibold">
+              Typical audit value: $500
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Performance analysis</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>SEO gaps</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Automation opportunities</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

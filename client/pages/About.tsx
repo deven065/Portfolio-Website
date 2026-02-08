@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { ArrowRight, Zap, Target, Shield, CheckCircle2, TrendingUp } from "lucide-react";
+import { ArrowRight, Zap, Target, Shield, CheckCircle2, TrendingUp, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
@@ -453,22 +453,33 @@ export default function About() {
         {/* Get Started */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Automate Growth & Capture More Leads?</h2>
             <p className="text-lg sm:text-xl text-slate-300 mb-8">
-              Let's discuss how we can help your business scale and succeed with reliable technology.
+              Get your free website + automation audit and discover exactly how to scale your business faster.
             </p>
             <Link to="/contact" className="inline-block">
               <Button 
                 size="cta" 
                 className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
               >
-                Start Your Project Today
+                Get Your Free Growth + Automation Audit
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <p className="text-sm text-slate-400 mt-6">
-              ✓ Free 30-minute consultation · ✓ Custom strategy · ✓ Proven results
-            </p>
+            <div className="mt-6 space-y-2">
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Performance analysis</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Automation opportunities</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Custom action plan</span>
+              </div>
+            </div>
           </div>
         </section>
       </Layout>

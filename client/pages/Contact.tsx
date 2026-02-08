@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { trackFormSubmission, trackEvent } from "@/lib/analytics";
 import { useState } from "react";
-import { Mail, Clock, ChevronDown, Calendar, MessageCircle, ArrowRight } from "lucide-react";
+import { Mail, Clock, ChevronDown, Calendar, MessageCircle, ArrowRight, Check } from "lucide-react";
 
 interface FormData {
   fullName: string;
@@ -172,11 +172,54 @@ export default function Contact() {
 
         <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Get in Touch
+            Get Your Free Website + Automation Audit
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto px-4">
-            Let's discuss your project and how we can help your business grow.
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto px-4 leading-relaxed">
+            We'll analyze your current website, identify performance bottlenecks, spot automation opportunities that could save you 15-20 hours per week, and deliver a custom action plan showing exactly how to increase conversions and capture more leads. <span className="text-white font-semibold">No sales pitch—just actionable insights you can use immediately.</span>
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-sm font-semibold">
+            <Check className="w-4 h-4" />
+            <span>Typical audit value: $500 · Yours free today</span>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-16 px-6 max-w-5xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          How it works
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
+              1
+            </div>
+            <h3 className="text-xl font-bold mb-3">Submit your site</h3>
+            <p className="text-slate-400">
+              Fill out the form with your website URL and business goals. Takes 2 minutes.
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
+              2
+            </div>
+            <h3 className="text-xl font-bold mb-3">We analyze everything</h3>
+            <p className="text-slate-400">
+              Our team audits performance, SEO, conversion paths, and automation gaps. You'll hear from us within 48 hours.
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
+              3
+            </div>
+            <h3 className="text-xl font-bold mb-3">Get your action plan</h3>
+            <p className="text-slate-400">
+              Receive a detailed report with prioritized recommendations, ROI estimates, and next steps to grow faster.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -420,6 +463,42 @@ export default function Contact() {
               </p>
             </form>
           </div>
+        </div>
+      </section>
+
+      {/* Who This Is For Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          Who this is for
+        </h2>
+        
+        <div className="space-y-6">
+          <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
+            <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+            <p className="text-lg text-slate-300">
+              <span className="text-white font-semibold">Founders & business owners</span> who need more qualified leads but don't have time for manual follow-ups
+            </p>
+          </div>
+          
+          <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
+            <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+            <p className="text-lg text-slate-300">
+              <span className="text-white font-semibold">Growth-focused companies</span> ready to automate repetitive tasks and scale without hiring more staff
+            </p>
+          </div>
+          
+          <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
+            <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+            <p className="text-lg text-slate-300">
+              <span className="text-white font-semibold">Teams frustrated</span> with slow websites, poor SEO rankings, or low conversion rates
+            </p>
+          </div>
+        </div>
+        
+        <div className="text-center mt-10">
+          <p className="text-slate-400 text-sm">
+            Not a fit? That's okay. We focus on businesses ready to invest in growth and automation.
+          </p>
         </div>
       </section>
 

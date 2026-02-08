@@ -542,7 +542,7 @@ export default function Projects() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link to="/contact">
                 <Button size="lg" className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 px-8 py-6 text-lg">
-                  Get Your ROI Analysis
+                  Get Your Free Growth + Automation Audit
                   <ArrowRight size={20} />
                 </Button>
               </Link>
