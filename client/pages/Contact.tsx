@@ -157,9 +157,10 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us - Free Web Development Consultation | Deven Digital Labs"
-        description="Get in touch with Deven Digital Labs for professional web development services, custom software solutions, and technology consulting. Free consultation available. Contact us today to discuss your project requirements and get a detailed quote for your web development needs."
-        keywords="contact web development company, hire professional developers, web development consultation, custom software development quote, technology consulting services, project estimate, free consultation, web application development, React developers for hire, Next.js development services, full-stack development team, business automation solutions, e-commerce development contact, CRM development inquiry, software engineering consultation"
+        title="Get Free Growth Audit | Contact Deven Digital Labs"
+        description="Get your free website + automation audit. We analyze performance, SEO, and automation opportunities. Discover how to capture more leads and automate growth."
+        keywords="free website audit, automation audit, growth consultation, contact web developers, lead generation help, website performance analysis"
+        canonical="https://devendigitallabs.com/contact"
         schema={schema}
       />
       <Layout>

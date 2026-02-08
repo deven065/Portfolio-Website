@@ -3,7 +3,6 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleSendEmail } from "./routes/send-email";
-import { createOrder, verifyPayment } from "./routes/razorpay";
 import { createInvoice, getInvoices, getInvoice, updateInvoiceStatus } from "./routes/invoices";
 
 export function createServer() {
@@ -24,10 +23,6 @@ export function createServer() {
   
   // Contact form email endpoint
   app.post("/api/send-email", handleSendEmail);
-  
-  // Razorpay payment endpoints
-  app.post("/api/razorpay/create-order", createOrder);
-  app.post("/api/razorpay/verify-payment", verifyPayment);
   
   // Invoice management endpoints
   app.post("/api/invoices", createInvoice);

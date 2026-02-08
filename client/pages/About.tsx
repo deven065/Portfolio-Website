@@ -38,9 +38,10 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Deven Digital Labs | Professional Web Development Team | Our Story"
-        description="Meet the professional web development team behind Deven Digital Labs. Founded by Deven Rikame, we're a dedicated team of full-stack developers, DevOps engineers, data analysts, and e-commerce experts. Learn about our mission to help businesses grow through scalable, reliable digital solutions, our core values, and our proven approach to software development."
-        keywords="about web development company, professional development team, Deven Rikame founder, full-stack development team, DevOps engineers, data analysts, e-commerce experts, technology consulting agency, software development company, web development agency, our mission values, company story, business-first approach, scalable solutions, reliable partnerships, digital transformation experts, technology consulting firm, custom software development team"
+        title="About Us | Deven Digital Labs"
+        description="Mumbai-based web development team specializing in growth automation and lead generation systems. Founded by Deven Rikame, we help businesses scale faster with technology."
+        keywords="Deven Digital Labs, Deven Rikame, Mumbai web development, automation specialists, growth-focused developers, lead generation experts"
+        canonical="https://devendigitallabs.com/about"
         schema={schema}
       />
       <Layout>

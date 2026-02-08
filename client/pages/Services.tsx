@@ -118,9 +118,10 @@ export default function Services() {
   return (
     <>
       <SEO 
-        title="Professional Web Development Services & Pricing | Deven Digital Labs"
-        description="Comprehensive web development services including custom software development, React applications, Next.js projects, Node.js APIs, e-commerce platforms, and CRM systems. Transparent pricing starting from ₹50,000. Expert full-stack development team ready to transform your business with cutting-edge technology solutions."
-        keywords="professional web development services, custom software development company, React development services, Next.js development, Node.js development, full-stack development services, e-commerce development, CRM development, web application development, software engineering services, API development, database design, UI UX design services, mobile-first development, responsive web design, business automation services, digital transformation, technology consulting, software architecture, DevOps services, cloud integration, enterprise software development, startup web development, scalable web solutions, performance optimization, security implementation, web development pricing, software development cost"
+        title="Services & Pricing | Deven Digital Labs"
+        description="Web development + automation services. Custom software, n8n workflows, lead generation systems. Transparent pricing from $1,500. 5x average ROI."
+        keywords="web development services, automation services, n8n workflows, custom software development, lead generation systems, business automation, conversion optimization"
+        canonical="https://devendigitallabs.com/services"
         schema={schema}
       />
       <Layout>

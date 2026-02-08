@@ -306,10 +306,6 @@ export default function TermsOfService() {
                 <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span>Razorpay (credit/debit cards, UPI, net banking)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                     <span>Stripe (international credit/debit cards)</span>
                   </li>
                   <li className="flex items-start gap-2">

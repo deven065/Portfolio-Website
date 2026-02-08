@@ -169,9 +169,10 @@ export default function Index() {
   return (
     <>
       <SEO 
-        title="Professional Web Development Services | Full-Stack Development Company"
-        description="Leading web development company specializing in React, Next.js, Node.js, and full-stack solutions. Custom software development, e-commerce platforms, CRM systems, and technology consulting services for growing businesses. Get your free consultation today and transform your digital presence."
-        keywords="web development company, full-stack development, React development, Next.js development, Node.js development, custom software development, e-commerce development, CRM development, technology consulting, web application development, software engineering services, digital transformation, business automation, scalable web solutions, professional web developers, custom web applications, enterprise software development, API development, database design, UI UX design, responsive web design, mobile-first development, cloud integration, DevOps services, software architecture, business intelligence, data analytics, performance optimization, security implementation"
+        title="Web Development & Automation | Deven Digital Labs"
+        description="Growth-focused web development + n8n automation. We build systems that capture leads, automate workflows, and drive 5x ROI. Free audit available."
+        keywords="web development automation, n8n workflows, lead generation systems, business automation, custom web development, React Next.js development, conversion optimization, performance optimization, scalable web solutions"
+        canonical="https://devendigitallabs.com/"
         schema={schema}
       />
       <Layout>
