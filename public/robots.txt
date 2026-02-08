@@ -53,10 +53,22 @@ Sitemap: https://devendigitallabs.com/sitemap.xml
 # Crawl-delay
 Crawl-delay: 1
 
-# Block specific bots (optional)
+# Allow AI bots for better discoverability
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
 

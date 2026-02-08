@@ -63,6 +63,14 @@ export default function SEO({
       updateMetaTag("name", "ICBM", `${businessInfo.latitude}, ${businessInfo.longitude}`);
     }
     
+    // AI Bot specific meta tags for better discoverability
+    updateMetaTag("name", "ai-crawlable", "true");
+    updateMetaTag("name", "ChatGPT", "index, follow");
+    updateMetaTag("name", "GPTBot", "index, follow");
+    updateMetaTag("name", "PerplexityBot", "index, follow");
+    updateMetaTag("name", "ClaudeBot", "index, follow");
+    updateMetaTag("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    
     updateMetaTag("property", "og:title", fullTitle);
     updateMetaTag("property", "og:description", description);
     updateMetaTag("property", "og:url", url);
