@@ -54,9 +54,8 @@ export function useVisitorTracking() {
         }
       };
 
-      // Track after 2 seconds to ensure page has loaded
-      const timer = setTimeout(trackVisitor, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Track after 2 seconds to ensure page has loaded
+    const timer = setTimeout(trackVisitor, 2000);
+    return () => clearTimeout(timer);
   }, []);
 }
