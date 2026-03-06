@@ -7,7 +7,7 @@
       new Date().getTime(),event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
       j.defer=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'&l='+l;
-      setTimeout(function(){f.parentNode.insertBefore(j,f)},3000);
+      f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-NBQ69TBQ');
     </script>
     <!-- End Google Tag Manager -->
@@ -132,9 +132,8 @@
     
     <!-- Additional SEO -->
     <meta name="format-detection" content="telephone=no" />
-    <meta name="google-site-verification" content="your-google-site-verification-code" />
     
-    <!-- Google Analytics - Deferred for better performance -->
+    <!-- Google Analytics -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -143,13 +142,10 @@
         page_path: window.location.pathname,
         send_page_view: true
       });
-      // Load GA script after 3 seconds to not block initial render
-      setTimeout(function() {
-        var script = document.createElement('script');
-        script.defer = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV';
-        document.head.appendChild(script);
-      }, 3000);
+      var gaScript = document.createElement('script');
+      gaScript.defer = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV';
+      document.head.appendChild(gaScript);
     </script>
     
     <!-- Schema.org JSON-LD -->
@@ -163,13 +159,10 @@
       "description": "Professional web development company specializing in React, Next.js, Node.js, and full-stack solutions. Custom software development, e-commerce platforms, CRM systems, and technology consulting services.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "123 Tech Street",
         "addressLocality": "Mumbai",
         "addressRegion": "Maharashtra",
-        "postalCode": "400001",
         "addressCountry": "India"
       },
-      "telephone": "+91-9876543210",
       "email": "hello@devendigitallabs.com",
       "foundingDate": "2024",
       "founder": {
@@ -177,15 +170,12 @@
         "name": "Deven Rikame"
       },
       "sameAs": [
-        "https://www.linkedin.com/company/devendigitallabs",
-        "https://twitter.com/devendigitallabs",
-        "https://github.com/devendigitallabs"
+        "https://www.linkedin.com/in/deven-rikame"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
         "availableLanguage": ["English", "Hindi"],
-        "telephone": "+91-9876543210",
         "email": "hello@devendigitallabs.com"
       },
       "geo": {

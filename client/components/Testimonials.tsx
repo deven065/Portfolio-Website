@@ -11,24 +11,24 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Rajesh Kumar",
-    role: "CEO",
-    company: "TechStart Solutions",
-    content: "Our investment paid for itself in just 2 months. The website generates consistent daily sales and we've seen a 45% increase in conversions. We've added $180,000 in revenue in the first 6 months alone. Best business decision we made this year.",
+    name: "Accent Techno Solutions",
+    role: "Client",
+    company: "Enterprise CRM",
+    content: "The CRM platform Deven built completely replaced our manual spreadsheet workflow. Role-based access, client pipelines, and automated follow-ups are now all in one place. Our team onboarded within a week and the system has been rock-solid since launch.",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
-    role: "Founder",
-    company: "InnovateCorp",
-    content: "We went from 10 leads per month to 35+ qualified leads. The automated booking system saves us 15 hours weekly. We broke even on our investment in just 3 months and the ROI keeps growing. They truly understand business, not just development.",
+    name: "Premiums4U",
+    role: "Client",
+    company: "E-commerce Platform",
+    content: "From design to deployment, everything was handled professionally. The storefront is fast, the checkout is smooth, and the backend is easy for our team to manage. Sales have been consistent since we went live.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
-    role: "Director",
-    company: "GrowthHub",
-    content: "The efficiency improvements alone saved us $40,000 annually. Combined with increased sales, we saw an 8x return on investment in the first year. The website is our best performing sales channel now. Exceptional ROI and partnership.",
+    name: "Only4Premiums",
+    role: "Client",
+    company: "Subscription Platform",
+    content: "We needed a subscription platform with instant delivery and secure access control. Deven delivered exactly that — on time and without cutting corners. The system handles high traffic without any issues.",
     rating: 5,
   },
 ];
@@ -51,7 +51,7 @@ export default function Testimonials() {
             style={{ animationDelay: `${idx * 100}ms` }}
           >
             <Quote className="absolute top-6 right-6 w-8 h-8 text-blue-500/20" />
-            
+
             <div className="flex gap-1 mb-4">
               {[...Array(testimonial.rating)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />

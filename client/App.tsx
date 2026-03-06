@@ -10,6 +10,7 @@ import { initGA, trackPageView } from "@/lib/analytics";
 import { initGTM, trackPageView as trackGTMPageView } from "@/lib/gtm";
 import { useVisitorTracking } from "@/hooks/useVisitorTracking";
 import { useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
@@ -61,26 +62,28 @@ export default function App() {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <AnalyticsWrapper>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/automate-lead-generation-n8n-guide" element={<AutomateLeadGenerationN8n />} />
-              <Route path="/create-invoice" element={<CreateInvoice />} />
-              <Route path="/invoices" element={<InvoiceDashboard />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AnalyticsWrapper>
-        </BrowserRouter>
+        <HelmetProvider>
+          <BrowserRouter>
+            <AnalyticsWrapper>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/automate-lead-generation-n8n-guide" element={<AutomateLeadGenerationN8n />} />
+                <Route path="/create-invoice" element={<CreateInvoice />} />
+                <Route path="/invoices" element={<InvoiceDashboard />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnalyticsWrapper>
+          </BrowserRouter>
+        </HelmetProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

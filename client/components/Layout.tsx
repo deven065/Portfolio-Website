@@ -50,22 +50,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex flex-col">
       {/* Promotional Flyer */}
       <PromoFlyer />
-      
+
       {/* Header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
             ? "glass-strong border-b border-slate-800/50"
             : "bg-transparent"
-        }`}
+          }`}
         role="banner"
       >
         <nav className="flex items-center justify-between px-6 sm:px-8 lg:px-12 py-5" role="navigation" aria-label="Main navigation">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" aria-label="Deven Digital Labs Home">
-            <img 
-              src="/logo-white.png" 
-              alt="Deven Digital Labs - Full-Stack Web Development & Technology Consulting" 
+            <img
+              src="/logo-white.png"
+              alt="Deven Digital Labs - Full-Stack Web Development & Technology Consulting"
               className="h-8 w-8 transition-transform duration-300 group-hover:scale-105"
               width="32"
               height="32"
@@ -83,16 +82,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-semibold transition-all duration-300 relative group ${
-                  isActive(link.href)
+                className={`text-sm font-semibold transition-all duration-300 relative group ${isActive(link.href)
                     ? "text-blue-400"
                     : "text-slate-300 hover:text-white"
-                }`}
+                  }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ${
-                  isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
               </Link>
             ))}
           </div>
@@ -101,7 +98,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="hidden md:flex items-center gap-4">
             <Link to="/contact">
               <Button className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg shadow-blue-500/25">
-                Book a Call
+                Hire Us — Free Audit
               </Button>
             </Link>
           </div>
@@ -122,18 +119,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`block text-sm font-medium transition-colors duration-300 ${
-                  isActive(link.href)
+                className={`block text-sm font-medium transition-colors duration-300 ${isActive(link.href)
                     ? "text-blue-400"
                     : "text-slate-300 hover:text-white"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/contact" className="block pt-2">
               <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg">
-                Book a Call
+                Hire Us — Free Audit
               </Button>
             </Link>
           </div>
@@ -163,7 +159,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   required
                   className="bg-slate-800/50 border-slate-700 focus:border-blue-500 text-white"
                 />
-                <Button 
+                <Button
                   type="submit"
                   className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 whitespace-nowrap"
                 >
@@ -178,9 +174,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand */}
             <div className="col-span-1 md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <img 
-                  src="/logo-white.png" 
-                  alt="Deven Digital Labs Logo" 
+                <img
+                  src="/logo-white.png"
+                  alt="Deven Digital Labs Logo"
                   className="h-8 w-8"
                   width="32"
                   height="32"
@@ -268,9 +264,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     hello@devendigitallabs.com
                   </a>
                 </li>
-                <li className="text-slate-400">
-                  Monday – Friday<br />
-                  10:00 AM – 7:00 PM IST
+                <li className="text-slate-400 leading-relaxed">
+                  Mon–Fri · 10am–7pm IST<br />
+                  <span className="text-slate-500 text-xs">Happy to work across time zones — async-friendly</span>
+                </li>
+                <li className="text-slate-400 text-xs leading-relaxed">
+                  <span className="text-slate-500">Payments via</span><br />
+                  Stripe · PayPal · Wise · Bank Transfer<br />
+                  <span className="text-slate-500">USD · GBP · EUR · INR</span>
                 </li>
               </ul>
             </div>
@@ -278,7 +279,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Bottom Bar */}
           <div className="border-t border-slate-800/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-            <p>&copy; 2024 Deven Digital Labs. All rights reserved.</p>
+            <p>&copy; 2026 Deven Digital Labs. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/privacy-policy" className="hover:text-white transition-colors">
                 Privacy Policy

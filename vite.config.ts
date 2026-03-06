@@ -67,7 +67,10 @@ export default defineConfig(({ mode }) => ({
     ],
     exclude: ['@vercel/node'],
   },
-  plugins: [react(), expressPlugin()],
+  plugins: [
+    react(),
+    expressPlugin()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
