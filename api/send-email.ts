@@ -92,9 +92,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('[send-email] Client confirmation email error:', JSON.stringify(clientError));
     }
 
-    // If admin email hard-failed, return error so the user sees it
-    if (adminError && !clientError) {
-      return res.status(500).json({ success: false, message: 'Failed to deliver notification email' });
+    // If admin notification fails, we must report an error
+    if (adminError) {
+      console.error('[send-email] Admin email failed:', adminError);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to deliver notification email.',
+        error: adminError.message
+      });
     }
 
     return res.status(200).json({ success: true, message: 'Email sent successfully' });

@@ -79,6 +79,15 @@ export const handleSendEmail: RequestHandler = async (req, res) => {
       console.error('[send-email] Client email error:', JSON.stringify(clientError));
     }
 
+    if (adminError) {
+      console.error('[send-email] Admin email failed:', adminError);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to deliver notification email.",
+        error: adminError.message
+      });
+    }
+
     res.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("[send-email] Unexpected error:", error);
