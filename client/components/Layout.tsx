@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, X, Mail, ArrowRight } from "lucide-react";
+import { Menu, X, Mail, ArrowRight, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import PromoFlyer from "@/components/PromoFlyer";
@@ -54,8 +54,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
-            ? "glass-strong border-b border-slate-800/50"
-            : "bg-transparent"
+          ? "glass-strong border-b border-slate-800/50"
+          : "bg-transparent"
           }`}
         role="banner"
       >
@@ -83,8 +83,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.href}
                 to={link.href}
                 className={`text-sm font-semibold transition-all duration-300 relative group ${isActive(link.href)
-                    ? "text-blue-400"
-                    : "text-slate-300 hover:text-white"
+                  ? "text-blue-400"
+                  : "text-slate-300 hover:text-white"
                   }`}
               >
                 {link.label}
@@ -120,8 +120,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.href}
                 to={link.href}
                 className={`block text-sm font-medium transition-colors duration-300 ${isActive(link.href)
-                    ? "text-blue-400"
-                    : "text-slate-300 hover:text-white"
+                  ? "text-blue-400"
+                  : "text-slate-300 hover:text-white"
                   }`}
               >
                 {link.label}
@@ -291,6 +291,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Widget */}
+      <a
+        href="https://wa.me/919833703389?text=Hi%2C%20I%27m%20interested%20in%20your%20development%20services"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:bg-[#20BA5A] hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />
+
+        {/* Tooltip */}
+        <span className="absolute right-full mr-4 bg-slate-800 text-white text-sm font-medium py-2 px-4 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-700">
+          Chat with us
+          {/* Tooltip triangle */}
+          <span className="absolute top-1/2 -right-1 -translate-y-1/2 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-slate-800"></span>
+        </span>
+      </a>
     </div>
   );
 }
