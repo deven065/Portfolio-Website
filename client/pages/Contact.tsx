@@ -23,7 +23,7 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Us",
-    "description": "Get in touch with Deven Digital Labs for your web development and technology consulting needs. Free consultation available."
+    "description": "Start your free 3-step growth assessment at Deven Digital Labs. We specialize in Dental, Design, and Real Estate business optimization."
   };
 
   const [formData, setFormData] = useState<FormData>({
@@ -39,10 +39,26 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 3;
+
+  const faqs = [
+    {
+      question: "What is your minimum project size?",
+      answer: "We work on projects of all sizes, from smaller websites starting at ₹50,000 / $1,500 to complex enterprise platforms. There's no minimum commitment—we adapt to your needs and budget.",
+    },
+    {
+      question: "How do payments work?",
+      answer: "We typically structure payments as 50% upfront, 30% at milestone completion, and 20% on final delivery. For retainer arrangements, we bill monthly in advance.",
+    },
+    {
+      question: "Do you provide long-term support?",
+      answer: "Yes. Beyond project delivery, we offer maintenance retainers, performance optimization, feature enhancements, and strategic guidance.",
+    },
+  ];
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
-
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -50,39 +66,46 @@ export default function Contact() {
       newErrors.email = "Please enter a valid email";
     }
     if (!formData.projectDescription.trim()) {
-      newErrors.projectDescription = "Project description is required";
+      newErrors.projectDescription = "Goals description is required";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const nextStep = () => {
+    if (currentStep === 1 && !formData.projectDescription.trim()) {
+      setErrors({ projectDescription: "Please tell us a bit about your goals" });
+      return;
+    }
+    setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+  };
+
+  const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-
-      // Track form submission attempt
-      trackEvent('form_start', 'contact', 'contact_form');
+      trackEvent('form_start', 'contact', 'assessment_form');
 
       try {
         const response = await fetch("/api/send-email", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
 
         const data = await response.json();
-
         if (data.success) {
           setSubmitted(true);
-
-          // Track successful form submission
-          trackFormSubmission('contact_form');
-          trackEvent('conversion', 'contact', 'form_submitted');
-
+          trackFormSubmission('assessment_form');
           setFormData({
             fullName: "",
             companyName: "",
@@ -91,15 +114,12 @@ export default function Contact() {
             budget: "",
             projectDescription: "",
           });
+          setCurrentStep(1);
           setTimeout(() => setSubmitted(false), 5000);
         } else {
-          // Track form error
-          trackEvent('form_error', 'contact', 'submission_failed');
-          alert("Failed to send message. Please try again.");
+          alert("Failed to send. Please try again.");
         }
       } catch (error) {
-        console.error("Error sending email:", error);
-        trackEvent('form_error', 'contact', 'network_error');
         alert("An error occurred. Please try again later.");
       } finally {
         setIsSubmitting(false);
@@ -107,422 +127,202 @@ export default function Contact() {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const faqs = [
-    {
-      question: "What is your minimum project size?",
-      answer:
-        "We work on projects of all sizes, from smaller websites starting at ₹50,000 / $1,500 to complex enterprise platforms. There's no minimum commitment—we adapt to your needs and budget.",
-    },
-    {
-      question: "How do payments work?",
-      answer:
-        "We typically structure payments as 50% upfront, 30% at milestone completion, and 20% on final delivery. For retainer arrangements, we bill monthly in advance. We're flexible and can discuss payment terms that work for both parties.",
-    },
-    {
-      question: "Do you work with international clients?",
-      answer:
-        "Absolutely. We work with clients across India, US, UK, Australia, and other regions. We have experience with international compliance requirements, timezone management, and global payment methods.",
-    },
-    {
-      question: "What industries do you serve?",
-      answer:
-        "We've built solutions for fintech, healthcare, e-commerce, SaaS, edtech, supply chain, and many other industries. We bring industry expertise combined with technical excellence to every project.",
-    },
-    {
-      question: "Do you provide long-term support?",
-      answer:
-        "Yes. Beyond project delivery, we offer maintenance retainers, performance optimization, feature enhancements, and strategic guidance. We see ourselves as your long-term technology partner.",
-    },
-    {
-      question: "How long does a typical project take?",
-      answer:
-        "Timeline depends on scope. Small websites: 4-8 weeks. Custom applications: 3-6 months. SaaS platforms: 4-9 months. We'll provide a detailed timeline after understanding your requirements.",
-    },
-  ];
-
   return (
     <>
       <SEO
         title="Get Free Growth Audit | Contact Deven Digital Labs"
-        description="Get your free website + automation audit. We analyze performance, SEO, and automation opportunities. Discover how to capture more leads and automate growth."
-        keywords="free website audit, automation audit, growth consultation, contact web developers, lead generation help, website performance analysis"
+        description="Start your 3-step growth assessment for Dental, Design, or Real Estate business optimization. Custom audits delivered in 48 hours."
+        keywords="free website audit, dental clinic seo, interior design web design, real estate lead generation, automation audit"
         canonical="https://devendigitallabs.com/contact"
         schema={schema}
       />
       <Layout>
         {/* Hero */}
-        <section className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+        <section className="relative py-12 sm:py-20 px-4 overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
           </div>
-
-          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Get Your Free Website + Automation Audit
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mb-2">
+              The <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Growth Assessment</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto px-4 leading-relaxed">
-              We'll analyze your current website, identify performance bottlenecks, spot automation opportunities that could save you 15-20 hours per week, and deliver a custom action plan showing exactly how to increase conversions and capture more leads. <span className="text-white font-semibold">No sales pitch—just actionable insights you can use immediately.</span>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Answer 3 quick questions about your business to receive a custom performance + automation audit within 48 hours.
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-sm font-semibold">
-              <Check className="w-4 h-4" />
-              <span>Typical audit value: $500 · Yours free today</span>
+            <div className="flex items-center justify-center gap-2 text-sm font-bold text-blue-400 uppercase tracking-widest">
+              <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+              Average time to complete: 45 seconds
             </div>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-16 px-6 max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            How it works
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
-                1
+        {/* Progress Bar */}
+        <div className="max-w-2xl mx-auto px-6 mb-12">
+          <div className="flex justify-between mb-4">
+            {[1, 2, 3].map((s) => (
+              <div key={s} className="flex flex-col items-center gap-2">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold border-2 transition-all ${currentStep >= s ? 'bg-blue-500 border-blue-500 text-white' : 'border-slate-700 text-slate-500'}`}>
+                  {s}
+                </div>
+                <span className={`text-xs font-bold uppercase tracking-tighter ${currentStep >= s ? 'text-blue-400' : 'text-slate-600'}`}>
+                  {s === 1 ? 'Objectives' : s === 2 ? 'Business' : 'Details'}
+                </span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Submit your site</h3>
-              <p className="text-slate-400">
-                Fill out the form with your website URL and business goals. Takes 2 minutes.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
-                2
-              </div>
-              <h3 className="text-xl font-bold mb-3">We analyze everything</h3>
-              <p className="text-slate-400">
-                Our team audits performance, SEO, conversion paths, and automation gaps. You'll hear from us within 48 hours.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border-2 border-blue-500/30 text-blue-400 font-bold text-2xl mb-6">
-                3
-              </div>
-              <h3 className="text-xl font-bold mb-3">Get your action plan</h3>
-              <p className="text-slate-400">
-                Receive a detailed report with prioritized recommendations, ROI estimates, and next steps to grow faster.
-              </p>
-            </div>
+            ))}
           </div>
-        </section>
+          <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-blue-500 transition-all duration-500 ease-out"
+              style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}
+            ></div>
+          </div>
+        </div>
 
-        {/* Contact Info & Form */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-            {/* Contact Information */}
-            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
-              {/* Email */}
-              <div className="flex gap-3 sm:gap-4">
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold mb-2 text-base sm:text-lg">Email</h3>
-                  <a
-                    href="mailto:hello@devendigitallabs.com"
-                    className="text-sm sm:text-base text-slate-300 hover:text-white transition-colors break-all"
-                  >
-                    hello@devendigitallabs.com
-                  </a>
+        {/* Form Container */}
+        <section className="py-12 px-6 max-w-3xl mx-auto">
+          <div className="bg-slate-900/40 border border-slate-800/60 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+            <form onSubmit={handleSubmit} className="relative z-10">
+              {submitted && (
+                <div className="mb-8 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-300 text-center animate-in zoom-in duration-300">
+                  <Check className="w-12 h-12 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold mb-2">Assessment Received!</h3>
+                  <p>Check your email for confirmation. We'll deliver your audit within 48 hours.</p>
                 </div>
-              </div>
+              )}
 
-              {/* Working Hours */}
-              <div className="flex gap-3 sm:gap-4">
-                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold mb-2 text-base sm:text-lg">Working Hours</h3>
-                  <p className="text-sm sm:text-base text-slate-300 mb-1">
-                    Monday – Friday · 10am–7pm IST
-                  </p>
-                  <p className="text-slate-400 text-xs sm:text-sm">
-                    Async-friendly — happy to collaborate across US, UK, AU time zones. Scheduled calls available at your local time.
-                  </p>
-                </div>
-              </div>
-
-              {/* WhatsApp */}
-              <div className="flex gap-3 sm:gap-4">
-                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold mb-2 text-base sm:text-lg">WhatsApp</h3>
-                  <a
-                    href="https://wa.me/919833703389"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm sm:text-base text-green-400 hover:text-green-300 transition-colors font-medium"
-                  >
-                    Chat on WhatsApp
-                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  <p className="text-slate-400 text-xs sm:text-sm mt-1">
-                    Quick response during working hours
-                  </p>
-                </div>
-              </div>
-
-              {/* Book a Call — Embedded */}
-              <div>
-                <div className="flex gap-3 sm:gap-4 mb-4">
-                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400 flex-shrink-0 mt-1" />
+              {currentStep === 1 && (
+                <div className="space-y-8 animate-in slide-in-from-right-4 duration-300">
                   <div>
-                    <h3 className="font-bold mb-1 text-base sm:text-lg">Book a Free Discovery Call</h3>
-                    <p className="text-slate-400 text-xs sm:text-sm">Pick a time that works for you — no sales pitch, just a conversation.</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">What is your primary focus?</h2>
+                    <p className="text-slate-400 mb-6">Choose the area where you need the most impact.</p>
+                    <textarea
+                      name="projectDescription"
+                      value={formData.projectDescription}
+                      onChange={handleChange}
+                      rows={4}
+                      className={`w-full bg-slate-800/40 border-2 rounded-2xl px-6 py-5 text-white placeholder-slate-600 transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/10 resize-none ${errors.projectDescription ? "border-red-500/50" : "border-slate-700/50 focus:border-blue-500/50"}`}
+                      placeholder="e.g. 'I'm a dentist looking to automate patient bookings'..."
+                    />
+                    {errors.projectDescription && <p className="text-red-400 text-sm mt-2">{errors.projectDescription}</p>}
                   </div>
-                </div>
-                <div className="rounded-xl overflow-hidden border border-slate-700/50 bg-white" style={{ minHeight: '500px' }}>
-                  <iframe
-                    src="https://cal.com/deven-rikame-2jhxbu?embed=true&layout=month_view"
-                    style={{ width: '100%', height: '500px', border: 'none' }}
-                    title="Book a free discovery call with Deven Digital Labs"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Availability + Payment Info */}
-              <div className="space-y-4">
-                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 sm:p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    <span className="text-green-400 text-sm font-semibold">Available for new projects</span>
-                  </div>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                    We respond within <strong>24 hours</strong>. For urgent projects, mention it in your message.
-                  </p>
-                </div>
-                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 sm:p-5">
-                  <h3 className="font-bold mb-2 text-sm sm:text-base">International Payments</h3>
-                  <p className="text-slate-400 text-xs sm:text-sm mb-2">We accept payments in USD, GBP, EUR, and INR via:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Stripe', 'PayPal', 'Wise', 'Bank Transfer'].map(m => (
-                      <span key={m} className="text-xs bg-slate-900/60 border border-slate-700/50 rounded-lg px-2.5 py-1 text-slate-300 font-medium">{m}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="lg:col-span-2 order-1 lg:order-2">
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-                {submitted && (
-                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 sm:p-4 text-green-300 text-sm sm:text-base">
-                    Thank you for reaching out! We'll review your request and get back to you soon.
-                  </div>
-                )}
-
-                {/* Full Name */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className={`w-full bg-slate-800/50 border rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition-all duration-300 focus:outline-none ${errors.fullName
-                      ? "border-red-500/50 focus:border-red-500"
-                      : "border-slate-700/50 focus:border-blue-500/50 focus:bg-slate-800/80"
-                      }`}
-                    placeholder="John Doe"
-                  />
-                  {errors.fullName && (
-                    <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.fullName}</p>
-                  )}
-                </div>
-
-                {/* Company Name */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Company Name <span className="text-slate-400 font-normal">(Optional)</span></label>
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                    className="w-full bg-slate-800/50 border border-slate-700/50 rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition-all duration-300 focus:outline-none focus:border-blue-500/50 focus:bg-slate-800/80"
-                    placeholder="Your Company (or leave blank if individual)"
-                  />
-                </div>
-
-                {/* Business Email */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Business Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`w-full bg-slate-800/50 border rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition-all duration-300 focus:outline-none ${errors.email
-                      ? "border-red-500/50 focus:border-red-500"
-                      : "border-slate-700/50 focus:border-blue-500/50 focus:bg-slate-800/80"
-                      }`}
-                    placeholder="you@company.com"
-                  />
-                  {errors.email && (
-                    <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.email}</p>
-                  )}
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Phone (Optional)</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full bg-slate-800/50 border border-slate-700/50 rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition-all duration-300 focus:outline-none focus:border-blue-500/50 focus:bg-slate-800/80"
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-
-                {/* Budget */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Budget Range <span className="text-slate-400 font-normal">(Optional)</span></label>
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full bg-slate-800/50 border border-slate-700/50 rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white transition-all duration-300 focus:outline-none appearance-none focus:border-blue-500/50 focus:bg-slate-800/80"
-                  >
-                    <option value="">Select budget range (or leave blank)...</option>
-                    <option value="not-sure">Not sure yet / open to discussion</option>
-                    <option value="under-1k">Under $1,000 (Under ₹85k)</option>
-                    <option value="1k-3k">$1,000 – $3,000 (₹85k – ₹2.5L)</option>
-                    <option value="3k-10k">$3,000 – $10,000 (₹2.5L – ₹8.5L)</option>
-                    <option value="10k-30k">$10,000 – $30,000 (₹8.5L – ₹25L)</option>
-                    <option value="30k-plus">Above $30,000 (Above ₹25L)</option>
-                  </select>
-                </div>
-
-                {/* Project Description */}
-                <div>
-                  <label className="block text-sm sm:text-base font-medium mb-2">Project Description *</label>
-                  <textarea
-                    name="projectDescription"
-                    value={formData.projectDescription}
-                    onChange={handleChange}
-                    rows={5}
-                    className={`w-full bg-slate-800/50 border rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition-all duration-300 focus:outline-none resize-none ${errors.projectDescription
-                      ? "border-red-500/50 focus:border-red-500"
-                      : "border-slate-700/50 focus:border-blue-500/50 focus:bg-slate-800/80"
-                      }`}
-                    placeholder="Tell us about your project, goals, and timeline..."
-                  />
-                  {errors.projectDescription && (
-                    <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.projectDescription}</p>
-                  )}
-                </div>
-
-                {/* Submit Button */}
-                <div className="cta-spacing">
-                  <Button
-                    type="submit"
-                    size="cta"
-                    disabled={isSubmitting}
-                    className="cta-primary cta-contrast w-full shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed group"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <span className="inline-block animate-spin mr-2">⏳</span>
-                        Sending Your Inquiry...
-                      </>
-                    ) : (
-                      <>
-                        Send Your Project Inquiry
-                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
+                  <Button type="button" size="lg" onClick={nextStep} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold h-14 rounded-2xl group transition-all">
+                    Continue to Business Info
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
+              )}
 
-                <p className="text-xs sm:text-sm text-slate-400 text-center leading-relaxed px-2 pt-2">
-                  🔒 We respect your privacy. Your information is secure and will only be used to contact you about your project.
-                </p>
-              </form>
-            </div>
-          </div>
-        </section>
+              {currentStep === 2 && (
+                <div className="space-y-8 animate-in slide-in-from-right-4 duration-300">
+                  <div>
+                    <h2 className="text-2xl font-bold text-white mb-6">Tell us about your business</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Company Name</label>
+                        <input
+                          type="text"
+                          name="companyName"
+                          value={formData.companyName}
+                          onChange={handleChange}
+                          className="w-full bg-slate-800/40 border-2 border-slate-700/50 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none"
+                          placeholder="Your Practice/Firm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Target Budget</label>
+                        <select
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleChange}
+                          className="w-full bg-slate-800/40 border-2 border-slate-700/50 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none appearance-none"
+                        >
+                          <option value="">Select range...</option>
+                          <option value="under-1k">Under $1,000</option>
+                          <option value="1k-5k">$1,000 – $5,000</option>
+                          <option value="5k-15k">$5,000 – $15,000</option>
+                          <option value="over-15k">$15,000+</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <Button type="button" variant="outline" onClick={prevStep} className="flex-1 border-slate-700 text-slate-400 h-14 rounded-2xl">Back</Button>
+                    <Button type="button" size="lg" onClick={nextStep} className="flex-[2] bg-blue-500 hover:bg-blue-600 text-white font-bold h-14 rounded-2xl">Final Step</Button>
+                  </div>
+                </div>
+              )}
 
-        {/* Who This Is For Section */}
-        <section className="py-16 px-6 max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Who this is for
-          </h2>
-
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
-              <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
-              <p className="text-lg text-slate-300">
-                <span className="text-white font-semibold">Founders & business owners</span> who need more qualified leads but don't have time for manual follow-ups
-              </p>
-            </div>
-
-            <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
-              <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
-              <p className="text-lg text-slate-300">
-                <span className="text-white font-semibold">Growth-focused companies</span> ready to automate repetitive tasks and scale without hiring more staff
-              </p>
-            </div>
-
-            <div className="flex gap-4 items-start p-6 rounded-xl bg-slate-800/30 border border-slate-700/50">
-              <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
-              <p className="text-lg text-slate-300">
-                <span className="text-white font-semibold">Teams frustrated</span> with slow websites, poor SEO rankings, or low conversion rates
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <p className="text-slate-400 text-sm">
-              Not a fit? That's okay. We focus on businesses ready to invest in growth and automation.
-            </p>
+              {currentStep === 3 && (
+                <div className="space-y-8 animate-in slide-in-from-right-4 duration-300">
+                  <div>
+                    <h2 className="text-2xl font-bold text-white mb-6">Where should we send your audit?</h2>
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                          <input
+                            type="text"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            className={`w-full bg-slate-800/40 border-2 rounded-xl px-4 py-3 text-white outline-none ${errors.fullName ? "border-red-500/50" : "border-slate-700/50 focus:border-blue-500/50"}`}
+                            placeholder="Full Name"
+                          />
+                          {errors.fullName && <p className="text-red-400 text-xs mt-1">{errors.fullName}</p>}
+                        </div>
+                        <div>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full bg-slate-800/40 border-2 border-slate-700/50 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none"
+                            placeholder="Phone (WhatsApp)"
+                          />
+                        </div>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`w-full bg-slate-800/40 border-2 rounded-xl px-4 py-3 text-white outline-none ${errors.email ? "border-red-500/50" : "border-slate-700/50 focus:border-blue-500/50"}`}
+                        placeholder="Business Email"
+                      />
+                      {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <Button type="button" variant="outline" onClick={prevStep} className="flex-1 border-slate-700 text-slate-400 h-14 rounded-2xl">Back</Button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-[2] bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-black h-14 rounded-2xl shadow-xl shadow-blue-500/20"
+                    >
+                      {isSubmitting ? 'Generating Report...' : 'Get My Free Audit'}
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </form>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">Frequently Asked Questions</h2>
-
-          <div className="space-y-3 sm:space-y-4">
+        <section className="py-20 px-4 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">Questions?</h2>
+          <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden hover:border-slate-600/50 transition-all duration-300"
-              >
+              <div key={idx} className="bg-slate-800/30 border border-slate-700/50 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left group"
+                  className="w-full flex items-center justify-between p-6 text-left"
                 >
-                  <h3 className="font-semibold text-sm sm:text-base md:text-lg group-hover:text-blue-400 transition-colors pr-4">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown
-                    size={20}
-                    className={`sm:w-6 sm:h-6 flex-shrink-0 text-slate-400 transition-transform duration-300 ${expandedFaq === idx ? "rotate-180" : ""
-                      }`}
-                  />
+                  <span className="font-bold text-lg">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform ${expandedFaq === idx ? 'rotate-180' : ''}`} />
                 </button>
-
                 {expandedFaq === idx && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-slate-700/50">
-                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed pt-4">{faq.answer}</p>
+                  <div className="px-6 pb-6 text-slate-400 leading-relaxed border-t border-slate-700/30 pt-4">
+                    {faq.answer}
                   </div>
                 )}
               </div>

@@ -34,7 +34,7 @@ export default function Blog() {
       readTime: "8 min read",
       category: "Automation",
       slug: "automate-lead-generation-n8n-guide",
-      image: "/blog/automation-guide.jpg"
+      image: "/automation-guide.png"
     },
     {
       id: "2",
@@ -44,7 +44,7 @@ export default function Blog() {
       readTime: "6 min read",
       category: "Performance",
       slug: "website-performance-optimization-case-study",
-      image: "/blog/performance.jpg"
+      image: "/performance.png"
     },
     {
       id: "3",
@@ -54,15 +54,35 @@ export default function Blog() {
       readTime: "10 min read",
       category: "Business Growth",
       slug: "roi-business-automation-real-data",
-      image: "/blog/roi-data.jpg"
+      image: "/roi-data.png"
+    },
+    {
+      id: "4",
+      title: "Why Your Dental Clinic is Losing Patients to Competitors with Better Websites",
+      excerpt: "Expert analysis on why dental practices fail to convert online traffic and how a high-performance website can increase appointments by 150%.",
+      date: "2026-03-05",
+      readTime: "7 min read",
+      category: "Healthcare",
+      slug: "dental-clinic-losing-patients-website-audit",
+      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000"
+    },
+    {
+      id: "5",
+      title: "5 Luxury Features Every Interior Design Portfolio Needs in 2026",
+      excerpt: "Examine the essential high-end features that distinguish a luxury interior design portfolio from a basic showcase.",
+      date: "2026-03-06",
+      readTime: "6 min read",
+      category: "Design",
+      slug: "luxury-interior-design-portfolio-features",
+      image: "/interior-design.png"
     }
   ];
 
-  const categories = ["All", "Automation", "Performance", "Business Growth", "Web Development", "Lead Generation"];
+  const categories = ["All", "Automation", "Performance", "Business Growth", "Healthcare", "Design"];
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Blog | Web Development & Automation Insights"
         description="Expert insights on web development, n8n automation, lead generation strategies, and business growth. Practical guides and case studies from real projects."
         keywords="web development blog, automation guides, n8n tutorials, lead generation strategies, business growth tips, performance optimization"
@@ -93,11 +113,10 @@ export default function Blog() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  category === "All"
-                    ? "bg-blue-500 text-white"
-                    : "bg-slate-800/50 text-slate-300 hover:bg-slate-800 border border-slate-700/50"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === "All"
+                  ? "bg-blue-500 text-white"
+                  : "bg-slate-800/50 text-slate-300 hover:bg-slate-800 border border-slate-700/50"
+                  }`}
               >
                 {category}
               </button>
@@ -118,46 +137,49 @@ export default function Blog() {
                   className="bg-slate-800/30 border border-slate-700/50 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 animate-fade-up h-full"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                {/* Image Placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-slate-400 text-sm">Featured Image</span>
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image || "/blog/default.jpg"}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center gap-4 text-sm text-slate-400">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-slate-400">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {post.readTime}
+                      </span>
+                    </div>
+
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/30">
+                      {post.category}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      {post.readTime}
-                    </span>
+
+                    <h2 className="text-xl font-bold group-hover:text-blue-400 transition-colors line-clamp-2">
+                      {post.title}
+                    </h2>
+
+                    <p className="text-slate-400 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+
+                    <div
+                      className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium transition-colors"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-
-                  <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/30">
-                    {post.category}
-                  </span>
-
-                  <h2 className="text-xl font-bold group-hover:text-blue-400 transition-colors line-clamp-2">
-                    {post.title}
-                  </h2>
-
-                  <p className="text-slate-400 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-
-                  <div
-                    className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium transition-colors"
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </article>
+                </article>
               </Link>
             ))}
           </div>

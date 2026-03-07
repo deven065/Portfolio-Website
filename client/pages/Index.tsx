@@ -18,6 +18,7 @@ import {
   Target,
   Clock,
   Star,
+  Calendar,
 } from "lucide-react";
 
 // Lazy load heavy below-the-fold components
@@ -127,9 +128,9 @@ export default function Index() {
   return (
     <>
       <SEO
-        title="Web Development & Automation | Deven Digital Labs"
+        title="Full-Stack Web Development & n8n Automation Agency"
         description="Growth-focused web development + n8n automation. We build systems that capture leads, automate workflows, and drive 5x ROI. Free audit available."
-        keywords="web development automation, n8n workflows, lead generation systems, business automation, custom web development, React Next.js development, conversion optimization, performance optimization, scalable web solutions"
+        keywords="web development automation, n8n expert, n8n agency, lead generation systems, business automation agency, custom web development, React Next.js development, conversion optimization"
         canonical="https://devendigitallabs.com/"
         schema={schema}
       />
@@ -154,19 +155,37 @@ export default function Index() {
 
                 <div className="space-y-6">
                   <h1 className="font-black tracking-tight">
-                    <span className="block text-2xl sm:text-3xl md:text-4xl text-slate-300 font-semibold leading-snug">
-                      We Turn Slow Websites Into
+                    <span className="block text-xl sm:text-2xl md:text-3xl text-slate-300 font-semibold leading-tight mb-2">
+                      A Specialist Digital Agency for Higher
                     </span>
-                    <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[0.95] bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent py-2">
-                      Revenue Machines
+                    <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.85] bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent py-2">
+                      Business Revenue & Growth
                     </span>
-                    <span className="block text-2xl sm:text-3xl md:text-4xl text-white font-semibold leading-snug">
-                      With AI &amp; Automation.
+                    <span className="block text-2xl sm:text-3xl md:text-4xl text-white font-semibold leading-snug mt-4">
+                      Via Performance Web & n8n Automation.
                     </span>
                   </h1>
                   <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-                    Full-stack development + n8n automation + performance optimization. We don't just build websites—we build systems that capture leads, nurture prospects, and drive revenue while you sleep.
+                    We specialize in high-conversion web development and **revenue-focused business automation**. From Dental Clinics to Real Estate firms, we build the digital infrastructure that captures, qualifies, and nurtures leads 24/7.
                   </p>
+                </div>
+
+                {/* Vertical Niche Badges - New Internal Linking Section */}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {[
+                    { label: "Dental Clinics", href: "/services/dental-clinic-web-development" },
+                    { label: "Interior Designers", href: "/services/interior-design-web-development" },
+                    { label: "Real Estate Brokers", href: "/services/real-estate-web-development" },
+                    { label: "Agency Automation", href: "/services/n8n-automation" },
+                  ].map((niche) => (
+                    <Link
+                      key={niche.label}
+                      to={niche.href}
+                      className="px-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-xl text-xs font-bold text-slate-300 hover:text-white hover:border-blue-500/50 transition-all hover:-translate-y-0.5"
+                    >
+                      {niche.label} &rarr;
+                    </Link>
+                  ))}
                 </div>
 
                 {/* Primary CTA */}
@@ -180,13 +199,13 @@ export default function Index() {
                         trackEvent('cta_click', 'homepage', 'hero_audit');
                       }}
                     >
-                      Claim My Free Audit — No Sales Pitch
+                      Get My Free Growth + Automation Audit
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
-                  <p className="text-xs text-slate-500 text-center sm:text-left">⏳ Limited availability this month — claim your free spot</p>
+                  <p className="text-xs text-slate-500 text-center sm:text-left">⏳ Currently accepting 3 more clients for mid-2026</p>
                   <div className="flex flex-wrap gap-x-5 gap-y-2 pt-1">
-                    {["No credit card", "Done in 48 hrs", "$500 value — free"].map((t) => (
+                    {["No credit card", "Detailed report in 48 hrs", "Industry specialist insights"].map((t) => (
                       <div key={t} className="flex items-center gap-1.5 text-sm text-slate-400">
                         <Check className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
                         <span>{t}</span>
@@ -208,7 +227,7 @@ export default function Index() {
                     <div className="flex items-center gap-0.5">
                       {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
                     </div>
-                    <p className="text-xs text-slate-400">Trusted by 20+ businesses</p>
+                    <p className="text-xs text-slate-400">Trusted by Dental Clinics & Luxury Firms Globally</p>
                   </div>
                 </div>
               </div>
@@ -219,18 +238,18 @@ export default function Index() {
                 <div className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-2xl space-y-4">
                   {/* Header */}
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest">Recent Work</span>
+                    <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest">Growth Case Studies</span>
                     <span className="flex items-center gap-1.5 text-xs text-blue-400 font-semibold bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-full">
-                      20+ Clients
+                      5x ROI Avg.
                     </span>
                   </div>
                   {/* Project cards */}
                   {[
-                    { name: "Accent Techno CRM", tag: "Enterprise CRM", desc: "Role-based access & pipeline management" },
-                    { name: "Premiums4U", tag: "E-commerce", desc: "Gaming subscriptions with secure checkout" },
-                    { name: "Only4Premiums", tag: "Subscription SaaS", desc: "Instant delivery & access control system" },
+                    { name: "Medical/Dental Suite", tag: "Revenue Engine", desc: "Automated booking & patient lead gen" },
+                    { name: "Design Firm Portfolio", tag: "Luxury Brand", desc: "Visual storytelling & client qualification" },
+                    { name: "SaaS CRM Integration", tag: "Automation", desc: "System sync & workflow optimization" },
                   ].map((p, i) => (
-                    <div key={i} className="flex items-center justify-between bg-slate-900/40 rounded-xl px-4 py-3">
+                    <div key={i} className="flex items-center justify-between bg-slate-900/40 rounded-xl px-4 py-3 border border-slate-700/30">
                       <div>
                         <span className="text-sm font-semibold text-white">{p.name}</span>
                         <p className="text-xs text-slate-400 mt-0.5">{p.desc}</p>
@@ -240,8 +259,8 @@ export default function Index() {
                   ))}
                   {/* CTA */}
                   <div className="bg-slate-900/40 rounded-xl px-4 py-3 border-l-2 border-blue-400">
-                    <p className="text-sm text-slate-300 italic">"Built exactly what we needed, on time and without cutting corners."</p>
-                    <p className="text-xs text-slate-500 mt-1 font-semibold">— Client, Only4Premiums</p>
+                    <p className="text-sm text-slate-300 italic">"Our Dental clinic saw a 40% increase in bookings within 2 months of launch."</p>
+                    <p className="text-xs text-slate-500 mt-1 font-semibold">— Dr. Chaudhary, Healthcare Specialist</p>
                   </div>
                 </div>
               </div>
@@ -250,9 +269,9 @@ export default function Index() {
             {/* Why Choose Us Strip */}
             <div className="pt-12 pb-8 border-t border-slate-800/50">
               <h3 className="text-2xl sm:text-3xl font-bold text-center mb-2">
-                Why fast-growing businesses choose <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Deven Digital Labs</span>
+                Why Industry Leaders Choose <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Deven Digital Labs</span>
               </h3>
-              <p className="text-slate-400 text-center mb-8">Not just a dev shop — a revenue growth partner.</p>
+              <p className="text-slate-400 text-center mb-8">Specialists in high-ticket industries where every conversion matters.</p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex gap-4 items-start">
@@ -261,7 +280,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-slate-300 leading-relaxed">
-                      We build <span className="text-white font-semibold">lead-capturing automation workflows</span> (n8n, Zapier, custom APIs) that generate qualified prospects 24/7—not just pretty websites
+                      <span className="text-white font-semibold">Niche Mastery:</span> We build **automated lead gen** that is pre-configured for Healthcare, Design, and Real Estate needs.
                     </p>
                   </div>
                 </div>
@@ -272,7 +291,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-slate-300 leading-relaxed">
-                      <span className="text-white font-semibold">Performance-obsessed:</span> Your site loads in &lt;2s, ranks on Google, and converts at 40%+ higher rates than industry average
+                      <span className="text-white font-semibold">SEO Domination:</span> Every site is delivered with **JSON-LD Schema**, semantic markup, and &lt;1.5s load speeds for #1 ranking potential.
                     </p>
                   </div>
                 </div>
@@ -283,7 +302,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-slate-300 leading-relaxed">
-                      <span className="text-white font-semibold">ROI-driven partnership:</span> We track revenue impact, not deliverables. Most clients break even in 90 days and see 5x ROI in year one
+                      <span className="text-white font-semibold">Measurable ROI:</span> We don't track metrics; we track revenue. 250%+ avg growth within first year of implementation.
                     </p>
                   </div>
                 </div>
@@ -293,10 +312,10 @@ export default function Index() {
             {/* Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800/50 rounded-2xl overflow-hidden mt-12 border border-slate-700/50">
               {[
-                { value: 275, suffix: "%", label: "Avg. Revenue Growth", sub: "across all clients" },
-                { value: 5, suffix: "x", label: "Average ROI", sub: "in year one" },
-                { value: 3, suffix: " mo", label: "Break-Even", sub: "average timeline" },
-                { value: 99, suffix: "%", label: "Client Satisfaction", sub: "zero project failures" },
+                { value: 275, suffix: "%", label: "Avg. Revenue Growth", sub: "Dental & Design Niche" },
+                { value: 5, suffix: "x", label: "Average ROI", sub: "within 12 months" },
+                { value: 48, suffix: " hr", label: "Rapid Delivery", sub: "for core automation" },
+                { value: 99, suffix: "%", label: "Uptime Guaranteed", sub: "for all custom builds" },
               ].map((stat, idx) => (
                 <div
                   key={idx}
@@ -319,12 +338,12 @@ export default function Index() {
         {/* What We Do */}
         <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">What we deliver</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Our Core Solutions</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-              6 Ways We Add <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue</span> To Your Business
+              Turn Your Website Into A <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Profit Center</span>
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Every service is built around one goal: measurable, provable ROI for you.
+              We specialize in the high-ticket industries where digital specialization is the key to market domination.
             </p>
           </div>
 
@@ -355,13 +374,13 @@ export default function Index() {
                 className="cta-primary cta-contrast group shadow-lg"
                 onClick={() => trackButtonClick('Get My Growth Plan', 'services_mid_cta')}
               >
-                Get My Custom Growth Plan
+                Start My Growth Assessment
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/services">
               <Button size="lg" variant="ghost" className="text-slate-300 hover:text-white hover:bg-slate-700/50 group">
-                See full services
+                Review My Audit Options
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -370,15 +389,41 @@ export default function Index() {
 
 
 
+        {/* Tech Stack Marquee */}
+        <section className="py-12 border-y border-slate-800/50 bg-slate-900/20 overflow-hidden">
+          <div className="flex flex-col items-center gap-8">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Industry-Leading Integration Stack</span>
+            <div className="flex gap-12 animate-marquee whitespace-nowrap">
+              {[
+                "n8n Expert Agency", "React Specialist", "Node.js Excellence", "TypeScript Architecture", "Vector Search SEO",
+                "Conversion Optimization", "Dental Booking APIs", "Real Estate IDX Sync", "Stripe Subscription Logic"
+              ].map((tech, idx) => (
+                <div key={idx} className="text-xl sm:text-2xl font-black text-slate-700 hover:text-blue-400 transition-colors cursor-default">
+                  {tech}
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {[
+                "n8n Expert Agency", "React Specialist", "Node.js Excellence", "TypeScript Architecture", "Vector Search SEO",
+                "Conversion Optimization", "Dental Booking APIs", "Real Estate IDX Sync", "Stripe Subscription Logic"
+              ].map((tech, idx) => (
+                <div key={`dup-${idx}`} className="text-xl sm:text-2xl font-black text-slate-700 hover:text-blue-400 transition-colors cursor-default">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Featured Projects */}
         <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Proof of work</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Vertical Specialization</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-              Real Projects. <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Real Results.</span>
+              Results For <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Niche Dominance.</span>
             </h2>
             <p className="text-lg text-slate-400 max-w-xl mx-auto">
-              Every project is measured by the revenue it drives — not just how it looks.
+              We specialize in your industry, meaning we don't guess — we know exactly what works for your business.
             </p>
           </div>
 
@@ -395,7 +440,7 @@ export default function Index() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10"></div>
                   <img
                     src={project.image}
-                    alt={`${project.name} - ${project.category}`}
+                    alt={`${project.name} - ${project.category} Portfolio`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
@@ -413,7 +458,7 @@ export default function Index() {
                   <h3 className="font-bold text-base text-white mb-1">{project.name}</h3>
                   <p className="text-slate-400 text-sm flex-1">{project.outcome}</p>
                   <div className="flex items-center gap-1.5 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2.5 transition-all">
-                    View case study <ArrowRight className="w-4 h-4" />
+                    View performance data <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </Link>
@@ -423,17 +468,131 @@ export default function Index() {
           <div className="text-center">
             <Link to="/projects">
               <Button size="lg" className="border border-blue-500/40 text-white bg-transparent hover:bg-blue-500/10 hover:border-blue-400 rounded-xl font-semibold transition-all duration-300 group">
-                View All Projects
+                View Specialized Portfolio
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        {/* Recent Insights Section */}
+        <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-t border-slate-800/50">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Industrial Insights</span>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4">
+                Dominate Your <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Digital Market</span>
+              </h2>
+              <p className="text-lg text-slate-400">
+                Data-driven strategies to outrank competitors and capture market share in Healthcare, Design, and Lead-Gen niches.
+              </p>
+            </div>
+            <Link to="/blog">
+              <Button variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/5 group">
+                Explore knowledge base
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Dental Practice Growth: Why Clinics Lose Patients to Competitors Online",
+                excerpt: "Patient behavior has changed. We reveal the 3 conversion traps dental websites fall into and how the #1 ranking firms avoid them.",
+                date: "March 6, 2026",
+                slug: "dental-clinic-losing-patients-website-audit",
+                category: "Healthcare SEO",
+                image: "/interior-design.png"
+              },
+              {
+                title: "5 Luxury Features Every Interior Design Portfolio Needs in 2026",
+                excerpt: "High-net-worth clients expect visual excellence. Learn how to optimize your portfolio for luxury search intent and visual discovery.",
+                date: "March 5, 2026",
+                slug: "luxury-interior-design-portfolio-features",
+                category: "Luxury Design",
+                image: "/performance.png"
+              },
+              {
+                title: "Automating The Real Estate Lifecycle: From Cold Lead to Closed Deal",
+                excerpt: "The exact n8n workflows top real estate brokers use to manage listings and qualification on autopilot.",
+                date: "March 4, 2026",
+                slug: "automate-lead-generation-n8n-guide",
+                category: "Real Estate Tech",
+                image: "/real-estate.png"
+              }
+            ].map((post, idx) => (
+              <Link key={idx} to={`/blog/${post.slug}`} className="group flex flex-col bg-slate-800/30 border border-slate-700/50 rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 hover:bg-slate-800/60 h-full">
+                {/* Blog Card Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={`${post.title} - Search Intent Article`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <span className="px-2 py-0.5 bg-blue-500/20 backdrop-blur-md text-blue-400 text-xs font-bold rounded-full border border-blue-500/30">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {post.date}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">{post.title}</h3>
+                  <p className="text-sm text-slate-400 line-clamp-3 mb-6 flex-1">{post.excerpt}</p>
+                  <div className="flex items-center gap-1.5 text-blue-400 text-sm font-semibold group-hover:gap-2.5 transition-all">
+                    Master this strategy <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonials */}
         <Suspense fallback={<LazyLoadFallback />}>
           <Testimonials />
         </Suspense>
+
+        {/* FAQ Section */}
+        <section className="py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Answers</span>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4">Common Questions</h2>
+            <p className="text-slate-400">Everything you need to know about working with us.</p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: "How long does a typical project take?",
+                a: "A standard high-converting landing page or direct n8n automation takes 1-2 weeks. More complex SaaS platforms typically range from 4-8 weeks."
+              },
+              {
+                q: "Do you offer post-launch support?",
+                a: "Yes, all our projects include 30 days of free technical support and a dedicated 'Grow' maintenance package for long-term updates."
+              },
+              {
+                q: "Can you automate my existing business apps?",
+                a: "Absolutely. We specialize in connecting over 400+ apps (Gmail, Slack, CRM, Shopify, etc.) via n8n and custom API integrations."
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className="bg-slate-800/20 border border-slate-700/30 rounded-2xl p-6 sm:p-8 hover:border-blue-500/30 transition-all">
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                  <span className="text-blue-500">Q.</span> {faq.q}
+                </h3>
+                <p className="text-slate-400 leading-relaxed pl-8 border-l border-slate-700">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Final CTA */}
         <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12">

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, X, Mail, ArrowRight, MessageCircle } from "lucide-react";
+import { Menu, X, Mail, ArrowRight, MessageCircle, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import PromoFlyer from "@/components/PromoFlyer";
@@ -227,26 +227,42 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
-                    to="/services"
+                    to="/services/n8n-automation"
+                    className="text-blue-400 font-medium hover:text-white transition-colors flex items-center gap-1.5"
+                  >
+                    n8n Automation <Zap size={12} className="fill-blue-400" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services/real-estate-web-development"
                     className="text-slate-400 hover:text-white transition-colors"
                   >
-                    Web Development
+                    Real Estate Websites
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services/interior-design-web-development"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    Interior Design Portfolios
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services/dental-clinic-web-development"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    Medical/Dental Sites
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/services"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-slate-400 hover:text-white transition-colors outline-none"
                   >
-                    Software Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services"
-                    className="text-slate-400 hover:text-white transition-colors"
-                  >
-                    API & Integrations
+                    SaaS Development
                   </Link>
                 </li>
               </ul>

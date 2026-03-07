@@ -288,17 +288,60 @@ export default function Projects() {
       outcome: "Reduced manual tasks by 60%, saving 25 hours weekly (equivalent to $1.4K monthly). Team productivity increased, project velocity up 40%, and now managing 300+ projects effortlessly.",
       image: "/jira-automation.webp",
     },
+    {
+      id: 14,
+      name: "LuxeInteriors Portfolio System",
+      description: "Ultra-premium portfolio and lead qualification system for high-end interior designers.",
+      problem: "High-end interior designer losing $10k+ leads due to slow image loading and poor mobile portfolio experience.",
+      solution: "Developed an image-optimized (Next.js Image) luxury portfolio with automated budget and project type qualifying filters.",
+      investment: "$3,200",
+      results: {
+        roi: "9x",
+        breakEven: "2.5 months",
+        revenue: "$28k new project bookings",
+        conversions: "+40% lead quality"
+      },
+      category: "Interior Design",
+      stack: ["Next.js", "Cloudinary", "Framer Motion", "Qualifying Forms"],
+      outcome: "Image load speed improved by 80%. Automated filters saved 10+ hours/month by removing low-budget inquiries, leading to $28k in new high-end project bookings.",
+      image: "/interior-design.png",
+    },
+    {
+      id: 15,
+      name: "BrightSmile Dental Growth Engine",
+      description: "Patient acquisition and automated booking system for a local dental practice.",
+      problem: "Practice spent $2k/month on ads but converted poorly due to lack of online booking and poor Local SEO.",
+      solution: "Implemented a HIPAA-compliant booking engine, optimized Local SEO schema, and created high-intent landing pages for surgery services.",
+      investment: "$4,500",
+      results: {
+        roi: "7x",
+        breakEven: "3 months",
+        revenue: "$32k increased annual revenue",
+        conversions: "+150% monthly appointments"
+      },
+      category: "Dental Clinic",
+      stack: ["React", "Local SEO Schema", "Booking API", "n8n Automation"],
+      outcome: "Achieved #1 ranking for 'Dentist in Mumbai' within 4 months. Online appointments increased by 150%, saving the receptionist 12 hours/week in manual calls.",
+      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000",
+    }
   ];
 
+  const categories = ["All", "CRM", "E-commerce", "3D/Immersive", "SaaS", "Real Estate", "Dental Clinic", "Interior Design"];
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProjects = activeCategory === "All"
+    ? projects
+    : projects.filter(p => (p.category === activeCategory) || (activeCategory === "CRM" && p.name.includes("CRM")));
+
   // Pagination calculations
-  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
   const endIndex = startIndex + PROJECTS_PER_PAGE;
-  const currentProjects = projects.slice(startIndex, endIndex);
+  const currentProjects = filteredProjects.slice(startIndex, endIndex);
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Portfolio & Case Studies | Deven Digital Labs"
         description="Real client projects: CRM systems, e-commerce platforms, automation solutions. 5-15x ROI results. See how we help businesses grow faster with technology."
         keywords="web development portfolio, automation case studies, CRM projects, e-commerce examples, client success stories, ROI results, business growth projects"
@@ -306,263 +349,285 @@ export default function Projects() {
         schema={schema}
       />
       <Layout>
-      {/* Hero */}
-      <section className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center space-y-6 opacity-0 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-          <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-6 py-3 rounded-full mb-4 border border-green-500/20">
-            <TrendingUp className="h-5 w-5" />
-            <span className="font-semibold">Real Results, Real ROI</span>
+        {/* Hero */}
+        <section className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Case Studies That Prove Business Impact
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
-            See how we help clients achieve 5-15x ROI, increase conversions by 40-60%, and generate millions in additional revenue.
-          </p>
-        </div>
-      </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 gap-12">
-          {currentProjects.map((project, idx) => (
-            <div
-              key={project.id}
-              ref={(el) => (projectRefs.current[idx] = el)}
-              data-index={idx}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-12 border-b border-slate-800/50 last:border-b-0 last:pb-0 ${
-                idx % 2 === 1 ? "md:flex-row-reverse" : ""
-              } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
-            >
-              {/* Image/Video */}
-              <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
-                {project.video ? (
-                  project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
-                    <iframe
-                      src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
-                      className="absolute inset-0 w-full h-full"
-                      allowFullScreen
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      style={{ border: 'none' }}
-                      title={project.name}
-                    />
+          <div className="max-w-4xl mx-auto text-center space-y-6 opacity-0 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+            <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-6 py-3 rounded-full mb-4 border border-green-500/20">
+              <TrendingUp className="h-5 w-5" />
+              <span className="font-semibold">Real Results, Real ROI</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Case Studies That Prove Business Impact
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+              See how we help clients achieve 5-15x ROI, increase conversions by 40-60%, and generate millions in additional revenue.
+            </p>
+          </div>
+        </section>
+
+        {/* Hero */}
+        {/* ... (Hero Content) */}
+
+        {/* Category Filter */}
+        <section className="px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto mb-10">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setCurrentPage(1);
+                }}
+                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
+                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+                    : "bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50"
+                  }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Grid */}
+        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 gap-12">
+            {currentProjects.map((project, idx) => (
+              <div
+                key={project.id}
+                ref={(el) => (projectRefs.current[idx] = el)}
+                data-index={idx}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-12 border-b border-slate-800/50 last:border-b-0 last:pb-0 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                  } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
+              >
+                {/* Image/Video */}
+                <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+                  {project.video ? (
+                    project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
+                      <iframe
+                        src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
+                        className="absolute inset-0 w-full h-full"
+                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        style={{ border: 'none' }}
+                        title={project.name}
+                      />
+                    ) : (
+                      <video
+                        src={project.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                        onLoadedMetadata={(e) => {
+                          const video = e.target as HTMLVideoElement;
+                          if (project.name === "Sony Earbuds 3D Experience") {
+                            video.playbackRate = 1.5;
+                          }
+                        }}
+                      />
+                    )
                   ) : (
-                    <video
-                      src={project.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                    <img
+                      src={project.image}
+                      alt={`${project.name} - ${project.description}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
-                      onLoadedMetadata={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        if (project.name === "Sony Earbuds 3D Experience") {
-                          video.playbackRate = 1.5;
-                        }
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/placeholder-project.jpg';
                       }}
                     />
-                  )
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={`${project.name} - ${project.description}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/placeholder-project.jpg';
-                    }}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.name}</h2>
-                  <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                 </div>
 
-                {/* ROI Metrics */}
-                {project.results && (
-                  <div className="grid grid-cols-2 gap-3">
-                    <Card className="p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/40 cursor-default">
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingUp className="h-4 w-4 text-green-400 transition-transform duration-300 hover:scale-110" />
-                        <span className="text-xs font-semibold text-green-400">ROI</span>
-                      </div>
-                      <div className="text-2xl font-bold text-green-400">{project.results.roi}</div>
-                    </Card>
-                    <Card className="p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/40 cursor-default">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Clock className="h-4 w-4 text-blue-400 transition-transform duration-300 hover:scale-110" />
-                        <span className="text-xs font-semibold text-blue-400">Break-Even</span>
-                      </div>
-                      <div className="text-2xl font-bold text-blue-400">{project.results.breakEven}</div>
-                    </Card>
-                    <Card className="p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/40 cursor-default">
-                      <div className="flex items-center gap-2 mb-2">
-                        <DollarSign className="h-4 w-4 text-purple-400 transition-transform duration-300 hover:scale-110" />
-                        <span className="text-xs font-semibold text-purple-400">Revenue</span>
-                      </div>
-                      <div className="text-lg font-bold text-purple-400">{project.results.revenue}</div>
-                    </Card>
-                    <Card className="p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 hover:border-orange-500/40 cursor-default">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Target className="h-4 w-4 text-orange-400 transition-transform duration-300 hover:scale-110" />
-                        <span className="text-xs font-semibold text-orange-400">Impact</span>
-                      </div>
-                      <div className="text-sm font-bold text-orange-400">{project.results.conversions}</div>
-                    </Card>
-                  </div>
-                )}
-
-                {/* Investment */}
-                {project.investment && (
-                  <div className="inline-flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg border border-slate-700/50">
-                    <span className="text-sm text-slate-400">Investment:</span>
-                    <span className="text-lg font-bold text-white">{project.investment}</span>
-                  </div>
-                )}
-
-                <div className="space-y-4">
+                {/* Content */}
+                <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
                   <div>
-                    <h3 className="text-sm font-semibold text-red-400 mb-2">THE CHALLENGE</h3>
-                    <p className="text-slate-300">{project.problem}</p>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.name}</h2>
+                    <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
                   </div>
 
-                  <div>
-                    <h3 className="text-sm font-semibold text-cyan-400 mb-2">OUR SOLUTION</h3>
-                    <p className="text-slate-300">{project.solution}</p>
-                  </div>
+                  {/* ROI Metrics */}
+                  {project.results && (
+                    <div className="grid grid-cols-2 gap-3">
+                      <Card className="p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/40 cursor-default">
+                        <div className="flex items-center gap-2 mb-2">
+                          <TrendingUp className="h-4 w-4 text-green-400 transition-transform duration-300 hover:scale-110" />
+                          <span className="text-xs font-semibold text-green-400">ROI</span>
+                        </div>
+                        <div className="text-2xl font-bold text-green-400">{project.results.roi}</div>
+                      </Card>
+                      <Card className="p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/40 cursor-default">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Clock className="h-4 w-4 text-blue-400 transition-transform duration-300 hover:scale-110" />
+                          <span className="text-xs font-semibold text-blue-400">Break-Even</span>
+                        </div>
+                        <div className="text-2xl font-bold text-blue-400">{project.results.breakEven}</div>
+                      </Card>
+                      <Card className="p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/40 cursor-default">
+                        <div className="flex items-center gap-2 mb-2">
+                          <DollarSign className="h-4 w-4 text-purple-400 transition-transform duration-300 hover:scale-110" />
+                          <span className="text-xs font-semibold text-purple-400">Revenue</span>
+                        </div>
+                        <div className="text-lg font-bold text-purple-400">{project.results.revenue}</div>
+                      </Card>
+                      <Card className="p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 hover:border-orange-500/40 cursor-default">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Target className="h-4 w-4 text-orange-400 transition-transform duration-300 hover:scale-110" />
+                          <span className="text-xs font-semibold text-orange-400">Impact</span>
+                        </div>
+                        <div className="text-sm font-bold text-orange-400">{project.results.conversions}</div>
+                      </Card>
+                    </div>
+                  )}
 
-                  <div>
-                    <h3 className="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 hover:border-blue-500/50 hover:bg-slate-700/70 hover:text-white hover:scale-110 transition-all duration-300 cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Investment */}
+                  {project.investment && (
+                    <div className="inline-flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg border border-slate-700/50">
+                      <span className="text-sm text-slate-400">Investment:</span>
+                      <span className="text-lg font-bold text-white">{project.investment}</span>
+                    </div>
+                  )}
+
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-sm font-semibold text-red-400 mb-2">THE CHALLENGE</h3>
+                      <p className="text-slate-300">{project.problem}</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-cyan-400 mb-2">OUR SOLUTION</h3>
+                      <p className="text-slate-300">{project.solution}</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 hover:border-blue-500/50 hover:bg-slate-700/70 hover:text-white hover:scale-110 transition-all duration-300 cursor-default"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4 transition-all duration-500 hover:from-green-500/20 hover:to-emerald-500/20 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/20">
+                      <h3 className="text-sm font-semibold text-green-400 mb-2">BUSINESS OUTCOME</h3>
+                      <p className="text-slate-300 font-medium">{project.outcome}</p>
                     </div>
                   </div>
-
-                  <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4 transition-all duration-500 hover:from-green-500/20 hover:to-emerald-500/20 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/20">
-                    <h3 className="text-sm font-semibold text-green-400 mb-2">BUSINESS OUTCOME</h3>
-                    <p className="text-slate-300 font-medium">{project.outcome}</p>
-                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Pagination Controls */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
-          <Button
-            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            variant="outline"
-            size="lg"
-            className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
-          >
-            <ChevronLeft className="mr-2 h-5 w-5" />
-            Previous
-          </Button>
-
-          <div className="flex items-center gap-3">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <Button
-                key={page}
-                onClick={() => setCurrentPage(page)}
-                variant={currentPage === page ? "default" : "outline"}
-                size="lg"
-                className={`rounded-xl font-semibold px-5 py-3 transition-all duration-300 ${
-                  currentPage === page
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/25"
-                    : "border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 backdrop-blur-sm"
-                }`}
-              >
-                {page}
-              </Button>
             ))}
           </div>
 
-          <Button
-            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-            variant="outline"
-            size="lg"
-            className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
-          >
-            Next
-            <ChevronRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
+          {/* Pagination Controls */}
+          <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              variant="outline"
+              size="lg"
+              className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+            >
+              <ChevronLeft className="mr-2 h-5 w-5" />
+              Previous
+            </Button>
 
-        {/* Page Info */}
-        <div className="mt-6 text-center">
-          <p className="text-slate-400 text-sm">
-            Showing <span className="text-white font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-white font-semibold">{projects.length}</span> projects
-          </p>
-        </div>
-      </section>
+            <div className="flex items-center gap-3">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  variant={currentPage === page ? "default" : "outline"}
+                  size="lg"
+                  className={`rounded-xl font-semibold px-5 py-3 transition-all duration-300 ${currentPage === page
+                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/25"
+                    : "border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 backdrop-blur-sm"
+                    }`}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 max-w-6xl mx-auto">
-        <Card className="relative p-6 sm:p-10 md:p-14 lg:p-16 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover-lift overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/30 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-          {/* Animated background elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-          
-          <div className="relative z-10 text-center">
-            <div className="inline-flex items-center gap-3 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full mb-8 border border-blue-500/20">
-              <TrendingUp className="h-5 w-5" />
-              <span className="font-semibold">Proven Results</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
-              Ready to Achieve Similar Results?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
-              Join our clients who achieved <span className="text-blue-400 font-bold">5-15x ROI</span> and <span className="text-cyan-400 font-bold">millions in revenue growth</span>. 
-              Let's create your success story.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link to="/contact">
-                <Button size="lg" className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 px-8 py-6 text-lg">
-                  Get Your Free Growth + Automation Audit
-                  <ArrowRight size={20} />
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button size="lg" variant="outline" className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-8 py-6 text-lg backdrop-blur-sm hover-lift">
-                  View Our Services
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="mt-12 pt-8 border-t border-slate-700/50">
-              <p className="text-slate-400 text-sm">
-                <span className="text-white font-semibold">Average results:</span> 3-4 month break-even • 5x first-year ROI • 95% client satisfaction
-              </p>
-            </div>
+            <Button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              variant="outline"
+              size="lg"
+              className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+            >
+              Next
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
-        </Card>
-      </section>
-    </Layout>
+
+          {/* Page Info */}
+          <div className="mt-6 text-center">
+            <p className="text-slate-400 text-sm">
+              Showing <span className="text-white font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-white font-semibold">{projects.length}</span> projects
+            </p>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 max-w-6xl mx-auto">
+          <Card className="relative p-6 sm:p-10 md:p-14 lg:p-16 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover-lift overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/30 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+            {/* Animated background elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 text-center">
+              <div className="inline-flex items-center gap-3 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full mb-8 border border-blue-500/20">
+                <TrendingUp className="h-5 w-5" />
+                <span className="font-semibold">Proven Results</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+                Ready to Achieve Similar Results?
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+                Join our clients who achieved <span className="text-blue-400 font-bold">5-15x ROI</span> and <span className="text-cyan-400 font-bold">millions in revenue growth</span>.
+                Let's create your success story.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Link to="/contact">
+                  <Button size="lg" className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 px-8 py-6 text-lg">
+                    Get Your Free Growth + Automation Audit
+                    <ArrowRight size={20} />
+                  </Button>
+                </Link>
+                <Link to="/services">
+                  <Button size="lg" variant="outline" className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-8 py-6 text-lg backdrop-blur-sm hover-lift">
+                    View Our Services
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-slate-700/50">
+                <p className="text-slate-400 text-sm">
+                  <span className="text-white font-semibold">Average results:</span> 3-4 month break-even • 5x first-year ROI • 95% client satisfaction
+                </p>
+              </div>
+            </div>
+          </Card>
+        </section>
+      </Layout>
     </>
   );
 }

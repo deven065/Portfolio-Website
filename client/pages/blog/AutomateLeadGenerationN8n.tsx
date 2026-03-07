@@ -32,7 +32,7 @@ export default function AutomateLeadGenerationN8n() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Automate Lead Generation with n8n | Complete Guide"
         description="Learn how to automate lead generation with n8n. Connect forms, CRMs, and email tools to capture, enrich, score, and nurture leads automatically. Step-by-step workflows included."
         keywords="n8n automation, lead generation automation, n8n workflows, automate lead capture, CRM automation, lead scoring, email automation, business automation"
@@ -85,12 +85,14 @@ export default function AutomateLeadGenerationN8n() {
             </div>
           </header>
 
-          {/* Featured Image Placeholder */}
-          <div className="mb-12 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-500/20 aspect-video flex items-center justify-center border border-slate-700/50">
-            <div className="text-center">
-              <p className="text-slate-400 text-lg font-medium">N8n Workflow Automation</p>
-              <p className="text-slate-500 text-sm mt-2">Featured Image</p>
-            </div>
+          {/* Featured Image */}
+          <div className="mb-12 rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl relative aspect-video group">
+            <img
+              src="/automation-guide.png"
+              alt="n8n Business Automation Workflows"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
           </div>
 
           {/* Article Content */}
@@ -100,7 +102,7 @@ export default function AutomateLeadGenerationN8n() {
             </div>
 
             <h2 className="text-3xl font-bold mb-4 mt-12">What n8n Is (And Why It's Great for Lead Gen)</h2>
-            
+
             <p className="text-slate-300 leading-relaxed mb-6">
               n8n is an open‑source automation platform that lets you connect 400+ apps (CRMs, forms, email tools, databases, AI, etc.) using visual workflows instead of code. You can host it yourself or use n8n Cloud, and build complex multi‑step automations with branching, loops, and error handling.
             </p>
@@ -132,13 +134,13 @@ export default function AutomateLeadGenerationN8n() {
             </p>
 
             <h2 className="text-3xl font-bold mb-6 mt-12">How to Automate Lead Generation with n8n</h2>
-            
+
             <p className="text-slate-300 leading-relaxed mb-8">
               n8n let's you connect your forms, CRM, email tools, and spreadsheets so new leads flow into one system automatically. You design visual workflows instead of writing code, which makes it ideal for solo founders and small teams.
             </p>
 
             <h3 className="text-2xl font-bold mb-4 mt-10">1. Capture Leads into Your CRM</h3>
-            
+
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 mb-8">
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
@@ -161,7 +163,7 @@ export default function AutomateLeadGenerationN8n() {
             </div>
 
             <h3 className="text-2xl font-bold mb-4 mt-10">2. Enrich and Score Leads</h3>
-            
+
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 mb-8">
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
@@ -184,7 +186,7 @@ export default function AutomateLeadGenerationN8n() {
             </div>
 
             <h3 className="text-2xl font-bold mb-4 mt-10">3. Build Outbound Lead Lists</h3>
-            
+
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 mb-8">
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
@@ -203,7 +205,7 @@ export default function AutomateLeadGenerationN8n() {
             </div>
 
             <h3 className="text-2xl font-bold mb-4 mt-10">4. Automate Personalized Outreach</h3>
-            
+
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 mb-8">
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
@@ -222,7 +224,7 @@ export default function AutomateLeadGenerationN8n() {
             </div>
 
             <h3 className="text-2xl font-bold mb-4 mt-10">5. Follow‑Ups and Reporting</h3>
-            
+
             <div className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 mb-8">
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
