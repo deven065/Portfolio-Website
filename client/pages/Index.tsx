@@ -139,11 +139,13 @@ export default function Index() {
 
         {/* Hero Section */}
         <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+            {/* Reduced blob complexity for mobile performance */}
+            <div className="absolute top-0 right-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl hidden sm:block sm:animate-pulse" style={{ animationDuration: '4s' }}></div>
+            <div className="absolute bottom-0 left-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cyan-500/10 rounded-full blur-3xl hidden sm:block sm:animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full sm:w-[800px] sm:h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
           </div>
+
 
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
@@ -232,10 +234,11 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Right Side - Featured Work Preview */}
-              <div className="relative animate-fade-up" style={{ animationDelay: "200ms" }}>
+              {/* Right Side - Featured Work Preview - Optional on small mobile for LCP */}
+              <div className="relative animate-fade-up hidden md:block" style={{ animationDelay: "200ms" }}>
                 <div className="absolute w-80 h-80 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 rounded-full blur-3xl -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 <div className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-2xl space-y-4">
+
                   {/* Header */}
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest">Growth Case Studies</span>
