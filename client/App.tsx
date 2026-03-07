@@ -11,9 +11,9 @@ import { initGTM, trackPageView as trackGTMPageView } from "@/lib/gtm";
 import { useVisitorTracking } from "@/hooks/useVisitorTracking";
 import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import Index from "./pages/Index";
 
-// Lazy load all pages for maximum performance (Code Splitting)
-const Index = lazy(() => import("./pages/Index"));
+// Lazy load other non-critical pages to keep initial bundle small
 const Services = lazy(() => import("./pages/Services"));
 const Projects = lazy(() => import("./pages/Projects"));
 const About = lazy(() => import("./pages/About"));

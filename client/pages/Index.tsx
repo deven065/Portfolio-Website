@@ -506,7 +506,7 @@ export default function Index() {
                 date: "March 6, 2026",
                 slug: "dental-clinic-losing-patients-website-audit",
                 category: "Healthcare SEO",
-                image: "/interior-design.png"
+                image: "/project-1.webp"
               },
               {
                 title: "5 Luxury Features Every Interior Design Portfolio Needs in 2026",
@@ -514,7 +514,7 @@ export default function Index() {
                 date: "March 5, 2026",
                 slug: "luxury-interior-design-portfolio-features",
                 category: "Luxury Design",
-                image: "/performance.png"
+                image: "/1st-image.webp"
               },
               {
                 title: "Automating The Real Estate Lifecycle: From Cold Lead to Closed Deal",
@@ -522,7 +522,7 @@ export default function Index() {
                 date: "March 4, 2026",
                 slug: "automate-lead-generation-n8n-guide",
                 category: "Real Estate Tech",
-                image: "/real-estate.png"
+                image: "/project-2.webp"
               }
             ].map((post, idx) => (
               <Link key={idx} to={`/blog/${post.slug}`} className="group flex flex-col bg-slate-800/30 border border-slate-700/50 rounded-2xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 hover:bg-slate-800/60 h-full">
