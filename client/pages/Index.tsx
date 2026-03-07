@@ -140,10 +140,10 @@ export default function Index() {
         {/* Hero Section */}
         <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
           <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-            {/* Reduced blob complexity for mobile performance */}
-            <div className="absolute top-0 right-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl hidden sm:block sm:animate-pulse" style={{ animationDuration: '4s' }}></div>
-            <div className="absolute bottom-0 left-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cyan-500/10 rounded-full blur-3xl hidden sm:block sm:animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full sm:w-[800px] sm:h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
+            {/* Hidden on mobile to avoid heavy paint cost in First Contentful Paint */}
+            <div className="absolute top-0 right-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl hidden lg:block lg:animate-pulse" style={{ animationDuration: '4s' }}></div>
+            <div className="absolute bottom-0 left-[-10%] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cyan-500/10 rounded-full blur-3xl hidden lg:block lg:animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full sm:w-[800px] sm:h-[800px] bg-purple-500/5 rounded-full blur-3xl hidden lg:block"></div>
           </div>
 
 
