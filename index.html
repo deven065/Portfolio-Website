@@ -4,13 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
 
-  <!-- Resource Hints for Performance -->
+  <!-- Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="/logo-white.png" as="image" type="image/png" fetchpriority="high" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Tag Manager (Non-blocking) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NBQ69TBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+  </script>
+
+  <!-- Google Analytics (Non-blocking) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-R66PK3QRLV');
+  </script>
 
   <!-- Primary Meta Tags -->
   <title>Deven Digital Labs - Professional Web Development Company | Full-Stack Development Services</title>
@@ -70,33 +86,13 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#0f172a" />
 
-  <!-- Optimized Third-Party Script Loading (Deferred) -->
+  <!-- Deferred AdSense (TBT reduction) -->
   <script>
     window.addEventListener('load', function () {
-      // GTM
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&l=' + l;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-NBQ69TBQ');
-
-      // AdSense
       var adScript = document.createElement('script');
       adScript.async = true; adScript.setAttribute('crossorigin', 'anonymous');
       adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4140125443944798';
       document.head.appendChild(adScript);
-
-      // GA
-      var gaScript = document.createElement('script');
-      gaScript.async = true; gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-R66PK3QRLV';
-      document.head.appendChild(gaScript);
-      gaScript.onload = function () {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-R66PK3QRLV');
-      };
     }, { once: true });
   </script>
 

@@ -107,21 +107,21 @@ export default function Index() {
       category: "Enterprise CRM Platform",
       outcome: "Streamlined client management with role-based access",
       color: "from-blue-500 to-cyan-500",
-      image: "/AccentLogin.png",
+      image: "/project-1.webp",
     },
     {
       name: "Premiums4U",
       category: "E-commerce Platform",
       outcome: "Gaming subscriptions with secure payment processing",
       color: "from-cyan-500 to-teal-500",
-      image: "/Premiums4U.png",
+      image: "/project-2.webp",
     },
     {
       name: "Only4Premiums",
       category: "Subscription Platform",
       outcome: "Premium tools with instant delivery system",
       color: "from-indigo-500 to-blue-500",
-      image: "/Only4Premiums.png",
+      image: "/1st-image.webp",
     },
   ];
 
