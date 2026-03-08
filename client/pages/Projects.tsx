@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { ArrowRight, TrendingUp, DollarSign, Clock, Target, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, TrendingUp, DollarSign, Clock, Target, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -23,6 +23,7 @@ interface Project {
   outcome: string;
   image: string;
   video?: string;
+  websiteUrl?: string;
 }
 
 export default function Projects() {
@@ -81,6 +82,7 @@ export default function Projects() {
       stack: ["Next.js", "TailwindCSS", "Cloudinary API", "Framer Motion", "Qualifying Forms"],
       outcome: "Image loading speed increased by 90%. Within the first 3 months, the firm secured 3 luxury villa projects worth $45k total, directly attributed to the new professional presence.",
       image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
+      websiteUrl: "https://al-sana-interior.vercel.app/"
     },
     {
       id: 17,
@@ -99,6 +101,7 @@ export default function Projects() {
       stack: ["React", "Three.js", "n8n Automation", "Cal.com Integration", "360 Viewer SDK"],
       outcome: "Automated 85% of early-stage client communications. The founder now only takes calls with pre-qualified leads, saving 20 hours per week while bookings increased by 150%.",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1000",
+      websiteUrl: "https://space-age-interiors.vercel.app/"
     },
     {
       id: 1,
@@ -490,7 +493,20 @@ export default function Projects() {
                   {/* Content */}
                   <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
                     <div>
-                      <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.name}</h2>
+                      <div className="flex items-center justify-between gap-4 mb-2">
+                        <h2 className="text-2xl sm:text-3xl font-bold">{project.name}</h2>
+                        {project.websiteUrl && (
+                          <a
+                            href={project.websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 border border-blue-500/20 rounded-full text-xs sm:text-sm font-semibold transition-all hover-lift shrink-0"
+                          >
+                            <span>Visit Site</span>
+                            <ExternalLink className="h-3.5 w-3.5" />
+                          </a>
+                        )}
+                      </div>
                       <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
                     </div>
 
