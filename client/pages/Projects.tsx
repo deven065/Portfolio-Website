@@ -23,7 +23,6 @@ interface Project {
   outcome: string;
   image: string;
   video?: string;
-  liveUrl?: string;
 }
 
 export default function Projects() {
@@ -82,7 +81,6 @@ export default function Projects() {
       stack: ["Next.js", "TailwindCSS", "Cloudinary API", "Framer Motion", "Qualifying Forms"],
       outcome: "Image loading speed increased by 90%. Within the first 3 months, the firm secured 3 luxury villa projects worth $45k total, directly attributed to the new professional presence.",
       image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
-      liveUrl: "https://al-sana-interior.vercel.app/",
     },
     {
       id: 17,
@@ -101,7 +99,6 @@ export default function Projects() {
       stack: ["React", "Three.js", "n8n Automation", "Cal.com Integration", "360 Viewer SDK"],
       outcome: "Automated 85% of early-stage client communications. The founder now only takes calls with pre-qualified leads, saving 20 hours per week while bookings increased by 150%.",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1000",
-      liveUrl: "https://space-age-interiors.vercel.app/",
     },
     {
       id: 1,
@@ -437,175 +434,136 @@ export default function Projects() {
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-12">
             {currentProjects.map((project, idx) => {
-              const isLive = !!project.liveUrl;
               return (
                 <div
                   key={project.id}
                   ref={(el) => (projectRefs.current[idx] = el)}
                   data-index={idx}
-                  className={`pb-20 border-b border-slate-800/50 last:border-b-0 last:pb-0 ${visibleProjects.has(idx) ? (isLive ? 'animate-fade-up' : (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right')) : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
+                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-12 border-b border-slate-800/50 last:border-b-0 last:pb-0 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                    } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
                 >
-                  <div className={`${isLive ? "flex flex-col gap-10" : "grid grid-cols-1 md:grid-cols-2 gap-10 items-center"} ${!isLive && idx % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
 
-                    {/* Header for Big Window projects */}
-                    {isLive && (
-                      <div className="space-y-3 sm:space-y-4 text-center md:text-left">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block mb-1 sm:mb-2 leading-tight">
-                          {project.name}
-                        </h2>
-                        <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-4xl mx-auto md:mx-0 leading-relaxed font-medium">
-                          {project.description}
-                        </p>
+                  {/* Image/Video */}
+                  <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+                    {project.video ? (
+                      project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
+                        <iframe
+                          src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
+                          className="absolute inset-0 w-full h-full"
+                          allowFullScreen
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          style={{ border: 'none' }}
+                          title={project.name}
+                        />
+                      ) : (
+                        <video
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                          onLoadedMetadata={(e) => {
+                            const video = e.target as HTMLVideoElement;
+                            if (project.name === "Sony Earbuds 3D Experience") {
+                              video.playbackRate = 1.5;
+                            }
+                          }}
+                        />
+                      )
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={`${project.name} - ${project.description}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/placeholder-project.jpg';
+                        }}
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent pointer-events-none"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.name}</h2>
+                      <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
+                    </div>
+
+                    {/* ROI Metrics */}
+                    {project.results && (
+                      <div className="grid grid-cols-2 gap-3">
+                        <Card className="p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/40 cursor-default">
+                          <div className="flex items-center gap-2 mb-2">
+                            <TrendingUp className="h-4 w-4 text-green-400 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-green-400">ROI</span>
+                          </div>
+                          <div className="text-2xl font-bold text-green-400">{project.results.roi}</div>
+                        </Card>
+                        <Card className="p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/40 cursor-default">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Clock className="h-4 w-4 text-blue-400 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-blue-400">Break-Even</span>
+                          </div>
+                          <div className="text-2xl font-bold text-blue-400">{project.results.breakEven}</div>
+                        </Card>
+                        <Card className="p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/40 cursor-default">
+                          <div className="flex items-center gap-2 mb-2">
+                            <DollarSign className="h-4 w-4 text-purple-400 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-purple-400">Revenue</span>
+                          </div>
+                          <div className="text-lg font-bold text-purple-400">{project.results.revenue}</div>
+                        </Card>
+                        <Card className="p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 hover:border-orange-500/40 cursor-default">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Target className="h-4 w-4 text-orange-400 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-orange-400">Impact</span>
+                          </div>
+                          <div className="text-sm font-bold text-orange-400">{project.results.conversions}</div>
+                        </Card>
                       </div>
                     )}
 
-                    {/* Preview Container */}
-                    <div className={`relative ${isLive ? "w-full h-[450px] sm:h-[600px] lg:h-[750px] xl:h-[850px]" : "aspect-video"} bg-slate-900 shadow-2xl rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden group/img transition-all duration-700 hover:shadow-blue-500/10 ${!isLive && idx % 2 === 1 ? "md:order-2" : ""}`}>
-                      {project.liveUrl ? (
-                        <div className="absolute inset-0 w-full h-full bg-slate-900 flex flex-col">
-                          {/* Browser Header Mockup */}
-                          <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-4 bg-slate-800/80 border-b border-white/5">
-                            <div className="flex gap-1.5 sm:gap-2">
-                              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400/50"></div>
-                              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-400/50"></div>
-                              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400/50"></div>
-                            </div>
-                            <div className="flex-1 max-w-xs sm:max-w-md mx-auto bg-slate-950/60 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-[8px] sm:text-xs text-slate-500 truncate text-center font-mono border border-white/5">
-                              {project.liveUrl}
-                            </div>
-                            <div className="text-[8px] sm:text-[10px] text-blue-400 font-black uppercase tracking-widest hidden xs:block">Interactive</div>
-                          </div>
-                          <iframe
-                            src={project.liveUrl}
-                            className="flex-1 w-full h-full border-none pointer-events-auto"
-                            title={project.name}
-                            loading="lazy"
-                          />
-                        </div>
-                      ) : project.video ? (
-                        project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
-                          <iframe
-                            src={project.video.includes('youtube.com') ? `${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}` : project.video}
-                            className="absolute inset-0 w-full h-full"
-                            allowFullScreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            style={{ border: 'none' }}
-                            title={project.name}
-                          />
-                        ) : (
-                          <video
-                            src={project.video}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
-                            onLoadedMetadata={(e) => {
-                              const video = e.target as HTMLVideoElement;
-                              if (project.name === "Sony Earbuds 3D Experience") {
-                                video.playbackRate = 1.5;
-                              }
-                            }}
-                          />
-                        )
-                      ) : (
-                        <img
-                          src={project.image}
-                          alt={`${project.name} - ${project.description}`}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = '/placeholder-project.jpg';
-                          }}
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-                    </div>
+                    {/* Investment */}
+                    {project.investment && (
+                      <div className="inline-flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg border border-slate-700/50">
+                        <span className="text-sm text-slate-400">Investment:</span>
+                        <span className="text-lg font-bold text-white">{project.investment}</span>
+                      </div>
+                    )}
 
-                    {/* Content Section */}
-                    <div className={`${isLive ? "grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10" : "space-y-6"} ${!isLive && idx % 2 === 1 ? "md:order-1" : ""}`}>
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-red-400 mb-2">THE CHALLENGE</h3>
+                        <p className="text-slate-300">{project.problem}</p>
+                      </div>
 
-                      {!isLive && (
-                        <div>
-                          <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.name}</h2>
-                          <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
-                        </div>
-                      )}
+                      <div>
+                        <h3 className="text-sm font-semibold text-cyan-400 mb-2">OUR SOLUTION</h3>
+                        <p className="text-slate-300">{project.solution}</p>
+                      </div>
 
-                      {/* ROI Metrics */}
-                      {project.results && (
-                        <div className={`${isLive ? "lg:col-span-4" : ""} grid grid-cols-2 gap-3`}>
-                          <Card className="p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/40 cursor-default">
-                            <div className="flex items-center gap-2 mb-2">
-                              <TrendingUp className="h-4 w-4 text-green-400 transition-transform duration-300 hover:scale-110" />
-                              <span className="text-xs font-semibold text-green-400">ROI</span>
-                            </div>
-                            <div className="text-2xl font-bold text-green-400">{project.results.roi}</div>
-                          </Card>
-                          <Card className="p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/40 cursor-default">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Clock className="h-4 w-4 text-blue-400 transition-transform duration-300 hover:scale-110" />
-                              <span className="text-xs font-semibold text-blue-400">Break-Even</span>
-                            </div>
-                            <div className="text-2xl font-bold text-blue-400">{project.results.breakEven}</div>
-                          </Card>
-                          <Card className="p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/40 cursor-default">
-                            <div className="flex items-center gap-2 mb-2">
-                              <DollarSign className="h-4 w-4 text-purple-400 transition-transform duration-300 hover:scale-110" />
-                              <span className="text-xs font-semibold text-purple-400">Revenue</span>
-                            </div>
-                            <div className="text-lg font-bold text-purple-400">{project.results.revenue}</div>
-                          </Card>
-                          <Card className="p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 hover:border-orange-500/40 cursor-default">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Target className="h-4 w-4 text-orange-400 transition-transform duration-300 hover:scale-110" />
-                              <span className="text-xs font-semibold text-orange-400">Impact</span>
-                            </div>
-                            <div className="text-sm font-bold text-orange-400">{project.results.conversions}</div>
-                          </Card>
-
-                          {project.investment && (
-                            <div className="col-span-2 mt-2 px-4 py-3 bg-slate-900/50 rounded-xl border border-slate-700/50 flex items-center justify-between">
-                              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Investment</span>
-                              <span className="text-lg font-bold text-white">{project.investment}</span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      <div className={`${isLive ? "lg:col-span-4" : ""} ml:order-1 space-y-6`}>
-                        <div className="p-6 bg-slate-900/40 rounded-2xl border border-red-500/10 hover:border-red-500/30 transition-colors">
-                          <h3 className="text-xs font-bold text-red-400 uppercase tracking-[0.2em] mb-3">The Challenge</h3>
-                          <p className="text-slate-300 text-sm leading-relaxed">{project.problem}</p>
-                        </div>
-
-                        <div className="p-6 bg-slate-900/40 rounded-2xl border border-cyan-500/10 hover:border-cyan-500/30 transition-colors">
-                          <h3 className="text-xs font-bold text-cyan-400 uppercase tracking-[0.2em] mb-3">Our Solution</h3>
-                          <p className="text-slate-300 text-sm leading-relaxed">{project.solution}</p>
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 hover:border-blue-500/50 hover:bg-slate-700/70 hover:text-white hover:scale-110 transition-all duration-300 cursor-default"
+                            >
+                              {tech}
+                            </span>
+                          ))}
                         </div>
                       </div>
 
-                      <div className={`${isLive ? "lg:col-span-4" : ""} ml:order-2 space-y-6`}>
-                        <div className="p-6 bg-slate-900/40 rounded-2xl border border-slate-700/50 hover:border-blue-500/30 transition-colors">
-                          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Tech Stack</h3>
-                          <div className="flex flex-wrap gap-2">
-                            {project.stack.map((tech) => (
-                              <span
-                                key={tech}
-                                className="px-3 py-1 bg-slate-800/50 border border-slate-700/30 rounded-lg text-[10px] font-bold text-slate-400 hover:border-blue-500/50 hover:text-white transition-all"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl shadow-xl shadow-green-900/5">
-                          <h3 className="text-xs font-bold text-green-400 uppercase tracking-[0.2em] mb-3">Business Outcome</h3>
-                          <p className="text-slate-200 text-sm font-semibold leading-relaxed italic">"{project.outcome}"</p>
-                        </div>
+                      <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4 transition-all duration-500 hover:from-green-500/20 hover:to-emerald-500/20 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/20">
+                        <h3 className="text-sm font-semibold text-green-400 mb-2">BUSINESS OUTCOME</h3>
+                        <p className="text-slate-300 font-medium">{project.outcome}</p>
                       </div>
                     </div>
                   </div>
@@ -708,7 +666,7 @@ export default function Projects() {
             </div>
           </Card>
         </section>
-      </Layout>
+      </Layout >
     </>
   );
 }
