@@ -120,6 +120,7 @@ export default function Projects() {
       outcome: "Streamlined operations with 75% improvement in inventory accuracy, 80% reduction in stock discrepancies, and automated workflows saving 25+ hours weekly. Multi-role access enabled efficient delegation across admin, manager, and staff levels.",
       image: "/stock-crm.png",
       video: "https://www.youtube.com/embed/jfRB9nfZWD8",
+      websiteUrl: "https://youtu.be/jfRB9nfZWD8"
     },
     {
       id: 2,
