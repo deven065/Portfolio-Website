@@ -252,23 +252,7 @@
   }
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 @layer components {
-  .animate-marquee {
-    display: flex;
-    animation: marquee 30s linear infinite;
-  }
-  .animate-marquee:hover {
-    animation-play-state: paused;
-  }
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
