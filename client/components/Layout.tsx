@@ -54,14 +54,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex flex-col">
+    <div className="min-h-screen bg-white text-[#0F172A] flex flex-col">
       {/* Promotional Flyer */}
       <PromoFlyer />
 
       {/* Header */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
-          ? "glass-strong border-b border-slate-800/50"
+          ? "glass-strong border-b border-[#E2E8F0]"
           : "bg-transparent"
           }`}
         role="banner"
@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" aria-label="Deven Digital Labs Home">
             <img
-              src="/logo-white.png"
+              src="/logo-black.png"
               alt="Deven Digital Labs - Full-Stack Web Development & Technology Consulting"
               className="h-8 w-8 transition-transform duration-300 group-hover:scale-105"
               width="32"
@@ -78,7 +78,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               loading="eager"
               decoding="async"
             />
-            <span className="text-white font-bold text-lg tracking-tight group-hover:gradient-text transition-all duration-300">
+            <span className="text-[#0F172A] font-bold text-lg tracking-tight group-hover:text-[#2563EB] transition-all duration-300">
               Deven Digital Labs
             </span>
           </Link>
@@ -90,12 +90,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.href}
                 to={link.href}
                 className={`text-sm font-semibold transition-all duration-300 relative group ${isActive(link.href)
-                  ? "text-blue-400"
-                  : "text-slate-300 hover:text-white"
+                  ? "text-[#2563EB]"
+                  : "text-[#64748B] hover:text-[#0F172A]"
                   }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#2563EB] transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}></span>
               </Link>
             ))}
@@ -104,7 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/contact">
-              <Button className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg shadow-blue-500/25">
+              <Button className="btn-premium bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-md shadow-blue-500/10">
                 Hire Us — Free Audit
               </Button>
             </Link>
@@ -112,7 +112,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 glass rounded-lg text-slate-300 hover:text-white transition-all hover-scale"
+            className="md:hidden p-2 glass rounded-lg text-[#64748B] hover:text-[#0F172A] transition-all hover-scale"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -121,21 +121,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-900/95 backdrop-blur-sm border-t border-slate-800/50 px-6 py-4 space-y-4 animate-in fade-in duration-200">
+          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-[#E2E8F0] px-6 py-4 space-y-4 animate-in fade-in duration-200">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={`block text-sm font-medium transition-colors duration-300 ${isActive(link.href)
-                  ? "text-blue-400"
-                  : "text-slate-300 hover:text-white"
+                  ? "text-[#2563EB]"
+                  : "text-[#64748B] hover:text-[#0F172A]"
                   }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/contact" className="block pt-2">
-              <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-lg">
+              <Button className="w-full bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-lg">
                 Hire Us — Free Audit
               </Button>
             </Link>
@@ -147,20 +147,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-grow" role="main">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/50 bg-slate-950/50 backdrop-blur-sm mt-20" role="contentinfo">
+      <footer className="border-t border-[#E2E8F0] bg-[#F8FAFC] mt-20" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
           {/* Executive Newsletter & Insights */}
-          <div className="mb-16 pb-16 border-b border-slate-800/40">
-            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-slate-900/40 border border-slate-800/60 rounded-2xl p-8 sm:p-10 backdrop-blur-sm">
+          <div className="mb-16 pb-16 border-b border-[#E2E8F0]">
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-white border border-[#E2E8F0] rounded-2xl p-8 sm:p-10 shadow-sm">
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-md text-xs font-medium tracking-wide mb-5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] rounded-md text-xs font-medium tracking-wide mb-5">
                   <Mail className="w-3.5 h-3.5" />
                   Executive Insights
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-100 mb-3">
+                <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#0F172A] mb-3">
                   The Architecture of Growth
                 </h3>
-                <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
+                <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
                   Join 2,000+ technology leaders receiving our monthly insights on scalable web architecture, automation, and engineering best practices.
                 </p>
               </div>
@@ -172,16 +172,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="bg-slate-950/50 border-slate-700/50 focus:border-slate-500 text-white h-12 rounded-lg transition-colors placeholder:text-slate-500"
+                    className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-[#2563EB] text-[#0F172A] h-12 rounded-lg transition-colors placeholder:text-[#64748B]"
                   />
                   <Button
                     type="submit"
-                    className="bg-white hover:bg-slate-100 text-slate-900 font-semibold h-12 rounded-lg transition-colors w-full"
+                    className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold h-12 rounded-lg transition-colors w-full"
                   >
                     Subscribe to Insights
                   </Button>
                 </form>
-                <p className="text-xs text-slate-500 mt-4 text-center md:text-left">
+                <p className="text-xs text-[#64748B] mt-4 text-center md:text-left">
                   Unsubscribe at any time. We respect your privacy.
                 </p>
               </div>
@@ -193,7 +193,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="col-span-1 md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/logo-white.png"
+                  src="/logo-black.png"
                   alt="Deven Digital Labs Logo"
                   className="h-8 w-8"
                   width="32"
@@ -201,21 +201,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="text-white font-semibold">Deven Digital Labs</span>
+                <span className="text-[#0F172A] font-semibold">Deven Digital Labs</span>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-[#64748B] text-sm leading-relaxed">
                 Helping businesses grow through scalable, reliable technology solutions.
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Company</h3>
+              <h3 className="text-[#0F172A] font-semibold mb-4">Company</h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
                     to="/about"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     About
                   </Link>
@@ -223,7 +223,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     to="/projects"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     Projects
                   </Link>
@@ -231,7 +231,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     Contact
                   </Link>
@@ -241,20 +241,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Services */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Services</h3>
+              <h3 className="text-[#0F172A] font-semibold mb-4">Services</h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
                     to="/services/n8n-automation"
-                    className="text-blue-400 font-medium hover:text-white transition-colors flex items-center gap-1.5"
+                    className="text-[#2563EB] font-medium hover:text-[#0F172A] transition-colors flex items-center gap-1.5"
                   >
-                    n8n Automation <Zap size={12} className="fill-blue-400" />
+                    n8n Automation <Zap size={12} className="fill-[#2563EB]" />
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/services/real-estate-web-development"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     Real Estate Websites
                   </Link>
@@ -262,7 +262,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     to="/services/interior-design-web-development"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     Interior Design Portfolios
                   </Link>
@@ -270,7 +270,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     to="/services/dental-clinic-web-development"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     Medical/Dental Sites
                   </Link>
@@ -278,7 +278,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     to="/services"
-                    className="text-slate-400 hover:text-white transition-colors outline-none"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors outline-none"
                   >
                     SaaS Development
                   </Link>
@@ -288,37 +288,37 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Contact */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Contact</h3>
+              <h3 className="text-[#0F172A] font-semibold mb-4">Contact</h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
                     href="mailto:hello@devendigitallabs.com"
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
                     hello@devendigitallabs.com
                   </a>
                 </li>
-                <li className="text-slate-400 leading-relaxed">
+                <li className="text-[#64748B] leading-relaxed">
                   Mon–Fri · 10am–7pm IST<br />
-                  <span className="text-slate-500 text-xs">Happy to work across time zones — async-friendly</span>
+                  <span className="text-[#64748B]/70 text-xs">Happy to work across time zones — async-friendly</span>
                 </li>
-                <li className="text-slate-400 text-xs leading-relaxed">
-                  <span className="text-slate-500">Payments via</span><br />
+                <li className="text-[#64748B] text-xs leading-relaxed">
+                  <span className="text-[#64748B]/70">Payments via</span><br />
                   Stripe · PayPal · Wise · Bank Transfer<br />
-                  <span className="text-slate-500">USD · GBP · EUR · INR</span>
+                  <span className="text-[#64748B]/70">USD · GBP · EUR · INR</span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-slate-800/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+          <div className="border-t border-[#E2E8F0] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#64748B]">
             <p>&copy; 2026 Deven Digital Labs. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">
+              <Link to="/privacy-policy" className="hover:text-[#0F172A] transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms-of-service" className="hover:text-white transition-colors">
+              <Link to="/terms-of-service" className="hover:text-[#0F172A] transition-colors">
                 Terms of Service
               </Link>
             </div>
@@ -337,10 +337,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8" />
 
         {/* Tooltip */}
-        <span className="absolute right-full mr-4 bg-slate-800 text-white text-sm font-medium py-2 px-4 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-700">
+        <span className="absolute right-full mr-4 bg-white text-[#0F172A] text-sm font-medium py-2 px-4 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#E2E8F0]">
           Chat with us
           {/* Tooltip triangle */}
-          <span className="absolute top-1/2 -right-1 -translate-y-1/2 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-slate-800"></span>
+          <span className="absolute top-1/2 -right-1 -translate-y-1/2 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-white"></span>
         </span>
       </a>
     </div>
