@@ -68,7 +68,7 @@ export default function SEO({
       "longitude": businessInfo.longitude
     } : undefined,
     "sameAs": [
-      "https://www.linkedin.com/in/deven-rikame"
+      "https://www.linkedin.com/in/dev55"
     ],
     "service": {
       "@type": "Service",

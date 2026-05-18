@@ -603,7 +603,7 @@ export default function Index() {
               
               <div className="flex flex-col sm:flex-row items-center gap-5">
                 <a 
-                  href="https://www.linkedin.com/in/deven-rikame" 
+                  href="https://www.linkedin.com/in/dev55" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white font-semibold rounded-lg shadow-sm transition-colors duration-200"
