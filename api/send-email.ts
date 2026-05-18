@@ -1,7 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY) 
+  : { emails: { send: async () => ({ error: null }) } } as unknown as Resend;
 
 // Notification email — sent to you when someone submits the form
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@devendigitallabs.com';

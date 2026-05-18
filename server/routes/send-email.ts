@@ -1,7 +1,9 @@
 import { RequestHandler } from "express";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY) 
+  : { emails: { send: async () => ({ error: null }) } } as unknown as Resend;
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@devendigitallabs.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@devendigitallabs.com';

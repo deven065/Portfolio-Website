@@ -63,41 +63,47 @@ export default function Index() {
   };
   const services = [
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Revenue-Driving Websites",
-      description: "Websites that convert 40% more visitors into customers and generate consistent sales",
-      impact: "40% Higher Conversions",
+      emoji: "⚡",
+      bgClass: "bg-amber-50/70",
+      title: "React & Next.js Development",
+      description: "Fast, SEO-optimized web apps built on the stack trusted by the world's top companies. Server-side rendering, edge caching, and clean code architecture.",
+      tags: ["React", "Next.js", "TypeScript", "Tailwind"]
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Customer Acquisition Systems",
-      description: "Capture 3x more qualified leads with automated booking and lead generation",
-      impact: "3x More Leads",
-    },
-    {
-      icon: <Rocket className="w-8 h-8" />,
+      emoji: "🤖",
+      bgClass: "bg-emerald-50/70",
       title: "Business Automation",
-      description: "Save 20+ hours per week by automating workflows and manual processes",
-      impact: "20+ Hours Saved Weekly",
+      description: "Eliminate manual, repetitive workflows. Connect your tools, automate your ops, and reclaim 20+ hours per week — with measurable ROI in weeks, not months.",
+      tags: ["n8n", "Zapier", "APIs", "CRM"]
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Always-On Sales Machine",
-      description: "Your website works 24/7 to generate revenue while you focus on growth",
-      impact: "24/7 Revenue Generation",
+      emoji: "🛒",
+      bgClass: "bg-orange-50/70",
+      title: "E-commerce Development",
+      description: "High-converting online stores built for performance. Shopify, WooCommerce, or fully custom — with optimized checkout flows and payment gateway integration.",
+      tags: ["Shopify", "WooCommerce", "Payments", "Analytics"]
     },
     {
-      icon: <Target className="w-8 h-8" />,
-      title: "Fast ROI Delivery",
-      description: "Most clients break even within 3-4 months and see 5x ROI in year one",
-      impact: "5x ROI Average",
+      emoji: "🚀",
+      bgClass: "bg-purple-50/70",
+      title: "SaaS & Web Applications",
+      description: "Launch your SaaS idea with user auth, dashboards, billing, and a scalable API backend. We've built production SaaS products from zero to paying customers.",
+      tags: ["Node.js", "PostgreSQL", "Stripe", "Auth"]
     },
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Competitive Advantage",
-      description: "Outperform competitors and capture market share with superior digital presence",
-      impact: "Beat Your Competition",
+      emoji: "🎨",
+      bgClass: "bg-rose-50/70",
+      title: "UI/UX Design",
+      description: "Conversion-focused design that guides users to action. Wireframes, prototypes, and design systems built in Figma before a single line of code is written.",
+      tags: ["Figma", "Prototyping", "UX Research", "Design Systems"]
     },
+    {
+      emoji: "📊",
+      bgClass: "bg-blue-50/70",
+      title: "SEO & Performance",
+      description: "Technical SEO, Core Web Vitals optimization, and performance audits that push you up the rankings and convert the traffic you're already getting.",
+      tags: ["Core Web Vitals", "Technical SEO", "Page Speed", "GA4"]
+    }
   ];
 
   const featuredProjects = [
@@ -318,54 +324,78 @@ export default function Index() {
 
 
         {/* What We Do */}
-        <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">What we deliver</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-              6 Ways We Add <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue</span> To Your Business
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Every service is built around one goal: measurable, provable ROI for you.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="relative glass hover:glass-strong rounded-2xl p-7 hover-lift transition-all duration-300 group animate-fade-up border border-slate-700/30 hover:border-blue-500/30"
-                style={{ animationDelay: `${idx * 50}ms` }}
-              >
-                <span className="absolute top-5 right-5 text-xs font-black text-slate-700 group-hover:text-slate-600 transition-colors tabular-nums">{String(idx + 1).padStart(2, '0')}</span>
-                <div className="text-blue-400 group-hover:text-cyan-400 transition-all mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="font-bold text-lg mb-2">{service.title}</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">{service.description}</p>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-xs font-bold">
-                  <Check className="w-3 h-3" />{service.impact}
-                </div>
+        <section className="bg-slate-50 py-20 sm:py-28 px-6 sm:px-8 lg:px-12 text-slate-900 border-y border-slate-200/50">
+          <div className="max-w-7xl mx-auto">
+            {/* Header Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-end mb-16">
+              <div>
+                <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200/60 rounded-full text-blue-600 text-xs font-bold uppercase tracking-wider mb-4">
+                  What We Do
+                </span>
+                <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.1]">
+                  End-to-end digital<br />services that <span className="text-blue-600 font-extrabold">convert</span>
+                </h2>
               </div>
-            ))}
-          </div>
+              <div className="lg:max-w-md lg:justify-self-end">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                  From MVP to enterprise — we handle design, development, and automation so you can focus on growth.
+                </p>
+              </div>
+            </div>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="cta-primary cta-contrast group shadow-lg"
-                onClick={() => trackButtonClick('Get My Growth Plan', 'services_mid_cta')}
-              >
-                Get My Custom Growth Plan
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/services">
-              <Button size="lg" variant="ghost" className="text-slate-300 hover:text-white hover:bg-slate-700/50 group">
-                See full services
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            {/* Grid Container */}
+            <div className="border border-slate-200 rounded-3xl bg-white shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-3">
+              {services.map((service, idx) => {
+                const borderClass = 
+                  idx === 5 ? "" : 
+                  idx === 0 || idx === 1 ? "border-b md:border-b md:border-r border-slate-200/60" :
+                  idx === 2 ? "border-b md:border-b border-slate-200/60" :
+                  idx === 3 || idx === 4 ? "border-b md:border-b-0 md:border-r border-slate-200/60" :
+                  "";
+                return (
+                  <div
+                    key={idx}
+                    className={`p-8 md:p-10 flex flex-col justify-between hover:bg-slate-50/30 transition-all duration-300 ${borderClass}`}
+                  >
+                    <div className="space-y-6">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${service.bgClass} shadow-sm`}>
+                        {service.emoji}
+                      </div>
+                      <div className="space-y-3">
+                        <h3 className="font-bold text-xl text-slate-900 tracking-tight">{service.title}</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">{service.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      {service.tags.map((tag, tIdx) => (
+                        <span key={tIdx} className="px-2.5 py-1 bg-slate-50 border border-slate-100/80 text-slate-600 text-xs font-semibold rounded-md">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link to="/contact">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-8 py-6 shadow-lg shadow-blue-500/20 group transition-all"
+                  onClick={() => trackButtonClick('Get My Growth Plan', 'services_mid_cta')}
+                >
+                  Get My Custom Growth Plan
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform ml-2" />
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button size="lg" variant="ghost" className="text-slate-600 hover:text-slate-900 hover:bg-slate-100 group rounded-xl px-6">
+                  See full services
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform ml-1.5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
 
