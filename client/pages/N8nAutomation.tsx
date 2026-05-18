@@ -92,43 +92,43 @@ export default function N8nAutomation() {
                 {/* Hero */}
                 <section className="relative pt-12 pb-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
                     <div className="absolute inset-0 -z-10">
-                        <div className="absolute top-0 right-0 w-full h-full bg-slate-950">
+                        <div className="absolute top-0 right-0 w-full h-full bg-[#F8FAFC]">
                             <img
                                 src="/n8n-hero.png"
                                 alt="n8n Automation Hero"
-                                className="w-full h-full object-cover opacity-20"
+                                className="w-full h-full object-cover opacity-[0.03]"
                             />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950"></div>
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC]/90 via-[#F8FAFC]/80 to-[#F8FAFC]"></div>
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl animate-pulse"></div>
+                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
                     </div>
 
                     <div className="max-w-4xl mx-auto text-center space-y-8">
-                        <div className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-bold animate-fade-in">
+                        <div className="inline-block px-4 py-1.5 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-full text-[#2563EB] text-sm font-bold animate-fade-in shadow-sm">
                             Official Lead Generation & Automation Partner ⚡
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1]">
-                            Automate Your Business with <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent">n8n Power</span>
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] text-[#0F172A]">
+                            Automate Your Business with <span className="text-[#2563EB]">n8n Power</span>
                         </h1>
-                        <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl text-[#64748B] max-w-2xl mx-auto leading-relaxed">
                             We build complex AI-powered workflows that save your team 20+ hours every single week. From lead capture to custom internal tools—we automate it all.
                         </p>
 
                         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link to="/contact">
-                                <Button size="cta" className="cta-primary cta-contrast group shadow-xl">
+                                <Button size="cta" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
                                     Get My Free Automation Audit
                                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <div className="flex items-center gap-6 text-sm text-slate-400">
+                            <div className="flex items-center gap-6 text-sm text-[#64748B]">
                                 <div className="flex items-center gap-1.5">
-                                    <Check className="w-4 h-4 text-green-400" />
+                                    <Check className="w-4 h-4 text-green-600" />
                                     No Code Logic
                                 </div>
                                 <div className="flex items-center gap-1.5">
-                                    <Check className="w-4 h-4 text-green-400" />
+                                    <Check className="w-4 h-4 text-green-600" />
                                     API-First
                                 </div>
                             </div>
@@ -139,38 +139,38 @@ export default function N8nAutomation() {
                 {/* Use Cases Grid */}
                 <section className="py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">What We Build with n8n</h2>
-                        <p className="text-slate-400 max-w-xl mx-auto italic">If it has an API, we can automate it.</p>
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#0F172A]">What We Build with n8n</h2>
+                        <p className="text-[#64748B] max-w-xl mx-auto italic">If it has an API, we can automate it.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {useCases.map((useCase, idx) => (
-                            <div key={idx} className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/60 transition-all group">
-                                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                            <div key={idx} className="bg-white border border-[#E2E8F0] shadow-sm rounded-2xl p-8 hover:shadow-md transition-all group">
+                                <div className="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#2563EB] mb-6 group-hover:scale-110 transition-transform">
                                     {useCase.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-3">{useCase.title}</h3>
-                                <p className="text-slate-400 leading-relaxed">{useCase.description}</p>
+                                <h3 className="text-2xl font-bold text-[#0F172A] mb-3">{useCase.title}</h3>
+                                <p className="text-[#64748B] leading-relaxed">{useCase.description}</p>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 {/* Process Section */}
-                <section className="py-20 px-6 sm:px-8 lg:px-12 border-y border-slate-800/50 bg-slate-900/20">
+                <section className="py-20 px-6 sm:px-8 lg:px-12 border-y border-[#E2E8F0] bg-[#F8FAFC]">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Ship Your Automations</h2>
-                            <p className="text-slate-400">From manual pain to automated profit in 14 days.</p>
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#0F172A]">How We Ship Your Automations</h2>
+                            <p className="text-[#64748B]">From manual pain to automated profit in 14 days.</p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                             {steps.map((step, idx) => (
-                                <div key={idx} className="relative">
-                                    <div className="text-5xl font-black text-slate-800 absolute -top-4 -left-2 z-0 opacity-50">{idx + 1}</div>
+                                <div key={idx} className="relative bg-white p-6 rounded-2xl border border-[#E2E8F0] shadow-sm">
+                                    <div className="text-5xl font-black text-[#E2E8F0] absolute -top-4 -left-2 z-0">{idx + 1}</div>
                                     <div className="relative z-10 pt-4">
-                                        <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                                        <p className="text-sm text-slate-400 leading-relaxed">{step.description}</p>
+                                        <h3 className="text-xl font-bold text-[#0F172A] mb-3">{step.title}</h3>
+                                        <p className="text-sm text-[#64748B] leading-relaxed">{step.description}</p>
                                     </div>
                                 </div>
                             ))}
@@ -182,12 +182,12 @@ export default function N8nAutomation() {
                 <section className="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-6">
-                            <h2 className="text-3xl sm:text-5xl font-black">
+                            <h2 className="text-3xl sm:text-5xl font-black text-[#0F172A]">
                                 Automation isn't just "cool"—<br />
-                                <span className="text-blue-400">It's Profitable.</span>
+                                <span className="text-[#2563EB]">It's Profitable.</span>
                             </h2>
-                            <p className="text-lg text-slate-300 leading-relaxed">
-                                Most businesses waste <span className="text-white font-bold">20-40% of their team's time</span> on repetitive data entry, copy-pasting, and checking for emails. By automating these with n8n, you:
+                            <p className="text-lg text-[#64748B] leading-relaxed">
+                                Most businesses waste <span className="text-[#0F172A] font-bold">20-40% of their team's time</span> on repetitive data entry, copy-pasting, and checking for emails. By automating these with n8n, you:
                             </p>
                             <ul className="space-y-4">
                                 {[
@@ -197,24 +197,24 @@ export default function N8nAutomation() {
                                     "Scale your business without hiring more staff"
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-center gap-3">
-                                        <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
-                                            <Check className="w-3 h-3 text-green-400" />
+                                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                                            <Check className="w-3 h-3 text-green-600" />
                                         </div>
-                                        <span className="text-slate-300">{item}</span>
+                                        <span className="text-[#0F172A]">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                        <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-3xl p-8 sm:p-12 relative overflow-hidden">
                             <div className="relative z-10 space-y-6">
-                                <div className="text-4xl font-black text-white">15+ hours/week</div>
-                                <p className="text-slate-400 uppercase tracking-widest text-sm font-bold">Average time saved per automation</p>
-                                <div className="h-px bg-slate-700/50"></div>
-                                <div className="text-4xl font-black text-blue-400">90 Day Break-Even</div>
-                                <p className="text-slate-400 uppercase tracking-widest text-sm font-bold">Typical ROI timeline for custom flows</p>
+                                <div className="text-4xl font-black text-[#0F172A]">15+ hours/week</div>
+                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Average time saved per automation</p>
+                                <div className="h-px bg-[#E2E8F0]"></div>
+                                <div className="text-4xl font-black text-[#2563EB]">90 Day Break-Even</div>
+                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Typical ROI timeline for custom flows</p>
                             </div>
                             <div className="absolute top-0 right-0 p-4">
-                                <Zap className="w-12 h-12 text-blue-500/20" />
+                                <Zap className="w-12 h-12 text-[#2563EB]/10" />
                             </div>
                         </div>
                     </div>
@@ -222,39 +222,39 @@ export default function N8nAutomation() {
 
                 {/* n8n vs Zapier */}
                 <section className="py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-                    <div className="bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 sm:p-12">
-                        <h2 className="text-3xl font-bold mb-8 text-center">Why n8n Over Zapier?</h2>
+                    <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-3xl p-8 sm:p-12">
+                        <h2 className="text-3xl font-bold mb-8 text-center text-[#0F172A]">Why n8n Over Zapier?</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-blue-400">Zapier / Make</h3>
+                                <h3 className="text-xl font-bold text-red-600">Zapier / Make</h3>
                                 <ul className="space-y-3">
-                                    <li className="flex items-start gap-3 text-slate-400">
+                                    <li className="flex items-start gap-3 text-[#64748B]">
                                         <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
                                         High monthly costs that scale with volume
                                     </li>
-                                    <li className="flex items-start gap-3 text-slate-400">
+                                    <li className="flex items-start gap-3 text-[#64748B]">
                                         <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
                                         Limited branching and complex logic
                                     </li>
-                                    <li className="flex items-start gap-3 text-slate-400">
+                                    <li className="flex items-start gap-3 text-[#64748B]">
                                         <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
                                         Data lives on their servers (security risk)
                                     </li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-green-400 underline underline-offset-4 decoration-2">n8n Power</h3>
+                                <h3 className="text-xl font-bold text-green-700 underline underline-offset-4 decoration-2">n8n Power</h3>
                                 <ul className="space-y-3">
-                                    <li className="flex items-start gap-3 text-slate-200">
-                                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                                    <li className="flex items-start gap-3 text-[#0F172A]">
+                                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                                         10x cheaper at high volumes
                                     </li>
-                                    <li className="flex items-start gap-3 text-slate-200">
-                                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                                    <li className="flex items-start gap-3 text-[#0F172A]">
+                                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                                         Infinite logic, loops, and custom JS nodes
                                     </li>
-                                    <li className="flex items-start gap-3 text-slate-200">
-                                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                                    <li className="flex items-start gap-3 text-[#0F172A]">
+                                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                                         Self-hostable for 100% data privacy
                                     </li>
                                 </ul>
@@ -265,18 +265,18 @@ export default function N8nAutomation() {
 
                 {/* Final CTA */}
                 <section className="py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-                    <div className="space-y-8">
-                        <h2 className="text-3xl sm:text-5xl font-black">Ready to reclaim your time?</h2>
-                        <p className="text-lg text-slate-300">
+                    <div className="space-y-8 bg-[#2563EB] rounded-3xl p-10 sm:p-16 shadow-lg">
+                        <h2 className="text-3xl sm:text-5xl font-black text-white">Ready to reclaim your time?</h2>
+                        <p className="text-lg text-white/90">
                             We'll audit your current manual tasks and show you exactly what can be automated—and how much it will save you.
                         </p>
                         <Link to="/contact">
-                            <Button size="cta" className="cta-primary cta-contrast group shadow-2xl scale-110">
+                            <Button size="cta" className="bg-white text-[#2563EB] hover:bg-gray-100 font-black px-10 py-6 rounded-xl transition-all shadow-md mt-6">
                                 Book My Free Automation Audit
-                                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-2 transition-transform" />
                             </Button>
                         </Link>
-                        <p className="text-sm text-slate-500">Only 2 audit slots remaining for this month.</p>
+                        <p className="text-sm text-white/70">Only 2 audit slots remaining for this month.</p>
                     </div>
                 </section>
             </Layout>

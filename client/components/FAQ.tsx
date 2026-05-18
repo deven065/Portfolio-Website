@@ -59,31 +59,31 @@ const faqs: FAQ[] = [
 
 export function FAQ() {
   return (
-    <div className="bg-slate-900 py-16 px-4">
+    <div className="bg-[#F8FAFC] py-16 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full mb-6 border border-blue-500/20">
+          <div className="inline-flex items-center gap-2 bg-[#2563EB]/10 text-[#2563EB] px-6 py-3 rounded-full mb-6 border border-[#2563EB]/20 shadow-sm">
             <HelpCircle className="h-5 w-5" />
             <span className="font-semibold">Got Questions?</span>
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-slate-300">
+          <p className="text-xl text-[#64748B]">
             Everything you need to know about working with us and the ROI you can expect
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <Card className="bg-slate-800/50 border-slate-700/50 p-6">
+        <Card className="bg-white border-[#E2E8F0] shadow-sm p-6">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-slate-700/50">
-                <AccordionTrigger className="text-left text-white hover:text-blue-400 transition-colors">
+              <AccordionItem key={index} value={`item-${index}`} className="border-[#E2E8F0]">
+                <AccordionTrigger className="text-left text-[#0F172A] hover:text-[#2563EB] transition-colors">
                   <span className="font-semibold">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-slate-300 text-base leading-relaxed">
+                <AccordionContent className="text-[#64748B] text-base leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -93,12 +93,12 @@ export function FAQ() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <p className="text-slate-300 text-lg mb-6">
+          <p className="text-[#64748B] text-lg mb-6">
             Still have questions? We're here to help.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-[#2563EB] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#2563EB]/90 transition-all shadow-md hover:shadow-lg"
           >
             Schedule a Free Consultation
           </Link>

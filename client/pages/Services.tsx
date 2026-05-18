@@ -128,16 +128,16 @@ export default function Services() {
         {/* Hero */}
         <section className="relative py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
           </div>
 
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F172A]">
                 Investment That Pays for Itself
               </h1>
-              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
                 Transparent pricing with clear ROI. Most clients see 5x return and break even within 3-4 months.
               </p>
             </div>
@@ -147,23 +147,23 @@ export default function Services() {
               <Link to="/contact" className="inline-block">
                 <Button
                   size="cta"
-                  className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+                  className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group"
                 >
                   Get Your Free Growth + Automation Audit
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <div className="mt-4 space-y-2">
-                <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                  <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                  <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                   <span>Performance analysis</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                  <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                  <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                   <span>Automation opportunities</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                  <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                  <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                   <span>Custom action plan</span>
                 </div>
               </div>
@@ -173,18 +173,18 @@ export default function Services() {
             <div className="flex items-center justify-center gap-4 pt-4">
               <button
                 onClick={() => setRegion("india")}
-                className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${region === "india"
-                    ? "bg-blue-500 text-white"
-                    : "bg-slate-800 text-slate-300 hover:text-white"
+                className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 border ${region === "india"
+                    ? "bg-[#2563EB] text-white border-[#2563EB]"
+                    : "bg-white text-[#64748B] border-[#E2E8F0] hover:bg-[#F8FAFC]"
                   }`}
               >
                 India (INR)
               </button>
               <button
                 onClick={() => setRegion("international")}
-                className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${region === "international"
-                    ? "bg-blue-500 text-white"
-                    : "bg-slate-800 text-slate-300 hover:text-white"
+                className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 border ${region === "international"
+                    ? "bg-[#2563EB] text-white border-[#2563EB]"
+                    : "bg-white text-[#64748B] border-[#E2E8F0] hover:bg-[#F8FAFC]"
                   }`}
               >
                 <Globe size={18} />
@@ -194,16 +194,14 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Hero Content Here ... */}
-
         {/* Niche Industry Solutions */}
-        <section className="py-12 bg-slate-900/40 border-y border-slate-800/50 overflow-hidden">
+        <section className="py-12 bg-[#F8FAFC] border-y border-[#E2E8F0] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-md">
-                <span className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 block">Industry Specialists</span>
-                <h2 className="text-2xl font-bold text-white mb-2">Tailored Niche Solutions</h2>
-                <p className="text-slate-400 text-sm italic underline decoration-blue-500/30 underline-offset-4">We've built specialized systems for your industry's unique pain points.</p>
+                <span className="text-[#2563EB] font-bold uppercase tracking-widest text-xs mb-2 block">Industry Specialists</span>
+                <h2 className="text-2xl font-bold text-[#0F172A] mb-2">Tailored Niche Solutions</h2>
+                <p className="text-[#64748B] text-sm italic underline decoration-[#2563EB]/30 underline-offset-4">We've built specialized systems for your industry's unique pain points.</p>
               </div>
               <div className="flex flex-wrap gap-4 justify-center md:justify-end">
                 {[
@@ -214,10 +212,10 @@ export default function Services() {
                   <Link
                     key={idx}
                     to={niche.path}
-                    className="px-6 py-4 bg-slate-800/40 border border-slate-700/50 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800 transition-all group flex flex-col items-center gap-2"
+                    className="px-6 py-4 bg-white border border-[#E2E8F0] shadow-sm rounded-2xl hover:border-[#2563EB]/50 hover:shadow-md transition-all group flex flex-col items-center gap-2"
                   >
                     <span className="text-2xl">{niche.icon}</span>
-                    <span className="text-sm font-bold text-slate-300 group-hover:text-blue-400">{niche.name}</span>
+                    <span className="text-sm font-bold text-[#64748B] group-hover:text-[#2563EB]">{niche.name}</span>
                   </Link>
                 ))}
               </div>
@@ -228,34 +226,34 @@ export default function Services() {
         {/* Web Development Services */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Revenue-Generating Websites</h2>
-            <p className="text-slate-300">Websites engineered to convert visitors into customers and drive measurable business growth.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">Revenue-Generating Websites</h2>
+            <p className="text-[#64748B]">Websites engineered to convert visitors into customers and drive measurable business growth.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {current.webDevelopment.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group"
+                className="bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:shadow-md hover:border-[#2563EB]/30 transition-all duration-300 group"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-[#0F172A] group-hover:text-[#2563EB] transition-colors">
                     {service.name}
                   </h3>
                 </div>
-                <p className="text-slate-400 mb-4">{service.description}</p>
+                <p className="text-[#64748B] mb-4">{service.description}</p>
                 <div className="space-y-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-slate-400">Investment:</span>
-                    <span className="text-2xl font-bold text-blue-400">
+                    <span className="text-sm text-[#64748B]">Investment:</span>
+                    <span className="text-2xl font-bold text-[#2563EB]">
                       {current.currency}{service.price}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                       {service.roi}
                     </span>
-                    <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                       Break-even: {service.breakeven}
                     </span>
                   </div>
@@ -268,34 +266,34 @@ export default function Services() {
         {/* Software Development Services */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Business Automation & Software</h2>
-            <p className="text-slate-300">Custom solutions that save time, eliminate errors, and scale your operations profitably.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">Business Automation & Software</h2>
+            <p className="text-[#64748B]">Custom solutions that save time, eliminate errors, and scale your operations profitably.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {current.software.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group"
+                className="bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:shadow-md hover:border-[#2563EB]/30 transition-all duration-300 group"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-[#0F172A] group-hover:text-[#2563EB] transition-colors">
                     {service.name}
                   </h3>
                 </div>
-                <p className="text-slate-400 mb-4">{service.description}</p>
+                <p className="text-[#64748B] mb-4">{service.description}</p>
                 <div className="space-y-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-slate-400">Investment:</span>
-                    <span className="text-2xl font-bold text-blue-400">
+                    <span className="text-sm text-[#64748B]">Investment:</span>
+                    <span className="text-2xl font-bold text-[#2563EB]">
                       {current.currency}{service.price}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                       {service.roi}
                     </span>
-                    <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                       Break-even: {service.breakeven}
                     </span>
                   </div>
@@ -308,35 +306,35 @@ export default function Services() {
         {/* Digital Marketing Services */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Digital Marketing Solutions</h2>
-            <p className="text-slate-300">Strategic marketing campaigns that drive traffic, generate leads, and boost revenue consistently.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">Digital Marketing Solutions</h2>
+            <p className="text-[#64748B]">Strategic marketing campaigns that drive traffic, generate leads, and boost revenue consistently.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {current.digitalMarketing.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group"
+                className="bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:shadow-md hover:border-[#2563EB]/30 transition-all duration-300 group"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-[#0F172A] group-hover:text-[#2563EB] transition-colors">
                     {service.name}
                   </h3>
                 </div>
-                <p className="text-slate-400 mb-4">{service.description}</p>
+                <p className="text-[#64748B] mb-4">{service.description}</p>
                 <div className="space-y-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-slate-400">Investment:</span>
-                    <span className="text-2xl font-bold text-blue-400">
+                    <span className="text-sm text-[#64748B]">Investment:</span>
+                    <span className="text-2xl font-bold text-[#2563EB]">
                       {current.currency}{service.price}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                       {service.roi}
                     </span>
                     {service.breakeven && (
-                      <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                      <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                         Break-even: {service.breakeven}
                       </span>
                     )}
@@ -350,27 +348,27 @@ export default function Services() {
         {/* Service Packages Comparison */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Choose Your Package</h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4">Choose Your Package</h2>
+            <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
               Flexible packages designed to meet your needs at every stage of growth.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Starter Package */}
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/80 transition-all duration-300">
+            <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-2xl p-8 hover:shadow-md transition-all duration-300">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Starter Growth</h3>
-                <p className="text-slate-400 mb-4">Perfect for new businesses ready to scale</p>
+                <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Starter Growth</h3>
+                <p className="text-[#64748B] mb-4">Perfect for new businesses ready to scale</p>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "50,000" : "1,500"}</span>
-                  <span className="text-slate-400">starting</span>
+                  <span className="text-4xl font-bold text-[#0F172A]">{current.currency}{region === "india" ? "50,000" : "1,500"}</span>
+                  <span className="text-[#64748B]">starting</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                     5-7x ROI
                   </span>
-                  <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                     2-3 month break-even
                   </span>
                 </div>
@@ -386,38 +384,38 @@ export default function Services() {
                   "1 month support & optimization",
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-300">{feature}</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#64748B]">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Link to="/contact">
-                <Button className="w-full border border-blue-500/50 bg-transparent hover:bg-blue-500/10">
+                <Button className="w-full border border-[#2563EB]/50 text-[#2563EB] bg-white hover:bg-[#F8FAFC]">
                   Get Started
                 </Button>
               </Link>
             </div>
 
             {/* Professional Package - Most Popular */}
-            <div className="bg-gradient-to-b from-blue-500/10 to-cyan-500/10 border-2 border-blue-500/50 rounded-2xl p-8 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                <Star className="w-4 h-4" />
+            <div className="bg-[#F8FAFC] border-2 border-[#2563EB] rounded-2xl p-8 relative shadow-lg">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#2563EB] text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                <Star className="w-4 h-4 text-yellow-300" />
                 Most Popular
               </div>
 
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Professional Revenue</h3>
-                <p className="text-slate-400 mb-4">For businesses serious about growth</p>
+                <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Professional Revenue</h3>
+                <p className="text-[#64748B] mb-4">For businesses serious about growth</p>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "1,50,000" : "5,000"}</span>
-                  <span className="text-slate-400">starting</span>
+                  <span className="text-4xl font-bold text-[#0F172A]">{current.currency}{region === "india" ? "1,50,000" : "5,000"}</span>
+                  <span className="text-[#64748B]">starting</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                     6-9x ROI
                   </span>
-                  <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                     3-4 month break-even
                   </span>
                 </div>
@@ -435,36 +433,36 @@ export default function Services() {
                   "3 months support & optimization",
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-300">{feature}</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#0F172A]">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Link to="/contact">
-                <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600">
+                <Button className="w-full bg-[#2563EB] hover:bg-[#2563EB]/90 text-white shadow-md">
                   Get Started
                 </Button>
               </Link>
             </div>
 
             {/* Enterprise Package */}
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/80 transition-all duration-300">
+            <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-2xl p-8 hover:shadow-md transition-all duration-300">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-2xl font-bold">Enterprise Scale</h3>
+                  <h3 className="text-2xl font-bold text-[#0F172A]">Enterprise Scale</h3>
                   <Sparkles className="w-5 h-5 text-yellow-500" />
                 </div>
-                <p className="text-slate-400 mb-4">Maximum revenue & automation</p>
+                <p className="text-[#64748B] mb-4">Maximum revenue & automation</p>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-4xl font-bold text-white">{current.currency}{region === "india" ? "2,50,000" : "10,000"}</span>
-                  <span className="text-slate-400">starting</span>
+                  <span className="text-4xl font-bold text-[#0F172A]">{current.currency}{region === "india" ? "2,50,000" : "10,000"}</span>
+                  <span className="text-[#64748B]">starting</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="inline-block px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
                     8-15x ROI
                   </span>
-                  <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-xs font-semibold">
+                  <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
                     4-6 month break-even
                   </span>
                 </div>
@@ -483,23 +481,23 @@ export default function Services() {
                   "Scalability consulting",
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-300">{feature}</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#64748B]">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Link to="/contact">
-                <Button className="w-full border border-blue-500/50 bg-transparent hover:bg-blue-500/10">
+                <Button className="w-full border border-[#2563EB]/50 text-[#2563EB] bg-white hover:bg-[#F8FAFC]">
                   Contact Sales
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="text-center mt-12 p-6 bg-blue-500/5 border border-blue-500/20 rounded-xl">
-            <p className="text-slate-300">
-              Need a custom solution? <Link to="/contact" className="text-blue-400 hover:text-blue-300 font-semibold">Contact us</Link> for a tailored proposal.
+          <div className="text-center mt-12 p-6 bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-xl">
+            <p className="text-[#0F172A]">
+              Need a custom solution? <Link to="/contact" className="text-[#2563EB] hover:text-[#2563EB]/80 font-semibold">Contact us</Link> for a tailored proposal.
             </p>
           </div>
         </section>
@@ -507,29 +505,29 @@ export default function Services() {
         {/* Other Services */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Additional Services</h2>
-            <p className="text-slate-300">Specialized services to enhance and optimize your digital products.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">Additional Services</h2>
+            <p className="text-[#64748B]">Specialized services to enhance and optimize your digital products.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {current.other.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 group"
+                className="bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:shadow-md hover:border-[#2563EB]/30 transition-all duration-300 group"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors mb-4">
+                <h3 className="text-lg font-semibold text-[#0F172A] group-hover:text-[#2563EB] transition-colors mb-4">
                   {service.name}
                 </h3>
-                <p className="text-slate-400 mb-4">{service.description}</p>
+                <p className="text-[#64748B] mb-4">{service.description}</p>
                 <div className="space-y-1">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-slate-400">Starting from</span>
-                    <span className="text-xl font-bold text-blue-400">
+                    <span className="text-sm text-[#64748B]">Starting from</span>
+                    <span className="text-xl font-bold text-[#2563EB]">
                       {current.currency}{service.price}
                     </span>
                   </div>
                   {!service.price.includes("month") && (
-                    <p className="text-xs text-slate-500 italic">Pricing based on scope</p>
+                    <p className="text-xs text-[#64748B] italic">Pricing based on scope</p>
                   )}
                 </div>
               </div>
@@ -539,27 +537,27 @@ export default function Services() {
 
         {/* Pricing Philosophy Section */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 md:p-12">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl font-bold mb-4">Our Success Guarantee</h2>
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Our Success Guarantee</h2>
+              <p className="text-[#64748B] text-lg leading-relaxed">
                 We're not just building websites—we're building revenue-generating assets. Your success is our success.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
                 <div className="space-y-2">
-                  <div className="text-blue-400 text-4xl font-bold">✓</div>
-                  <h3 className="font-semibold text-white">Performance Tracking</h3>
-                  <p className="text-sm text-slate-400">We monitor your website's business impact and ROI</p>
+                  <div className="text-[#2563EB] text-4xl font-bold">✓</div>
+                  <h3 className="font-semibold text-[#0F172A]">Performance Tracking</h3>
+                  <p className="text-sm text-[#64748B]">We monitor your website's business impact and ROI</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-blue-400 text-4xl font-bold">✓</div>
-                  <h3 className="font-semibold text-white">90-Day Reviews</h3>
-                  <p className="text-sm text-slate-400">Free performance optimization sessions included</p>
+                  <div className="text-[#2563EB] text-4xl font-bold">✓</div>
+                  <h3 className="font-semibold text-[#0F172A]">90-Day Reviews</h3>
+                  <p className="text-sm text-[#64748B]">Free performance optimization sessions included</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-blue-400 text-4xl font-bold">✓</div>
-                  <h3 className="font-semibold text-white">Growth Partnership</h3>
-                  <p className="text-sm text-slate-400">We optimize until you see real results</p>
+                  <div className="text-[#2563EB] text-4xl font-bold">✓</div>
+                  <h3 className="font-semibold text-[#0F172A]">Growth Partnership</h3>
+                  <p className="text-sm text-[#64748B]">We optimize until you see real results</p>
                 </div>
               </div>
             </div>
@@ -568,8 +566,8 @@ export default function Services() {
 
         {/* Why Choose Us */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold mb-8">Why Invest With Us</h2>
+          <div className="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-2xl p-12">
+            <h2 className="text-3xl font-bold text-[#0F172A] mb-8">Why Invest With Us</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 "Every feature designed to increase your revenue and conversions",
@@ -580,8 +578,8 @@ export default function Services() {
                 "You get a growth partner invested in your long-term success",
               ].map((benefit, idx) => (
                 <div key={idx} className="flex gap-4">
-                  <Check className="w-5 h-5 text-blue-400 flex-shrink-0 mt-1" />
-                  <p className="text-slate-300">{benefit}</p>
+                  <Check className="w-5 h-5 text-[#2563EB] flex-shrink-0 mt-1" />
+                  <p className="text-[#0F172A] font-medium">{benefit}</p>
                 </div>
               ))}
             </div>
@@ -593,32 +591,35 @@ export default function Services() {
 
         {/* CTA */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Automate Growth & Capture More Leads?</h2>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8">
-              Get your free website + automation audit. We'll show you exactly how to increase conversions and drive measurable ROI.
-            </p>
-            <Link to="/contact" className="inline-block">
-              <Button
-                size="cta"
-                className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
-              >
-                Get My Free Audit + Action Plan
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <div className="mt-6 space-y-2">
-              <p className="text-sm text-slate-400 text-center font-semibold">
-                Typical audit value: $500
+          <div className="bg-white border border-[#E2E8F0] shadow-xl rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/5 to-cyan-500/5 z-0 pointer-events-none"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-6">Ready to Automate Growth & Capture More Leads?</h2>
+              <p className="text-lg sm:text-xl text-[#64748B] mb-8">
+                Get your free website + automation audit. We'll show you exactly how to increase conversions and drive measurable ROI.
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
-                <div className="flex items-center gap-2 text-sm text-slate-400">
-                  <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  <span>Performance analysis</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-400">
-                  <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  <span>Automation opportunities</span>
+              <Link to="/contact" className="inline-block">
+                <Button
+                  size="cta"
+                  className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group"
+                >
+                  Get My Free Audit + Action Plan
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <div className="mt-6 space-y-2">
+                <p className="text-sm text-[#0F172A] text-center font-semibold">
+                  Typical audit value: $500
+                </p>
+                <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
+                  <div className="flex items-center gap-2 text-sm text-[#64748B]">
+                    <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <span>Performance analysis</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#64748B]">
+                    <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <span>Automation opportunities</span>
+                  </div>
                 </div>
               </div>
             </div>

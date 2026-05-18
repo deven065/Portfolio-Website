@@ -37,8 +37,8 @@ export default function Testimonials() {
   return (
     <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4">Real Results from Real Clients</h2>
-        <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#0F172A]">Real Results from Real Clients</h2>
+        <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
           See how our clients achieved measurable business growth and ROI
         </p>
       </div>
@@ -47,10 +47,10 @@ export default function Testimonials() {
         {testimonials.map((testimonial, idx) => (
           <div
             key={idx}
-            className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-8 hover:bg-slate-800/80 hover:border-slate-600/50 transition-all duration-300 animate-fade-up relative"
+            className="bg-white border border-[#E2E8F0] rounded-2xl p-8 hover:shadow-lg hover:border-[#2563EB]/30 transition-all duration-300 animate-fade-up relative"
             style={{ animationDelay: `${idx * 100}ms` }}
           >
-            <Quote className="absolute top-6 right-6 w-8 h-8 text-blue-500/20" />
+            <Quote className="absolute top-6 right-6 w-8 h-8 text-[#2563EB]/10" />
 
             <div className="flex gap-1 mb-4">
               {[...Array(testimonial.rating)].map((_, i) => (
@@ -58,17 +58,17 @@ export default function Testimonials() {
               ))}
             </div>
 
-            <p className="text-slate-300 mb-6 leading-relaxed">
+            <p className="text-[#64748B] mb-6 leading-relaxed relative z-10">
               "{testimonial.content}"
             </p>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold">
+            <div className="flex items-center gap-4 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] font-bold text-lg">
                 {testimonial.name.charAt(0)}
               </div>
               <div>
-                <p className="font-semibold text-white">{testimonial.name}</p>
-                <p className="text-sm text-slate-400">
+                <p className="font-semibold text-[#0F172A]">{testimonial.name}</p>
+                <p className="text-sm text-[#64748B]">
                   {testimonial.role}, {testimonial.company}
                 </p>
               </div>

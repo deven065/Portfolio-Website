@@ -92,16 +92,16 @@ export default function Blog() {
       <Layout>
         {/* Hero */}
         <section className="relative py-16 sm:py-20 md:py-24 px-6 sm:px-8 lg:px-12 overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 -z-10 bg-[#F8FAFC]">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
           </div>
 
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F172A]">
               Growth & Automation Insights
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#64748B] max-w-2xl mx-auto">
               Practical guides on automation, lead generation, and building systems that drive business growth.
             </p>
           </div>
@@ -113,9 +113,9 @@ export default function Blog() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === "All"
-                  ? "bg-blue-500 text-white"
-                  : "bg-slate-800/50 text-slate-300 hover:bg-slate-800 border border-slate-700/50"
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all shadow-sm ${category === "All"
+                  ? "bg-[#2563EB] text-white"
+                  : "bg-white text-[#64748B] hover:bg-gray-50 border border-[#E2E8F0]"
                   }`}
               >
                 {category}
@@ -134,22 +134,22 @@ export default function Blog() {
                 className="group block h-full"
               >
                 <article
-                  className="bg-slate-800/30 border border-slate-700/50 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 animate-fade-up h-full"
+                  className="bg-white border border-[#E2E8F0] shadow-sm rounded-xl overflow-hidden hover:shadow-md hover:border-[#2563EB]/30 transition-all duration-300 animate-fade-up h-full flex flex-col"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden bg-gray-100">
                     <img
                       src={post.image || "/blog/default.jpg"}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-center gap-4 text-sm text-slate-400">
+                  <div className="p-6 flex-1 flex flex-col space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-[#64748B]">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -160,20 +160,22 @@ export default function Blog() {
                       </span>
                     </div>
 
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/30">
-                      {post.category}
-                    </span>
+                    <div>
+                      <span className="inline-block px-3 py-1 text-xs font-medium bg-[#2563EB]/10 text-[#2563EB] rounded-full border border-[#2563EB]/20">
+                        {post.category}
+                      </span>
+                    </div>
 
-                    <h2 className="text-xl font-bold group-hover:text-blue-400 transition-colors line-clamp-2">
+                    <h2 className="text-xl font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors line-clamp-2">
                       {post.title}
                     </h2>
 
-                    <p className="text-slate-400 line-clamp-3">
+                    <p className="text-[#64748B] line-clamp-3 flex-1">
                       {post.excerpt}
                     </p>
 
                     <div
-                      className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium transition-colors"
+                      className="inline-flex items-center gap-2 text-[#2563EB] font-bold transition-colors mt-auto"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -186,8 +188,8 @@ export default function Blog() {
 
           {/* Coming Soon Message */}
           <div className="mt-16 text-center">
-            <div className="inline-block px-6 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg">
-              <p className="text-slate-300">
+            <div className="inline-block px-6 py-3 bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-lg">
+              <p className="text-[#64748B]">
                 📝 More articles coming soon! Subscribe to stay updated.
               </p>
             </div>
@@ -196,20 +198,20 @@ export default function Blog() {
 
         {/* CTA Section */}
         <section className="py-16 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <div className="bg-[#2563EB] rounded-3xl p-8 sm:p-12 text-center shadow-lg">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
               Ready to Automate Your Growth?
             </h2>
-            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
               Stop reading about it—start implementing. Get your free website + automation audit.
             </p>
             <Link to="/contact">
               <Button
                 size="cta"
-                className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+                className="bg-white text-[#2563EB] hover:bg-gray-100 font-bold shadow-md hover:shadow-lg transition-all px-8 py-6 rounded-xl group"
               >
                 Get Your Free Audit
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>

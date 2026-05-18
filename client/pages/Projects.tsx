@@ -392,19 +392,19 @@ export default function Projects() {
         {/* Hero */}
         <section className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="max-w-4xl mx-auto text-center space-y-6 opacity-0 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-            <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-6 py-3 rounded-full mb-4 border border-green-500/20">
+            <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-6 py-3 rounded-full mb-4 border border-green-200">
               <TrendingUp className="h-5 w-5" />
               <span className="font-semibold">Real Results, Real ROI</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F172A]">
               Case Studies That Prove Business Impact
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[#64748B] max-w-2xl mx-auto">
               See how we help clients achieve 5-15x ROI, increase conversions by 40-60%, and generate millions in additional revenue.
             </p>
           </div>
@@ -424,8 +424,8 @@ export default function Projects() {
                   setCurrentPage(1);
                 }}
                 className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
-                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
-                  : "bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50"
+                  ? "bg-[#2563EB] text-white shadow-md shadow-[#2563EB]/30"
+                  : "bg-white text-[#64748B] hover:text-[#0F172A] border border-[#E2E8F0] hover:bg-[#F8FAFC] shadow-sm"
                   }`}
               >
                 {cat}
@@ -443,12 +443,12 @@ export default function Projects() {
                   key={project.id}
                   ref={(el) => (projectRefs.current[idx] = el)}
                   data-index={idx}
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-12 border-b border-slate-800/50 last:border-b-0 last:pb-0 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-12 border-b border-[#E2E8F0] last:border-b-0 last:pb-0 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""
                     } ${visibleProjects.has(idx) ? (idx % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right') : 'opacity-0'} transition-all duration-700 hover:scale-[1.01]`}
                 >
 
                   {/* Image/Video */}
-                  <div className={`relative aspect-video bg-slate-800/50 rounded-xl overflow-hidden group/img transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+                  <div className={`relative aspect-video bg-[#F8FAFC] rounded-xl overflow-hidden border border-[#E2E8F0] shadow-sm group/img transition-all duration-500 hover:shadow-xl hover:shadow-[#2563EB]/10 hover:border-[#2563EB]/20 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                     {project.video ? (
                       project.video.includes('youtube.com/embed') || project.video.includes('loom.com/embed') ? (
                         <iframe
@@ -466,7 +466,7 @@ export default function Projects() {
                           loop
                           muted
                           playsInline
-                          className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-105"
                           onLoadedMetadata={(e) => {
                             const video = e.target as HTMLVideoElement;
                             if (project.name === "Sony Earbuds 3D Experience") {
@@ -481,96 +481,96 @@ export default function Projects() {
                         alt={`${project.name} - ${project.description}`}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-110 group-hover/img:brightness-110"
+                        className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-105"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = '/placeholder-project.jpg';
                         }}
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
                   </div>
 
                   {/* Content */}
                   <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
                     <div>
                       <div className="flex items-center justify-between gap-4 mb-2">
-                        <h2 className="text-2xl sm:text-3xl font-bold">{project.name}</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A]">{project.name}</h2>
                         {project.websiteUrl && (
                           <a
                             href={project.websiteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 border border-blue-500/20 rounded-full text-xs sm:text-sm font-semibold transition-all hover-lift shrink-0"
+                            className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#2563EB]/10 text-[#2563EB] hover:bg-[#2563EB]/20 border border-[#2563EB]/20 rounded-full text-xs sm:text-sm font-semibold transition-all hover-lift shrink-0"
                           >
                             <span>Visit Site</span>
                             <ExternalLink className="h-3.5 w-3.5" />
                           </a>
                         )}
                       </div>
-                      <p className="text-sm sm:text-base text-slate-300">{project.description}</p>
+                      <p className="text-sm sm:text-base text-[#64748B]">{project.description}</p>
                     </div>
 
                     {/* ROI Metrics */}
                     {project.results && (
                       <div className="grid grid-cols-2 gap-3">
-                        <Card className="p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/40 cursor-default">
+                        <Card className="p-4 bg-green-50 border-green-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-green-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
-                            <TrendingUp className="h-4 w-4 text-green-400 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-green-400">ROI</span>
+                            <TrendingUp className="h-4 w-4 text-green-700 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-green-700 uppercase tracking-wide">ROI</span>
                           </div>
-                          <div className="text-2xl font-bold text-green-400">{project.results.roi}</div>
+                          <div className="text-2xl font-bold text-green-700">{project.results.roi}</div>
                         </Card>
-                        <Card className="p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/40 cursor-default">
+                        <Card className="p-4 bg-blue-50 border-blue-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-blue-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
-                            <Clock className="h-4 w-4 text-blue-400 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-blue-400">Break-Even</span>
+                            <Clock className="h-4 w-4 text-blue-700 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Break-Even</span>
                           </div>
-                          <div className="text-2xl font-bold text-blue-400">{project.results.breakEven}</div>
+                          <div className="text-2xl font-bold text-blue-700">{project.results.breakEven}</div>
                         </Card>
-                        <Card className="p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/40 cursor-default">
+                        <Card className="p-4 bg-purple-50 border-purple-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-purple-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
-                            <DollarSign className="h-4 w-4 text-purple-400 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-purple-400">Revenue</span>
+                            <DollarSign className="h-4 w-4 text-purple-700 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-purple-700 uppercase tracking-wide">Revenue</span>
                           </div>
-                          <div className="text-lg font-bold text-purple-400">{project.results.revenue}</div>
+                          <div className="text-lg font-bold text-purple-700">{project.results.revenue}</div>
                         </Card>
-                        <Card className="p-4 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 hover:border-orange-500/40 cursor-default">
+                        <Card className="p-4 bg-orange-50 border-orange-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-orange-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
-                            <Target className="h-4 w-4 text-orange-400 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-orange-400">Impact</span>
+                            <Target className="h-4 w-4 text-orange-700 transition-transform duration-300 hover:scale-110" />
+                            <span className="text-xs font-semibold text-orange-700 uppercase tracking-wide">Impact</span>
                           </div>
-                          <div className="text-sm font-bold text-orange-400">{project.results.conversions}</div>
+                          <div className="text-sm font-bold text-orange-700">{project.results.conversions}</div>
                         </Card>
                       </div>
                     )}
 
                     {/* Investment */}
                     {project.investment && (
-                      <div className="inline-flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg border border-slate-700/50">
-                        <span className="text-sm text-slate-400">Investment:</span>
-                        <span className="text-lg font-bold text-white">{project.investment}</span>
+                      <div className="inline-flex items-center gap-2 bg-[#F8FAFC] px-4 py-2 rounded-lg border border-[#E2E8F0]">
+                        <span className="text-sm text-[#64748B]">Investment:</span>
+                        <span className="text-lg font-bold text-[#0F172A]">{project.investment}</span>
                       </div>
                     )}
 
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-sm font-semibold text-red-400 mb-2">THE CHALLENGE</h3>
-                        <p className="text-slate-300">{project.problem}</p>
+                        <h3 className="text-sm font-semibold text-[#0F172A] mb-2 uppercase tracking-wide">The Challenge</h3>
+                        <p className="text-[#64748B]">{project.problem}</p>
                       </div>
 
                       <div>
-                        <h3 className="text-sm font-semibold text-cyan-400 mb-2">OUR SOLUTION</h3>
-                        <p className="text-slate-300">{project.solution}</p>
+                        <h3 className="text-sm font-semibold text-[#2563EB] mb-2 uppercase tracking-wide">Our Solution</h3>
+                        <p className="text-[#64748B]">{project.solution}</p>
                       </div>
 
                       <div>
-                        <h3 className="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h3>
+                        <h3 className="text-sm font-semibold text-[#64748B] mb-3 uppercase tracking-wide">Tech Stack</h3>
                         <div className="flex flex-wrap gap-2">
                           {project.stack.map((tech) => (
                             <span
                               key={tech}
-                              className="px-3 py-1 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 hover:border-blue-500/50 hover:bg-slate-700/70 hover:text-white hover:scale-110 transition-all duration-300 cursor-default"
+                              className="px-3 py-1 bg-white border border-[#E2E8F0] shadow-sm rounded-full text-sm text-[#64748B] hover:border-[#2563EB]/50 hover:bg-[#F8FAFC] hover:text-[#0F172A] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                             >
                               {tech}
                             </span>
@@ -578,9 +578,9 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4 transition-all duration-500 hover:from-green-500/20 hover:to-emerald-500/20 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/20">
-                        <h3 className="text-sm font-semibold text-green-400 mb-2">BUSINESS OUTCOME</h3>
-                        <p className="text-slate-300 font-medium">{project.outcome}</p>
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-4 transition-all duration-500 hover:shadow-md hover:border-green-300">
+                        <h3 className="text-sm font-semibold text-green-700 mb-2 uppercase tracking-wide">Business Outcome</h3>
+                        <p className="text-green-900 font-medium">{project.outcome}</p>
                       </div>
                     </div>
                   </div>
@@ -596,7 +596,7 @@ export default function Projects() {
               disabled={currentPage === 1}
               variant="outline"
               size="lg"
-              className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+              className="border-[#E2E8F0] text-[#64748B] bg-white hover:bg-[#F8FAFC] hover:border-[#2563EB]/40 hover:text-[#0F172A] rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm hover-lift"
             >
               <ChevronLeft className="mr-2 h-5 w-5" />
               Previous
@@ -610,8 +610,8 @@ export default function Projects() {
                   variant={currentPage === page ? "default" : "outline"}
                   size="lg"
                   className={`rounded-xl font-semibold px-5 py-3 transition-all duration-300 ${currentPage === page
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/25"
-                    : "border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 backdrop-blur-sm"
+                    ? "bg-[#2563EB] text-white shadow-md shadow-[#2563EB]/25 border-transparent"
+                    : "border-[#E2E8F0] text-[#64748B] bg-white hover:bg-[#F8FAFC] hover:border-[#2563EB]/40 hover:text-[#0F172A] shadow-sm"
                     }`}
                 >
                   {page}
@@ -624,7 +624,7 @@ export default function Projects() {
               disabled={currentPage === totalPages}
               variant="outline"
               size="lg"
-              className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-sm hover-lift"
+              className="border-[#E2E8F0] text-[#64748B] bg-white hover:bg-[#F8FAFC] hover:border-[#2563EB]/40 hover:text-[#0F172A] rounded-xl font-semibold px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm hover-lift"
             >
               Next
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -633,51 +633,51 @@ export default function Projects() {
 
           {/* Page Info */}
           <div className="mt-6 text-center">
-            <p className="text-slate-400 text-sm">
-              Showing <span className="text-white font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-white font-semibold">{projects.length}</span> projects
+            <p className="text-[#64748B] text-sm">
+              Showing <span className="text-[#0F172A] font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-[#0F172A] font-semibold">{projects.length}</span> projects
             </p>
           </div>
         </section>
 
         {/* CTA */}
         <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 max-w-6xl mx-auto">
-          <Card className="relative p-6 sm:p-10 md:p-14 lg:p-16 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover-lift overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/30 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+          <Card className="relative p-6 sm:p-10 md:p-14 lg:p-16 bg-[#F8FAFC] border border-[#E2E8F0] hover-lift overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-[#2563EB]/10 hover:border-[#2563EB]/30 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
             {/* Animated background elements */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5"></div>
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/5 via-transparent to-cyan-500/5"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 text-center">
-              <div className="inline-flex items-center gap-3 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full mb-8 border border-blue-500/20">
+              <div className="inline-flex items-center gap-3 bg-[#2563EB]/10 text-[#2563EB] px-6 py-3 rounded-full mb-8 border border-[#2563EB]/20 shadow-sm">
                 <TrendingUp className="h-5 w-5" />
                 <span className="font-semibold">Proven Results</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-4 sm:mb-6">
                 Ready to Achieve Similar Results?
               </h2>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
-                Join our clients who achieved <span className="text-blue-400 font-bold">5-15x ROI</span> and <span className="text-cyan-400 font-bold">millions in revenue growth</span>.
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#64748B] mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+                Join our clients who achieved <span className="text-[#2563EB] font-bold">5-15x ROI</span> and <span className="text-cyan-600 font-bold">millions in revenue growth</span>.
                 Let's create your success story.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Link to="/contact">
-                  <Button size="lg" className="btn-premium bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 px-8 py-6 text-lg">
+                  <Button size="lg" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-xl shadow-md px-8 py-6 text-lg">
                     Get Your Free Growth + Automation Audit
-                    <ArrowRight size={20} />
+                    <ArrowRight size={20} className="ml-2" />
                   </Button>
                 </Link>
                 <Link to="/services">
-                  <Button size="lg" variant="outline" className="border-slate-600/50 text-white bg-slate-700/50 hover:bg-slate-700/70 hover:border-slate-500 rounded-xl font-semibold px-8 py-6 text-lg backdrop-blur-sm hover-lift">
+                  <Button size="lg" variant="outline" className="border-[#E2E8F0] text-[#64748B] bg-white hover:bg-[#F8FAFC] hover:text-[#0F172A] shadow-sm hover:border-[#2563EB]/40 rounded-xl font-semibold px-8 py-6 text-lg hover-lift">
                     View Our Services
                   </Button>
                 </Link>
               </div>
 
-              <div className="mt-12 pt-8 border-t border-slate-700/50">
-                <p className="text-slate-400 text-sm">
-                  <span className="text-white font-semibold">Average results:</span> 3-4 month break-even • 5x first-year ROI • 95% client satisfaction
+              <div className="mt-12 pt-8 border-t border-[#E2E8F0]">
+                <p className="text-[#64748B] text-sm">
+                  <span className="text-[#0F172A] font-semibold">Average results:</span> 3-4 month break-even • 5x first-year ROI • 95% client satisfaction
                 </p>
               </div>
             </div>

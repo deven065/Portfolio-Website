@@ -53,10 +53,10 @@ export default function About() {
           </div>
 
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F172A]">
               About Deven Digital Labs
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[#64748B] max-w-2xl mx-auto">
               We're a technology consulting agency helping businesses grow through scalable, reliable digital solutions.
             </p>
           </div>
@@ -66,8 +66,8 @@ export default function About() {
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
+              <h2 className="text-4xl font-bold mb-6 text-[#0F172A]">Our Story</h2>
+              <div className="space-y-4 text-[#64748B] leading-relaxed text-lg">
                 <p>
                   Deven Digital Labs was founded with a clear mission: to help businesses leverage technology as a strategic asset for long-term growth. We saw a gap in the market for agencies that prioritize business outcomes over quick wins, scalability over short-term projects, and partnership over transactional relationships.
                 </p>
@@ -84,38 +84,38 @@ export default function About() {
 
         {/* Mission & Values */}
         <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center">Mission & Core Values</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-[#0F172A]">Mission & Core Values</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
             {/* Mission */}
-            <div className="md:col-span-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Our Mission</h3>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <div className="md:col-span-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#0F172A]">Our Mission</h3>
+              <p className="text-base sm:text-lg text-[#64748B] leading-relaxed">
                 To empower businesses with scalable, reliable technology solutions that drive growth, improve efficiency, and create lasting competitive advantage. We partner with founders and companies who are serious about building long-term digital success.
               </p>
             </div>
 
             {/* Values */}
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Target className="w-8 h-8 sm:w-10 sm:h-10 text-blue-400 mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Business-First</h3>
-              <p className="text-sm sm:text-base text-slate-300">
+            <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-[#F8FAFC] transition-all duration-300">
+              <Target className="w-8 h-8 sm:w-10 sm:h-10 text-[#2563EB] mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0F172A]">Business-First</h3>
+              <p className="text-sm sm:text-base text-[#64748B]">
                 We measure success by business outcomes, not lines of code. Every decision is made with your growth and objectives in mind.
               </p>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400 mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Scalable by Design</h3>
-              <p className="text-sm sm:text-base text-slate-300">
+            <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-[#F8FAFC] transition-all duration-300">
+              <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-[#2563EB] mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0F172A]">Scalable by Design</h3>
+              <p className="text-sm sm:text-base text-[#64748B]">
                 We build systems that grow with you. From day one, we architect for scalability, reliability, and long-term maintainability.
               </p>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-slate-800/80 transition-all duration-300">
-              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-400 mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Reliable Partner</h3>
-              <p className="text-sm sm:text-base text-slate-300">
+            <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:bg-[#F8FAFC] transition-all duration-300">
+              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-[#2563EB] mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0F172A]">Reliable Partner</h3>
+              <p className="text-sm sm:text-base text-[#64748B]">
                 Trust and transparency are foundational. We communicate clearly, deliver consistently, and stand behind our work.
               </p>
             </div>
@@ -130,16 +130,16 @@ export default function About() {
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-14 md:mb-16 text-center relative">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-14 md:mb-16 text-center relative text-[#0F172A]">
             <span className="relative inline-block">
               Our Journey
-              <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+              <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent"></div>
             </span>
           </h2>
           
           <div className="relative" style={{ transformStyle: 'preserve-3d' }}>
             {/* Enhanced Timeline line with glow */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500 shadow-lg shadow-blue-500/50"></div>
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#2563EB] via-cyan-500 to-[#2563EB] shadow-lg shadow-[#2563EB]/50"></div>
             
             <div className="space-y-16">
               {[
@@ -149,7 +149,7 @@ export default function About() {
                   description: "Started with a vision to help businesses leverage technology strategically. First client projects in fintech and e-commerce.",
                   icon: <Zap className="w-5 h-5" />,
                   color: "blue",
-                  gradient: "from-blue-500 to-blue-600",
+                  gradient: "from-[#2563EB] to-blue-600",
                 },
                 {
                   year: "2021",
@@ -191,7 +191,7 @@ export default function About() {
                 >
                   {/* Enhanced Timeline dot with pulse and glow */}
                   <div className={`absolute left-8 md:left-1/2 -ml-4 z-20`}>
-                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${milestone.gradient} border-4 border-slate-900 shadow-lg shadow-${milestone.color}-500/50 group-hover:scale-125 transition-transform duration-300 relative`}>
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${milestone.gradient} border-4 border-white shadow-lg shadow-${milestone.color}-500/50 group-hover:scale-125 transition-transform duration-300 relative`}>
                       {/* Pulsing ring */}
                       <div className={`absolute inset-0 rounded-full bg-${milestone.color}-500 animate-ping opacity-20`}></div>
                     </div>
@@ -199,13 +199,13 @@ export default function About() {
                   
                   {/* Content with enhanced animations */}
                   <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:text-right md:pr-20' : 'md:ml-auto md:pl-20'}`}>
-                    <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 ml-20 md:ml-0 group-hover:bg-slate-800/70 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-blue-500/20 hover-lift overflow-hidden">
+                    <div className="relative bg-[#F8FAFC] backdrop-blur-sm border border-[#E2E8F0] rounded-2xl p-8 ml-20 md:ml-0 group-hover:bg-white transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg hover-lift overflow-hidden shadow-sm">
                       {/* Animated gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-700"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/0 via-cyan-500/0 to-[#2563EB]/0 group-hover:from-[#2563EB]/5 group-hover:via-cyan-500/5 group-hover:to-[#2563EB]/5 transition-all duration-700"></div>
                       
                       {/* Shine effect on hover */}
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       </div>
                       
                       <div className="relative z-10">
@@ -217,10 +217,10 @@ export default function About() {
                             {milestone.year}
                           </span>
                         </div>
-                        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
+                        <h3 className="text-2xl font-bold mb-3 text-[#0F172A] transition-colors duration-300">
                           {milestone.title}
                         </h3>
-                        <p className="text-slate-300 leading-relaxed">
+                        <p className="text-[#64748B] leading-relaxed">
                           {milestone.description}
                         </p>
                       </div>
@@ -236,9 +236,9 @@ export default function About() {
         </section>
 
         {/* How We Work Process */}
-        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-slate-800/30 rounded-3xl">
-          <h2 className="text-4xl font-bold mb-4 text-center">How We Work</h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto text-center mb-12">
+        <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#F8FAFC] rounded-3xl border border-[#E2E8F0]">
+          <h2 className="text-4xl font-bold mb-4 text-center text-[#0F172A]">How We Work</h2>
+          <p className="text-xl text-[#64748B] max-w-2xl mx-auto text-center mb-12">
             Our proven process ensures transparency, quality, and success at every stage.
           </p>
 
@@ -283,20 +283,20 @@ export default function About() {
             ].map((process, idx) => (
               <div
                 key={idx}
-                className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
+                className="group bg-white border border-[#E2E8F0] rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/40 transition-all duration-300 relative overflow-hidden shadow-sm"
               >
                 {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/0 via-cyan-500/0 to-[#2563EB]/0 group-hover:from-[#2563EB]/5 group-hover:via-cyan-500/5 group-hover:to-[#2563EB]/5 transition-all duration-500"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-6xl font-bold text-blue-500/20 group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300 mb-4 inline-block group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                  <div className="text-6xl font-bold text-[#2563EB]/10 group-hover:text-[#2563EB] group-hover:scale-110 transition-all duration-300 mb-4 inline-block">
                     {process.step}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300">{process.title}</h3>
-                  <p className="text-slate-400 mb-4">{process.description}</p>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#2563EB] text-[#0F172A] transition-colors duration-300">{process.title}</h3>
+                  <p className="text-[#64748B] mb-4">{process.description}</p>
                   <ul className="space-y-2">
                     {process.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                      <li key={i} className="flex items-center gap-2 text-sm text-[#64748B]">
                         <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                         {item}
                       </li>
@@ -310,12 +310,12 @@ export default function About() {
 
         {/* Team Section */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">Meet Our Team</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-[#0F172A]">Meet Our Team</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Team Member 1 - Deven Rikame */}
-            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-blue-500/50">
+            <div className="group bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all duration-300">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-[#2563EB]/50">
                 <img
                   src="/deven-photo.jpg"
                   alt="Deven Rikame - Web/Software Developer"
@@ -324,15 +324,15 @@ export default function About() {
                   style={{ objectPosition: 'center 20%' }}
                 />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Deven Rikame</h3>
-              <p className="text-blue-400 text-center text-sm font-semibold mb-3">Web/Software Developer</p>
-              <p className="text-slate-300 text-sm text-center leading-relaxed">
+              <h3 className="text-xl font-bold text-center mb-2 text-[#0F172A]">Deven Rikame</h3>
+              <p className="text-[#2563EB] text-center text-sm font-semibold mb-3">Web/Software Developer</p>
+              <p className="text-[#64748B] text-sm text-center leading-relaxed">
                 Specializing in full-stack development and scalable web solutions.
               </p>
             </div>
 
             {/* Team Member 2 - Dipen Rikame */}
-            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-cyan-500/50 transition-all duration-300">
+            <div className="group bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-cyan-500/50">
                 <img
                   src="/Dipen.png"
@@ -341,15 +341,15 @@ export default function About() {
                   loading="lazy"
                 />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Dipen Rikame</h3>
-              <p className="text-cyan-400 text-center text-sm font-semibold mb-3">DevOps Engineer</p>
-              <p className="text-slate-300 text-sm text-center leading-relaxed">
+              <h3 className="text-xl font-bold text-center mb-2 text-[#0F172A]">Dipen Rikame</h3>
+              <p className="text-cyan-600 text-center text-sm font-semibold mb-3">DevOps Engineer</p>
+              <p className="text-[#64748B] text-sm text-center leading-relaxed">
                 Expert in cloud infrastructure, CI/CD, and deployment automation.
               </p>
             </div>
 
             {/* Team Member 3 - Ashok Chaudhary */}
-            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-indigo-500/50 transition-all duration-300">
+            <div className="group bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-indigo-500/50">
                 <img
                   src="/Ashok-Portfolio.png"
@@ -358,15 +358,15 @@ export default function About() {
                   loading="lazy"
                 />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Ashok Chaudhary</h3>
-              <p className="text-indigo-400 text-center text-sm font-semibold mb-3">Data Analyst</p>
-              <p className="text-slate-300 text-sm text-center leading-relaxed">
+              <h3 className="text-xl font-bold text-center mb-2 text-[#0F172A]">Ashok Chaudhary</h3>
+              <p className="text-indigo-600 text-center text-sm font-semibold mb-3">Data Analyst</p>
+              <p className="text-[#64748B] text-sm text-center leading-relaxed">
                 Transforming data into actionable insights and strategic decisions.
               </p>
             </div>
 
             {/* Team Member 4 - Soham More */}
-            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-purple-500/50 transition-all duration-300">
+            <div className="group bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-purple-500/50 group-hover:border-purple-400/70 transition-all duration-300">
                 <img
                   src="/Soham.jpeg"
@@ -376,15 +376,15 @@ export default function About() {
                   style={{ objectPosition: 'center 30%', objectFit: 'cover' }}
                 />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Soham More</h3>
-              <p className="text-purple-400 text-center text-sm font-semibold mb-3">Data Analyst</p>
-              <p className="text-slate-300 text-sm text-center leading-relaxed">
+              <h3 className="text-xl font-bold text-center mb-2 text-[#0F172A]">Soham More</h3>
+              <p className="text-purple-600 text-center text-sm font-semibold mb-3">Data Analyst</p>
+              <p className="text-[#64748B] text-sm text-center leading-relaxed">
                 Delivering data-driven solutions and comprehensive analytics.
               </p>
             </div>
 
             {/* Team Member 5 - Ganesh Bhange */}
-            <div className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/80 hover:border-green-500/50 transition-all duration-300">
+            <div className="group bg-white border border-[#E2E8F0] shadow-sm rounded-xl p-6 hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all duration-300">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-500/50 group-hover:border-green-400/70 transition-all duration-300">
                 <img
                   src="/Ganesh.jpg"
@@ -393,9 +393,9 @@ export default function About() {
                   loading="lazy"
                 />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">Ganesh Bhange</h3>
-              <p className="text-green-400 text-center text-sm font-semibold mb-3">Business Development Executive</p>
-              <p className="text-slate-300 text-sm text-center leading-relaxed">
+              <h3 className="text-xl font-bold text-center mb-2 text-[#0F172A]">Ganesh Bhange</h3>
+              <p className="text-green-600 text-center text-sm font-semibold mb-3">Business Development Executive</p>
+              <p className="text-[#64748B] text-sm text-center leading-relaxed">
                 Driving business growth and building strategic partnerships.
               </p>
             </div>
@@ -404,25 +404,25 @@ export default function About() {
 
         {/* Why Work With Us */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">Why Companies Choose Deven Digital Labs</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-[#0F172A]">Why Companies Choose Deven Digital Labs</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-blue-400 mb-2">Proven Track Record</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-[#2563EB] mb-2">Proven Track Record</h3>
+                <p className="text-[#64748B]">
                   We've delivered solutions for startups that scaled to unicorn status, enterprises managing billions in transactions, and everything in between.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-blue-400 mb-2">Technical Excellence</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-[#2563EB] mb-2">Technical Excellence</h3>
+                <p className="text-[#64748B]">
                   We don't just build; we architect. Clean code, best practices, and modern technology stacks are non-negotiable.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-blue-400 mb-2">Long-Term Partnership</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-[#2563EB] mb-2">Long-Term Partnership</h3>
+                <p className="text-[#64748B]">
                   We're invested in your success. After launch, we provide ongoing support, optimization, and strategic guidance.
                 </p>
               </div>
@@ -430,20 +430,20 @@ export default function About() {
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Transparent Communication</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-cyan-600 mb-2">Transparent Communication</h3>
+                <p className="text-[#64748B]">
                   No jargon, no surprises. We keep you informed at every stage and explain technical decisions in business terms.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Business Acumen</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-cyan-600 mb-2">Business Acumen</h3>
+                <p className="text-[#64748B]">
                   We understand your business challenges. Technology is the tool; your business growth is the goal.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Performance & Reliability</h3>
-                <p className="text-slate-300">
+                <h3 className="text-xl font-bold text-cyan-600 mb-2">Performance & Reliability</h3>
+                <p className="text-[#64748B]">
                   Systems built to run 24/7 with 99.9% uptime, optimized for performance, and designed to handle growth.
                 </p>
               </div>
@@ -453,31 +453,31 @@ export default function About() {
 
         {/* Get Started */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-3xl p-8 sm:p-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Automate Growth & Capture More Leads?</h2>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-3xl p-8 sm:p-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#0F172A]">Ready to Automate Growth & Capture More Leads?</h2>
+            <p className="text-lg sm:text-xl text-[#64748B] mb-8">
               Get your free website + automation audit and discover exactly how to scale your business faster.
             </p>
             <Link to="/contact" className="inline-block">
               <Button 
                 size="cta" 
-                className="cta-primary cta-contrast group shadow-xl hover:shadow-2xl"
+                className="bg-[#2563EB] text-white hover:bg-[#2563EB]/90 font-semibold group shadow-md"
               >
                 Get Your Free Growth + Automation Audit
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <div className="mt-6 space-y-2">
-              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                 <span>Performance analysis</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                 <span>Automation opportunities</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-400 justify-center">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
+                <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
                 <span>Custom action plan</span>
               </div>
             </div>

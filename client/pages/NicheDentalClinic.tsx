@@ -64,23 +64,23 @@ export default function NicheDentalClinic() {
 
                 {/* Hero */}
                 <section className="relative pt-12 pb-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
-                    <div className="absolute inset-0 -z-10 bg-slate-900 bg-[url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-all duration-1000 opacity-20"></div>
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950 via-slate-950/90 to-slate-950"></div>
+                    <div className="absolute inset-0 -z-10 bg-[#F8FAFC] bg-[url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-all duration-1000 opacity-[0.03]"></div>
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#F8FAFC]/90 via-[#F8FAFC]/80 to-[#F8FAFC]"></div>
 
                     <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-                        <div className="inline-block px-4 py-1.5 bg-sky-500/10 border border-sky-500/30 rounded-full text-sky-400 text-sm font-bold">
+                        <div className="inline-block px-4 py-1.5 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-full text-[#2563EB] text-sm font-bold shadow-sm">
                             Digital Excellence for Modern Practices 🦷
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1]">
-                            Attract & Retain More Patients for <span className="bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">Your Dental Clinic</span>
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] text-[#0F172A]">
+                            Attract & Retain More Patients for <span className="text-[#2563EB]">Your Dental Clinic</span>
                         </h1>
-                        <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl text-[#64748B] max-w-2xl mx-auto leading-relaxed">
                             We don't just build websites; we build **automated patient acquisition machines**. From local SEO to seamless online booking, we help your clinic grow on autopilot.
                         </p>
 
                         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link to="/contact">
-                                <Button size="cta" className="cta-primary bg-sky-600 hover:bg-sky-700 border-none text-white font-black group shadow-xl shadow-sky-600/20">
+                                <Button size="cta" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-bold px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
                                     Request a Free Audit for My Clinic
                                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                                 </Button>
@@ -94,12 +94,12 @@ export default function NicheDentalClinic() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {benefits.map((benefit, idx) => (
                             <div key={idx} className="flex gap-6 items-start">
-                                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#2563EB]">
                                     {benefit.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white mb-2">{benefit.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed">{benefit.description}</p>
+                                    <h3 className="text-2xl font-bold text-[#0F172A] mb-2">{benefit.title}</h3>
+                                    <p className="text-[#64748B] leading-relaxed">{benefit.description}</p>
                                 </div>
                             </div>
                         ))}
@@ -107,26 +107,26 @@ export default function NicheDentalClinic() {
                 </section>
 
                 {/* Comparison Section */}
-                <section className="py-20 px-6 sm:px-8 lg:px-12 bg-slate-900/40 border-y border-slate-800/50">
+                <section className="py-20 px-6 sm:px-8 lg:px-12 bg-[#F8FAFC] border-y border-[#E2E8F0]">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-12 text-center">Standard Site vs. Deven Digital Medical Solution</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-700/50 rounded-2xl overflow-hidden border border-slate-700/50">
-                            <div className="bg-slate-900 p-8 space-y-6">
-                                <h3 className="text-xl font-bold text-red-400">Basic Clinic Site</h3>
+                        <h2 className="text-3xl font-bold mb-12 text-center text-[#0F172A]">Standard Site vs. Deven Digital Medical Solution</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#E2E8F0] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm">
+                            <div className="bg-white p-8 space-y-6">
+                                <h3 className="text-xl font-bold text-red-600">Basic Clinic Site</h3>
                                 <ul className="space-y-4">
-                                    <li className="flex items-center gap-3 text-slate-500 line-through">Online appointment request</li>
-                                    <li className="flex items-center gap-3 text-slate-500 line-through">Mobile app sync</li>
-                                    <li className="flex items-center gap-3 text-slate-500 line-through">Local SEO setup</li>
-                                    <li className="flex items-center gap-3 text-slate-500 line-through">Automated SMS reminders</li>
+                                    <li className="flex items-center gap-3 text-[#64748B] line-through">Online appointment request</li>
+                                    <li className="flex items-center gap-3 text-[#64748B] line-through">Mobile app sync</li>
+                                    <li className="flex items-center gap-3 text-[#64748B] line-through">Local SEO setup</li>
+                                    <li className="flex items-center gap-3 text-[#64748B] line-through">Automated SMS reminders</li>
                                 </ul>
                             </div>
-                            <div className="bg-slate-800 p-8 space-y-6">
-                                <h3 className="text-xl font-bold text-sky-400">Growth-Focused Clinic Site</h3>
+                            <div className="bg-[#F8FAFC] p-8 space-y-6">
+                                <h3 className="text-xl font-bold text-green-700">Growth-Focused Clinic Site</h3>
                                 <ul className="space-y-4">
-                                    <li className="flex items-center gap-3 text-slate-300"><Check className="text-sky-500 w-5 h-5" /> Instant Direct Booking</li>
-                                    <li className="flex items-center gap-3 text-slate-300"><Check className="text-sky-500 w-5 h-5" /> PWA Support (Save to Home)</li>
-                                    <li className="flex items-center gap-3 text-slate-300"><Check className="text-sky-500 w-5 h-5" /> GMB & Local SEO Domination</li>
-                                    <li className="flex items-center gap-3 text-slate-300"><Check className="text-sky-500 w-5 h-5" /> Automated Reminder Engine</li>
+                                    <li className="flex items-center gap-3 text-[#0F172A]"><Check className="text-green-600 w-5 h-5" /> Instant Direct Booking</li>
+                                    <li className="flex items-center gap-3 text-[#0F172A]"><Check className="text-green-600 w-5 h-5" /> PWA Support (Save to Home)</li>
+                                    <li className="flex items-center gap-3 text-[#0F172A]"><Check className="text-green-600 w-5 h-5" /> GMB & Local SEO Domination</li>
+                                    <li className="flex items-center gap-3 text-[#0F172A]"><Check className="text-green-600 w-5 h-5" /> Automated Reminder Engine</li>
                                 </ul>
                             </div>
                         </div>
@@ -135,14 +135,14 @@ export default function NicheDentalClinic() {
 
                 {/* Final CTA */}
                 <section className="py-24 px-6 sm:px-8 lg:px-12 text-center max-w-4xl mx-auto">
-                    <div className="bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-10 sm:p-16 shadow-2xl relative overflow-hidden">
+                    <div className="bg-[#2563EB] rounded-3xl p-10 sm:p-16 shadow-lg relative overflow-hidden">
                         <div className="relative z-10">
                             <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Let's grow your patient list.</h2>
                             <p className="text-white/90 text-lg mb-10">
                                 We'll build a professional presence that builds trust and makes booking an appointment easier than ever.
                             </p>
                             <Link to="/contact">
-                                <Button size="cta" variant="secondary" className="bg-white text-sky-700 hover:bg-slate-100 font-black px-10">
+                                <Button size="cta" variant="secondary" className="bg-white text-[#2563EB] hover:bg-gray-100 font-black px-10 py-6 rounded-xl shadow-md">
                                     Get My Clinical Audit
                                 </Button>
                             </Link>
