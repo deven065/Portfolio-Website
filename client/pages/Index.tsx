@@ -37,9 +37,9 @@ export default function Index() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Professional Web Development Services | Full-Stack Development Company | Deven Digital Labs",
-    "description": "Leading web development company specializing in React, Next.js, Node.js, and full-stack solutions. Custom software development, e-commerce platforms, CRM systems, and technology consulting services for growing businesses.",
-    "keywords": "web development company, full-stack development, React development, Next.js development, Node.js development, custom software development, e-commerce development, CRM development, technology consulting, web application development, software engineering services, digital transformation, business automation, scalable web solutions",
+    "name": "Custom Web Development & CRM Solutions | Deven Digital Labs",
+    "description": "Premium web development agency building high-converting websites, custom e-commerce stores, and CRM systems for businesses looking to scale and automate.",
+    "keywords": "web development agency, custom websites, e-commerce development, CRM development, restaurant websites, real estate CRM, business automation, retail e-commerce, high converting websites, lead generation, local SEO, custom web portals, digital growth agency",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [{
@@ -65,30 +65,30 @@ export default function Index() {
     {
       emoji: "⚡",
       bgClass: "bg-amber-50/70",
-      title: "React & Next.js Development",
-      description: "Fast, SEO-optimized web apps built on the stack trusted by the world's top companies. Server-side rendering, edge caching, and clean code architecture.",
-      tags: ["React", "Next.js", "TypeScript", "Tailwind"]
+      title: "Custom Websites for Service Businesses",
+      description: "High-converting websites for restaurants, real estate, and professional services that capture leads and drive appointments.",
+      tags: ["Lead Gen", "High-Converting", "Fast Load", "Mobile-First"]
     },
     {
       emoji: "🤖",
       bgClass: "bg-emerald-50/70",
-      title: "Business Automation",
-      description: "Eliminate manual, repetitive workflows. Connect your tools, automate your ops, and reclaim 20+ hours per week — with measurable ROI in weeks, not months.",
-      tags: ["n8n", "Zapier", "APIs", "CRM"]
+      title: "CRM & Real Estate Workflows",
+      description: "Eliminate manual data entry. We build custom pipelines for real estate and service businesses to track leads from first click to closed deal.",
+      tags: ["Lead Tracking", "Automated Follow-ups", "Custom Pipelines"]
     },
     {
       emoji: "🛒",
       bgClass: "bg-orange-50/70",
-      title: "E-commerce Development",
-      description: "High-converting online stores built for performance. Shopify, WooCommerce, or fully custom — with optimized checkout flows and payment gateway integration.",
-      tags: ["Shopify", "WooCommerce", "Payments", "Analytics"]
+      title: "E-commerce for Retail Brands",
+      description: "High-converting online stores for clothing and retail brands. Custom storefronts designed to maximize average order value and minimize cart abandonment.",
+      tags: ["High ROI", "Custom Carts", "Abandoned Cart Recovery"]
     },
     {
       emoji: "🚀",
       bgClass: "bg-purple-50/70",
-      title: "SaaS & Web Applications",
-      description: "Launch your SaaS idea with user auth, dashboards, billing, and a scalable API backend. We've built production SaaS products from zero to paying customers.",
-      tags: ["Node.js", "PostgreSQL", "Stripe", "Auth"]
+      title: "Custom Business Portals",
+      description: "Secure, role-based portals for your team or clients to log in, manage files, track progress, and communicate without the email back-and-forth.",
+      tags: ["Client Portals", "Team Dashboards", "Secure Login"]
     },
     {
       emoji: "🎨",
@@ -100,9 +100,9 @@ export default function Index() {
     {
       emoji: "📊",
       bgClass: "bg-blue-50/70",
-      title: "SEO & Performance",
-      description: "Technical SEO, Core Web Vitals optimization, and performance audits that push you up the rankings and convert the traffic you're already getting.",
-      tags: ["Core Web Vitals", "Technical SEO", "Page Speed", "GA4"]
+      title: "Local SEO & Traffic Growth",
+      description: "Rank for keywords that matter to your business like 'restaurant near me' or 'best realtor'. We optimize your site to dominate local search.",
+      tags: ["Local Search", "Google Business", "Traffic Growth"]
     }
   ];
 
@@ -134,8 +134,8 @@ export default function Index() {
     <>
       <SEO
         title="Web Development & Automation | Deven Digital Labs"
-        description="Growth-focused web development + n8n automation. We build systems that capture leads, automate workflows, and drive 5x ROI. Free audit available."
-        keywords="web development automation, n8n workflows, lead generation systems, business automation, custom web development, React Next.js development, conversion optimization, performance optimization, scalable web solutions"
+        description="We build high-converting websites, custom e-commerce stores, and CRM systems that capture leads, automate workflows, and drive revenue. Free audit available."
+        keywords="ecommerce development, custom crm development, restaurant websites, business automation, lead generation websites, custom web development, conversion optimization, scalable web solutions"
         canonical="https://devendigitallabs.com/"
         schema={schema}
       />
@@ -171,7 +171,7 @@ export default function Index() {
                     </span>
                   </h1>
                   <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed max-w-2xl">
-                    Full-stack development + n8n automation + performance optimization. We don't just build websites—we build systems that capture leads, nurture prospects, and drive revenue while you sleep.
+                    Custom websites, high-converting e-commerce stores, and CRM automation. We don't just build websites—we build systems that capture leads, nurture prospects, and drive revenue while you sleep.
                   </p>
                 </div>
 
@@ -296,7 +296,7 @@ export default function Index() {
                     Increased booked demos by 40% while saving 15 hours per week.
                   </h3>
                   <p className="text-[#64748B] text-sm mb-8 leading-relaxed">
-                    They were manually emailing prospects and losing leads due to a slow, unoptimized website. We rebuilt their marketing site in Next.js and integrated n8n to automate their entire CRM data flow and follow-up sequence.
+                    They were manually emailing prospects and losing leads due to a slow, unoptimized website. We rebuilt their marketing site and integrated custom automation to streamline their entire CRM data flow and follow-up sequence.
                   </p>
                   <div className="flex items-center gap-6 mt-auto">
                     <div className="flex flex-col">
@@ -323,7 +323,7 @@ export default function Index() {
                     Scaled from zero organic traffic to closing $45k in new contracts.
                   </h3>
                   <p className="text-[#64748B] text-sm mb-8 leading-relaxed">
-                    Their previous Wix site was invisible to Google. We migrated them to a server-side rendered application, optimized their Core Web Vitals to a perfect 100, and implemented a high-converting lead capture funnel.
+                    Their previous website was invisible to Google. We rebuilt it from the ground up for maximum speed, optimized their search engine ranking, and implemented a high-converting lead capture funnel.
                   </p>
                   <div className="flex items-center gap-6 mt-auto">
                     <div className="flex flex-col">
@@ -354,7 +354,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-[#64748B] leading-relaxed">
-                      We build <span className="text-[#0F172A] font-semibold">lead-capturing automation workflows</span> (n8n, Zapier, custom APIs) that generate qualified prospects 24/7—not just pretty websites
+                      We build <span className="text-[#0F172A] font-semibold">lead-capturing automation workflows</span> that generate qualified prospects 24/7—not just pretty websites
                     </p>
                   </div>
                 </div>

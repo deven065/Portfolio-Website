@@ -15,19 +15,20 @@ let indexHtml = "";
 
 const seoMap: Record<string, { title: string; description: string; content: string }> = {
   "/": {
-    title: "Deven Digital Labs - Professional Web Development & Technology Consulting",
-    description: "Leading web development company in Mumbai. Specialized React developer in India. High-performing Next.js web applications and custom business automation.",
+    title: "Web Developer Mumbai | Affordable Website Design | Deven Digital Labs",
+    description: "Expert web developer in Mumbai specializing in custom websites, affordable website design, and React developer for small business. Turn your website into a revenue engine.",
     content: `
-      <main style="max-width:800px; margin:0 auto; padding:20px; font-family:sans-serif; color:#333;">
+      <!-- Googlebot & Search Engine Indexable Fallback Content -->
+      <main style="max-width:800px; margin:0 auto; padding:40px 20px; font-family:sans-serif; color:#333; display:none;">
         <article>
-          <h1>Deven Digital Labs - Professional Web Development & Technology Consulting</h1>
-          <p>Led by <strong>Deven Rikame</strong>, a premier <strong>React developer India</strong> and leading <strong>web developer Mumbai</strong>. We specialize in building fast, custom, and highly responsive web applications that drive traffic, capture qualified leads, and boost company revenue.</p>
+          <h1>Expert Web Developer Mumbai - Affordable Website Design</h1>
+          <p>Led by <strong>Deven Rikame</strong>, a premier <strong>web developer Mumbai</strong>. We specialize in providing <strong>affordable website design Mumbai</strong> and acting as a dedicated <strong>React developer for small business</strong>. We build fast, custom, and highly responsive web applications that drive traffic, capture qualified leads, and boost company revenue.</p>
           <h2>Custom Web Development & Technology Solutions in India</h2>
-          <p>Looking for a freelance <strong>web developer in Mumbai</strong> or an expert <strong>React & Next.js developer in India</strong>? Deven Digital Labs is a full-service growth agency. We build software solutions that don't just look stunning but act as revenue-driving sales machines for your brand.</p>
+          <p>Looking for a freelance <strong>web developer in Mumbai</strong> or an expert <strong>React developer for small business</strong>? Deven Digital Labs is a full-service growth agency. We build software solutions that don't just look stunning but act as revenue-driving sales machines for your brand.</p>
           <ul>
-            <li><strong>React & Next.js Development</strong>: Fast, SEO-optimized web apps built with modern tech stacks like Tailwind CSS, TypeScript, and React. Perfect for startups and enterprise platforms.</li>
-            <li><strong>Business Automation & n8n Workflows</strong>: Save 20+ hours per week. We integrate APIs, build custom CRMs, and automate repetitive customer capture processes with n8n and Zapier.</li>
-            <li><strong>E-commerce Systems</strong>: High-converting WooCommerce and Shopify storefronts, complete with custom payment gateway integrations (Razorpay, Stripe) and optimized checkout flows.</li>
+            <li><strong>Affordable Website Design Mumbai</strong>: Fast, SEO-optimized web apps built for optimal conversion. Perfect for local businesses and professional services.</li>
+            <li><strong>React Developer for Small Business</strong>: Need custom features? We integrate APIs, build custom CRMs, and automate repetitive customer capture processes.</li>
+            <li><strong>E-commerce Systems</strong>: High-converting storefronts, complete with custom payment gateway integrations and optimized checkout flows.</li>
           </ul>
         </article>
       </main>
@@ -132,8 +133,8 @@ app.get("*", (req, res) => {
     finalHtml = finalHtml.replace(/<title>.*?<\/title>/i, `<title>${seo.title}</title>`);
     // Inject Meta Description (handles potential multiline/whitespace in HTML)
     finalHtml = finalHtml.replace(/<meta\s+name="description"[\s\S]*?\/>/i, `<meta name="description" content="${seo.description}" />`);
-    // Inject Static Content inside the root div
-    finalHtml = finalHtml.replace('<div id="root"></div>', `<div id="root">${seo.content}</div>`);
+    // Inject Static Content inside the root div (replacing existing fallback content)
+    finalHtml = finalHtml.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">\n${seo.content}\n</div>`);
   }
 
   res.setHeader("Content-Type", "text/html");

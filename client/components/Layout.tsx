@@ -286,10 +286,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
 
-            {/* Contact */}
+            {/* Contact & Location */}
             <div>
-              <h3 className="text-[#0F172A] font-semibold mb-4">Contact</h3>
+              <h3 className="text-[#0F172A] font-semibold mb-4">Location & Contact</h3>
               <ul className="space-y-3 text-sm">
+                <li className="text-[#64748B] leading-relaxed mb-2">
+                  <strong className="text-[#0F172A]">Deven Digital Labs</strong><br />
+                  Mumbai, Maharashtra<br />
+                  India
+                </li>
                 <li>
                   <a
                     href="mailto:hello@devendigitallabs.com"

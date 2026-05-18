@@ -307,6 +307,60 @@ export default function Contact() {
           </div>
         </section>
 
+        {/* Location & Local SEO Signals */}
+        <section className="py-12 px-6 max-w-4xl mx-auto">
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+            <div className="w-full md:w-1/2 p-8 sm:p-10 flex flex-col justify-center">
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Location & Operations</h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#2563EB]"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#0F172A]">Headquarters</h3>
+                    <p className="text-sm text-[#64748B] mt-1 leading-relaxed">
+                      Deven Digital Labs<br />
+                      Mumbai, Maharashtra 400001<br />
+                      India
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4 text-[#2563EB]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#0F172A]">Working Hours</h3>
+                    <p className="text-sm text-[#64748B] mt-1 leading-relaxed">
+                      Monday - Friday: 10:00 AM - 7:00 PM (IST)<br />
+                      Available for async collaboration globally.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-[#E2E8F0]">
+                  <p className="text-xs text-[#64748B]">
+                    <strong className="text-[#0F172A]">Local Businesses:</strong> We specialize in building local search authority for Mumbai-based restaurants, real estate firms, and service businesses.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 bg-slate-100 min-h-[300px] relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609985956!2d72.7410999557452!3d19.082197838562723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, position: 'absolute', inset: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Deven Digital Labs Location in Mumbai"
+              ></iframe>
+            </div>
+          </div>
+        </section>
         {/* FAQ Section */}
         <section className="py-20 px-4 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#0F172A]">Questions?</h2>
