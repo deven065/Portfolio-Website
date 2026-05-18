@@ -461,6 +461,79 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Founder & Trust Section */}
+        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-t border-slate-800/40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Visual / Image Side */}
+            <div className="lg:col-span-5 order-2 lg:order-1 relative">
+              <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-8 sm:p-10 relative overflow-hidden">
+                <div className="flex flex-col gap-6 mb-8">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border border-slate-700/50 overflow-hidden bg-slate-800 flex-shrink-0 relative shadow-xl">
+                    <img 
+                      src="https://media.licdn.com/dms/image/v2/D4D03AQE-O-G2xYkR4w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709403847774?e=1748476800&v=beta&t=L6g6E9vG_BfXG_vT8_BvW_Qo9T_Qo9T_Qo9T" 
+                      alt="Deven Rikame - Founder"
+                      className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://ui-avatars.com/api/?name=Deven+Rikame&background=0f172a&color=fff&size=256";
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-slate-100 mb-1 tracking-tight">Deven Rikame</h3>
+                    <p className="text-slate-400 font-medium text-sm">Founder & Technical Lead</p>
+                  </div>
+                </div>
+
+                <blockquote className="text-lg text-slate-300 font-medium leading-relaxed mb-8">
+                  "I engineer scalable digital infrastructure that captures leads, automates operations, and generates reliable revenue for B2B growth."
+                </blockquote>
+
+                <div className="bg-slate-950/40 rounded-xl p-5 border border-slate-800/50 flex flex-col sm:flex-row gap-4 justify-between items-center">
+                  <div className="text-center sm:text-left">
+                    <div className="flex items-center gap-1 justify-center sm:justify-start text-slate-400 mb-1.5">
+                      {Array(5).fill(0).map((_, i) => <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p className="text-sm font-medium text-slate-300">Trusted by <span className="text-white font-semibold">50+</span> founders</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Text / CTA Side */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800/40 border border-slate-700/50 rounded-full text-slate-300 text-xs font-semibold tracking-wide mb-6">
+                Active Outreach & Community
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight text-slate-100">
+                Let's build a relationship first.
+              </h2>
+              <p className="text-lg text-slate-400 mb-6 leading-relaxed max-w-2xl">
+                I understand that you don't hire an engineering partner by stumbling on a random website. You hire based on trust, proof of work, and community reputation.
+              </p>
+              <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
+                I share weekly insights on software engineering, business automation, and revenue growth with an active community on LinkedIn. Review my case studies and see the exact architectural systems I build for my clients before you ever commit.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center gap-5">
+                <a 
+                  href="https://www.linkedin.com/in/deven-rikame" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white hover:bg-slate-100 text-slate-900 font-semibold rounded-lg transition-colors duration-200"
+                >
+                  <svg className="w-5 h-5 fill-[#0A66C2]" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  Connect on LinkedIn
+                </a>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span className="text-sm text-slate-400 font-medium">Over 2,000+ connections</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
         <Suspense fallback={<LazyLoadFallback />}>
           <Testimonials />

@@ -27,9 +27,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      const link = document.createElement("a");
+      link.href = "/resources/2026-business-automation-blueprint.pdf";
+      link.download = "2026-business-automation-blueprint.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
       toast({
-        title: "Success!",
-        description: "You've been subscribed to our newsletter.",
+        title: "PDF ready!",
+        description: "Your Business Automation Blueprint download has started.",
       });
       setEmail("");
     }
@@ -142,31 +149,42 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="border-t border-slate-800/50 bg-slate-950/50 backdrop-blur-sm mt-20" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-          {/* Newsletter Section */}
-          <div className="mb-12 pb-12 border-b border-slate-800/50">
-            <div className="max-w-2xl mx-auto text-center">
-              <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-slate-400 mb-6">
-                Get the latest insights on web development, technology trends, and industry best practices.
-              </p>
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="bg-slate-800/50 border-slate-700 focus:border-blue-500 text-white"
-                />
-                <Button
-                  type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 whitespace-nowrap"
-                >
-                  Subscribe
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </form>
+          {/* Executive Newsletter & Insights */}
+          <div className="mb-16 pb-16 border-b border-slate-800/40">
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-slate-900/40 border border-slate-800/60 rounded-2xl p-8 sm:p-10 backdrop-blur-sm">
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-md text-xs font-medium tracking-wide mb-5">
+                  <Mail className="w-3.5 h-3.5" />
+                  Executive Insights
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-100 mb-3">
+                  The Architecture of Growth
+                </h3>
+                <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
+                  Join 2,000+ technology leaders receiving our monthly insights on scalable web architecture, automation, and engineering best practices.
+                </p>
+              </div>
+              <div className="w-full md:w-[380px]">
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
+                  <Input
+                    type="email"
+                    placeholder="Enter your professional email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="bg-slate-950/50 border-slate-700/50 focus:border-slate-500 text-white h-12 rounded-lg transition-colors placeholder:text-slate-500"
+                  />
+                  <Button
+                    type="submit"
+                    className="bg-white hover:bg-slate-100 text-slate-900 font-semibold h-12 rounded-lg transition-colors w-full"
+                  >
+                    Subscribe to Insights
+                  </Button>
+                </form>
+                <p className="text-xs text-slate-500 mt-4 text-center md:text-left">
+                  Unsubscribe at any time. We respect your privacy.
+                </p>
+              </div>
             </div>
           </div>
 
