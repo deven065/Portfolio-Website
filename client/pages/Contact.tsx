@@ -23,7 +23,7 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Us",
-    "description": "Start your free 3-step growth assessment at Deven Digital Labs. We specialize in Dental, Design, and Real Estate business optimization."
+    "description": "Contact Deven Digital Labs to discuss a website, web application, SaaS product, CRM, or mobile application project."
   };
 
   const [formData, setFormData] = useState<FormData>({
@@ -130,9 +130,9 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Get Free Growth Audit | Contact Deven Digital Labs"
-        description="Start a short growth assessment for dental, design, real estate, or custom business optimization."
-        keywords="free website audit, dental clinic seo, interior design web design, real estate lead generation, automation audit"
+        title="Discuss a Website or Application Project"
+        description="Tell Deven Digital Labs about your website, web application, SaaS, CRM, internal tool, or mobile application requirements."
+        keywords="contact web development company, application development quote, website project enquiry, SaaS developer, iOS app developer"
         canonical="https://devendigitallabs.com/contact"
         schema={schema}
       />
@@ -144,14 +144,14 @@ export default function Contact() {
           </div>
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#0F172A] mb-2">
-              The <span className="bg-gradient-to-r from-[#2563EB] to-cyan-500 bg-clip-text text-transparent">Growth Assessment</span>
+              Let's <span className="bg-gradient-to-r from-[#2563EB] to-cyan-500 bg-clip-text text-transparent">Build Something Useful</span>
             </h1>
             <p className="text-xl text-[#64748B] max-w-2xl mx-auto leading-relaxed">
-              Tell us about your business and current workflow so we can review the fit and recommend a practical next step.
+              Tell us about the website or application you need, the users it serves, and the problem it should solve.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm font-bold text-[#2563EB] uppercase tracking-widest">
               <span className="w-2 h-2 rounded-full bg-[#2563EB]"></span>
-              Short, structured assessment
+              Short, structured project enquiry
             </div>
           </div>
         </section>
@@ -298,7 +298,7 @@ export default function Contact() {
                       disabled={isSubmitting}
                       className="flex-[2] bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-black h-14 rounded-2xl shadow-md"
                     >
-                      {isSubmitting ? 'Generating Report...' : 'Get My Free Audit'}
+                      {isSubmitting ? 'Sending Enquiry...' : 'Send Project Enquiry'}
                     </Button>
                   </div>
                 </div>

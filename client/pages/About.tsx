@@ -39,8 +39,8 @@ export default function About() {
     <>
       <SEO
         title="About Us | Deven Digital Labs"
-        description="Mumbai-based web development team specializing in growth automation and lead generation systems. Founded by Deven Rikame, we help businesses scale faster with technology."
-        keywords="Deven Digital Labs, Deven Rikame, Mumbai web development, automation specialists, growth-focused developers, lead generation experts"
+        description="Meet Deven Digital Labs, a Mumbai-based website and application development studio founded by Deven Rikame."
+        keywords="Deven Digital Labs, Deven Rikame, Mumbai web development company, application development studio, software developers"
         canonical="https://devendigitallabs.com/about"
         schema={schema}
       />
@@ -57,7 +57,7 @@ export default function About() {
               About Deven Digital Labs
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-[#64748B] max-w-2xl mx-auto">
-              We're a technology consulting agency helping businesses grow through scalable, reliable digital solutions.
+              We're a website and application development studio creating reliable digital products for businesses and founders.
             </p>
           </div>
         </section>
@@ -454,16 +454,16 @@ export default function About() {
         {/* Get Started */}
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-3xl p-8 sm:p-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#0F172A]">Ready to Automate Growth & Capture More Leads?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#0F172A]">Ready to Build Your Website or Application?</h2>
             <p className="text-lg sm:text-xl text-[#64748B] mb-8">
-              Get your free website + automation audit and discover exactly how to scale your business faster.
+              Share your requirements and we will help turn them into a clear, practical development scope.
             </p>
             <Link to="/contact" className="inline-block">
               <Button 
                 size="cta" 
                 className="bg-[#2563EB] text-white hover:bg-[#2563EB]/90 font-semibold group shadow-md"
               >
-                Get Your Free Growth + Automation Audit
+                Discuss Your Project
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -474,7 +474,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
                 <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
-                <span>Automation opportunities</span>
+                <span>Technical recommendations</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-[#64748B] justify-center">
                 <Check className="w-4 h-4 text-green-600 flex-shrink-0" />

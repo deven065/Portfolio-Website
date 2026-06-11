@@ -16,44 +16,40 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: "What ROI can I realistically expect from my website investment?",
-    answer: "We cannot promise a universal ROI. Results depend on traffic quality, offer strength, sales follow-up, customer value, market conditions, and how the finished system is used. Before development, we define measurable goals and identify the analytics or sales data needed to evaluate them.",
+    question: "Do you build both websites and applications?",
+    answer: "Yes. Website engagements include business sites, portfolios, e-commerce, and content platforms. Application engagements include web apps, SaaS products, customer portals, internal tools, CRMs, and focused mobile or iOS products.",
   },
   {
-    question: "How long until I break even on my investment?",
-    answer: "There is no responsible standard break-even timeline. We can model scenarios using your average transaction value, margins, sales cycle, current conversion rate, and acquisition costs, but the result remains a planning estimate rather than a guarantee.",
+    question: "How long does a project take?",
+    answer: "Timelines depend on scope, content readiness, integrations, feedback speed, and testing requirements. Your proposal includes milestones, and larger applications can be phased so the most important workflow launches first.",
   },
   {
-    question: "What happens if the website doesn't generate the expected results?",
-    answer: "We focus on measurable outcomes from the start. During development, we can implement analytics tracking, conversion experiments, and reporting based on the agreed scope. Post-launch support, training, and optimization terms are defined in the proposal.",
+    question: "Can you work with our existing brand or product?",
+    answer: "Yes. We can work within an established brand and codebase, redesign an existing experience, or create the interface and technical foundation from the beginning.",
   },
   {
     question: "How is this different from using a template or DIY website builder?",
-    answer: "Template solutions can be a good fit for simple requirements. Custom development becomes useful when your business needs tailored workflows, integrations, permissions, automation, or a design system that a template cannot support cleanly. We will recommend the simpler option when it meets the requirement.",
+    answer: "Template solutions can be a good fit for simple requirements. Custom development becomes useful when your business needs a distinctive design, tailored workflows, integrations, permissions, or product behaviour that a template cannot support cleanly.",
   },
   {
     question: "What's included in the project cost?",
-    answer: "Everything you need for a successful launch: custom design, full development, mobile optimization, security setup, SEO foundation, analytics integration, content management system, 3 months of optimization support, training for your team, and ongoing technical support. No hidden fees. You'll know the exact investment upfront.",
-  },
-  {
-    question: "How long does it take to build and launch?",
-    answer: "The timeline depends on scope, content readiness, integrations, feedback speed, and testing requirements. Your proposal includes a delivery plan and milestones, and larger products can be phased so the highest-priority workflow launches first.",
+    answer: "Each proposal lists the exact deliverables. Depending on the project, that can include product design, responsive development, backend services, integrations, testing, deployment, documentation, training, and post-launch support.",
   },
   {
     question: "Do you handle ongoing maintenance and updates?",
     answer: "Yes. Maintenance retainers and on-demand support are available for security updates, bug fixes, performance monitoring, content changes, and technical support. Pricing depends on the support scope and response requirements.",
   },
   {
-    question: "Can you help with digital marketing after the website launches?",
-    answer: "Absolutely. While we focus on building high-converting websites, we partner with specialized marketing agencies for SEO, paid ads, and content marketing. We can recommend trusted partners or work with your existing marketing team. The website we build will be optimized for marketing campaigns from day one - fast loading, mobile-friendly, conversion-optimized, and SEO-ready.",
+    question: "Do you provide SEO or digital marketing?",
+    answer: "Our focus is website and application development. Websites include the technical foundations search engines need, such as semantic structure, metadata support, performance, and crawlability. Ongoing content, paid media, and marketing campaigns should be handled by a specialist.",
   },
   {
     question: "What if my business needs change or I want to add features later?",
     answer: "We use modular architecture where it supports the product so later additions are easier to plan. The effort for a new feature depends on its data, integration, security, and interface requirements; we provide a scoped estimate before additional work begins.",
   },
   {
-    question: "How do you ensure the website will actually drive business results?",
-    answer: "We start every project with a business goals workshop to understand your revenue targets, customer journey, and key conversion points. Then we design around those goals - optimizing layouts for conversions, implementing trust signals, streamlining checkout/contact flows, and building in analytics to track performance. Post-launch, we review metrics with you monthly and recommend optimizations based on real user data.",
+    question: "Will we own the source code?",
+    answer: "Yes, unless a proposal explicitly states otherwise. On final payment, you receive the agreed source code, credentials, documentation, and handover materials for your project.",
   },
 ];
 
@@ -100,7 +96,7 @@ export function FAQ() {
             to="/contact"
             className="inline-flex items-center gap-2 bg-[#2563EB] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#2563EB]/90 transition-all shadow-md hover:shadow-lg"
           >
-            Schedule a Free Consultation
+            Discuss Your Project
           </Link>
         </div>
       </div>

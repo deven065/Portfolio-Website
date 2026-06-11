@@ -53,7 +53,7 @@ export default function SEO({
     "@type": "LocalBusiness",
     "name": businessInfo.name,
     "url": "https://devendigitallabs.com",
-    "description": "Full-stack web development and technology consulting services. Specializing in React, Next.js, Node.js, and custom software solutions.",
+    "description": "Website and application development studio specializing in custom websites, web applications, SaaS products, and mobile applications.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": businessInfo.city,
@@ -72,8 +72,8 @@ export default function SEO({
     ],
     "service": {
       "@type": "Service",
-      "name": "Web Development Services",
-      "description": "Full-stack web development, custom software solutions, UI/UX design, and technology consulting"
+      "name": "Website and Application Development",
+      "description": "Custom website, web application, SaaS, CRM, internal tool, and mobile application development"
     }
   };
 

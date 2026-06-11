@@ -10,12 +10,12 @@ const links = [
     { url: '/about', changefreq: 'monthly', priority: 0.7 },
     { url: '/contact', changefreq: 'monthly', priority: 0.9 },
     { url: '/blog', changefreq: 'weekly', priority: 0.8 },
-    { url: '/blog/automate-lead-generation-n8n-guide', changefreq: 'monthly', priority: 0.8 },
-    { url: '/services/n8n-automation', changefreq: 'weekly', priority: 0.9 },
+    { url: '/blog/website-performance-optimization-case-study', changefreq: 'monthly', priority: 0.7 },
+    { url: '/blog/luxury-interior-design-portfolio-features', changefreq: 'monthly', priority: 0.7 },
+    { url: '/blog/dental-clinic-losing-patients-website-audit', changefreq: 'monthly', priority: 0.7 },
     { url: '/services/real-estate-web-development', changefreq: 'monthly', priority: 0.9 },
     { url: '/services/interior-design-web-development', changefreq: 'monthly', priority: 0.8 },
     { url: '/services/dental-clinic-web-development', changefreq: 'monthly', priority: 0.8 },
-    { url: '/create-invoice', changefreq: 'yearly', priority: 0.2 },
 ];
 
 async function generate() {

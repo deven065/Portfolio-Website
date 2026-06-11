@@ -57,7 +57,7 @@ export default function Projects() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Web Development Projects and Case Studies",
-    "description": "A portfolio of CRM systems, e-commerce platforms, websites, automation workflows, and interactive product experiences."
+    "description": "A portfolio of websites, web applications, CRM products, e-commerce platforms, SaaS products, and interactive digital experiences."
   };
   const projects: Project[] = [
     {
@@ -262,8 +262,8 @@ export default function Projects() {
     <>
       <SEO
         title="Portfolio & Case Studies | Deven Digital Labs"
-        description="Explore CRM systems, e-commerce platforms, automation workflows, portfolio websites, SaaS products, and interactive web experiences."
-        keywords="web development portfolio, automation case studies, CRM projects, e-commerce examples, client projects, software implementation"
+        description="Explore websites, web applications, CRM products, e-commerce platforms, SaaS products, and mobile application work."
+        keywords="web development portfolio, application development case studies, CRM projects, e-commerce examples, SaaS development portfolio"
         canonical="https://devendigitallabs.com/projects"
         schema={schema}
       />
@@ -512,7 +512,7 @@ export default function Projects() {
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Link to="/contact">
                   <Button size="lg" className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-xl shadow-md px-8 py-6 text-lg">
-                    Get Your Free Growth + Automation Audit
+                    Discuss a Website or App Project
                     <ArrowRight size={20} className="ml-2" />
                   </Button>
                 </Link>

@@ -1,15 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Menu, X, Mail, ArrowRight, MessageCircle, Zap } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "@/hooks/use-toast";
-import PromoFlyer from "@/components/PromoFlyer";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [email, setEmail] = useState("");
   const location = useLocation();
 
   useEffect(() => {
@@ -24,24 +21,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setMobileMenuOpen(false);
   }, [location]);
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      const link = document.createElement("a");
-      link.href = "/resources/2026-business-automation-blueprint.pdf";
-      link.download = "2026-business-automation-blueprint.pdf";
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      toast({
-        title: "PDF ready!",
-        description: "Your Business Automation Blueprint download has started.",
-      });
-      setEmail("");
-    }
-  };
-
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
@@ -55,9 +34,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-white text-[#0F172A] flex flex-col">
-      {/* Promotional Flyer */}
-      <PromoFlyer />
-
       {/* Header */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
@@ -72,7 +48,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img
               src="/logo-black.png"
               alt="Deven Digital Labs - Full-Stack Web Development & Technology Consulting"
-              className="h-8 w-8 transition-transform duration-300 group-hover:scale-105"
+              className="h-8 w-8 transition-transform duration-300 group-hover:scale-105 dark:brightness-0 dark:invert"
               width="32"
               height="32"
               loading="eager"
@@ -103,20 +79,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Link to="/contact">
               <Button className="btn-premium bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-md shadow-blue-500/10">
-                Hire Us — Free Audit
+                Start a Project
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 glass rounded-lg text-[#64748B] hover:text-[#0F172A] transition-all hover-scale"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            {/* Mobile Menu Button */}
+            <button
+              className="p-2 glass rounded-lg text-[#64748B] hover:text-[#0F172A] transition-all hover-scale"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}
@@ -136,7 +118,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
             <Link to="/contact" className="block pt-2">
               <Button className="w-full bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold rounded-lg">
-                Hire Us — Free Audit
+                Start a Project
               </Button>
             </Link>
           </div>
@@ -149,43 +131,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="border-t border-[#E2E8F0] bg-[#F8FAFC] mt-20" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-          {/* Executive Newsletter & Insights */}
-          <div className="mb-16 pb-16 border-b border-[#E2E8F0]">
-            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-white border border-[#E2E8F0] rounded-2xl p-8 sm:p-10 shadow-sm">
-              <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] rounded-md text-xs font-medium tracking-wide mb-5">
-                  <Mail className="w-3.5 h-3.5" />
-                  Executive Insights
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#0F172A] mb-3">
-                  The Architecture of Growth
-                </h3>
-                <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
-                  Receive practical insights on scalable web architecture, automation, and engineering best practices.
-                </p>
-              </div>
-              <div className="w-full md:w-[380px]">
-                <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
-                  <Input
-                    type="email"
-                    placeholder="Enter your professional email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-[#2563EB] text-[#0F172A] h-12 rounded-lg transition-colors placeholder:text-[#64748B]"
-                  />
-                  <Button
-                    type="submit"
-                    className="bg-[#2563EB] hover:bg-[#2563EB]/90 text-white font-semibold h-12 rounded-lg transition-colors w-full"
-                  >
-                    Subscribe to Insights
-                  </Button>
-                </form>
-                <p className="text-xs text-[#64748B] mt-4 text-center md:text-left">
-                  Unsubscribe at any time. We respect your privacy.
-                </p>
-              </div>
+          <div className="mb-14 flex flex-col justify-between gap-8 border-b border-[#E2E8F0] pb-12 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">Deven Digital Labs</p>
+              <h2 className="text-3xl font-black tracking-tight text-[#0F172A] sm:text-4xl">
+                Websites and applications, built professionally.
+              </h2>
             </div>
+            <Link to="/contact">
+              <Button className="group rounded-xl bg-[#2563EB] px-6 font-semibold text-white hover:bg-[#2563EB]/90">
+                Discuss a Project
+                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-10 md:mb-12">
@@ -195,7 +153,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <img
                   src="/logo-black.png"
                   alt="Deven Digital Labs Logo"
-                  className="h-8 w-8"
+                  className="h-8 w-8 dark:brightness-0 dark:invert"
                   width="32"
                   height="32"
                   loading="lazy"
@@ -204,7 +162,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-[#0F172A] font-semibold">Deven Digital Labs</span>
               </div>
               <p className="text-[#64748B] text-sm leading-relaxed">
-                Helping businesses grow through scalable, reliable technology solutions.
+                A Mumbai-based studio designing and developing websites, web applications, SaaS products, and mobile applications.
               </p>
             </div>
 
@@ -245,42 +203,34 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
-                    to="/services/n8n-automation"
-                    className="text-[#2563EB] font-medium hover:text-[#0F172A] transition-colors flex items-center gap-1.5"
-                  >
-                    n8n Automation <Zap size={12} className="fill-[#2563EB]" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/real-estate-web-development"
+                    to="/services"
                     className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
-                    Real Estate Websites
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/interior-design-web-development"
-                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
-                  >
-                    Interior Design Portfolios
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/dental-clinic-web-development"
-                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
-                  >
-                    Medical/Dental Sites
+                    Website Development
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/services"
-                    className="text-[#64748B] hover:text-[#0F172A] transition-colors outline-none"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
                   >
-                    SaaS Development
+                    Web Applications
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
+                  >
+                    Mobile Applications
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services"
+                    className="text-[#64748B] hover:text-[#0F172A] transition-colors"
+                  >
+                    SaaS &amp; Internal Tools
                   </Link>
                 </li>
               </ul>
