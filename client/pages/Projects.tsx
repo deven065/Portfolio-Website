@@ -24,6 +24,15 @@ interface Project {
   image: string;
   video?: string;
   websiteUrl?: string;
+  caseStudyUrl?: string;
+  category?: string;
+  status?: string;
+  metricLabels?: {
+    roi: string;
+    breakEven: string;
+    revenue: string;
+    conversions: string;
+  };
 }
 
 export default function Projects() {
@@ -64,7 +73,33 @@ export default function Projects() {
     "name": "Web Development Case Studies - ROI-Driven Results",
     "description": "Real case studies showing how our clients achieved 5-15x ROI, increased conversions by 40-60%, and generated significant revenue growth."
   };
-  const projects = [
+  const projects: Project[] = [
+    {
+      id: 18,
+      name: "Interior Design CRM for iOS",
+      description: "A purpose-built customer relationship management application that helps interior design firms manage leads, clients, projects, and follow-ups from one mobile workspace.",
+      problem: "Interior design teams often manage inquiries, site visits, client preferences, quotations, and project follow-ups across calls, chats, spreadsheets, and paper notes. That fragmentation makes ownership unclear and allows valuable opportunities to go cold.",
+      solution: "Designed and built an iOS-first CRM that centralizes the customer journey from first inquiry to active project. The product provides a structured sales pipeline, client profiles, project context, tasks, reminders, notes, and team visibility in a focused mobile experience.",
+      investment: "Available for acquisition - pricing on request",
+      results: {
+        roi: "Purpose-built",
+        breakEven: "iOS ready",
+        revenue: "One workspace",
+        conversions: "For sale",
+      },
+      metricLabels: {
+        roi: "Product",
+        breakEven: "Platform",
+        revenue: "Operations",
+        conversions: "Availability",
+      },
+      category: "CRM",
+      status: "For Sale",
+      stack: ["iOS", "Mobile CRM", "Secure Authentication", "Role-Based Access", "Cloud Data Sync", "Push Notifications"],
+      outcome: "The finished product replaces scattered lead and client administration with a clear mobile workflow tailored to interior design businesses. It is currently available for acquisition, licensing, or customization for a buyer's brand and operating process.",
+      image: "/interior-crm-ios.svg",
+      caseStudyUrl: "/projects/interior-design-crm-ios",
+    },
     {
       id: 16,
       name: "Al.Sana Interiors",
@@ -494,8 +529,15 @@ export default function Projects() {
                   {/* Content */}
                   <div className={`space-y-6 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
                     <div>
-                      <div className="flex items-center justify-between gap-4 mb-2">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A]">{project.name}</h2>
+                      <div className="flex items-start justify-between gap-4 mb-2">
+                        <div>
+                          {project.status && (
+                            <span className="inline-flex mb-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-wide">
+                              {project.status}
+                            </span>
+                          )}
+                          <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A]">{project.name}</h2>
+                        </div>
                         {project.websiteUrl && (
                           <a
                             href={project.websiteUrl}
@@ -507,6 +549,15 @@ export default function Projects() {
                             <ExternalLink className="h-3.5 w-3.5" />
                           </a>
                         )}
+                        {project.caseStudyUrl && (
+                          <Link
+                            to={project.caseStudyUrl}
+                            className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#2563EB]/10 text-[#2563EB] hover:bg-[#2563EB]/20 border border-[#2563EB]/20 rounded-full text-xs sm:text-sm font-semibold transition-all hover-lift shrink-0"
+                          >
+                            <span>Full Case Study</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                        )}
                       </div>
                       <p className="text-sm sm:text-base text-[#64748B]">{project.description}</p>
                     </div>
@@ -517,28 +568,28 @@ export default function Projects() {
                         <Card className="p-4 bg-green-50 border-green-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-green-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
                             <TrendingUp className="h-4 w-4 text-green-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-green-700 uppercase tracking-wide">ROI</span>
+                            <span className="text-xs font-semibold text-green-700 uppercase tracking-wide">{project.metricLabels?.roi ?? "ROI"}</span>
                           </div>
                           <div className="text-2xl font-bold text-green-700">{project.results.roi}</div>
                         </Card>
                         <Card className="p-4 bg-blue-50 border-blue-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-blue-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
                             <Clock className="h-4 w-4 text-blue-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Break-Even</span>
+                            <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">{project.metricLabels?.breakEven ?? "Break-Even"}</span>
                           </div>
                           <div className="text-2xl font-bold text-blue-700">{project.results.breakEven}</div>
                         </Card>
                         <Card className="p-4 bg-purple-50 border-purple-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-purple-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
                             <DollarSign className="h-4 w-4 text-purple-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-purple-700 uppercase tracking-wide">Revenue</span>
+                            <span className="text-xs font-semibold text-purple-700 uppercase tracking-wide">{project.metricLabels?.revenue ?? "Revenue"}</span>
                           </div>
                           <div className="text-lg font-bold text-purple-700">{project.results.revenue}</div>
                         </Card>
                         <Card className="p-4 bg-orange-50 border-orange-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-orange-300 cursor-default">
                           <div className="flex items-center gap-2 mb-2">
                             <Target className="h-4 w-4 text-orange-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-orange-700 uppercase tracking-wide">Impact</span>
+                            <span className="text-xs font-semibold text-orange-700 uppercase tracking-wide">{project.metricLabels?.conversions ?? "Impact"}</span>
                           </div>
                           <div className="text-sm font-bold text-orange-700">{project.results.conversions}</div>
                         </Card>
@@ -634,7 +685,7 @@ export default function Projects() {
           {/* Page Info */}
           <div className="mt-6 text-center">
             <p className="text-[#64748B] text-sm">
-              Showing <span className="text-[#0F172A] font-semibold">{startIndex + 1}-{Math.min(endIndex, projects.length)}</span> of <span className="text-[#0F172A] font-semibold">{projects.length}</span> projects
+              Showing <span className="text-[#0F172A] font-semibold">{filteredProjects.length === 0 ? 0 : startIndex + 1}-{Math.min(endIndex, filteredProjects.length)}</span> of <span className="text-[#0F172A] font-semibold">{filteredProjects.length}</span> projects
             </p>
           </div>
         </section>

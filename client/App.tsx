@@ -16,6 +16,7 @@ const Index = lazy(() => import("./pages/Index"));
 // Lazy load other non-critical pages to keep initial bundle small
 const Services = lazy(() => import("./pages/Services"));
 const Projects = lazy(() => import("./pages/Projects"));
+const InteriorDesignCRMCaseStudy = lazy(() => import("./pages/InteriorDesignCRMCaseStudy"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -88,6 +89,7 @@ export default function App() {
                   <Route path="/" element={<Index />} />
                   <Route path="/services" element={<Services />} />
                   <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/interior-design-crm-ios" element={<InteriorDesignCRMCaseStudy />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />

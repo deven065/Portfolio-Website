@@ -108,11 +108,20 @@ export default function Index() {
 
   const featuredProjects = [
     {
+      name: "Interior Design CRM for iOS",
+      category: "For Sale",
+      outcome: "Purpose-built mobile CRM available for acquisition",
+      color: "from-violet-500 to-purple-500",
+      image: "/interior-crm-ios.svg",
+      href: "/projects/interior-design-crm-ios",
+    },
+    {
       name: "Al.Sana Interiors",
       category: "Interior Design",
       outcome: "Luxury portfolio driving $45k in new contracts",
       color: "from-blue-500 to-cyan-500",
       image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
+      href: "/projects",
     },
     {
       name: "Space Age Interiors",
@@ -120,13 +129,7 @@ export default function Index() {
       outcome: "85% automation of client consultations",
       color: "from-cyan-500 to-teal-500",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1000",
-    },
-    {
-      name: "Accent Techno CRM",
-      category: "Enterprise CRM",
-      outcome: "20+ hours/week saved for sales teams",
-      color: "from-indigo-500 to-blue-500",
-      image: "/AccentLogin.png",
+      href: "/projects",
     },
   ];
 
@@ -502,7 +505,7 @@ export default function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {featuredProjects.map((project, idx) => (
               <Link
-                to="/projects"
+                to={project.href}
                 key={idx}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] hover:border-[#2563EB]/40 transition-all duration-300 bg-[#F8FAFC] hover:bg-white shadow-sm hover:shadow-md animate-fade-up"
                 style={{ animationDelay: `${idx * 60}ms` }}

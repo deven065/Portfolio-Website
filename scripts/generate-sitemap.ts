@@ -6,6 +6,7 @@ const links = [
     { url: '/', changefreq: 'weekly', priority: 1.0 },
     { url: '/services', changefreq: 'monthly', priority: 0.8 },
     { url: '/projects', changefreq: 'monthly', priority: 0.9 },
+    { url: '/projects/interior-design-crm-ios', changefreq: 'monthly', priority: 0.9 },
     { url: '/about', changefreq: 'monthly', priority: 0.7 },
     { url: '/contact', changefreq: 'monthly', priority: 0.9 },
     { url: '/blog', changefreq: 'weekly', priority: 0.8 },
