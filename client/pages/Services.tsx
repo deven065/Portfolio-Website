@@ -58,57 +58,57 @@ export default function Services() {
     india: {
       currency: "₹",
       webDevelopment: [
-        { name: "Business Websites That Convert", price: "50,000+", description: "Professional websites with 40% higher conversion rates. Includes lead capture, SEO, and mobile optimization.", roi: "5-7x ROI in first year", breakeven: "2-3 months" },
-        { name: "E-commerce That Sells", price: "1,20,000+", description: "Complete online stores with 30-50% higher conversion rates. Automated order processing saves 15 hours/week.", roi: "6-8x ROI in first year", breakeven: "3-4 months" },
-        { name: "Revenue-Driving Startups", price: "80,000+", description: "High-impact websites that capture 3x more leads. Built to scale from day one with your business.", roi: "7-10x ROI in first year", breakeven: "2-3 months" },
-        { name: "Enterprise Solutions", price: "1,50,000+", description: "Complex platforms handling thousands of daily users. Automation saves 50+ hours monthly.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
+        { name: "Business Websites", price: "50,000+", description: "Professional websites with lead capture, search foundations, analytics, and mobile optimization.", roi: "Lead generation", breakeven: "Scope-based" },
+        { name: "E-commerce Platforms", price: "1,20,000+", description: "Online stores with product management, payments, order workflows, and operational integrations.", roi: "Online sales", breakeven: "Scope-based" },
+        { name: "Startup Product Sites", price: "80,000+", description: "Flexible marketing websites designed for clear product communication and iterative growth.", roi: "Product launch", breakeven: "Scope-based" },
+        { name: "Enterprise Solutions", price: "1,50,000+", description: "Custom platforms with integrations, permissions, reporting, and scalable architecture.", roi: "Operations", breakeven: "Scope-based" },
       ],
       software: [
-        { name: "Business Automation Systems", price: "1,50,000+", description: "Custom tools that save 20+ hours weekly and eliminate manual errors. Automate your workflows.", roi: "10-15x ROI in first year", breakeven: "3-4 months" },
-        { name: "Scalable SaaS Platforms", price: "2,50,000+", description: "Software that serves unlimited customers without hiring. Recurring revenue model potential.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
-        { name: "Custom CRM & Tools", price: "1,20,000+", description: "Tailored systems that improve team efficiency by 40%. Better customer management = more sales.", roi: "6-9x ROI in first year", breakeven: "3-5 months" },
-        { name: "API & Integrations", price: "60,000+", description: "Connect your systems and automate data flow. Eliminate duplicate work and human errors.", roi: "5-8x ROI in first year", breakeven: "2-3 months" },
+        { name: "Business Automation Systems", price: "1,50,000+", description: "Custom tools for repetitive workflows, approvals, notifications, and data movement.", roi: "Process automation", breakeven: "Scope-based" },
+        { name: "Scalable SaaS Platforms", price: "2,50,000+", description: "Subscription products with authentication, billing, administration, and maintainable architecture.", roi: "SaaS delivery", breakeven: "Scope-based" },
+        { name: "Custom CRM & Tools", price: "1,20,000+", description: "Tailored systems for customer records, pipeline stages, tasks, reporting, and team access.", roi: "Sales operations", breakeven: "Scope-based" },
+        { name: "API & Integrations", price: "60,000+", description: "Connect systems and automate reliable data flow between the tools your business already uses.", roi: "Connected systems", breakeven: "Scope-based" },
       ],
       other: [
-        { name: "Conversion Optimization", price: "40,000+", description: "Increase sales by 30-50% without more traffic. Optimize user experience and checkout flows.", roi: "8-12x ROI" },
-        { name: "Performance & Speed", price: "50,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
-        { name: "Growth Partnership", price: "15,000+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
+        { name: "Conversion Optimization", price: "40,000+", description: "Research and improve important landing, enquiry, and checkout journeys using measured user behaviour.", roi: "Experimentation" },
+        { name: "Performance & Speed", price: "50,000+", description: "Audit and improve Core Web Vitals, asset delivery, rendering, and runtime bottlenecks.", roi: "Performance" },
+        { name: "Growth Partnership", price: "15,000+/month", description: "Ongoing measurement, maintenance, experimentation, and strategic technical guidance.", roi: "Ongoing support" },
       ],
       digitalMarketing: [
-        { name: "SEO Strategy & Implementation", price: "25,000+/month", description: "Get found on Google. Organic traffic that converts into customers. First page rankings in 3-6 months.", roi: "6-10x ROI", breakeven: "3-4 months" },
-        { name: "Social Media Management", price: "20,000+/month", description: "Build your brand and engage customers. Content creation, posting, and community management across platforms.", roi: "5-8x ROI", breakeven: "2-3 months" },
-        { name: "Google Ads & PPC", price: "30,000+/month", description: "Immediate traffic and sales. Expert campaign setup, optimization, and management. Includes ad spend guidance.", roi: "7-12x ROI", breakeven: "1-2 months" },
-        { name: "Content Marketing", price: "15,000+/month", description: "Attract and convert with valuable content. Blog posts, newsletters, and lead magnets that drive traffic and sales.", roi: "8-15x ROI", breakeven: "4-6 months" },
-        { name: "Email Marketing Campaigns", price: "12,000+/month", description: "Turn subscribers into customers. Automated sequences, newsletters, and promotions that generate sales.", roi: "10-20x ROI", breakeven: "2-3 months" },
-        { name: "Full Digital Marketing Suite", price: "75,000+/month", description: "Complete digital presence management. SEO, social media, ads, content, and email marketing - all coordinated for maximum ROI.", roi: "12-25x ROI", breakeven: "3-6 months" },
+        { name: "SEO Strategy & Implementation", price: "25,000+/month", description: "Technical SEO, search research, content planning, on-page improvements, and reporting.", roi: "Organic discovery", breakeven: "Measured monthly" },
+        { name: "Social Media Management", price: "20,000+/month", description: "Content planning, publishing, and community management aligned with your positioning.", roi: "Audience building", breakeven: "Measured monthly" },
+        { name: "Google Ads & PPC", price: "30,000+/month", description: "Campaign setup, landing-page alignment, testing, optimization, and ad-spend reporting.", roi: "Paid acquisition", breakeven: "Measured monthly" },
+        { name: "Content Marketing", price: "15,000+/month", description: "Useful articles, newsletters, and lead magnets built around customer questions and search intent.", roi: "Content system", breakeven: "Measured monthly" },
+        { name: "Email Marketing Campaigns", price: "12,000+/month", description: "Consent-based newsletters, lifecycle sequences, segmentation, and performance reporting.", roi: "Lead nurture", breakeven: "Measured monthly" },
+        { name: "Full Digital Marketing Suite", price: "75,000+/month", description: "Coordinated SEO, social, paid media, content, and email operations with shared reporting.", roi: "Integrated marketing", breakeven: "Measured monthly" },
       ],
     },
     international: {
       currency: "$",
       webDevelopment: [
-        { name: "Business Websites That Convert", price: "1,500+", description: "Professional websites with 40% higher conversion rates. Includes lead capture, SEO, and mobile optimization.", roi: "5-7x ROI in first year", breakeven: "2-3 months" },
-        { name: "E-commerce That Sells", price: "3,500+", description: "Complete online stores with 30-50% higher conversion rates. Automated order processing saves 15 hours/week.", roi: "6-8x ROI in first year", breakeven: "3-4 months" },
-        { name: "Revenue-Driving Startups", price: "2,500+", description: "High-impact websites that capture 3x more leads. Built to scale from day one with your business.", roi: "7-10x ROI in first year", breakeven: "2-3 months" },
-        { name: "Enterprise Solutions", price: "5,000+", description: "Complex platforms handling thousands of daily users. Automation saves 50+ hours monthly.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
+        { name: "Business Websites", price: "1,500+", description: "Professional websites with lead capture, search foundations, analytics, and mobile optimization.", roi: "Lead generation", breakeven: "Scope-based" },
+        { name: "E-commerce Platforms", price: "3,500+", description: "Online stores with product management, payments, order workflows, and operational integrations.", roi: "Online sales", breakeven: "Scope-based" },
+        { name: "Startup Product Sites", price: "2,500+", description: "Flexible marketing websites designed for clear product communication and iterative growth.", roi: "Product launch", breakeven: "Scope-based" },
+        { name: "Enterprise Solutions", price: "5,000+", description: "Custom platforms with integrations, permissions, reporting, and scalable architecture.", roi: "Operations", breakeven: "Scope-based" },
       ],
       software: [
-        { name: "Business Automation Systems", price: "5,000+", description: "Custom tools that save 20+ hours weekly and eliminate manual errors. Automate your workflows.", roi: "10-15x ROI in first year", breakeven: "3-4 months" },
-        { name: "Scalable SaaS Platforms", price: "10,000+", description: "Software that serves unlimited customers without hiring. Recurring revenue model potential.", roi: "8-12x ROI in first year", breakeven: "4-6 months" },
-        { name: "Custom CRM & Tools", price: "3,500+", description: "Tailored systems that improve team efficiency by 40%. Better customer management = more sales.", roi: "6-9x ROI in first year", breakeven: "3-5 months" },
-        { name: "API & Integrations", price: "2,000+", description: "Connect your systems and automate data flow. Eliminate duplicate work and human errors.", roi: "5-8x ROI in first year", breakeven: "2-3 months" },
+        { name: "Business Automation Systems", price: "5,000+", description: "Custom tools for repetitive workflows, approvals, notifications, and data movement.", roi: "Process automation", breakeven: "Scope-based" },
+        { name: "Scalable SaaS Platforms", price: "10,000+", description: "Subscription products with authentication, billing, administration, and maintainable architecture.", roi: "SaaS delivery", breakeven: "Scope-based" },
+        { name: "Custom CRM & Tools", price: "3,500+", description: "Tailored systems for customer records, pipeline stages, tasks, reporting, and team access.", roi: "Sales operations", breakeven: "Scope-based" },
+        { name: "API & Integrations", price: "2,000+", description: "Connect systems and automate reliable data flow between the tools your business already uses.", roi: "Connected systems", breakeven: "Scope-based" },
       ],
       other: [
-        { name: "Conversion Optimization", price: "1,500+", description: "Increase sales by 30-50% without more traffic. Optimize user experience and checkout flows.", roi: "8-12x ROI" },
-        { name: "Performance & Speed", price: "2,000+", description: "1-second delay = 7% less conversions. We make your site blazing fast to increase sales.", roi: "6-10x ROI" },
-        { name: "Growth Partnership", price: "500+/month", description: "Ongoing optimization, support, and strategic guidance. We track ROI and continuously improve.", roi: "Continuous growth" },
+        { name: "Conversion Optimization", price: "1,500+", description: "Research and improve important landing, enquiry, and checkout journeys using measured user behaviour.", roi: "Experimentation" },
+        { name: "Performance & Speed", price: "2,000+", description: "Audit and improve Core Web Vitals, asset delivery, rendering, and runtime bottlenecks.", roi: "Performance" },
+        { name: "Growth Partnership", price: "500+/month", description: "Ongoing measurement, maintenance, experimentation, and strategic technical guidance.", roi: "Ongoing support" },
       ],
       digitalMarketing: [
-        { name: "SEO Strategy & Implementation", price: "800+/month", description: "Get found on Google. Organic traffic that converts into customers. First page rankings in 3-6 months.", roi: "6-10x ROI", breakeven: "3-4 months" },
-        { name: "Social Media Management", price: "600+/month", description: "Build your brand and engage customers. Content creation, posting, and community management across platforms.", roi: "5-8x ROI", breakeven: "2-3 months" },
-        { name: "Google Ads & PPC", price: "1,000+/month", description: "Immediate traffic and sales. Expert campaign setup, optimization, and management. Includes ad spend guidance.", roi: "7-12x ROI", breakeven: "1-2 months" },
-        { name: "Content Marketing", price: "500+/month", description: "Attract and convert with valuable content. Blog posts, newsletters, and lead magnets that drive traffic and sales.", roi: "8-15x ROI", breakeven: "4-6 months" },
-        { name: "Email Marketing Campaigns", price: "400+/month", description: "Turn subscribers into customers. Automated sequences, newsletters, and promotions that generate sales.", roi: "10-20x ROI", breakeven: "2-3 months" },
-        { name: "Full Digital Marketing Suite", price: "2,500+/month", description: "Complete digital presence management. SEO, social media, ads, content, and email marketing - all coordinated for maximum ROI.", roi: "12-25x ROI", breakeven: "3-6 months" },
+        { name: "SEO Strategy & Implementation", price: "800+/month", description: "Technical SEO, search research, content planning, on-page improvements, and reporting.", roi: "Organic discovery", breakeven: "Measured monthly" },
+        { name: "Social Media Management", price: "600+/month", description: "Content planning, publishing, and community management aligned with your positioning.", roi: "Audience building", breakeven: "Measured monthly" },
+        { name: "Google Ads & PPC", price: "1,000+/month", description: "Campaign setup, landing-page alignment, testing, optimization, and ad-spend reporting.", roi: "Paid acquisition", breakeven: "Measured monthly" },
+        { name: "Content Marketing", price: "500+/month", description: "Useful articles, newsletters, and lead magnets built around customer questions and search intent.", roi: "Content system", breakeven: "Measured monthly" },
+        { name: "Email Marketing Campaigns", price: "400+/month", description: "Consent-based newsletters, lifecycle sequences, segmentation, and performance reporting.", roi: "Lead nurture", breakeven: "Measured monthly" },
+        { name: "Full Digital Marketing Suite", price: "2,500+/month", description: "Coordinated SEO, social, paid media, content, and email operations with shared reporting.", roi: "Integrated marketing", breakeven: "Measured monthly" },
       ],
     },
   };
@@ -119,7 +119,7 @@ export default function Services() {
     <>
       <SEO
         title="Services & Pricing | Deven Digital Labs"
-        description="Web development + automation services. Custom software, n8n workflows, lead generation systems. Transparent pricing from $1,500. 5x average ROI."
+        description="Web development and automation services with transparent starting prices. Explore custom software, n8n workflows, CRM systems, and lead-generation websites."
         keywords="web development services, automation services, n8n workflows, custom software development, lead generation systems, business automation, conversion optimization"
         canonical="https://devendigitallabs.com/services"
         schema={schema}
@@ -138,7 +138,7 @@ export default function Services() {
                 Investment That Pays for Itself
               </h1>
               <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-                Transparent pricing with clear ROI. Most clients see 5x return and break even within 3-4 months.
+                Transparent starting prices, clear scopes, and measurement plans tailored to each engagement.
               </p>
             </div>
 
@@ -251,10 +251,10 @@ export default function Services() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                      {service.roi}
+                      Focus: {service.roi}
                     </span>
                     <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                      Break-even: {service.breakeven}
+                      Planning: {service.breakeven}
                     </span>
                   </div>
                 </div>
@@ -291,10 +291,10 @@ export default function Services() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                      {service.roi}
+                      Focus: {service.roi}
                     </span>
                     <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                      Break-even: {service.breakeven}
+                      Planning: {service.breakeven}
                     </span>
                   </div>
                 </div>
@@ -331,11 +331,11 @@ export default function Services() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                      {service.roi}
+                      Focus: {service.roi}
                     </span>
                     {service.breakeven && (
                       <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                        Break-even: {service.breakeven}
+                        Review: {service.breakeven}
                       </span>
                     )}
                   </div>
@@ -366,10 +366,10 @@ export default function Services() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
                   <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                    5-7x ROI
+                    Website foundation
                   </span>
                   <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                    2-3 month break-even
+                    Scope-based timeline
                   </span>
                 </div>
               </div>
@@ -378,7 +378,7 @@ export default function Services() {
                 {[
                   "Conversion-optimized design",
                   "Lead capture system",
-                  "Mobile responsive (65% of buyers)",
+                  "Mobile-responsive implementation",
                   "SEO foundation (get found on Google)",
                   "Fast loading (reduce bounce rate)",
                   "1 month support & optimization",
@@ -413,10 +413,10 @@ export default function Services() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
                   <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                    6-9x ROI
+                    Website + automation
                   </span>
                   <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                    3-4 month break-even
+                    Scope-based timeline
                   </span>
                 </div>
               </div>
@@ -460,10 +460,10 @@ export default function Services() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-3">
                   <span className="inline-block px-3 py-1 bg-green-50 border border-green-200 rounded-full text-green-700 text-xs font-semibold">
-                    8-15x ROI
+                    Custom platform
                   </span>
                   <span className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
-                    4-6 month break-even
+                    Scope-based timeline
                   </span>
                 </div>
               </div>
@@ -539,25 +539,25 @@ export default function Services() {
         <section className="py-16 sm:py-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Our Success Guarantee</h2>
+              <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Our Measurement Approach</h2>
               <p className="text-[#64748B] text-lg leading-relaxed">
-                We're not just building websites—we're building revenue-generating assets. Your success is our success.
+                We define measurable goals before development and report what the available data shows after launch.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
                 <div className="space-y-2">
                   <div className="text-[#2563EB] text-4xl font-bold">✓</div>
                   <h3 className="font-semibold text-[#0F172A]">Performance Tracking</h3>
-                  <p className="text-sm text-[#64748B]">We monitor your website's business impact and ROI</p>
+                  <p className="text-sm text-[#64748B]">We configure analytics around agreed business events</p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-[#2563EB] text-4xl font-bold">✓</div>
-                  <h3 className="font-semibold text-[#0F172A]">90-Day Reviews</h3>
-                  <p className="text-sm text-[#64748B]">Free performance optimization sessions included</p>
+                  <h3 className="font-semibold text-[#0F172A]">Post-Launch Reviews</h3>
+                  <p className="text-sm text-[#64748B]">Review timing and support are defined in the proposal</p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-[#2563EB] text-4xl font-bold">✓</div>
                   <h3 className="font-semibold text-[#0F172A]">Growth Partnership</h3>
-                  <p className="text-sm text-[#64748B]">We optimize until you see real results</p>
+                  <p className="text-sm text-[#64748B]">Ongoing optimization is available as a separate engagement</p>
                 </div>
               </div>
             </div>
@@ -572,8 +572,8 @@ export default function Services() {
               {[
                 "Every feature designed to increase your revenue and conversions",
                 "We track business metrics, not just website traffic",
-                "Average client sees 5x ROI in first year",
-                "Most clients break even within 3-4 months",
+                "Business goals and measurement events are agreed before launch",
+                "Performance is reviewed against your actual analytics and sales data",
                 "Free quarterly performance reviews and optimization",
                 "You get a growth partner invested in your long-term success",
               ].map((benefit, idx) => (
@@ -596,7 +596,7 @@ export default function Services() {
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-6">Ready to Automate Growth & Capture More Leads?</h2>
               <p className="text-lg sm:text-xl text-[#64748B] mb-8">
-                Get your free website + automation audit. We'll show you exactly how to increase conversions and drive measurable ROI.
+                Get a website and automation review with practical recommendations based on your current setup.
               </p>
               <Link to="/contact" className="inline-block">
                 <Button
@@ -608,9 +608,6 @@ export default function Services() {
                 </Button>
               </Link>
               <div className="mt-6 space-y-2">
-                <p className="text-sm text-[#0F172A] text-center font-semibold">
-                  Typical audit value: $500
-                </p>
                 <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
                   <div className="flex items-center gap-2 text-sm text-[#64748B]">
                     <Check className="w-4 h-4 text-green-600 flex-shrink-0" />

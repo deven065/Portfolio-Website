@@ -8,24 +8,23 @@ import { TrendingUp, DollarSign, Calendar, Target } from 'lucide-react';
 
 interface Industry {
   name: string;
-  avgConversionImprovement: number;
-  avgRevenueMultiplier: number;
 }
 
 const industries: Industry[] = [
-  { name: 'E-commerce', avgConversionImprovement: 0.45, avgRevenueMultiplier: 4.2 },
-  { name: 'Professional Services', avgConversionImprovement: 0.38, avgRevenueMultiplier: 3.8 },
-  { name: 'SaaS/Technology', avgConversionImprovement: 0.52, avgRevenueMultiplier: 5.1 },
-  { name: 'Real Estate', avgConversionImprovement: 0.35, avgRevenueMultiplier: 3.5 },
-  { name: 'Healthcare', avgConversionImprovement: 0.40, avgRevenueMultiplier: 4.0 },
-  { name: 'Restaurant/Hospitality', avgConversionImprovement: 0.42, avgRevenueMultiplier: 3.9 },
-  { name: 'Manufacturing', avgConversionImprovement: 0.33, avgRevenueMultiplier: 3.2 },
-  { name: 'Education', avgConversionImprovement: 0.36, avgRevenueMultiplier: 3.6 },
+  { name: 'E-commerce' },
+  { name: 'Professional Services' },
+  { name: 'SaaS/Technology' },
+  { name: 'Real Estate' },
+  { name: 'Healthcare' },
+  { name: 'Restaurant/Hospitality' },
+  { name: 'Manufacturing' },
+  { name: 'Education' },
 ];
 
 export function ROICalculator() {
   const [investment, setInvestment] = useState([3000]);
   const [currentRevenue, setCurrentRevenue] = useState([50000]);
+  const [assumedImprovement, setAssumedImprovement] = useState([10]);
   const [selectedIndustry, setSelectedIndustry] = useState<Industry>(industries[0]);
   const [projectedROI, setProjectedROI] = useState(0);
   const [breakEvenMonths, setBreakEvenMonths] = useState(0);
@@ -33,14 +32,14 @@ export function ROICalculator() {
 
   useEffect(() => {
     calculateROI();
-  }, [investment, currentRevenue, selectedIndustry]);
+  }, [investment, currentRevenue, assumedImprovement]);
 
   const calculateROI = () => {
     const investmentAmount = investment[0];
     const currentMonthlyRevenue = currentRevenue[0] / 12;
     
     // Calculate additional revenue from conversion improvements
-    const additionalMonthlyRevenue = currentMonthlyRevenue * selectedIndustry.avgConversionImprovement;
+    const additionalMonthlyRevenue = currentMonthlyRevenue * (assumedImprovement[0] / 100);
     const yearOneAdditionalRevenue = additionalMonthlyRevenue * 12;
     
     // Calculate ROI
@@ -147,6 +146,23 @@ export function ROICalculator() {
                   <span>$1M</span>
                 </div>
               </div>
+
+              <div>
+                <Label className="text-base font-semibold mb-3 block text-white">
+                  Your Assumed Revenue Improvement: <span className="text-blue-400">{assumedImprovement[0]}%</span>
+                </Label>
+                <Slider
+                  value={assumedImprovement}
+                  onValueChange={setAssumedImprovement}
+                  min={1}
+                  max={50}
+                  step={1}
+                  className="py-4"
+                />
+                <p className="text-sm text-slate-400 mt-2">
+                  This is your planning assumption, not a predicted or typical result.
+                </p>
+              </div>
             </div>
           </Card>
 
@@ -194,13 +210,13 @@ export function ROICalculator() {
                 <div className="bg-cyan-500/10 p-2 rounded-lg">
                   <Target className="h-5 w-5 text-cyan-400" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Industry Average</h4>
+                <h4 className="text-lg font-bold text-white">Planning Assumption</h4>
               </div>
               <p className="text-slate-300">
                 <span className="font-bold text-cyan-400">
-                  {Math.round(selectedIndustry.avgConversionImprovement * 100)}%
+                  {assumedImprovement[0]}%
                 </span>{' '}
-                conversion improvement typical for {selectedIndustry.name}
+                revenue improvement selected for this {selectedIndustry.name} scenario
               </p>
             </Card>
           </div>
@@ -208,7 +224,7 @@ export function ROICalculator() {
 
         <div className="mt-16 text-center">
           <p className="text-slate-300 text-lg mb-8">
-            These projections are based on real client data from similar businesses in your industry.
+            This calculator is an illustrative scenario based entirely on the values and assumption you select. It is not a forecast or guarantee.
           </p>
           <Link
             to="/contact"

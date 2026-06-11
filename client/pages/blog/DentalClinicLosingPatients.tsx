@@ -10,7 +10,7 @@ export default function DentalClinicLosingPatients() {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "Why Your Dental Clinic is Losing Patients to Competitors with Better Websites",
-        "description": "Expert analysis on why dental practices fail to convert online traffic and how a high-performance website can increase appointments by 150%.",
+        "description": "A practical review of website speed, local search, trust, and online booking issues that can create friction for dental patients.",
         "author": {
             "@type": "Person",
             "name": "Deven Rikame"
@@ -31,7 +31,7 @@ export default function DentalClinicLosingPatients() {
         <>
             <SEO
                 title="Why Your Dental Clinic is Losing Patients | Website Audit"
-                description="Is your dental website driving away patients? Learn how Local SEO and automated booking systems can boost your practice revenue by 32%."
+                description="Review common dental website issues involving speed, local search, trust, mobile usability, and online booking."
                 keywords="dental website design, dentist patient acquisition, medical website seo, dental clinic online booking, grow dental practice"
                 canonical="https://devendigitallabs.com/blog/dental-clinic-losing-patients-website-audit"
                 schema={schema}
@@ -87,20 +87,20 @@ export default function DentalClinicLosingPatients() {
                         </p>
 
                         <div className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/50 my-12">
-                            <h3 className="text-white font-bold text-xl mb-4">The "3-Second Rule" for Medical Sites</h3>
+                            <h3 className="text-white font-bold text-xl mb-4">Performance for Urgent Patient Journeys</h3>
                             <p className="text-slate-300">
-                                Data shows that 53% of mobile users abandon a site if it takes more than 3 seconds to load. For dental clinics, this means patients in pain or looking for urgent care will simply click the next result on Google—your direct competitor.
+                                A slow or unstable mobile page creates unnecessary friction for patients who may be looking for urgent information. Measure real-user performance and make key contact and booking actions easy to find.
                             </p>
                         </div>
 
                         <h2 className="text-3xl font-bold text-white mt-12 mb-6">1. The Ghost Town: No Online Booking</h2>
                         <p className="text-slate-300">
-                            Modern patients (especially Gen Z and Millennials) hate phone calls. If your website only has a "Call Us" button, you're creating a barrier to entry. High-converting dental sites use **Integrated Booking Engines** that let patients see available slots and book instantly.
+                            A website that only offers a phone call can exclude patients who prefer an online option. An integrated booking flow can provide another route while preserving phone support for urgent or complex cases.
                         </p>
 
                         <h2 className="text-3xl font-bold text-white mt-12 mb-6">2. Failing the "Local Search" Test</h2>
                         <p className="text-slate-300">
-                            When someone searches for "Dentist near me," Google looks for **Local Schema Markup**. Most basic agency websites omit this. Without it, your clinic is invisible in the "Map Pack"—the top 3 local results that get 70% of all clicks.
+                            Local search visibility depends on accurate business information, relevant content, a well-maintained business profile, reviews, technical accessibility, and appropriate structured data. Schema supports understanding but does not guarantee rankings.
                         </p>
 
                         <h2 className="text-3xl font-bold text-white mt-12 mb-6">3. Lack of Trust Signals (HIPAA & Reviews)</h2>
@@ -109,8 +109,8 @@ export default function DentalClinicLosingPatients() {
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-16">
-                            <Card variant="stat" title="+150%" value="Booking Increase" description="Average increase when moving from phone-only to online booking." />
-                            <Card variant="stat" title="Top 3" value="Ranking Target" description="Our goal for all clinical Local SEO campaigns." />
+                            <Card variant="stat" title="Booking" value="Reduce friction" description="Offer clear phone and online appointment paths." />
+                            <Card variant="stat" title="Local Search" value="Improve relevance" description="Maintain accurate information and useful service pages." />
                         </div>
                     </div>
 

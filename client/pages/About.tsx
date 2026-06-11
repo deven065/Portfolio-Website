@@ -154,7 +154,7 @@ export default function About() {
                 {
                   year: "2021",
                   title: "Rapid Growth",
-                  description: "Expanded team and service offerings. Delivered 30+ successful projects across multiple industries.",
+                  description: "Expanded service offerings across websites, software products, CRM systems, and automation.",
                   icon: <TrendingUp className="w-5 h-5" />,
                   color: "cyan",
                   gradient: "from-cyan-500 to-cyan-600",
@@ -162,7 +162,7 @@ export default function About() {
                 {
                   year: "2023",
                   title: "Scale & Excellence",
-                  description: "Achieved 50+ client milestone. Established as trusted partner for scalable digital solutions.",
+                  description: "Expanded the portfolio across websites, CRM systems, e-commerce, and workflow automation.",
                   icon: <Target className="w-5 h-5" />,
                   color: "indigo",
                   gradient: "from-indigo-500 to-indigo-600",
@@ -444,7 +444,7 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-bold text-cyan-600 mb-2">Performance & Reliability</h3>
                 <p className="text-[#64748B]">
-                  Systems built to run 24/7 with 99.9% uptime, optimized for performance, and designed to handle growth.
+                  Systems designed for reliable operation, observable failures, maintainable performance, and future growth.
                 </p>
               </div>
             </div>

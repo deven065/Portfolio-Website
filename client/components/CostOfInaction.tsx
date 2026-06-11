@@ -8,8 +8,8 @@ export function CostOfInaction() {
     {
       icon: TrendingDown,
       title: 'Lost Revenue',
-      amount: '$3.6K - $12K',
-      period: 'per month',
+      amount: 'Unmeasured',
+      period: 'opportunity cost',
       description: 'Potential customers choosing competitors with better online presence',
       color: 'text-red-400',
       iconBg: 'bg-red-500/10',
@@ -18,8 +18,8 @@ export function CostOfInaction() {
     {
       icon: Users,
       title: 'Missed Leads',
-      amount: '50-200',
-      period: 'per month',
+      amount: 'Untracked',
+      period: 'enquiries',
       description: 'Visitors leaving due to poor user experience and slow load times',
       color: 'text-orange-400',
       iconBg: 'bg-orange-500/10',
@@ -28,8 +28,8 @@ export function CostOfInaction() {
     {
       icon: ShoppingCart,
       title: 'Low Conversions',
-      amount: '60-80%',
-      period: 'lower than average',
+      amount: 'Unknown',
+      period: 'conversion friction',
       description: 'Outdated design and unclear messaging reducing sales',
       color: 'text-amber-400',
       iconBg: 'bg-amber-500/10',
@@ -38,8 +38,8 @@ export function CostOfInaction() {
     {
       icon: Clock,
       title: 'Wasted Time',
-      amount: '20+ hours',
-      period: 'per week',
+      amount: 'Recurring',
+      period: 'manual effort',
       description: 'Manual processes that could be automated with proper tools',
       color: 'text-yellow-400',
       iconBg: 'bg-yellow-500/10',
@@ -57,11 +57,10 @@ export function CostOfInaction() {
             <span className="font-semibold">The Real Cost of Waiting</span>
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-white mb-6">
-            What Your Business is Losing Right Now
+            What Your Business May Not Be Measuring
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Every day without a professional website costs your business real money. 
-            Here's what you're missing out on:
+            Establish a baseline before claiming impact. These are common categories to measure:
           </p>
         </div>
 
@@ -85,17 +84,14 @@ export function CostOfInaction() {
           })}
         </div>
 
-        {/* Total Impact */}
+        {/* Measurement approach */}
         <Card className="p-10 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-800/70 border-2 border-red-500/30 hover-lift">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-white mb-6">
-              Total Annual Impact
+              Build the baseline first
             </h3>
-            <div className="text-6xl font-bold text-red-400 mb-6">
-              $43K - $144K
-            </div>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Potential revenue lost over 12 months without investing in your digital presence
+              Track enquiries, conversion steps, response time, manual effort, and closed revenue before estimating the cost of the current process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -114,13 +110,6 @@ export function CostOfInaction() {
           </div>
         </Card>
 
-        {/* Bottom Text */}
-        <div className="text-center mt-10">
-          <p className="text-slate-300 text-lg">
-            <span className="text-white font-semibold">Act now:</span> Most clients break even within 3-4 months 
-            and see 5x ROI by the end of year one.
-          </p>
-        </div>
       </div>
     </div>
   );

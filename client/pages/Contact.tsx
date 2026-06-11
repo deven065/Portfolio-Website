@@ -49,7 +49,7 @@ export default function Contact() {
     },
     {
       question: "How do payments work?",
-      answer: "We typically structure payments as 50% upfront, 30% at milestone completion, and 20% on final delivery. For retainer arrangements, we bill monthly in advance.",
+      answer: "Payment milestones are defined in each proposal or statement of work. Retainer arrangements are generally billed monthly in advance.",
     },
     {
       question: "Do you provide long-term support?",
@@ -131,7 +131,7 @@ export default function Contact() {
     <>
       <SEO
         title="Get Free Growth Audit | Contact Deven Digital Labs"
-        description="Start your 3-step growth assessment for Dental, Design, or Real Estate business optimization. Custom audits delivered in 48 hours."
+        description="Start a short growth assessment for dental, design, real estate, or custom business optimization."
         keywords="free website audit, dental clinic seo, interior design web design, real estate lead generation, automation audit"
         canonical="https://devendigitallabs.com/contact"
         schema={schema}
@@ -147,11 +147,11 @@ export default function Contact() {
               The <span className="bg-gradient-to-r from-[#2563EB] to-cyan-500 bg-clip-text text-transparent">Growth Assessment</span>
             </h1>
             <p className="text-xl text-[#64748B] max-w-2xl mx-auto leading-relaxed">
-              Answer 3 quick questions about your business to receive a custom performance + automation audit within 48 hours.
+              Tell us about your business and current workflow so we can review the fit and recommend a practical next step.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm font-bold text-[#2563EB] uppercase tracking-widest">
               <span className="w-2 h-2 rounded-full bg-[#2563EB]"></span>
-              Average time to complete: 45 seconds
+              Short, structured assessment
             </div>
           </div>
         </section>
@@ -186,7 +186,7 @@ export default function Contact() {
                 <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-2xl text-green-700 text-center animate-in zoom-in duration-300">
                   <Check className="w-12 h-12 mx-auto mb-4 text-green-600" />
                   <h3 className="text-xl font-bold mb-2">Assessment Received!</h3>
-                  <p>Check your email for confirmation. We'll deliver your audit within 48 hours.</p>
+                  <p>Check your email for confirmation. We'll review your information and follow up with the next step.</p>
                 </div>
               )}
 

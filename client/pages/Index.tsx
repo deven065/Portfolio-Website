@@ -5,7 +5,6 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { trackButtonClick, trackEvent } from "@/lib/analytics";
 import FloatingCTA from "@/components/FloatingCTA";
-import { StatCounter } from "@/components/StatsCounter";
 import {
   ArrowRight,
   Zap,
@@ -17,7 +16,6 @@ import {
   Award,
   Target,
   Clock,
-  Star,
 } from "lucide-react";
 
 // Lazy load heavy below-the-fold components
@@ -81,7 +79,7 @@ export default function Index() {
       bgClass: "bg-orange-50/70",
       title: "E-commerce for Retail Brands",
       description: "High-converting online stores for clothing and retail brands. Custom storefronts designed to maximize average order value and minimize cart abandonment.",
-      tags: ["High ROI", "Custom Carts", "Abandoned Cart Recovery"]
+      tags: ["Custom Carts", "Checkout UX", "Abandoned Cart Recovery"]
     },
     {
       emoji: "🚀",
@@ -118,7 +116,7 @@ export default function Index() {
     {
       name: "Al.Sana Interiors",
       category: "Interior Design",
-      outcome: "Luxury portfolio driving $45k in new contracts",
+      outcome: "Luxury portfolio with optimized media and qualified enquiries",
       color: "from-blue-500 to-cyan-500",
       image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
       href: "/projects",
@@ -126,7 +124,7 @@ export default function Index() {
     {
       name: "Space Age Interiors",
       category: "Interior Design",
-      outcome: "85% automation of client consultations",
+      outcome: "Interactive portfolio with automated consultation workflows",
       color: "from-cyan-500 to-teal-500",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1000",
       href: "/projects",
@@ -158,7 +156,7 @@ export default function Index() {
               {/* Left Content */}
               <div className="space-y-8 animate-fade-up">
                 <div className="inline-block px-4 py-2 bg-[#2563EB]/10 border border-[#2563EB]/20 rounded-full text-[#2563EB] text-sm font-semibold mb-4">
-                  ⚡ Clients automate 15-20 hours/week + capture 3-5x more leads
+                  Websites, CRM systems, and workflow automation built around your operations
                 </div>
 
                 <div className="space-y-6">
@@ -193,9 +191,8 @@ export default function Index() {
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
-                  <p className="text-xs text-[#64748B] text-center sm:text-left">⏳ Only 3 free audits available this month — 1 remaining</p>
                   <div className="flex flex-wrap gap-x-5 gap-y-2 pt-1">
-                    {["No credit card", "Done in 48 hrs", "$500 value — free"].map((t) => (
+                    {["No credit card", "Practical recommendations", "No obligation"].map((t) => (
                       <div key={t} className="flex items-center gap-1.5 text-sm text-[#64748B]">
                         <Check className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
                         <span>{t}</span>
@@ -204,22 +201,9 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Social proof row */}
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="flex -space-x-2">
-                    {["bg-[#2563EB]", "bg-cyan-500", "bg-teal-500", "bg-indigo-500"].map((c, i) => (
-                      <div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-white text-xs font-bold`}>
-                        {["A", "R", "P", "K"][i]}
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-0.5">
-                      {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
-                    </div>
-                    <p className="text-xs text-[#64748B]">Trusted by 20+ businesses</p>
-                  </div>
-                </div>
+                <p className="text-sm text-[#64748B]">
+                  Review real project screens, implementation details, and client feedback below.
+                </p>
               </div>
 
               {/* Right Side - Results Dashboard */}
@@ -228,17 +212,17 @@ export default function Index() {
                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-xl space-y-4">
                   {/* Header */}
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-[#64748B] uppercase tracking-widest">Client Results</span>
-                    <span className="flex items-center gap-1.5 text-xs text-green-600 font-semibold bg-green-500/10 border border-green-500/20 px-2.5 py-1 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>Live
+                    <span className="text-sm font-semibold text-[#64748B] uppercase tracking-widest">System Overview</span>
+                    <span className="text-xs text-[#2563EB] font-semibold bg-[#2563EB]/10 border border-[#2563EB]/20 px-2.5 py-1 rounded-full">
+                      Example workflow
                     </span>
                   </div>
                   {/* Metric rows */}
                   {[
-                    { label: "Leads captured this month", value: "247", delta: "+38%", color: "text-[#2563EB]" },
-                    { label: "Hours automated / week", value: "18h", delta: "saved", color: "text-[#2563EB]" },
-                    { label: "Conversion rate", value: "6.4%", delta: "+41%", color: "text-emerald-600" },
-                    { label: "ROI (12 months)", value: "5.2x", delta: "↑ avg", color: "text-[#2563EB]" },
+                    { label: "Lead capture", value: "Connected", delta: "CRM", color: "text-[#2563EB]" },
+                    { label: "Follow-up workflow", value: "Automated", delta: "n8n", color: "text-[#2563EB]" },
+                    { label: "Reporting", value: "Tracked", delta: "GA4", color: "text-emerald-600" },
+                    { label: "Team access", value: "Role-based", delta: "Secure", color: "text-[#2563EB]" },
                   ].map((m, i) => (
                     <div key={i} className="flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3">
                       <span className="text-sm text-[#64748B]">{m.label}</span>
@@ -248,24 +232,24 @@ export default function Index() {
                       </div>
                     </div>
                   ))}
-                  {/* Testimonial snippet */}
+                  {/* Product principle */}
                   <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 border-l-2 border-l-[#2563EB]">
-                    <p className="text-sm text-[#0F172A] italic">"Hit breakeven in 11 weeks. Now running 24/7 on autopilot."</p>
-                    <p className="text-xs text-[#64748B] mt-1 font-semibold">— Founder, SaaS Startup</p>
+                    <p className="text-sm text-[#0F172A]">
+                      Every engagement starts with your current workflow, data sources, and measurable business objective.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Logo Cloud - Social Proof */}
+            {/* Engagement principles */}
             <div className="pt-8 pb-16 border-t border-[#E2E8F0] mt-10">
               <p className="text-center text-sm font-semibold text-[#64748B] uppercase tracking-widest mb-8">
-                Trusted by high-growth companies to scale revenue
+                Built for accountable delivery
               </p>
-              <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                {/* Client Logos */}
-                {['Acme Corp', 'TechFlow', 'SaaS Sync', 'Global Trade', 'Venture Hub'].map((logo, idx) => (
-                  <div key={idx} className="text-xl sm:text-2xl font-black tracking-tighter text-[#64748B] hover:text-[#0F172A] transition-colors cursor-default">
-                    {logo}
+              <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16">
+                {['Clear scope', 'Working demos', 'Source ownership', 'Documented handoff'].map((principle, idx) => (
+                  <div key={idx} className="text-base sm:text-lg font-bold text-[#64748B]">
+                    {principle}
                   </div>
                 ))}
               </div>
@@ -296,22 +280,12 @@ export default function Index() {
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-tight">
-                    Increased booked demos by 40% while saving 15 hours per week.
+                    Rebuilt a fragmented lead workflow around one connected system.
                   </h3>
                   <p className="text-[#64748B] text-sm mb-8 leading-relaxed">
                     They were manually emailing prospects and losing leads due to a slow, unoptimized website. We rebuilt their marketing site and integrated custom automation to streamline their entire CRM data flow and follow-up sequence.
                   </p>
-                  <div className="flex items-center gap-6 mt-auto">
-                    <div className="flex flex-col">
-                      <span className="text-3xl font-black text-[#0F172A] group-hover:text-[#2563EB] transition-colors">+40%</span>
-                      <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mt-1">Lead Conversion</span>
-                    </div>
-                    <div className="w-px h-10 bg-[#E2E8F0]"></div>
-                    <div className="flex flex-col">
-                      <span className="text-3xl font-black text-[#0F172A] group-hover:text-[#2563EB] transition-colors">15h</span>
-                      <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mt-1">Weekly Ops Saved</span>
-                    </div>
-                  </div>
+                  <p className="text-sm font-semibold text-[#2563EB] mt-auto">Marketing site · CRM sync · Follow-up automation</p>
                 </div>
 
                 {/* Case Study 2 */}
@@ -323,22 +297,12 @@ export default function Index() {
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-tight">
-                    Scaled from zero organic traffic to closing $45k in new contracts.
+                    Created a faster portfolio and a structured enquiry journey.
                   </h3>
                   <p className="text-[#64748B] text-sm mb-8 leading-relaxed">
                     Their previous website was invisible to Google. We rebuilt it from the ground up for maximum speed, optimized their search engine ranking, and implemented a high-converting lead capture funnel.
                   </p>
-                  <div className="flex items-center gap-6 mt-auto">
-                    <div className="flex flex-col">
-                      <span className="text-3xl font-black text-[#0F172A] group-hover:text-[#2563EB] transition-colors">$45k</span>
-                      <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mt-1">New Revenue</span>
-                    </div>
-                    <div className="w-px h-10 bg-[#E2E8F0]"></div>
-                    <div className="flex flex-col">
-                      <span className="text-3xl font-black text-[#0F172A] group-hover:text-[#2563EB] transition-colors">100</span>
-                      <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mt-1">Performance Score</span>
-                    </div>
-                  </div>
+                  <p className="text-sm font-semibold text-teal-600 mt-auto">Portfolio system · Search foundation · Lead qualification</p>
                 </div>
               </div>
             </div>
@@ -368,7 +332,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-[#64748B] leading-relaxed">
-                      <span className="text-[#0F172A] font-semibold">Performance-obsessed:</span> Your site loads in &lt;2s, ranks on Google, and converts at 40%+ higher rates than industry average
+                      <span className="text-[#0F172A] font-semibold">Performance-aware:</span> We measure Core Web Vitals, remove avoidable bottlenecks, and report what changed
                     </p>
                   </div>
                 </div>
@@ -379,28 +343,28 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-[#64748B] leading-relaxed">
-                      <span className="text-[#0F172A] font-semibold">ROI-driven partnership:</span> We track revenue impact, not deliverables. Most clients break even in 90 days and see 5x ROI in year one
+                      <span className="text-[#0F172A] font-semibold">Outcome-focused partnership:</span> We agree on measurable goals and review performance against the available data
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Stats Section */}
+            {/* Delivery principles */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#E2E8F0] rounded-2xl overflow-hidden mt-12 border border-[#E2E8F0]">
               {[
-                { value: 275, suffix: "%", label: "Avg. Revenue Growth", sub: "across all clients" },
-                { value: 5, suffix: "x", label: "Average ROI", sub: "in year one" },
-                { value: 3, suffix: " mo", label: "Break-Even", sub: "average timeline" },
-                { value: 99, suffix: "%", label: "Client Satisfaction", sub: "zero project failures" },
+                { value: "Discover", label: "Workflow First", sub: "understand the current process" },
+                { value: "Design", label: "Clear Scope", sub: "define outcomes and constraints" },
+                { value: "Build", label: "Working Demos", sub: "review progress continuously" },
+                { value: "Measure", label: "Evidence", sub: "track results after launch" },
               ].map((stat, idx) => (
                 <div
                   key={idx}
                   className="flex flex-col items-center text-center py-8 px-4 bg-white hover:bg-[#F8FAFC] transition-colors animate-fade-up"
                   style={{ animationDelay: `${idx * 80}ms` }}
                 >
-                  <div className="text-4xl sm:text-5xl font-black gradient-text mb-1">
-                    <StatCounter end={stat.value} suffix={stat.suffix} />
+                  <div className="text-xl sm:text-2xl font-black gradient-text mb-1">
+                    {stat.value}
                   </div>
                   <p className="text-[#0F172A] font-semibold text-sm">{stat.label}</p>
                   <p className="text-[#64748B] text-xs mt-0.5">{stat.sub}</p>
@@ -583,7 +547,7 @@ export default function Index() {
                     <div className="flex items-center gap-1 justify-center sm:justify-start text-yellow-500 mb-1.5">
                       {Array(5).fill(0).map((_, i) => <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
                     </div>
-                    <p className="text-sm font-medium text-[#64748B]">Trusted by <span className="text-[#0F172A] font-semibold">50+</span> founders</p>
+                    <p className="text-sm font-medium text-[#64748B]">Founder-led technical delivery</p>
                   </div>
                 </div>
               </div>
@@ -616,7 +580,7 @@ export default function Index() {
                 </a>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                  <span className="text-sm text-[#64748B] font-medium">Over 2,000+ connections</span>
+                  <span className="text-sm text-[#64748B] font-medium">Follow current engineering and automation insights</span>
                 </div>
               </div>
             </div>
@@ -632,7 +596,7 @@ export default function Index() {
         <section className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12">
           <div className="max-w-4xl mx-auto text-center relative">
             <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-8 sm:p-14 shadow-sm">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#2563EB] mb-4">Free audit — limited spots</span>
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#2563EB] mb-4">Free website and workflow review</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 text-[#0F172A]">
                 Stop Leaving Revenue<br />
                 <span className="bg-gradient-to-r from-[#2563EB] to-cyan-600 bg-clip-text text-transparent">On The Table.</span>
@@ -640,7 +604,6 @@ export default function Index() {
               <p className="text-lg text-[#64748B] mb-3 max-w-xl mx-auto">
                 We'll audit your website and show you — for free — exactly where you're losing leads and money, and how to fix it.
               </p>
-              <p className="text-sm text-amber-600 font-semibold mb-8">⏳ Only 3 audits per month. 1 slot remaining for March.</p>
               <Link to="/contact" className="inline-block">
                 <Button
                   size="cta"
@@ -655,7 +618,7 @@ export default function Index() {
                 </Button>
               </Link>
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 justify-center">
-                {["No credit card", "Results in 48 hrs", "Worth $500 — 100% free", "No obligation"].map((t) => (
+                {["No credit card", "Practical recommendations", "No obligation"].map((t) => (
                   <div key={t} className="flex items-center gap-1.5 text-sm text-[#64748B]">
                     <Check className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
                     <span>{t}</span>

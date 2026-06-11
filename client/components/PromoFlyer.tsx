@@ -181,12 +181,12 @@ export default function PromoFlyer() {
 
                 {/* Sub-heading */}
                 <p className="text-sm sm:text-base text-slate-300 mb-4 leading-relaxed">
-                  I'll personally check your website / enquiry setup and share 2–3 quick fixes to help you get more genuine enquiries.
+                  I'll personally check your website or enquiry setup and share practical fixes to improve the customer journey.
                 </p>
 
                 {/* Small line (very important) */}
                 <p className="text-xs sm:text-sm text-blue-400 font-semibold mb-6">
-                  Takes less than 30 seconds.
+                  Short enquiry form.
                 </p>
 
                 {/* Step 1: Business Type */}

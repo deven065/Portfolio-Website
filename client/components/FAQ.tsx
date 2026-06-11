@@ -17,19 +17,19 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     question: "What ROI can I realistically expect from my website investment?",
-    answer: "Our clients typically achieve 5-15x ROI within the first year. For example, a ₹2L investment often generates ₹10-30L in additional revenue. The exact ROI depends on your industry, current revenue, and how well you leverage the platform for marketing and sales. E-commerce clients see the highest returns (8-15x), while service-based businesses average 5-8x ROI.",
+    answer: "We cannot promise a universal ROI. Results depend on traffic quality, offer strength, sales follow-up, customer value, market conditions, and how the finished system is used. Before development, we define measurable goals and identify the analytics or sales data needed to evaluate them.",
   },
   {
     question: "How long until I break even on my investment?",
-    answer: "Most clients break even within 2-4 months. The timeline depends on your current customer acquisition rate and average transaction value. We've had e-commerce clients break even in as little as 6 weeks, while enterprise B2B clients typically see break-even at 4-6 months due to longer sales cycles. Our ROI calculator can give you a personalized estimate.",
+    answer: "There is no responsible standard break-even timeline. We can model scenarios using your average transaction value, margins, sales cycle, current conversion rate, and acquisition costs, but the result remains a planning estimate rather than a guarantee.",
   },
   {
     question: "What happens if the website doesn't generate the expected results?",
-    answer: "We focus on measurable outcomes from day one. During development, we implement analytics tracking, conversion optimization, and A/B testing capabilities. Post-launch, we provide 3 months of optimization support to ensure you're hitting performance targets. We also train your team on best practices for content, SEO, and conversion rate optimization to maximize results.",
+    answer: "We focus on measurable outcomes from the start. During development, we can implement analytics tracking, conversion experiments, and reporting based on the agreed scope. Post-launch support, training, and optimization terms are defined in the proposal.",
   },
   {
     question: "How is this different from using a template or DIY website builder?",
-    answer: "Template solutions limit you to generic designs and basic features that your competitors also use. Our custom websites are built specifically for your business goals, optimized for your target audience, and designed to convert at 40-60% higher rates than DIY solutions. You also get advanced features like custom integrations, automation, and scalability that templates simply can't provide. The ROI difference alone pays for the investment multiple times over.",
+    answer: "Template solutions can be a good fit for simple requirements. Custom development becomes useful when your business needs tailored workflows, integrations, permissions, automation, or a design system that a template cannot support cleanly. We will recommend the simpler option when it meets the requirement.",
   },
   {
     question: "What's included in the project cost?",
@@ -37,11 +37,11 @@ const faqs: FAQ[] = [
   },
   {
     question: "How long does it take to build and launch?",
-    answer: "Simple websites launch in 3-4 weeks, while complex e-commerce or enterprise platforms take 6-10 weeks. We work in sprints with weekly check-ins, so you'll see progress continuously. Faster timelines mean you start generating ROI sooner. We can also phase the launch - getting a basic version live quickly, then adding advanced features iteratively.",
+    answer: "The timeline depends on scope, content readiness, integrations, feedback speed, and testing requirements. Your proposal includes a delivery plan and milestones, and larger products can be phased so the highest-priority workflow launches first.",
   },
   {
     question: "Do you handle ongoing maintenance and updates?",
-    answer: "Yes! After launch, we offer monthly maintenance plans starting at $100/month covering security updates, bug fixes, performance monitoring, content updates, and technical support. Many clients choose this option to ensure their website stays optimized and secure. We also offer on-demand support if you prefer to handle routine updates internally.",
+    answer: "Yes. Maintenance retainers and on-demand support are available for security updates, bug fixes, performance monitoring, content changes, and technical support. Pricing depends on the support scope and response requirements.",
   },
   {
     question: "Can you help with digital marketing after the website launches?",
@@ -49,7 +49,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "What if my business needs change or I want to add features later?",
-    answer: "We build scalable solutions that grow with your business. Need to add e-commerce later? Want to integrate a new CRM? No problem. We use modern, modular architecture that makes additions straightforward. Most feature additions take 1-3 weeks depending on complexity. We provide free estimates for any additional work you're considering.",
+    answer: "We use modular architecture where it supports the product so later additions are easier to plan. The effort for a new feature depends on its data, integration, security, and interface requirements; we provide a scoped estimate before additional work begins.",
   },
   {
     question: "How do you ensure the website will actually drive business results?",
@@ -71,7 +71,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-[#64748B]">
-            Everything you need to know about working with us and the ROI you can expect
+            Everything you need to know about scope, delivery, measurement, and support
           </p>
         </div>
 

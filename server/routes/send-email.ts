@@ -65,7 +65,7 @@ export const handleSendEmail: RequestHandler = async (req, res) => {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0f172a; color: #e2e8f0; padding: 32px; border-radius: 12px;">
           <h2 style="color: #60a5fa; margin-top: 0;">Thanks for reaching out, ${fullName.split(' ')[0]}!</h2>
-          <p>We've received your inquiry and will review it within <strong>24–48 hours</strong> during business days (Mon–Fri, 10am–7pm IST).</p>
+          <p>We've received your inquiry and will review it during business hours. We'll follow up with the appropriate next step.</p>
           <div style="background: #1e293b; padding: 20px; border-radius: 8px; margin: 24px 0;">
             ${companyName ? `<p style="margin: 8px 0;"><strong>Company:</strong> ${companyName}</p>` : ''}
             <p style="margin: 8px 0;"><strong>Budget:</strong> ${budgetLabel}</p>

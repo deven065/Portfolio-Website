@@ -18,7 +18,7 @@ export function GrowthTimeline() {
     {
       month: 'Month 1',
       title: 'Launch & Foundation',
-      revenue: '$0 - $600',
+      revenue: 'Foundation',
       activities: [
         'Website goes live with full optimization',
         'Analytics & conversion tracking setup',
@@ -30,7 +30,7 @@ export function GrowthTimeline() {
     {
       month: 'Month 2-3',
       title: 'Traffic & Lead Generation',
-      revenue: '$900 - $2.4K',
+      revenue: 'Measurement',
       activities: [
         'Organic traffic starts building',
         'Lead capture systems activated',
@@ -41,12 +41,12 @@ export function GrowthTimeline() {
     },
     {
       month: 'Month 4-6',
-      title: 'Break-Even & Growth',
-      revenue: '$3.6K - $6K',
+      title: 'Optimization',
+      revenue: 'Iteration',
       activities: [
-        'Investment fully recovered',
-        'Consistent customer acquisition',
-        'Conversion rate improvements show',
+        'Review real user and sales data',
+        'Prioritize the largest observed friction',
+        'Run controlled improvements',
       ],
       icon: <Target className="h-6 w-6" />,
       highlight: true,
@@ -55,11 +55,11 @@ export function GrowthTimeline() {
     {
       month: 'Month 7-9',
       title: 'Acceleration Phase',
-      revenue: '$7.2K - $12K',
+      revenue: 'Refinement',
       activities: [
-        'ROI multiplies rapidly',
-        'Word-of-mouth referrals increase',
-        'Brand authority established',
+        'Strengthen reliable acquisition paths',
+        'Document customer feedback',
+        'Improve content and follow-up',
       ],
       icon: <TrendingUp className="h-6 w-6" />,
       color: 'purple',
@@ -67,11 +67,11 @@ export function GrowthTimeline() {
     {
       month: 'Month 10-12',
       title: 'Maturity & Scale',
-      revenue: '$14K - $24K+',
+      revenue: 'Scale',
       activities: [
-        '5x ROI achieved or exceeded',
-        'Automated systems running smoothly',
-        'Ready for next phase of growth',
+        'Scale only the channels with evidence',
+        'Monitor automated systems and exceptions',
+        'Plan the next phase from measured results',
       ],
       icon: <Award className="h-6 w-6" />,
       highlight: true,
@@ -143,14 +143,13 @@ export function GrowthTimeline() {
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
-              12-Month Revenue
+              Post-Launch
             </span>
             <br />
             <span className="text-white">Growth Timeline</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            See the typical revenue trajectory of our clients from launch to 
-            <span className="text-green-400 font-semibold"> 5x ROI</span>
+            A practical sequence for measuring, improving, and scaling after launch
           </p>
         </div>
 
@@ -192,7 +191,7 @@ export function GrowthTimeline() {
                       <div className="absolute top-3 right-3 px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
                         <span className="text-xs font-bold text-green-400 flex items-center gap-1">
                           <Sparkles className="h-3 w-3" />
-                          Break-Even
+                          Review
                         </span>
                       </div>
                     )}
@@ -264,7 +263,7 @@ export function GrowthTimeline() {
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/40 text-green-300 px-4 py-2 rounded-full mb-5 text-sm font-bold shadow-lg shadow-green-500/20">
                 <TrendingUp className="h-4 w-4" />
-                Average 5x ROI in 12 Months
+                Measurement-led growth
               </div>
               
               <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
@@ -275,9 +274,7 @@ export function GrowthTimeline() {
               </h3>
               
               <p className="text-base sm:text-lg text-slate-200 mb-7 max-w-2xl mx-auto leading-relaxed">
-                Most clients <span className="text-green-400 font-bold">break even by month 4</span> and achieve{' '}
-                <span className="text-blue-400 font-bold">5x ROI by year's end</span>. 
-                Let's create your custom growth roadmap.
+                We will define a baseline, track agreed events, and recommend changes using the evidence available from your business.
               </p>
               
               <Link
@@ -297,7 +294,7 @@ export function GrowthTimeline() {
                 </div>
                 <div className="flex items-center gap-2 hover:text-green-400 transition-colors duration-200">
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
-                  <span className="font-medium">30-day money-back guarantee</span>
+                  <span className="font-medium">Written scope and support terms</span>
                 </div>
                 <div className="flex items-center gap-2 hover:text-green-400 transition-colors duration-200">
                   <CheckCircle2 className="h-4 w-4 text-green-400" />

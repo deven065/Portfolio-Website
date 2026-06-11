@@ -161,7 +161,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   The Architecture of Growth
                 </h3>
                 <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
-                  Join 2,000+ technology leaders receiving our monthly insights on scalable web architecture, automation, and engineering best practices.
+                  Receive practical insights on scalable web architecture, automation, and engineering best practices.
                 </p>
               </div>
               <div className="w-full md:w-[380px]">

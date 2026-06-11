@@ -111,22 +111,22 @@ export default function NicheInteriorDesign() {
                     </div>
                 </section>
 
-                {/* The ROI of a Better Portfolio */}
+                {/* Portfolio principles */}
                 <section className="py-20 px-6 sm:px-8 lg:px-12 bg-[#F8FAFC] border-y border-[#E2E8F0]">
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-3xl font-bold mb-12 text-[#0F172A]">Built for Conversion</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                             <div className="space-y-2">
-                                <div className="text-4xl font-black text-amber-500">2.4s</div>
-                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Image Load Speed</p>
+                                <div className="text-2xl font-black text-amber-500">Optimized</div>
+                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Image Delivery</p>
                             </div>
                             <div className="space-y-2">
-                                <div className="text-4xl font-black text-amber-500">+45%</div>
-                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Inquiry Quality</p>
+                                <div className="text-2xl font-black text-amber-500">Qualified</div>
+                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Inquiry Flow</p>
                             </div>
                             <div className="space-y-2">
-                                <div className="text-4xl font-black text-amber-500">100%</div>
-                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Mobile Responsive</p>
+                                <div className="text-2xl font-black text-amber-500">Responsive</div>
+                                <p className="text-sm text-[#64748B] uppercase tracking-widest font-bold">Mobile Experience</p>
                             </div>
                         </div>
                     </div>

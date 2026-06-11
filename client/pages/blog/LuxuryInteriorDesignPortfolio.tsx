@@ -93,7 +93,7 @@ export default function LuxuryInteriorDesignPortfolio() {
 
                         <h2 className="text-3xl font-bold text-white mt-12 mb-6">2. 4K Visuals without the Lag (WebP & CDN)</h2>
                         <p className="text-slate-300">
-                            High-end clients want to see the texture of the marble and the grain and of the wood. But 4K images kill site speed. Using **WebP formats and Edge Delivery**, we serve retina-ready visuals that load in under 1 second.
+                            High-end clients want to see the texture of the marble and the grain of the wood. Large source images can slow a portfolio, so use responsive sizing, modern formats, compression, and edge delivery, then verify performance with field data.
                         </p>
 
                         <h2 className="text-3xl font-bold text-white mt-12 mb-6">3. Instagram-to-Site Syncing</h2>

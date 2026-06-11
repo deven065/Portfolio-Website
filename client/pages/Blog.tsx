@@ -29,7 +29,7 @@ export default function Blog() {
     {
       id: "1",
       title: "How to Automate Lead Generation with n8n: A Complete Guide",
-      excerpt: "Learn how to set up powerful lead generation workflows using n8n that capture, qualify, and nurture leads automatically—saving 15+ hours per week.",
+      excerpt: "Learn how to set up lead-generation workflows using n8n to capture, qualify, route, and nurture leads consistently.",
       date: "2026-02-01",
       readTime: "8 min read",
       category: "Automation",
@@ -38,8 +38,8 @@ export default function Blog() {
     },
     {
       id: "2",
-      title: "5 Website Performance Optimizations That Increased Our Client's Conversions by 47%",
-      excerpt: "Discover the exact performance optimization strategies we used to boost a client's conversion rate from 2.3% to 3.4% in just 30 days.",
+      title: "A Practical Website Performance Optimization Checklist",
+      excerpt: "Review a technical process for improving rendering, image delivery, caching, JavaScript execution, and Core Web Vitals.",
       date: "2026-01-28",
       readTime: "6 min read",
       category: "Performance",
@@ -48,8 +48,8 @@ export default function Blog() {
     },
     {
       id: "3",
-      title: "The ROI of Business Automation: Real Numbers from 10 Clients",
-      excerpt: "Hard data on how business automation delivers measurable ROI. See actual time savings, cost reductions, and revenue impact from real projects.",
+      title: "How to Measure the ROI of Business Automation",
+      excerpt: "A practical framework for measuring time, errors, response speed, operating costs, and business impact before and after automation.",
       date: "2026-01-25",
       readTime: "10 min read",
       category: "Business Growth",
@@ -59,7 +59,7 @@ export default function Blog() {
     {
       id: "4",
       title: "Why Your Dental Clinic is Losing Patients to Competitors with Better Websites",
-      excerpt: "Expert analysis on why dental practices fail to convert online traffic and how a high-performance website can increase appointments by 150%.",
+      excerpt: "A practical review of speed, local search, trust, and online booking issues that can create friction for dental patients.",
       date: "2026-03-05",
       readTime: "7 min read",
       category: "Healthcare",

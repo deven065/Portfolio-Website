@@ -1,11 +1,10 @@
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 interface Testimonial {
   name: string;
   role: string;
   company: string;
   content: string;
-  rating: number;
   image?: string;
 }
 
@@ -14,22 +13,19 @@ const testimonials: Testimonial[] = [
     name: "Accent Techno Solutions",
     role: "Client",
     company: "Enterprise CRM",
-    content: "The CRM platform Deven built completely replaced our manual spreadsheet workflow. Role-based access, client pipelines, and automated follow-ups are now all in one place. Our team onboarded within a week and the system has been rock-solid since launch.",
-    rating: 5,
+    content: "The CRM platform Deven built replaced our manual spreadsheet workflow. Role-based access, client pipelines, and automated follow-ups are now all in one place, with a clearer process for the team.",
   },
   {
     name: "Premiums4U",
     role: "Client",
     company: "E-commerce Platform",
     content: "From design to deployment, everything was handled professionally. The storefront is fast, the checkout is smooth, and the backend is easy for our team to manage. Sales have been consistent since we went live.",
-    rating: 5,
   },
   {
     name: "Only4Premiums",
     role: "Client",
     company: "Subscription Platform",
     content: "We needed a subscription platform with instant delivery and secure access control. Deven delivered exactly that — on time and without cutting corners. The system handles high traffic without any issues.",
-    rating: 5,
   },
 ];
 
@@ -39,7 +35,7 @@ export default function Testimonials() {
       <div className="text-center mb-12">
         <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#0F172A]">Real Results from Real Clients</h2>
         <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-          See how our clients achieved measurable business growth and ROI
+          Feedback on delivery, usability, and the systems we built
         </p>
       </div>
 
@@ -51,12 +47,6 @@ export default function Testimonials() {
             style={{ animationDelay: `${idx * 100}ms` }}
           >
             <Quote className="absolute top-6 right-6 w-8 h-8 text-[#2563EB]/10" />
-
-            <div className="flex gap-1 mb-4">
-              {[...Array(testimonial.rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
 
             <p className="text-[#64748B] mb-6 leading-relaxed relative z-10">
               "{testimonial.content}"

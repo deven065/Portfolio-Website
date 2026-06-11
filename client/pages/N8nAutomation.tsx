@@ -26,7 +26,7 @@ export default function N8nAutomation() {
             "@type": "Organization",
             "name": "Deven Digital Labs"
         },
-        "description": "Professional n8n automation services. We build custom AI-powered workflows, connect 400+ apps, and automate your lead generation, CRM, and internal operations.",
+        "description": "Professional n8n automation services for AI-powered workflows, application integrations, lead generation, CRM, and internal operations.",
         "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
@@ -81,7 +81,7 @@ export default function N8nAutomation() {
         <>
             <SEO
                 title="Hire n8n Expert & Automation Agency | n8n Workflows"
-                description="Professional n8n automation services. We build custom AI workflows, CRM integrations, and lead gen systems that save 20+ hours/week. Free automation audit."
+                description="Professional n8n automation services for custom AI workflows, CRM integrations, lead handling, notifications, and internal operations."
                 keywords="n8n expert, n8n agency, n8n freelancer, hire n8n developer, automation agency, business automation workflows, custom n8n nodes, AI automation services"
                 canonical="https://devendigitallabs.com/services/n8n-automation"
                 schema={schema}
@@ -106,13 +106,13 @@ export default function N8nAutomation() {
 
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         <div className="inline-block px-4 py-1.5 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-full text-[#2563EB] text-sm font-bold animate-fade-in shadow-sm">
-                            Official Lead Generation & Automation Partner ⚡
+                            Lead Generation & Automation Services
                         </div>
                         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] text-[#0F172A]">
                             Automate Your Business with <span className="text-[#2563EB]">n8n Power</span>
                         </h1>
                         <p className="text-xl text-[#64748B] max-w-2xl mx-auto leading-relaxed">
-                            We build complex AI-powered workflows that save your team 20+ hours every single week. From lead capture to custom internal tools—we automate it all.
+                            We build AI-powered workflows for lead capture, CRM updates, notifications, data processing, and custom internal tools.
                         </p>
 
                         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -161,7 +161,7 @@ export default function N8nAutomation() {
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#0F172A]">How We Ship Your Automations</h2>
-                            <p className="text-[#64748B]">From manual pain to automated profit in 14 days.</p>
+                            <p className="text-[#64748B]">From workflow discovery to a tested, documented automation.</p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -183,18 +183,18 @@ export default function N8nAutomation() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-6">
                             <h2 className="text-3xl sm:text-5xl font-black text-[#0F172A]">
-                                Automation isn't just "cool"—<br />
-                                <span className="text-[#2563EB]">It's Profitable.</span>
+                                Automation should solve<br />
+                                <span className="text-[#2563EB]">a measurable workflow problem.</span>
                             </h2>
                             <p className="text-lg text-[#64748B] leading-relaxed">
-                                Most businesses waste <span className="text-[#0F172A] font-bold">20-40% of their team's time</span> on repetitive data entry, copy-pasting, and checking for emails. By automating these with n8n, you:
+                                Repetitive data entry, copy-pasting, and inbox checks can create delays and avoidable errors. With n8n, we can:
                             </p>
                             <ul className="space-y-4">
                                 {[
-                                    "Cut operational costs by up to 30%",
+                                    "Reduce repetitive operational work",
                                     "Respond to leads in seconds, not hours",
-                                    "Eliminate 100% of manual data entry errors",
-                                    "Scale your business without hiring more staff"
+                                    "Add validation and error handling to data flows",
+                                    "Make workflows easier to monitor and maintain"
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-center gap-3">
                                         <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
@@ -207,11 +207,11 @@ export default function N8nAutomation() {
                         </div>
                         <div className="bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm rounded-3xl p-8 sm:p-12 relative overflow-hidden">
                             <div className="relative z-10 space-y-6">
-                                <div className="text-4xl font-black text-[#0F172A]">15+ hours/week</div>
-                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Average time saved per automation</p>
+                                <div className="text-4xl font-black text-[#0F172A]">Workflow baseline</div>
+                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Current process documented</p>
                                 <div className="h-px bg-[#E2E8F0]"></div>
-                                <div className="text-4xl font-black text-[#2563EB]">90 Day Break-Even</div>
-                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Typical ROI timeline for custom flows</p>
+                                <div className="text-4xl font-black text-[#2563EB]">Measured impact</div>
+                                <p className="text-[#64748B] uppercase tracking-widest text-sm font-bold">Compared with your baseline</p>
                             </div>
                             <div className="absolute top-0 right-0 p-4">
                                 <Zap className="w-12 h-12 text-[#2563EB]/10" />
@@ -247,7 +247,7 @@ export default function N8nAutomation() {
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-3 text-[#0F172A]">
                                         <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                                        10x cheaper at high volumes
+                                        Cost structure you can inspect and control
                                     </li>
                                     <li className="flex items-start gap-3 text-[#0F172A]">
                                         <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
@@ -255,7 +255,7 @@ export default function N8nAutomation() {
                                     </li>
                                     <li className="flex items-start gap-3 text-[#0F172A]">
                                         <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                                        Self-hostable for 100% data privacy
+                                        Self-hostable for greater data control
                                     </li>
                                 </ul>
                             </div>
@@ -268,7 +268,7 @@ export default function N8nAutomation() {
                     <div className="space-y-8 bg-[#2563EB] rounded-3xl p-10 sm:p-16 shadow-lg">
                         <h2 className="text-3xl sm:text-5xl font-black text-white">Ready to reclaim your time?</h2>
                         <p className="text-lg text-white/90">
-                            We'll audit your current manual tasks and show you exactly what can be automated—and how much it will save you.
+                            We'll review your current manual tasks, identify automation candidates, and explain how impact could be measured.
                         </p>
                         <Link to="/contact">
                             <Button size="cta" className="bg-white text-[#2563EB] hover:bg-gray-100 font-black px-10 py-6 rounded-xl transition-all shadow-md mt-6">
@@ -276,7 +276,6 @@ export default function N8nAutomation() {
                                 <ArrowRight className="ml-2 transition-transform" />
                             </Button>
                         </Link>
-                        <p className="text-sm text-white/70">Only 2 audit slots remaining for this month.</p>
                     </div>
                 </section>
             </Layout>

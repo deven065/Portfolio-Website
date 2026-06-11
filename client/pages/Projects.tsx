@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { ArrowRight, TrendingUp, DollarSign, Clock, Target, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ArrowRight, TrendingUp, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,27 +12,13 @@ interface Project {
   description: string;
   problem: string;
   solution: string;
-  investment: string;
-  results: {
-    roi: string;
-    breakEven: string;
-    revenue: string;
-    conversions: string;
-  };
   stack: string[];
-  outcome: string;
   image: string;
   video?: string;
   websiteUrl?: string;
   caseStudyUrl?: string;
   category?: string;
   status?: string;
-  metricLabels?: {
-    roi: string;
-    breakEven: string;
-    revenue: string;
-    conversions: string;
-  };
 }
 
 export default function Projects() {
@@ -70,8 +56,8 @@ export default function Projects() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Web Development Case Studies - ROI-Driven Results",
-    "description": "Real case studies showing how our clients achieved 5-15x ROI, increased conversions by 40-60%, and generated significant revenue growth."
+    "name": "Web Development Projects and Case Studies",
+    "description": "A portfolio of CRM systems, e-commerce platforms, websites, automation workflows, and interactive product experiences."
   };
   const projects: Project[] = [
     {
@@ -80,23 +66,9 @@ export default function Projects() {
       description: "A purpose-built customer relationship management application that helps interior design firms manage leads, clients, projects, and follow-ups from one mobile workspace.",
       problem: "Interior design teams often manage inquiries, site visits, client preferences, quotations, and project follow-ups across calls, chats, spreadsheets, and paper notes. That fragmentation makes ownership unclear and allows valuable opportunities to go cold.",
       solution: "Designed and built an iOS-first CRM that centralizes the customer journey from first inquiry to active project. The product provides a structured sales pipeline, client profiles, project context, tasks, reminders, notes, and team visibility in a focused mobile experience.",
-      investment: "Available for acquisition - pricing on request",
-      results: {
-        roi: "Purpose-built",
-        breakEven: "iOS ready",
-        revenue: "One workspace",
-        conversions: "For sale",
-      },
-      metricLabels: {
-        roi: "Product",
-        breakEven: "Platform",
-        revenue: "Operations",
-        conversions: "Availability",
-      },
       category: "CRM",
       status: "For Sale",
       stack: ["iOS", "Mobile CRM", "Secure Authentication", "Role-Based Access", "Cloud Data Sync", "Push Notifications"],
-      outcome: "The finished product replaces scattered lead and client administration with a clear mobile workflow tailored to interior design businesses. It is currently available for acquisition, licensing, or customization for a buyer's brand and operating process.",
       image: "/interior-crm-ios.svg",
       caseStudyUrl: "/projects/interior-design-crm-ios",
     },
@@ -104,18 +76,10 @@ export default function Projects() {
       id: 16,
       name: "Al.Sana Interiors",
       description: "A luxury digital showcase for a high-end interior design firm specializing in minimalist architecture.",
-      problem: "The client was losing high-ticket leads because their existing Wix site was slow and didn't reflect the premium quality of their physical work.",
+      problem: "The existing website was slow and did not reflect the premium quality of the firm's physical work.",
       solution: "Built an ultra-fast Next.js portfolio with image optimization (WebP/AVIF) and a custom lead qualification form that filters inquiries based on budget and project scope.",
-      investment: "$2,800",
-      results: {
-        roi: "8x",
-        breakEven: "2 months",
-        revenue: "$45k in new contracts",
-        conversions: "+40% lead quality"
-      },
       category: "Interior Design",
       stack: ["Next.js", "TailwindCSS", "Cloudinary API", "Framer Motion", "Qualifying Forms"],
-      outcome: "Image loading speed increased by 90%. Within the first 3 months, the firm secured 3 luxury villa projects worth $45k total, directly attributed to the new professional presence.",
       image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
       websiteUrl: "https://al-sana-interior.vercel.app/"
     },
@@ -123,18 +87,10 @@ export default function Projects() {
       id: 17,
       name: "Space Age Interiors",
       description: "Modern, futuristic interior design platform with integrated AI-driven consultations.",
-      problem: "Founder was spending 15+ hours weekly answering repetitive questions from unqualified leads and manual meeting scheduling.",
+      problem: "The founder was answering repetitive enquiry questions and scheduling meetings manually.",
       solution: "Developed a futuristic 3D-inspired website with an integrated AI-Appointment setter and a 360-degree 'Virtual Tour' viewer for their portfolio.",
-      investment: "$3,500",
-      results: {
-        roi: "10x",
-        breakEven: "3 months",
-        revenue: "20+ hours saved weekly",
-        conversions: "+150% booking efficiency"
-      },
       category: "Interior Design",
       stack: ["React", "Three.js", "n8n Automation", "Cal.com Integration", "360 Viewer SDK"],
-      outcome: "Automated 85% of early-stage client communications. The founder now only takes calls with pre-qualified leads, saving 20 hours per week while bookings increased by 150%.",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1000",
       websiteUrl: "https://space-age-interiors.vercel.app/"
     },
@@ -144,15 +100,8 @@ export default function Projects() {
       description: "Comprehensive stock management and CRM web application with role-based access control for efficient business operations.",
       problem: "Business struggled with inventory tracking, stock discrepancies, supplier management, and order processing across multiple roles, leading to operational inefficiencies and revenue loss.",
       solution: "Developed a complete CRM system with real-time stock tracking, automated inventory alerts, supplier management, order processing, and role-based dashboards (Admin/Owner, Manager, Staff) with granular permissions.",
-      investment: "$4,200",
-      results: {
-        roi: "11x",
-        breakEven: "4 months",
-        revenue: "$12K increased efficiency savings",
-        conversions: "+75% inventory accuracy",
-      },
+      category: "CRM",
       stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "TailwindCSS", "JWT", "Role-Based Access Control", "Real-time Updates"],
-      outcome: "Streamlined operations with 75% improvement in inventory accuracy, 80% reduction in stock discrepancies, and automated workflows saving 25+ hours weekly. Multi-role access enabled efficient delegation across admin, manager, and staff levels.",
       image: "/stock-crm.png",
       video: "https://www.youtube.com/embed/jfRB9nfZWD8",
       websiteUrl: "https://youtu.be/jfRB9nfZWD8"
@@ -163,15 +112,8 @@ export default function Projects() {
       description: "Immersive 3D product showcase website featuring interactive Sony earbuds with stunning visuals and smooth animations.",
       problem: "Traditional product pages lack engagement and fail to showcase premium audio products in an immersive way that reflects brand quality.",
       solution: "Built an interactive 3D website with Three.js/React Three Fiber featuring realistic product renders, smooth scroll animations, interactive model rotation, and cinematic transitions.",
-      investment: "$3,500",
-      results: {
-        roi: "10x",
-        breakEven: "3 months",
-        revenue: "$45K increased sales",
-        conversions: "+70% engagement time",
-      },
+      category: "3D/Immersive",
       stack: ["React", "Three.js", "React Three Fiber", "TypeScript", "TailwindCSS", "GSAP", "WebGL", "3D Modeling"],
-      outcome: "Revolutionary product experience increased user engagement by 70%, leading to 45% boost in conversion rates. Immersive 3D showcase reduced product returns by 30% and elevated brand perception significantly.",
       image: "/sony.png",
       video: "/Sony-earbuds.mp4",
     },
@@ -181,15 +123,8 @@ export default function Projects() {
       description: "Comprehensive society management SaaS platform transforming residential community operations with intelligent automation and resident engagement. [Work-in-Progress]",
       problem: "Residential societies struggle with fragmented systems for billing, maintenance tracking, visitor management, and resident communication, leading to administrative chaos and poor resident satisfaction.",
       solution: "Building a unified SaaS platform with automated billing, maintenance request tracking, visitor management, digital notice boards, event management, real-time notifications, and mobile app for residents. Note: This video is shared with the consent of the original owner to whom it belongs.",
-      investment: "$5,500",
-      results: {
-        roi: "Projected 12x",
-        breakEven: "Expected 4 months",
-        revenue: "Targeting $96K ARR",
-        conversions: "+85% admin efficiency",
-      },
+      category: "SaaS",
       stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "PostgreSQL", "Prisma", "JWT", "AWS S3", "Real-time Updates", "Mobile App"],
-      outcome: "Platform currently in active development with projected 85% reduction in administrative overhead, automated workflows for 500+ units per society, and integrated communication system. Early beta testing showing promising engagement metrics.",
       image: "/SocietiQ.png",
       video: "/SocietiQ-intro.mp4",
     },
@@ -197,51 +132,30 @@ export default function Projects() {
       id: 4,
       name: "MeatCountry",
       description: "Premium meat delivery platform revolutionizing online meat shopping with seamless ordering experience.",
-      problem: "Local meat business had zero online presence, losing 80% of potential customers to competitors with e-commerce platforms.",
+      problem: "The local business needed a direct online ordering channel and a structured way to manage products and orders.",
       solution: "Built comprehensive e-commerce platform with modern UI/UX, product catalogs, secure payments, real-time tracking, inventory management, and customer reviews.",
-      investment: "$3,000",
-      results: {
-        roi: "8x",
-        breakEven: "3 months",
-        revenue: "$24K in first year",
-        conversions: "+55% vs industry average",
-      },
+      category: "E-commerce",
       stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB", "Stripe", "JWT", "Cloudinary"],
-      outcome: "Platform now handles 200+ orders monthly with 55% higher conversion rate than industry average. Client achieved 8x ROI within first year, broke even in 3 months, and generated $24K in online revenue.",
       image: "/MeatCountry.png",
     },
     {
       id: 5,
       name: "Accent Techno Solutions CRM",
       description: "Enterprise-grade CRM platform streamlining sales operations for B2B technology company.",
-      problem: "Sales team manually tracking 500+ clients in spreadsheets, leading to 40% lead loss and 15+ hours weekly on admin tasks.",
+      problem: "The sales team relied on spreadsheets for client tracking, which made ownership, follow-ups, and reporting difficult to manage.",
       solution: "Enterprise CRM with secure authentication, role-based access, automated lead management, sales pipeline tracking, and real-time analytics dashboards.",
-      investment: "$5,000",
-      results: {
-        roi: "12x",
-        breakEven: "4 months",
-        revenue: "$60K additional revenue",
-        conversions: "+60% lead conversion improvement",
-      },
+      category: "CRM",
       stack: ["Next.js", "TailwindCSS", "MariaDB", "Custom API", "Sales Dashboard", "Authentication"],
-      outcome: "40% improvement in sales visibility, 60% reduction in manual work, 20+ hours saved weekly. System manages 500+ clients with automated workflows, generating $60K in additional revenue through improved lead conversion.",
       image: "/AccentLogin.png",
     },
     {
       id: 6,
       name: "FlatMate",
       description: "Digital society management platform automating maintenance, billing, and resident communication.",
-      problem: "Housing society managing 200+ units manually - 8 hours weekly on invoices, frequent payment delays, poor communication.",
+      problem: "The housing society managed invoices, payment records, notices, and resident communication through disconnected manual processes.",
       solution: "Comprehensive platform with automated invoice generation, payment tracking, digital notice boards, Firebase authentication, and resident dashboards.",
-      investment: "$2,200",
-      results: {
-        roi: "6x",
-        breakEven: "2 months",
-        revenue: "$13K (50% cost reduction)",
-        conversions: "+75% faster processing",
-      },
+      category: "SaaS",
       stack: ["React", "Node.js", "TailwindCSS", "Firebase", "Authentication"],
-      outcome: "75% faster record processing, automated billing for 200+ units, 50% administrative overhead reduction. Society saves $1.1K annually while improving resident satisfaction through instant communication.",
       image: "/FlatMate.png",
     },
     {
@@ -250,153 +164,83 @@ export default function Projects() {
       description: "E-commerce platform for gaming subscriptions with competitive pricing and instant delivery.",
       problem: "Gaming subscription reseller losing customers to slow manual processing and unreliable delivery systems.",
       solution: "Modern e-commerce platform with automated license delivery, secure payments, user authentication, and real-time inventory management.",
-      investment: "$2,500",
-      results: {
-        roi: "10x",
-        breakEven: "3 months",
-        revenue: "$25K first year",
-        conversions: "+45% conversion rate",
-      },
+      category: "E-commerce",
       stack: ["Next.js", "React", "TailwindCSS", "E-commerce", "Payment Gateway", "Authentication"],
-      outcome: "Instant automated delivery increased sales by 45%. Platform processes 300+ subscriptions monthly with zero manual intervention, generating $25K annual revenue with 10x ROI.",
       image: "/Premiums4U.png",
     },
     {
       id: 8,
       name: "Only4Premiums",
       description: "Subscription platform providing affordable access to premium professional tools and trading software.",
-      problem: "Tool reseller manually processing subscriptions via WhatsApp, limiting scale to 20 customers/month and losing 60% of leads.",
+      problem: "The reseller processed subscriptions manually through WhatsApp, making fulfilment and customer access difficult to scale.",
       solution: "E-commerce platform with instant subscription management, automated license delivery, secure checkout, and user dashboards for real-time updates.",
-      investment: "$2,700",
-      results: {
-        roi: "15x",
-        breakEven: "2 months",
-        revenue: "$40K first year",
-        conversions: "+80% lead capture",
-      },
+      category: "E-commerce",
       stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Subscription Management", "Payment Integration"],
-      outcome: "Scaled from 20 to 200+ subscribers monthly. 80% lead capture improvement, instant delivery automation, and $40K annual revenue with industry-leading 15x ROI.",
       image: "/Only4Premiums.png",
     },
     {
       id: 9,
       name: "DevOps Portfolio Website",
-      description: "Professional portfolio showcasing DevOps expertise, landing 3 high-value contracts within 6 months.",
-      problem: "DevOps consultant with zero online presence, relying on referrals and missing 90% of potential clients searching online.",
+      description: "Professional portfolio showcasing DevOps expertise, infrastructure projects, and consulting capabilities.",
+      problem: "The consultant needed a credible online presence that could explain technical work beyond a conventional resume.",
       solution: "Professional portfolio with CI/CD project showcases, cloud infrastructure case studies, smooth animations, and integrated contact system.",
-      investment: "$1,000",
-      results: {
-        roi: "7x",
-        breakEven: "1 month",
-        revenue: "$7K from 3 contracts",
-        conversions: "+250% inquiry rate",
-      },
       stack: ["Next.js", "TailwindCSS", "TypeScript", "Framer Motion", "Responsive Design"],
-      outcome: "Landed 3 high-value contracts worth $7K within 6 months. 250% increase in inquiries, established credibility, and now primary lead source.",
       image: "/devops-portfolio.png",
     },
     {
       id: 10,
       name: "Portfolio Website",
-      description: "Modern portfolio website transforming freelance career with 5x more client inquiries.",
-      problem: "Freelancer with no online presence, getting 2-3 inquiries monthly through marketplaces with high commission fees (20%).",
+      description: "Modern portfolio website presenting freelance services, work samples, and a direct enquiry path.",
+      problem: "The freelancer relied on marketplace profiles and needed an owned channel for presenting work and receiving enquiries.",
       solution: "Responsive portfolio with skills showcase, project gallery, testimonials, smooth animations, and integrated contact form with automated responses.",
-      investment: "$750",
-      results: {
-        roi: "9x",
-        breakEven: "2 months",
-        revenue: "$6.8K (saved commissions + new clients)",
-        conversions: "+400% inquiry volume",
-      },
       stack: ["Next.js", "Tailwind CSS", "TypeScript"],
-      outcome: "Jumped from 2-3 to 12-15 inquiries monthly. Eliminated marketplace fees saving $1.5K annually, secured 8 new clients worth $5.2K in first year.",
       image: "/Portfolio-Website.png",
     },
     {
       id: 11,
       name: "Data Analyst Portfolio - Ashok Choudhary",
-      description: "Comprehensive data analyst portfolio with interactive project showcases landing corporate role.",
-      problem: "Data analyst applying to 50+ positions with generic resume, getting zero callbacks despite strong skills and 10+ projects.",
-      solution: "Professional portfolio with skills proficiency indicators, 10+ project showcase with visualizations, experience timeline, and resume download functionality.",
-      investment: "$900",
-      results: {
-        roi: "13x",
-        breakEven: "1 month",
-        revenue: "$11.7K salary increase",
-        conversions: "25% callback rate",
-      },
+      description: "Comprehensive data analyst portfolio with interactive project showcases and data visualizations.",
+      problem: "The analyst needed a clearer way to demonstrate practical skills and project depth than a conventional resume allowed.",
+      solution: "Professional portfolio with skills proficiency indicators, project visualizations, an experience timeline, and resume download functionality.",
       stack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion"],
-      outcome: "Landed $14K/year corporate role (vs previous $3.6K). Portfolio converted 25% of applications to callbacks, received 3 job offers, and now serves as professional brand.",
       image: "/Ashok-Portfolio.png",
     },
     {
       id: 12,
       name: "Chef Claude - AI Recipe App",
-      description: "AI-powered recipe platform demonstrating technical capabilities and generating consulting leads.",
+      description: "AI-powered recipe platform demonstrating practical generative AI integration.",
       problem: "Developer needed showcase project to demonstrate AI integration skills for potential consulting clients.",
       solution: "AI recipe app using Mistral AI and Hugging Face APIs, built with React for dynamic UX, generating personalized recipes based on available ingredients.",
-      investment: "$900",
-      results: {
-        roi: "5x",
-        breakEven: "3 months",
-        revenue: "$4.5K in consulting",
-        conversions: "4 consulting inquiries",
-      },
       stack: ["React", "JavaScript", "CSS", "Mistral AI", "Hugging Face API"],
-      outcome: "Demo project generated 4 AI consulting inquiries worth $4.5K total. Showcased technical capability leading to 2 signed contracts for AI integrations.",
       image: "/Chef-claude.jpeg",
     },
     {
       id: 13,
       name: "Jira Automation Implementation",
-      description: "Custom Jira automation reducing team overhead by 60% through intelligent workflow optimization.",
-      problem: "Development team spending 25+ hours weekly on manual ticket routing, status updates, and notifications across 200+ projects.",
+      description: "Custom Jira automation for ticket routing, notifications, and workflow consistency.",
+      problem: "The development team handled ticket routing, status updates, and cross-tool notifications manually.",
       solution: "Custom automation rules for auto-routing, smart notifications, sprint management, automated testing triggers, and integration with Slack/Email.",
-      investment: "$1,500",
-      results: {
-        roi: "11x",
-        breakEven: "2 months",
-        revenue: "$16.5K (time saved = money)",
-        conversions: "+60% productivity boost",
-      },
       stack: ["Jira", "Jira API", "Automation", "Zapier", "Slack Integration"],
-      outcome: "Reduced manual tasks by 60%, saving 25 hours weekly (equivalent to $1.4K monthly). Team productivity increased, project velocity up 40%, and now managing 300+ projects effortlessly.",
       image: "/jira-automation.webp",
     },
     {
       id: 14,
       name: "LuxeInteriors Portfolio System",
       description: "Ultra-premium portfolio and lead qualification system for high-end interior designers.",
-      problem: "High-end interior designer losing $10k+ leads due to slow image loading and poor mobile portfolio experience.",
+      problem: "The portfolio loaded slowly on mobile and did not provide a structured way to qualify project enquiries.",
       solution: "Developed an image-optimized (Next.js Image) luxury portfolio with automated budget and project type qualifying filters.",
-      investment: "$3,200",
-      results: {
-        roi: "9x",
-        breakEven: "2.5 months",
-        revenue: "$28k new project bookings",
-        conversions: "+40% lead quality"
-      },
       category: "Interior Design",
       stack: ["Next.js", "Cloudinary", "Framer Motion", "Qualifying Forms"],
-      outcome: "Image load speed improved by 80%. Automated filters saved 10+ hours/month by removing low-budget inquiries, leading to $28k in new high-end project bookings.",
       image: "/interior-design.png",
     },
     {
       id: 15,
       name: "BrightSmile Dental Growth Engine",
       description: "Patient acquisition and automated booking system for a local dental practice.",
-      problem: "Practice spent $2k/month on ads but converted poorly due to lack of online booking and poor Local SEO.",
+      problem: "The practice lacked online booking and a strong local-search foundation for high-intent services.",
       solution: "Implemented a HIPAA-compliant booking engine, optimized Local SEO schema, and created high-intent landing pages for surgery services.",
-      investment: "$4,500",
-      results: {
-        roi: "7x",
-        breakEven: "3 months",
-        revenue: "$32k increased annual revenue",
-        conversions: "+150% monthly appointments"
-      },
       category: "Dental Clinic",
       stack: ["React", "Local SEO Schema", "Booking API", "n8n Automation"],
-      outcome: "Achieved #1 ranking for 'Dentist in Mumbai' within 4 months. Online appointments increased by 150%, saving the receptionist 12 hours/week in manual calls.",
       image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000",
     }
   ];
@@ -418,8 +262,8 @@ export default function Projects() {
     <>
       <SEO
         title="Portfolio & Case Studies | Deven Digital Labs"
-        description="Real client projects: CRM systems, e-commerce platforms, automation solutions. 5-15x ROI results. See how we help businesses grow faster with technology."
-        keywords="web development portfolio, automation case studies, CRM projects, e-commerce examples, client success stories, ROI results, business growth projects"
+        description="Explore CRM systems, e-commerce platforms, automation workflows, portfolio websites, SaaS products, and interactive web experiences."
+        keywords="web development portfolio, automation case studies, CRM projects, e-commerce examples, client projects, software implementation"
         canonical="https://devendigitallabs.com/projects"
         schema={schema}
       />
@@ -434,13 +278,13 @@ export default function Projects() {
           <div className="max-w-4xl mx-auto text-center space-y-6 opacity-0 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-6 py-3 rounded-full mb-4 border border-green-200">
               <TrendingUp className="h-5 w-5" />
-              <span className="font-semibold">Real Results, Real ROI</span>
+              <span className="font-semibold">Real Projects and Implementation Details</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F172A]">
-              Case Studies That Prove Business Impact
+              Projects Built Around Real Business Workflows
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-[#64748B] max-w-2xl mx-auto">
-              See how we help clients achieve 5-15x ROI, increase conversions by 40-60%, and generate millions in additional revenue.
+              See the problems, product decisions, technology, and workflows behind our client and product work.
             </p>
           </div>
         </section>
@@ -562,48 +406,6 @@ export default function Projects() {
                       <p className="text-sm sm:text-base text-[#64748B]">{project.description}</p>
                     </div>
 
-                    {/* ROI Metrics */}
-                    {project.results && (
-                      <div className="grid grid-cols-2 gap-3">
-                        <Card className="p-4 bg-green-50 border-green-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-green-300 cursor-default">
-                          <div className="flex items-center gap-2 mb-2">
-                            <TrendingUp className="h-4 w-4 text-green-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-green-700 uppercase tracking-wide">{project.metricLabels?.roi ?? "ROI"}</span>
-                          </div>
-                          <div className="text-2xl font-bold text-green-700">{project.results.roi}</div>
-                        </Card>
-                        <Card className="p-4 bg-blue-50 border-blue-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-blue-300 cursor-default">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Clock className="h-4 w-4 text-blue-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">{project.metricLabels?.breakEven ?? "Break-Even"}</span>
-                          </div>
-                          <div className="text-2xl font-bold text-blue-700">{project.results.breakEven}</div>
-                        </Card>
-                        <Card className="p-4 bg-purple-50 border-purple-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-purple-300 cursor-default">
-                          <div className="flex items-center gap-2 mb-2">
-                            <DollarSign className="h-4 w-4 text-purple-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-purple-700 uppercase tracking-wide">{project.metricLabels?.revenue ?? "Revenue"}</span>
-                          </div>
-                          <div className="text-lg font-bold text-purple-700">{project.results.revenue}</div>
-                        </Card>
-                        <Card className="p-4 bg-orange-50 border-orange-200 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-md hover:border-orange-300 cursor-default">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Target className="h-4 w-4 text-orange-700 transition-transform duration-300 hover:scale-110" />
-                            <span className="text-xs font-semibold text-orange-700 uppercase tracking-wide">{project.metricLabels?.conversions ?? "Impact"}</span>
-                          </div>
-                          <div className="text-sm font-bold text-orange-700">{project.results.conversions}</div>
-                        </Card>
-                      </div>
-                    )}
-
-                    {/* Investment */}
-                    {project.investment && (
-                      <div className="inline-flex items-center gap-2 bg-[#F8FAFC] px-4 py-2 rounded-lg border border-[#E2E8F0]">
-                        <span className="text-sm text-[#64748B]">Investment:</span>
-                        <span className="text-lg font-bold text-[#0F172A]">{project.investment}</span>
-                      </div>
-                    )}
-
                     <div className="space-y-4">
                       <div>
                         <h3 className="text-sm font-semibold text-[#0F172A] mb-2 uppercase tracking-wide">The Challenge</h3>
@@ -629,10 +431,6 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      <div className="bg-green-50 border border-green-200 rounded-lg p-4 transition-all duration-500 hover:shadow-md hover:border-green-300">
-                        <h3 className="text-sm font-semibold text-green-700 mb-2 uppercase tracking-wide">Business Outcome</h3>
-                        <p className="text-green-900 font-medium">{project.outcome}</p>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -708,8 +506,7 @@ export default function Projects() {
                 Ready to Achieve Similar Results?
               </h2>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#64748B] mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
-                Join our clients who achieved <span className="text-[#2563EB] font-bold">5-15x ROI</span> and <span className="text-cyan-600 font-bold">millions in revenue growth</span>.
-                Let's create your success story.
+                Tell us what is slowing down your website, sales process, or operations. We will review the workflow and recommend a practical next step.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -726,11 +523,6 @@ export default function Projects() {
                 </Link>
               </div>
 
-              <div className="mt-12 pt-8 border-t border-[#E2E8F0]">
-                <p className="text-[#64748B] text-sm">
-                  <span className="text-[#0F172A] font-semibold">Average results:</span> 3-4 month break-even • 5x first-year ROI • 95% client satisfaction
-                </p>
-              </div>
             </div>
           </Card>
         </section>

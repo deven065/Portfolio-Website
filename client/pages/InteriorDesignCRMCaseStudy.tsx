@@ -134,12 +134,12 @@ export default function InteriorDesignCRMCaseStudy() {
                     <div className="grid grid-cols-2 gap-3">
                       <div className="rounded-2xl bg-white p-4 shadow-sm">
                         <Users className="mb-3 h-5 w-5 text-violet-600" />
-                        <p className="text-2xl font-black text-[#0F172A]">24</p>
+                        <p className="text-lg font-black text-[#0F172A]">Active</p>
                         <p className="text-xs text-[#64748B]">Active leads</p>
                       </div>
                       <div className="rounded-2xl bg-white p-4 shadow-sm">
                         <BriefcaseBusiness className="mb-3 h-5 w-5 text-blue-600" />
-                        <p className="text-2xl font-black text-[#0F172A]">8</p>
+                        <p className="text-lg font-black text-[#0F172A]">In progress</p>
                         <p className="text-xs text-[#64748B]">Live projects</p>
                       </div>
                     </div>
@@ -150,9 +150,9 @@ export default function InteriorDesignCRMCaseStudy() {
                       </div>
                       <div className="space-y-3">
                         {[
-                          ["New inquiry", "6", "bg-violet-500"],
-                          ["Consultation", "4", "bg-blue-500"],
-                          ["Proposal sent", "3", "bg-amber-500"],
+                          ["New inquiry", "Open", "bg-violet-500"],
+                          ["Consultation", "Active", "bg-blue-500"],
+                          ["Proposal sent", "Pending", "bg-amber-500"],
                         ].map(([label, value, color]) => (
                           <div key={label} className="flex items-center gap-3">
                             <span className={`h-2.5 w-2.5 rounded-full ${color}`} />

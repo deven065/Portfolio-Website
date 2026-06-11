@@ -104,7 +104,7 @@ export default function AutomateLeadGenerationN8n() {
             <h2 className="text-3xl font-bold mb-4 mt-12">What n8n Is (And Why It's Great for Lead Gen)</h2>
 
             <p className="text-slate-300 leading-relaxed mb-6">
-              n8n is an open‑source automation platform that lets you connect 400+ apps (CRMs, forms, email tools, databases, AI, etc.) using visual workflows instead of code. You can host it yourself or use n8n Cloud, and build complex multi‑step automations with branching, loops, and error handling.
+              n8n is an open-source automation platform that connects CRMs, forms, email tools, databases, AI services, and other applications using visual workflows. You can host it yourself or use n8n Cloud, and build multi-step automations with branching, loops, and error handling.
             </p>
 
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 my-8">
@@ -256,7 +256,7 @@ export default function AutomateLeadGenerationN8n() {
               <ul className="space-y-3">
                 <li className="flex gap-3 text-slate-300">
                   <span className="text-blue-400 font-bold">→</span>
-                  <span>n8n connects 400+ apps without coding, perfect for lead automation</span>
+                  <span>n8n connects common business applications through visual workflows and APIs</span>
                 </li>
                 <li className="flex gap-3 text-slate-300">
                   <span className="text-blue-400 font-bold">→</span>
@@ -268,7 +268,7 @@ export default function AutomateLeadGenerationN8n() {
                 </li>
                 <li className="flex gap-3 text-slate-300">
                   <span className="text-blue-400 font-bold">→</span>
-                  <span>Save 15-20 hours per week on manual lead management</span>
+                  <span>Measure manual lead-management effort before and after automation</span>
                 </li>
               </ul>
             </div>
@@ -318,14 +318,14 @@ export default function AutomateLeadGenerationN8n() {
               <Link to="/blog" className="group bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all">
                 <span className="text-xs font-medium text-blue-400 mb-2 block">Performance</span>
                 <h4 className="text-lg font-bold group-hover:text-blue-400 transition-colors mb-2">
-                  5 Website Performance Optimizations That Increased Conversions by 47%
+                  A Practical Website Performance Optimization Checklist
                 </h4>
                 <span className="text-sm text-slate-400">6 min read</span>
               </Link>
               <Link to="/blog" className="group bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all">
                 <span className="text-xs font-medium text-purple-400 mb-2 block">Business Growth</span>
                 <h4 className="text-lg font-bold group-hover:text-blue-400 transition-colors mb-2">
-                  The ROI of Business Automation: Real Numbers from 10 Clients
+                  How to Measure the ROI of Business Automation
                 </h4>
                 <span className="text-sm text-slate-400">10 min read</span>
               </Link>

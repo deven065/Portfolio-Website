@@ -45,7 +45,7 @@ export default function NicheRealEstate() {
         },
         {
             title: "Virtual Tour Integration",
-            description: "Seamless Matterport and video walkthrough embeds that decrease site bounce rates by 40%.",
+            description: "Seamless Matterport and video walkthrough embeds designed for clear property exploration.",
             icon: <MapPin className="w-6 h-6" />
         }
     ];

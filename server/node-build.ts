@@ -45,7 +45,7 @@ const seoMap: Record<string, { title: string; description: string; content: stri
           <h2>Services We Offer</h2>
           <ul>
             <li><strong>React & Next.js Development</strong>: Fast, SEO-optimized web applications and responsive business websites.</li>
-            <li><strong>Business Automation (n8n & Zapier)</strong>: Streamline workflows, eliminate manual ops, and save 20+ hours/week.</li>
+            <li><strong>Business Automation (n8n & Zapier)</strong>: Streamline workflows, reduce repetitive work, and connect operational systems.</li>
             <li><strong>E-commerce Stores</strong>: Shopify, WooCommerce, or custom platforms with Razorpay and Stripe payment gateway integrations.</li>
             <li><strong>SaaS & Web Applications</strong>: Scalable backends, user authentication, interactive billing systems, and custom database designs.</li>
             <li><strong>UI/UX Design</strong>: High-fidelity Figma design systems, custom wireframing, and prototype testing.</li>
@@ -65,9 +65,9 @@ const seoMap: Record<string, { title: string; description: string; content: stri
           <p>Explore real-world case studies demonstrating our capabilities as a leading <strong>web developer Mumbai</strong> and senior <strong>React developer India</strong>. Every project is measured by the revenue it drives.</p>
           <h2>Featured Portfolios & Applications</h2>
           <ul>
-            <li><strong>Al.Sana Interiors Portfolio</strong>: A high-end, luxury interior design portfolio that drove over $45,000 in new design contracts.</li>
-            <li><strong>Space Age Interiors consultation</strong>: Optimized client consultation pipeline with 85% business automation.</li>
-            <li><strong>Accent Techno CRM</strong>: Custom customer relationship management software built to save over 20 hours/week for sales teams.</li>
+            <li><strong>Al.Sana Interiors Portfolio</strong>: A high-end portfolio with optimized media and structured project enquiries.</li>
+            <li><strong>Space Age Interiors consultation</strong>: A modern portfolio and automated consultation workflow.</li>
+            <li><strong>Accent Techno CRM</strong>: Custom customer relationship management software for sales operations.</li>
           </ul>
         </article>
       </main>
@@ -82,7 +82,7 @@ const seoMap: Record<string, { title: string; description: string; content: stri
           <h1>About Deven Rikame & Deven Digital Labs</h1>
           <p>Learn more about <strong>Deven Rikame</strong>, an expert <strong>React developer India</strong> and premier freelance <strong>web developer Mumbai</strong>. Deven Digital Labs is built on a simple philosophy: be a revenue growth partner, not just a dev shop.</p>
           <h2>Why Partner With Us?</h2>
-          <p>We work with growing companies to build custom software, lead-capturing web automation pipelines, and high-performance websites. Our solutions load in under 2 seconds, rank for crucial Google queries, and break even within 90 days of launch.</p>
+          <p>We work with growing companies to build custom software, lead-capturing automation pipelines, and performance-focused websites. Results are measured against agreed project goals and available business data.</p>
         </article>
       </main>
     `

@@ -29,24 +29,24 @@
     <rect x="610" y="196" width="160" height="150" rx="24" fill="white"/>
     <circle cx="468" cy="237" r="18" fill="#EDE9FE"/>
     <path d="M460 239C460 234.582 463.582 231 468 231C472.418 231 476 234.582 476 239M468 228C471.314 228 474 225.314 474 222C474 218.686 471.314 216 468 216C464.686 216 462 218.686 462 222C462 225.314 464.686 228 468 228Z" stroke="#7C3AED" stroke-width="2"/>
-    <text x="450" y="290" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">24</text>
+    <text x="450" y="290" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Active</text>
     <text x="450" y="318" fill="#64748B" font-family="Arial, sans-serif" font-size="16">Active leads</text>
     <circle cx="648" cy="237" r="18" fill="#DBEAFE"/>
     <path d="M638 231H658V245H638V231ZM643 227H653V231H643V227Z" stroke="#2563EB" stroke-width="2"/>
-    <text x="630" y="290" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">8</text>
+    <text x="630" y="290" fill="#0F172A" font-family="Arial, sans-serif" font-size="22" font-weight="700">In progress</text>
     <text x="630" y="318" fill="#64748B" font-family="Arial, sans-serif" font-size="16">Live projects</text>
     <rect x="430" y="366" width="340" height="190" rx="24" fill="white"/>
     <text x="454" y="406" fill="#0F172A" font-family="Arial, sans-serif" font-size="19" font-weight="700">Sales pipeline</text>
     <text x="704" y="406" fill="#7C3AED" font-family="Arial, sans-serif" font-size="14" font-weight="700">VIEW ALL</text>
     <circle cx="462" cy="449" r="6" fill="#8B5CF6"/>
     <text x="480" y="455" fill="#475569" font-family="Arial, sans-serif" font-size="16">New inquiry</text>
-    <text x="727" y="455" fill="#0F172A" font-family="Arial, sans-serif" font-size="16" font-weight="700">6</text>
+    <text x="716" y="455" fill="#0F172A" font-family="Arial, sans-serif" font-size="14" font-weight="700">OPEN</text>
     <circle cx="462" cy="490" r="6" fill="#3B82F6"/>
     <text x="480" y="496" fill="#475569" font-family="Arial, sans-serif" font-size="16">Consultation</text>
-    <text x="727" y="496" fill="#0F172A" font-family="Arial, sans-serif" font-size="16" font-weight="700">4</text>
+    <text x="705" y="496" fill="#0F172A" font-family="Arial, sans-serif" font-size="14" font-weight="700">ACTIVE</text>
     <circle cx="462" cy="531" r="6" fill="#F59E0B"/>
     <text x="480" y="537" fill="#475569" font-family="Arial, sans-serif" font-size="16">Proposal sent</text>
-    <text x="727" y="537" fill="#0F172A" font-family="Arial, sans-serif" font-size="16" font-weight="700">3</text>
+    <text x="699" y="537" fill="#0F172A" font-family="Arial, sans-serif" font-size="14" font-weight="700">PENDING</text>
     <rect x="430" y="574" width="340" height="42" rx="16" fill="#0F172A"/>
     <text x="454" y="601" fill="#DDD6FE" font-family="Arial, sans-serif" font-size="14">Next: Villa consultation at 3:30 PM</text>
   </g>
